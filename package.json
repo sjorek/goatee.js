@@ -1,0 +1,46 @@
+{
+  "name": "goatee",
+  "version": "0.1.0",
+  "description": "Goatee is the missing complement for handbar mustaches.",
+  "main": "lib/goatee.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "engines": {
+    "node": "~0.10.10"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "benchmark": "~1.0.0",
+    "dust": "~0.3.0",
+    "jison": "~0.3.12",
+    "mocha": "~1.11.0",
+    "should": "~1.2.2",
+    "temp": "~0.5.0",
+    "grunt": "~0.4.1",
+    "grunt-coffeelint": "~0.0.6",
+    "grunt-mocha": "~0.3.4",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt-contrib-jasmine": "~0.4.2",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-qunit": "~0.2.2",
+    "grunt-contrib-handlebars": "~0.5.9",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.4.4"
+  },
+  "repository": "",
+  "keywords": [
+    "Node.js",
+    "Eclipse",
+    "Nodeclipse"
+  ],
+  "author": "Stephan Jorek <stephan.jorek@gmail.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
