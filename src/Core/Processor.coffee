@@ -1,4 +1,21 @@
 ###
+© Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
+© Copyright 2006 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.
+###
+
+###
 
 Order of Evaluation
 ===================
@@ -9,7 +26,7 @@ evaluated in the following order:
 Outer Processors
 -------------------
 
-* render        This processor initiates the rendering automatically, after the
+• render        This processor initiates the rendering automatically, after the
                 dom is ready. The algorithm uses the given “render”-Data as
                 Context. Additionally if “jQuery” is available and the given
                 data is a string, “render” may be either an global javascript
@@ -19,14 +36,14 @@ Outer Processors
                 process will skip all nested tags which it-self contain a
                 “render”-Attribute, since any of those tags will be processed
                 automatically in the order of their appearance.
-* template      Formerly “transclude”. If a “source” processor is present no
+• template      Formerly “transclude”. If a “source” processor is present no
                 further processors are processed. Additionally if “jQuery” is
                 available, “source” may be either an internal template-
                 reference, implemented as
                    `jQuery( “source eg: '#id .selector'”, this )`
                 or an external reference, implemented as
                    `jQuery(this).load( “source, eg: 'url #element-id'” );`.
-* select        Formerly “jsselect”. If “select” is array-valued, remaining
+• select        Formerly “jsselect”. If “select” is array-valued, remaining
                 processors will be copied to each new duplicate element created
                 by the “select” and processed when the further dom-traversal
                 visits the new elements. If “json:select” is available and
@@ -37,14 +54,14 @@ Outer Processors
 Inner Processors
 -------------------
 
-* show          Formerly “jsdisplay”.
-* set           Formerly “jsvars”.
-* alter         Formerly “jsvalues”.
-* exec(ute)     Formerly “jseval”.
-* stop          Formerly “jsskip”.
-* markup        This processor is present if `jQuery(…).html()` is available.
-* content       Formerly “jscontent”.
-* next          This processor is present if `jQuery(…).next()` is available.
+• show          Formerly “jsdisplay”.
+• set           Formerly “jsvars”.
+• alter         Formerly “jsvalues”.
+• exec(ute)     Formerly “jseval”.
+• stop          Formerly “jsskip”.
+• markup        This processor is present if `jQuery(…).html()` is available.
+• content       Formerly “jscontent”.
+• next          This processor is present if `jQuery(…).next()` is available.
+
 
 ###
-
