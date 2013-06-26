@@ -1,7 +1,8 @@
 
-###
-@see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
-###
+## Node
+
+# Compatibility layer for Window-less environments
+# @see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
 exports.Node = Node =
 
   ELEMENT_NODE                : 1
