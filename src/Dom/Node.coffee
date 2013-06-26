@@ -15,12 +15,13 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+root = exports ? this
 
 ## Node
 
 # Compatibility layer for Window-less environments
 # @see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
-exports.Node = Node =
+root.Node = Node =
 
   ELEMENT_NODE                : 1
   ATTRIBUTE_NODE              : 2

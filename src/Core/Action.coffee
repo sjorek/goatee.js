@@ -15,6 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+root = exports ? this
 
 #### Action
 
@@ -22,7 +23,7 @@ permissions and limitations under the License.
 # 
 # @class
 # @namespace goatee
-exports.Action = class Action
+root.Action = class Action
 
   ##
   # Derivates must implement this method to perform the action.

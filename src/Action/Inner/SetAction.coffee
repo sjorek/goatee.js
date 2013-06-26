@@ -15,8 +15,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-
 InnerAction = require 'goatee/Action/InnerAction'
+
+root = exports ? this
 
 #### SetAction
 
@@ -24,4 +25,4 @@ InnerAction = require 'goatee/Action/InnerAction'
 # 
 # @class
 # @namespace goatee
-exports.SetAction = class SetAction extends InnerAction
+root.SetAction = class SetAction extends InnerAction

@@ -15,8 +15,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-
 OuterAction = require 'goatee/Action/OuterAction'
+
+root = exports ? this
 
 #### RenderAction
 
@@ -24,4 +25,4 @@ OuterAction = require 'goatee/Action/OuterAction'
 # 
 # @class
 # @namespace goatee
-exports.RenderAction = class RenderAction extends OuterAction
+root.RenderAction = class RenderAction extends OuterAction

@@ -15,6 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+root = exports ? this
 
 #### Visitor
 
@@ -22,7 +23,7 @@ permissions and limitations under the License.
 # 
 # @class
 # @namespace goatee
-exports.Visitor = class Visitor
+root.Visitor = class Visitor
 
   ##
   # @param {ProcessorManager}

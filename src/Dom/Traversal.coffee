@@ -16,7 +16,9 @@ permissions and limitations under the License.
 ###
 
 
-Node = Node || require 'goatee/Dom/Node'
+node = Node ? require 'goatee/Dom/Node'
+
+root = exports ? this
 
 #### Traversal
 
@@ -24,7 +26,7 @@ Node = Node || require 'goatee/Dom/Node'
 # 
 # @class
 # @namespace goatee
-exports.Traversal = class Traversal
+root.Traversal = class Traversal
 
   ##
   # @param {Visitor} A object, called on each node in the traversal.
@@ -48,6 +50,6 @@ exports.Traversal = class Traversal
 
     child = node.firstChild
     while child
-      @queue.push(child) if child.nodeType == Node.ELEMENT_NODE
+      @queue.push(child) if child.nodeType == node.ELEMENT_NODE
       child = child.nextSibling
     return

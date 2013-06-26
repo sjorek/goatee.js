@@ -15,7 +15,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-exports.Constants = Constants =
+root = exports ? this
+
+root.Constants = Constants =
 
   ##
   # Names of special variables defined by the jstemplate evaluation
@@ -37,3 +39,22 @@ exports.Constants = Constants =
   # Un-inlined literals, to avoid object creation in IE6.
   CHAR_colon       : ':'
   REGEXP_semicolon : /\s*;\s*/
+
+  ##
+  # String literals defined globally and not to be inlined. (IE6 performance).
+  STRING_a         : '$_a_$'
+  STRING_b         : '$_b_$'
+  STRING_with      : 'with ($_a_$) with ($_b_$) return '
+  STRING_empty     : ''
+
+  # CSS Properties used in by some actions
+  CSS_display      : 'display'
+  CSS_position     : 'position'
+
+  # Constants for possible values of the typeof operator.
+  TYPE_boolean     : 'boolean'
+  TYPE_number      : 'number'
+  TYPE_object      : 'object'
+  TYPE_string      : 'string'
+  TYPE_function    : 'function'
+  TYPE_undefined   : 'undefined'
