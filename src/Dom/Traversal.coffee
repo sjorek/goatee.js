@@ -1,16 +1,16 @@
 
-DomNode = Node || require 'goatee/Dom/Node'
+Node = Node || require 'goatee/Dom/Node'
 
-#### DomTraversal
+#### Traversal
 
 # A class to hold state for a dom traversal.
 # 
 # @class
 # @namespace goatee
-exports.DomTraversal = class DomTraversal
+exports.Traversal = class Traversal
 
   ##
-  # @param {DomVisitor} A object, called on each node in the traversal.
+  # @param {Visitor} A object, called on each node in the traversal.
   # @constructor
   constructor: (@visitor) ->
 
@@ -30,5 +30,5 @@ exports.DomTraversal = class DomTraversal
 
     child = node.firstChild
     while child
-      @queue.push(child) if child.nodeType == DomNode.ELEMENT_NODE
+      @queue.push(child) if child.nodeType == Node.ELEMENT_NODE
       child = child.nextSibling

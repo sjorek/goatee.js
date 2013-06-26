@@ -2,7 +2,7 @@
 ###
 @see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
 ###
-exports.DomNode = DomNode =
+exports.Node = Node =
 
   ELEMENT_NODE                : 1
   ATTRIBUTE_NODE              : 2

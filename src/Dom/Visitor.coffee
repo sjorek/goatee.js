@@ -1,11 +1,11 @@
 
-#### DomVisitor
+#### Visitor
 
 # A class providing a callback-method used during dom traversal.
 # 
 # @class
 # @namespace goatee
-exports.DomVisitor = class DomVisitor
+exports.Visitor = class Visitor
 
   ##
   # @param {ProcessorManager}
