@@ -34,4 +34,4 @@ exports.Action = class Action
   # @return Boolean
   process: (processor, context, template, attribute) ->
     throw new Exception 'Missing “process”-method implementation'
-    return false
+    return

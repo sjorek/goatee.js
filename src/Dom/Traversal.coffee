@@ -38,6 +38,7 @@ exports.Traversal = class Traversal
     @queue = [ root ]
     while (@queue.length > 0)
       @process(@queue.shift())
+    return
 
   ##
   # Processes a single node.
@@ -49,3 +50,4 @@ exports.Traversal = class Traversal
     while child
       @queue.push(child) if child.nodeType == Node.ELEMENT_NODE
       child = child.nextSibling
+    return

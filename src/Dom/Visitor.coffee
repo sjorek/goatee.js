@@ -27,11 +27,11 @@ exports.Visitor = class Visitor
   ##
   # @param {ProcessorManager}
   # @constructor
-  constructor: (@manager) ->
+  constructor: (@actions) ->
 
   ##
   # Called for each element to process
   # @param {Node} node  The node to visit
   process: (node) ->
-    # intentionally left blank
-    # TODO implement node-visitor process
+    throw new Exception 'Missing “process”-method implementation'
+    return
