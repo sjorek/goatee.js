@@ -9,7 +9,11 @@
   "engines": {
     "node": "~0.10.10"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jsdom": "",
+    "cheerio": "",
+    "jquery": "~2.0.0"
+  },
   "devDependencies": {
     "benchmark": "~1.0.0",
     "dust": "~0.3.0",
