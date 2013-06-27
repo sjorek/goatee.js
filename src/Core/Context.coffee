@@ -172,13 +172,13 @@ Context.setGlobal = (name, value) ->
 Context.setGlobal Constants.GLOB_default, null
 
 ##
-# A cache to reuse JsEvalContext instances. (IE6 perf)
+# A cache to reuse Context instances. (IE6 perf)
 #
 # @type Array.<Context>
 Context._recycled = []
 
 ##
-# A factory to create a JsEvalContext instance, possibly reusing
+# A factory to create a Context instance, possibly reusing
 # one from recycledInstances_. (IE6 perf)
 #
 # @param {Object|null} data
@@ -192,10 +192,10 @@ Context.create = (data, parent) ->
   return new Context data, parent
 
 ##
-# Recycle a used JsEvalContext instance, so we can avoid creating one
+# Recycle a used Context instance, so we can avoid creating one
 # the next time we need one. (IE6 perf)
 #
-# @param {JsEvalContext} instance
+# @param {Context} instance
 Context.recycle = (instance) ->
   for own name of instance._variables
     # NOTE(mesch): We avoid object creation here. (IE6 perf)
