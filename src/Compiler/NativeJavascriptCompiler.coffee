@@ -15,14 +15,16 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+constants = require 'goatee/Core/Constants'
 
+root = exports ? this
 
 ###
 NativeJavascriptCompiler
 
 @memberOf goatee
 ###
-NativeJavascriptCompiler =
+root.NativeJavascriptCompiler = class NativeJavascriptCompiler
 
   ##
   # Wrapper for the eval() builtin function to evaluate expressions and
@@ -34,8 +36,8 @@ NativeJavascriptCompiler =
   
   # @param {String} expression
   # @return {Object|null}
-  # @memberOf goatee.NativeJavascriptExpression
-  evaluate: (expression) ->
+  # @memberOf goatee.NativeJavascriptCompiler
+  evaluateExpression: (expression) ->
     try
       ###
       NOTE(mesch): An alternative idiom would be:
@@ -59,83 +61,71 @@ NativeJavascriptCompiler =
   ##
   # Cache for jsEvalToFunction results.
   # @type Object
-  _cache: {}
+  _evaluateToFunctionCache = {}
 
   ##
   # Evaluates the given expression as the body of a function that takes
-  # vars and data as arguments. Since the resulting function depends
-  # only on expr, we cache the result so we save some Function
+  # variables and data as arguments. Since the resulting function depends
+  # only on expression, we cache the result so we save some Function
   # invocations, and some object creations in IE6.
   #
   # @param  {String}   expression A javascript expression.
   # @return {Function}            A function that returns the expression's value
   #                               in the context of variables and data.
-  evalaluateToFunction: (expression) ->
-    if (!NativeJavascriptCompiler._cache[expression]) {
-      try
-        # NOTE(mesch): The Function constructor is faster than eval().
-        NativeJavascriptCompiler._cache[expression] = \
-          new Function Constants.STRING_a, Constants.STRING_b, \
-                       Constants.STRING_with + expression
-      catch e
-        console.log "evalaluateToFunction(#{expression}) throws exception #{e}"
-    return NativeJavascriptCompiler._cache[expression];
+  evaluateToFunction: (expression) ->
+    return _evaluateToFunctionCache[expression] \
+      unless _evaluateToFunctionCache[expression]?
+
+    try
+      # NOTE(mesch): The Function constructor is faster than eval().
+      return _evaluateToFunctionCache[expression] = \
+        new Function constants.STRING_variables, constants.STRING_data, \
+                     constants.STRING_with + expression
+    catch e
+      console.log "Failed to evalaluate “#{expression}” to function: #{e}"
+    return null
 
   ##
-  # Evaluates the given expression to itself. This is meant to pass
-  # through string attribute values.
+  # Evaluates the given expression to itself. This is meant to pass through
+  # string action values.
   #
-  # @param {string} expression
-  #
-  # @return {string}
-  #/
-  evalualteToSelf: (expression) ->
+  # @param  {String} expression
+  # @return {String}
+  evaluateToSelf = (expression) ->
     return expression
 
   ##
-  # Parses the value of the alter action in goatee-templates: splits
-  # it up into a map of labels and expressions, and creates functions
-  # from the expressions that are suitable for execution by
-  # NativeJavascriptCompiler.evaluate(). All that is returned as a flattened array
-  # of pairs of a String and a Function.
+  # Parses the value of the alter action in goatee-templates: splits it up into
+  # a map of keys and expressions, and creates functions from the expressions
+  # that are suitable for execution by @evaluateExpression(). All that is
+  # returned as a flattened array of pairs of a String and a Function.
   #
   # @param {String} expressions
   # @return {Array}
-  evaluateToValues(expressions) {
+  evaluateToFunctions: (expressions) ->
     # TODO(mesch): It is insufficient to split the values by simply finding
     # semicolons, as the semicolon may be part of a string constant or escaped.
-    ret = []
-    values = expression.split Constants.REGEXP_semicolon
-    for (var i = 0, I = values.length; i < I; ++i) {
-      var colon = values[i].indexOf(Constants.CHAR_colon);
-      if (colon < 0) {
-        continue;
-      }
-      var label = stringTrim(values[i].substr(0, colon));
-      var value = jsEvalToFunction(values[i].substr(colon + 1));
-      ret.push(label, value);
-    }
-    return ret;
-  }
-  
-  
+    # TODO(sjorek): This does not look like coffescript … Das ist Doof :-)
+    result = []
+    for expression in expressions.split constants.REGEXP_semicolon
+      colon = expression.indexOf(constants.CHAR_colon)
+      continue if colon < 0
+      key   = stringTrim expression.substr(0, colon)
+      value = @evaluateToFunction expression.substr(colon + 1)
+      result.push(key, value)
+    return result
+
   ##
-  # Parses the value of the jseval attribute of jstemplates: splits it
-  # up into a list of expressions, and creates functions from the
-  # expressions that are suitable for execution by
-  # NativeJavascriptCompiler.evaluate(). All that is returned as an Array of
-  # Function.
+  # Parses the value of the execute actions in goatee-templates: splits it up
+  # into a list of expressions, and creates anonymous functions from the
+  # expressions, hence closures, that are suitable for execution by
+  # @evaluateExpression().
+  #
+  # All that is returned as an Array of Functions.
   #
   # @param {String} expressions
   # @return {Array.<Function>}
-  evaluateExpressions: (expressions) ->
-    ret = []
-    values = expressions.split Constants.REGEXP_semicolon
-    for (var i = 0, I = jsLength(values); i < I; ++i) {
-      if (values[i]) {
-        var value = jsEvalToFunction(values[i]);
-        ret.push(value);
-      }
-    }
-    return ret;
-  }
+  evaluateToClosures: (expressions) ->
+    @evaluateToFunction expression \
+      for expression in expressions.split constants.REGEXP_semicolon \
+        when expression

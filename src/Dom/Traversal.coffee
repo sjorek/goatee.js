@@ -29,27 +29,25 @@ root = exports ? this
 root.Traversal = class Traversal
 
   ##
-  # @param {Visitor} A object, called on each node in the traversal.
+  # @param {Function} callback A function, called on each node in the traversal.
   # @constructor
-  constructor: (@visitor) ->
+  constructor: (@callback) ->
 
   ##
   # Processes the dom tree in breadth-first order.
   # @param {Node} root  The root node of the traversal.
   run: (root) ->
     @queue = [ root ]
-    while (@queue.length > 0)
-      @process(@queue.shift())
+    @process @queue.shift() while @queue.length > 0
     return
 
   ##
   # Processes a single node.
   # @param {Node} node  The current node of the traversal.
   process: (node) ->
-    @visitor.process(node)
-
+    @callback(node)
     child = node.firstChild
     while child
-      @queue.push(child) if child.nodeType == node.ELEMENT_NODE
+      @queue.push(child) if `child.nodeType == node.ELEMENT_NODE`
       child = child.nextSibling
     return

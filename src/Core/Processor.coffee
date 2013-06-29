@@ -37,13 +37,13 @@ Outer Processors
                 “render”-Attribute, since any of those tags will be processed
                 automatically in the order of their appearance.
 
-• template      Formerly “transclude”. If a “source” action is present no
-                further actions are processed. Additionally if “cheerio” or 
-                “jQuery” is available, “source” may be an internal template-
-                reference, implemented as
-                   `(cheerio||jQuery)( “source eg: '#id .selector'”, this )`
-                or if jQuery is available an external reference, implemented as
-                   `jQuery(this).load( “source, eg: 'url #element-id'” );`.
+• source        Formerly “transclude”. If a “source” action is present no
+                further actions are processed. Additionally if either “Sizzle”, 
+                “cheerio” or “jQuery” is available, “source” may be an internal
+                template-reference, like in
+                   `(jQuery||cheerio||Sizzle)( 'source #id .selector', this )`
+                or if “jQuery” is available also an external reference, like in
+                   `jQuery(this).load( 'http://source.url #element-id'” );`.
 
 • select        Formerly “jsselect”. If “select” is array-valued, remaining
                 actions will be copied to each new duplicate element created

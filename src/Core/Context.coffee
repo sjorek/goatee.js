@@ -15,7 +15,8 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-Constants = require 'goatee/Core/Constants'
+constants = require 'goatee/Core/Constants'
+Compiler  = require 'goatee/Compiler/NativeJavascript'
 
 root = exports ? this
 
@@ -29,7 +30,7 @@ root.Context = class Context
 
   # Holds this context's local variables
   _variables : {}
-  
+
   # Holds this context's data
   _data      : null
 
@@ -52,11 +53,11 @@ root.Context = class Context
 
     # The current context object is assigned to the special variable
     # $this so it is possible to use it in expressions.
-    @_variables[Constants.VAR_this] = data
+    @_variables[constants.VAR_this] = data
 
     # The entire context structure is exposed as a variable so it can be
     # passed to javascript invocations through the execute action.
-    @_variables[Constants.VAR_context] = this
+    @_variables[constants.VAR_context] = this
 
     # The local context of the input data in which the goatee-template
     # expressions are evaluated. Notice that this is usually an Object,
@@ -70,12 +71,12 @@ root.Context = class Context
     #
     # (Note sjorek: “undefined” isn't checked here on purpose,
     # @see https://github.com/jashkenas/coffee-script/issues/993 )
-    @_data = data ? Constants.STRING_empty
+    @_data = data ? constants.STRING_empty
 
     # If this is a top-level context, create a variable reference to the data
     # to allow for  accessing top-level properties of the original context data
     # from child contexts.
-    @_variables[Constants.VAR_top] = @_data unless parent?
+    @_variables[constants.VAR_top] = @_data unless parent?
 
   ##
   # Executes a function created using evalToFunction() in the context of
@@ -93,7 +94,7 @@ root.Context = class Context
       return fn.call(template, this._variables, this._data);
     catch e
       console.log "Exception #{e} while executing #{fn} on #{template}"
-    return Context._globals[Constants.GLOB_default]
+    return Context._globals[constants.GLOB_default]
 
   ##
   # Clones the current context for a new context object. The cloned
@@ -111,18 +112,18 @@ root.Context = class Context
   # @return {Context}
   clone: (data, index, count) ->
     ret = Context.create data, this
-    ret.setVariable Constants.VAR_index, index
-    ret.setVariable Constants.VAR_count, count
+    ret.set constants.VAR_index, index
+    ret.set constants.VAR_count, count
     return ret
 
   ##
-  # Binds a local variable to the given value. If set from jstemplate
-  # jsvalue expressions, variable names must start with $, but in the
-  # API they only have to be valid javascript identifier.
+  # Binds a local variable to the given value. If set from goatee-template
+  # alter action expressions, variable names must start with $, but depending
+  # on the API, they might only have to be valid javascript identifier.
   #
   # @param {String} name
   # @param {Object?} value
-  setVariable: (name, value) ->
+  set: (name, value) ->
     this._variables[name] = value
     return
 
@@ -134,7 +135,7 @@ root.Context = class Context
   #
   # @param {String} name
   # @return {Object} value
-  getVariable: (name) ->
+  get: (name) ->
     return this._variables[name]
 
   ##
@@ -145,14 +146,19 @@ root.Context = class Context
   # @param  {Node|null} template   An optional node to serve as "this"
   # @return {Object}    value
   evaluate: (expression, template) ->
-    fn = jsEvalToFunction expression
-    return this.execute fn, template
+    fn = Context.compiler.evaluateToFunction expression
+    return @execute fn, template
 
 
+
+# Holds a global compiler instance
+# @type {NativeJavascriptCompiler}
+Context.compiler = new Compiler
 
 ##
 # Holds all global context variables
-Context._globals   = {}
+# @type {Object}
+Context._globals = {}
 
 ##
 # Sets a global symbol. It will be available like a variable in every Context
@@ -169,7 +175,7 @@ Context.setGlobal = (name, value) ->
 ##
 # Set the default value to be returned if context evaluation results in an 
 # error. (This can occur if a non-existent value was requested). 
-Context.setGlobal Constants.GLOB_default, null
+Context.setGlobal constants.GLOB_default, null
 
 ##
 # A cache to reuse Context instances. (IE6 perf)
@@ -185,7 +191,7 @@ Context._recycled = []
 # @param {Context|null} parent
 # @return {Context}
 Context.create = (data, parent) ->
-  if Context._recycled.length == 0
+  if Context._recycled.length > 0
     instance = Context._recycle.pop()
     Context.call instance, data, parent
     return instance

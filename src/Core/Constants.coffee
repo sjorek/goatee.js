@@ -39,12 +39,15 @@ root.Constants = Constants =
   # Un-inlined literals, to avoid object creation in IE6.
   CHAR_colon       : ':'
   REGEXP_semicolon : /\s*;\s*/
+  REGEXP_trim      : /^\s+|\s+$/g
+  REGEXP_trimLeft  : /^\s+/
+  REGEXP_trimRight : /\s+$/
 
   ##
   # String literals defined globally and not to be inlined. (IE6 performance).
-  STRING_a         : '$_a_$'
-  STRING_b         : '$_b_$'
-  STRING_with      : 'with ($_a_$) with ($_b_$) return '
+  STRING_variables : '$_variables'
+  STRING_data      : '$_data'
+  STRING_with      : 'with ($_variables) with ($_data) return '
   STRING_empty     : ''
 
   # CSS Properties used in by some actions
