@@ -21,22 +21,27 @@ Traversal = require 'goatee/Dom/Traversal'
 
 root = exports ? this
 
-## NativeBrowserApi
+## Document
 
 # This implementation provides function shortcuts depending on a generic browser
 # based DOM-Implementation
-root.NativeBrowserApi = NativeBrowserApi =
+root.Document = class Document
 
   ##
   # @type {Document} Global target document reference.
   document: window?.document
 
   ##
+  # @type {Document} Global target document reference.
+  constructor: (doc) ->
+    @document = doc if doc?
+
+  ##
   # @param  {String}    id
   # @param  {Document}  doc
   # @return {Node|null}
   getElementById: (id, doc) ->
-    (doc || NativeBrowserApi.document).getElementById(id)
+    (doc || @document).getElementById(id)
 
   ##
   # Creates a new node in the given document
@@ -45,7 +50,7 @@ root.NativeBrowserApi = NativeBrowserApi =
   # @param {Document} doc  Target document.
   # @return {Element}  Newly constructed element.
   createElement: (name, doc) ->
-    (doc || NativeBrowserApi.document).createElement(name)
+    (doc || @document).createElement(name)
 
   ##
   # Traverses the element nodes in the DOM section underneath the given
@@ -108,7 +113,7 @@ root.NativeBrowserApi = NativeBrowserApi =
   # @param {Element} element  Element to clone.
   # @return {Element}  Cloned element.
   cloneElement: (element) ->
-    NativeBrowserApi.cloneNode element
+    @cloneNode element
 
   ##
   # Returns the document owner of the given element. In particular,
@@ -120,10 +125,10 @@ root.NativeBrowserApi = NativeBrowserApi =
   # @param {Document|null|undefined} node  The optional fallback value.
   # @returns {Document}  The owner document or window.document if unsupported.
   ownerDocument: (node, doc) ->
-    return doc || NativeBrowserApi.document unless node?
+    return doc || @document unless node?
       # we delibratly force equality instead of identity
     return node if `node.nodeType == node.DOCUMENT_NODE`
-    node.ownerDocument || doc || NativeBrowserApi.document
+    node.ownerDocument || doc || @document
 
   ##
   # Creates a new text node in the given document.
@@ -132,7 +137,7 @@ root.NativeBrowserApi = NativeBrowserApi =
   # @param  {Document} doc  Target document.
   # @return {Text}     Newly constructed text node.
   createTextNode: (text, doc) ->
-    (doc || NativeBrowserApi.document).createTextNode text
+    (doc || @document).createTextNode text
 
   ##
   # Appends a new child to the specified (parent) node.
@@ -193,7 +198,7 @@ root.NativeBrowserApi = NativeBrowserApi =
   # @param  {Node} node  The node to remove.
   # @return {Node} The removed node.
   removeNode: (node) ->
-    NativeBrowserApi.removeChild node.parentNode, node
+    @removeChild node.parentNode, node
 
   ##
   # Remove a child from the specified (parent) node.
