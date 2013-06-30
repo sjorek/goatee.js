@@ -23,41 +23,52 @@ root.Constants = Constants =
   # Names of special variables defined by the jstemplate evaluation
   # context. These can be used in js expression in jstemplate
   # attributes.
-  VAR_index        : '$index'
-  VAR_count        : '$count'
-  VAR_this         : '$this'
-  VAR_context      : '$context'
-  VAR_top          : '$top'
+  VAR_index            : '$index'
+  VAR_count            : '$count'
+  VAR_this             : '$this'
+  VAR_context          : '$context'
+  VAR_top              : '$top'
 
   ##
   # The name of the global variable which holds the value to be returned if
   # context evaluation results in an error. 
   # Use `Context.setGlobal(Constants.GLOB_default, value)` to set this.
-  GLOB_default     : '$default'
+  GLOB_default         : '$default'
 
   ##
   # Un-inlined literals, to avoid object creation in IE6.
-  CHAR_colon       : ':'
-  REGEXP_semicolon : /\s*;\s*/
-  REGEXP_trim      : /^\s+|\s+$/g
-  REGEXP_trimLeft  : /^\s+/
-  REGEXP_trimRight : /\s+$/
+  CHAR_colon           : ':'
+  REGEXP_semicolon     : /\s*;\s*/
+  REGEXP_trim          : /^\s+|\s+$/g
+  REGEXP_trimLeft      : /^\s+/
+  REGEXP_trimRight     : /\s+$/
 
   ##
   # String literals defined globally and not to be inlined. (IE6 performance).
-  STRING_variables : '$_variables'
-  STRING_data      : '$_data'
-  STRING_with      : 'with ($_variables) with ($_data) return '
-  STRING_empty     : ''
+  STRING_variables     : '$_variables'
+  STRING_data          : '$_data'
+  STRING_with          : 'with ($_variables) with ($_data) return '
+  STRING_empty         : ''
 
   # CSS Properties used in by some actions
-  CSS_display      : 'display'
-  CSS_position     : 'position'
+  CSS_display          : 'display'
+  CSS_position         : 'position'
 
   # Constants for possible values of the typeof operator.
-  TYPE_boolean     : 'boolean'
-  TYPE_number      : 'number'
-  TYPE_object      : 'object'
-  TYPE_string      : 'string'
-  TYPE_function    : 'function'
-  TYPE_undefined   : 'undefined'
+  TYPE_boolean         : 'boolean'
+  TYPE_number          : 'number'
+  TYPE_object          : 'object'
+  TYPE_string          : 'string'
+  TYPE_function        : 'function'
+  TYPE_undefined       : 'undefined'
+
+  ##
+  # Un-inlined string literals, to avoid object creation in IE6.
+  CHAR_asterisk        : '*'
+  CHAR_dollar          : '$'
+  CHAR_period          : '.'
+  CHAR_ampersand       : '&'
+  STRING_div           : 'div'
+  STRING_id            : 'id'
+  STRING_asteriskzero  : '*0'
+  STRING_zero          : '0'
