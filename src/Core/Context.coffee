@@ -16,7 +16,6 @@ permissions and limitations under the License.
 ###
 
 constants = require 'goatee/Core/Constants'
-Compiler  = require 'goatee/Compiler/NativeJavascript'
 
 root = exports ? this
 
@@ -153,7 +152,7 @@ root.Context = class Context
 
 # Holds a global compiler instance
 # @type {NativeJavascriptCompiler}
-Context.compiler = new Compiler
+Context.compiler = null
 
 ##
 # Holds all global context variables
