@@ -70,6 +70,16 @@ root.Document = class Document
   # @param {Element} node  Element to interrogate.
   # @param {String} name  Name of parameter to extract.
   # @return {String|null}  Resulting attribute.
+  hasAttribute: (node, name) ->
+    return node.hasAttribute name if node.hasAttribute?
+    @getAttribute(name)?
+
+  ##
+  # Get an attribute from the DOM.  Simple redirect, exists to compress code.
+  #
+  # @param {Element} node  Element to interrogate.
+  # @param {String} name  Name of parameter to extract.
+  # @return {String|null}  Resulting attribute.
   getAttribute: (node, name) ->
     node.getAttribute name
     # NOTE(mesch): Neither in IE nor in Firefox, HTML DOM attributes
@@ -95,6 +105,43 @@ root.Document = class Document
   # @param {String} name  Name of parameter to remove.
   removeAttribute: (node, name) ->
     node.removeAttribute(name)
+    return
+
+  ##
+  # Get an data-attribute from the DOM.  Simple redirect, exists to compress code.
+  #
+  # @param {Element} node  Element to interrogate.
+  # @param {String} name  Name of parameter to extract.
+  # @return {String|null}  Resulting data-attribute.
+  hasData: (node, name) ->
+    return node.dataset?[name]?
+
+  ##
+  # Get an data-attribute from the DOM.  Simple redirect, exists to compress code.
+  #
+  # @param {Element} node  Element to interrogate.
+  # @param {String} name  Name of parameter to extract.
+  # @return {String|null}  Resulting data-attribute.
+  getData: (node, name) ->
+    node.dataset[name]
+
+  ##
+  # Set an data-attribute in the DOM.  Simple redirect to compress code.
+  #
+  # @param {Element} node  Element to interrogate.
+  # @param {String} name  Name of parameter to set.
+  # @param {String|Number} value  Set data-attribute to this value.
+  setData: (node, name, value) ->
+    node.dataset[name] = value
+    return
+
+  ##
+  # Remove an data-attribute from the DOM.  Simple redirect to compress code.
+  #
+  # @param {Element} node  Element to interrogate.
+  # @param {String} name  Name of parameter to remove.
+  removeData: (node, name) ->
+    delete node.dataset[name]
     return
 
   ##

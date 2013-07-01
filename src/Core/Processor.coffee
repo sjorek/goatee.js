@@ -85,8 +85,8 @@ cache     = require 'goatee/Cache/Composite'
 
 root = exports ? this
 
-##
-# Internal class used by jstemplates to maintain context.  This is
+## Processor
+# Internal class used by goatee-templates to maintain context.  This is
 # necessary to process deep templates in Safari which has a
 # relatively shallow maximum recursion depth of 100.
 # @class
@@ -151,8 +151,8 @@ root.Processor = class Processor
     while calls.length > 0
       queue = calls[calls.length - 1]
       index = indices[indices.length - 1]
-      if (index >= queue.length)
-        self.recycleArray_(calls.pop())
+      if index >= queue.length
+        self.recycleArray_ calls.pop()
         indices.pop()
         continue
   
@@ -267,6 +267,8 @@ JST_ATTRIBUTES = [
 # are properties of this object. If the node has no jst attributes,
 # returns an object with no properties (the jscache_[0] entry).
 Processor.prepareNode_ = (node) ->
+
+  return @cache.get(node) if @cache.has(node)
   # If the node already has a cache property, return it.
   return node[constant.PROP_jstcache] if node[constant.PROP_jstcache]?
 
