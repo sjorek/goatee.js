@@ -81,7 +81,7 @@ Inner Processors
 constant  = require 'goatee/Core/Constants'
 utility   = require 'goatee/Core/Utility'
 doc       = require 'goatee/Dom/Document'
-Compiler  = require 'goatee/Compiler/NativeJavascript'
+cache     = require 'goatee/Cache/Composite'
 
 root = exports ? this
 
@@ -92,8 +92,15 @@ root = exports ? this
 # @class
 # @constructor
 root.Processor = class Processor
+  ##
+  # @type goatee.DomCache
+  cache: null
+  compiler: null
+  env: null
+  engine: null
 
-  constructor: () ->
+  constructor: (options) ->
+    {@cache, @compiler, @env, @engine} = options
 
   ##
   # Runs the given function in our state machine.
