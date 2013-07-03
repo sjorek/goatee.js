@@ -15,8 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-ElementTraversal = require 'goatee/Dom/Traversal/ElementTraversal'
-node            = require 'goatee/Dom/Node'
+node = require 'goatee/Dom/Node'
 
 root = exports ? this
 
@@ -27,7 +26,38 @@ root = exports ? this
 # @class
 # @namespace goatee
 root.Level1NodeTypeMatcher = \
-class Level1NodeTypeMatcher extends ElementTraversal
+class Level1NodeTypeMatcher extends Level1NodeTypeMatcher
+
+  ##
+  # @param {Function} callback A function, called on each node in the traversal.
+  # @constructor
+  constructor: (@callback) ->
+
+  ##
+  # Processes the dom tree in breadth-first order.
+  # @param {Node} root  The root node of the traversal.
+  run: (root) ->
+    @queue = [].concat(@prepare root)
+    @process @queue.shift() while @queue.length > 0
+    return
+
+  ##
+  # Create processing queue for a single root node.
+  #
+  # @param  {Node}  node  The root node of the traversal.
+  # @return {Array.<Node>}
+  prepare: (root) ->
+    if `root.nodeType == node.DOCUMENT_FRAGMENT_NODE`
+      return @collect root
+    [ root ]
+
+  ##
+  # Processes a single node.
+  # @param {Node}    node  The current node of the traversal.
+  process: (node) ->
+    @callback(node)
+    @queue = @queue.concat(@collect(node))
+    return
 
   ##
   # Processes a single node.
@@ -40,3 +70,6 @@ class Level1NodeTypeMatcher extends ElementTraversal
         }
       }`
     return result
+
+Level1NodeTypeMatcher.create = (callback) ->
+  new Level1NodeTypeMatcher callback

@@ -14,7 +14,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
-
+doc                 = require 'goatee/Dom/Document'
 Level2NodeIterator  = require 'goatee/Dom/Visitor/Level2NodeIterator'
 
 root = exports ? this
@@ -46,3 +46,6 @@ class Level2TreeWalker extends Level2NodeIterator
       
       false
     )
+
+Level2TreeWalker.create = (callback) ->
+  new Level2TreeWalker callback

@@ -81,3 +81,6 @@ class Level2NodeIterator
     @callback root if `root.nodeType == node.DOCUMENT_NODE`
     @callback node while node = @iterator.nextNode()
     return
+
+Level2NodeIterator.create = (callback) ->
+  new Level2NodeIterator callback

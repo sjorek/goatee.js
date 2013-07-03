@@ -15,9 +15,15 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-constants        = require 'goatee/Core/Constants'
-node             = require 'goatee/Dom/Node'
-ElementTraversal = require 'goatee/Dom/Traversal/ElementTraversal'
+constants = require 'goatee/Core/Constants'
+node      = require 'goatee/Dom/Node'
+
+#Traversal = require 'goatee/Dom/Traversal/GeckoElementTraversal'
+Traversal = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
+#Traversal = require 'goatee/Dom/Traversal/Level2NodeIterator'
+#Traversal = require 'goatee/Dom/Traversal/Level2TreeWalker'
+#Traversal = require 'goatee/Dom/Traversal/Level4ChildNodesIterator'
+#Traversal = require 'goatee/Dom/Traversal/Level4ElementChildrenIterator'
 
 root = exports ? this
 
@@ -60,8 +66,7 @@ root.Document = class Document
   # @param {Element} node  Parent element of the subtree to traverse.
   # @param {Function} callback  Called on each node in the traversal.
   traverseElements: (node, callback) ->
-    visitor = new ElementTraversal callback
-    visitor.run node
+    Traversal.create(callback).run node
     return
 
   ##
@@ -114,7 +119,7 @@ root.Document = class Document
   # @param {String} name  Name of parameter to extract.
   # @return {String|null}  Resulting data-attribute.
   hasData: (node, name) ->
-    return node.dataset?[name]?
+    node.dataset[name]?
 
   ##
   # Get an data-attribute from the DOM.  Simple redirect, exists to compress code.

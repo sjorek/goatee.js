@@ -15,28 +15,25 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+node                  = require 'goatee/Dom/Node'
 Level1NodeTypeMatcher = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
 
 root = exports ? this
 
-#### GeckoElementTraversal
+#### Level4ElementChildNodesList
 
 # A class to hold state for a dom traversal.
 # 
 # @class
 # @namespace goatee
-root.GeckoElementTraversal = \
-class GeckoElementTraversal extends Level1NodeTypeMatcher
+root.Level4ElementChildrenIterator = \
+class Level4ElementChildrenIterator extends Level1NodeTypeMatcher
 
   ##
-  # Processes a single node.
+  # Collect children of the current node of the traversal
   # @param {Node}    node  The current node of the traversal.
   collect: (node) ->
-    result = []
-    `for (var child = node.firstElementChild; child; child = child.nextElementSibling) {
-        result.push(child);
-      }`
-    return result
+    child for child in node.children when `child.nodeType == node.ELEMENT_NODE`
 
-GeckoElementTraversal.create = (callback) ->
-  new GeckoElementTraversal callback
+Level4ElementChildrenIterator.create = (callback) ->
+  new Level4ElementChildrenIterator callback
