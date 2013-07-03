@@ -21,8 +21,7 @@ root = exports ? this
 
 # Compatibility layer for Window-less environments
 # @see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
-root.Node = Node =
-
+root.Node = Node ? {
   ELEMENT_NODE                : 1
   ATTRIBUTE_NODE              : 2
   TEXT_NODE                   : 3
@@ -35,3 +34,4 @@ root.Node = Node =
   DOCUMENT_TYPE_NODE          : 10
   DOCUMENT_FRAGMENT_NODE      : 11
   NOTATION_NODE               : 12
+}

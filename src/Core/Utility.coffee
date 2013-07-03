@@ -104,7 +104,7 @@ root.Utility = Utility =
   #
   # @param {String} str  Input string.
   # @return {String}  Trimmed string.
-  trimLeft: (str) ->
+  trimLeft: (string) ->
     string.replace(constants.REGEXP_trimLeft, '')
   
   ##
@@ -114,5 +114,5 @@ root.Utility = Utility =
   #
   # @param {String} str  Input string.
   # @return {String}  Trimmed string.
-  trimRight: (str) ->
+  trimRight: (string) ->
     string.replace(constants.REGEXP_trimRight, '')

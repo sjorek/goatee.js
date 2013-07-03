@@ -25,16 +25,12 @@ root = exports ? this
 # @constructor
 root.ObjectProperty = class ObjectProperty
 
-  add: (obj, id, value) ->
-    @set(obj, value)
-    return
-
-  has: (obj) ->
+  has: (obj, id) ->
     obj[constant.PROP_jstcache]?
 
-  get: (obj) ->
+  get: (obj, id) ->
     obj[constant.PROP_jstcache]
 
-  set: (obj, value) ->
+  set: (obj, id, value) ->
     obj[constant.PROP_jstcache] = value
     return

@@ -28,19 +28,14 @@ root = exports ? this
 # @constructor
 root.DomElementAttribute = class DomElementAttribute extends InMemory
 
-  add: (node, id, value) ->
-    dom.setAttribute(node, constant.ATT_jstcache, id)
-    super(id, value)
-    return
-
   has: (node) ->
-    dom.hasAttribute(node, constant.ATT_jstcache)
+    doc.hasAttribute(node, constant.ATT_jstcache)
 
   get: (node) ->
-    id = dom.getAttribute(node, constant.ATT_jstcache)
+    id = doc.getAttribute(node, constant.ATT_jstcache)
     super(id)
 
   set: (node, value) ->
-    id = dom.getAttribute(node, constant.ATT_jstcache)
+    id = doc.getAttribute(node, constant.ATT_jstcache)
     super(id, value)
     return

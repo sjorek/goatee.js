@@ -15,9 +15,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-constants = require 'goatee/Core/Constants'
-node      = Node ? require 'goatee/Dom/Node'
-Traversal = require 'goatee/Dom/Traversal'
+constants        = require 'goatee/Core/Constants'
+node             = require 'goatee/Dom/Node'
+ElementTraversal = require 'goatee/Dom/Traversal/ElementTraversal'
 
 root = exports ? this
 
@@ -60,7 +60,7 @@ root.Document = class Document
   # @param {Element} node  Parent element of the subtree to traverse.
   # @param {Function} callback  Called on each node in the traversal.
   traverseElements: (node, callback) ->
-    visitor = new Traversal callback
+    visitor = new ElementTraversal callback
     visitor.run node
     return
 
@@ -172,10 +172,14 @@ root.Document = class Document
   # @param {Document|null|undefined} node  The optional fallback value.
   # @returns {Document}  The owner document or window.document if unsupported.
   ownerDocument: (node, doc) ->
-    return doc || @document unless node?
+      # we delibratly force equality instead of identity
+    return doc || @document \
+      if not node? # or `node.nodeType == node.DOCUMENT_FRAGMENT_NODE`
+
       # we delibratly force equality instead of identity
     return node if `node.nodeType == node.DOCUMENT_NODE`
-    node.ownerDocument || doc || @document
+
+    return node.ownerDocument || doc || @document
 
   ##
   # Creates a new text node in the given document.

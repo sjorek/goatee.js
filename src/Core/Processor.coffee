@@ -26,15 +26,18 @@ evaluated in the following order:
 Outer Processors
 -------------------
 
+Outer processors operate on the tag only. Not on its attributes, but on aspects
+like automation, recursion or multiplicity.
+
 • render        This action initiates the rendering automatically, after the
-                dom is ready. The algorithm uses the given “render”-Data as
+                dom is ready. The algorithm uses the given “render”-data as
                 Context. Additionally if “jQuery” is available and the given
                 data is a string, “render” may be either an global javascript
                 variable reference, or if that fails an url to an external json-
                 file. Changes to the render value, will stop any process 
                 rendering the same tag and start re-rendering. The rendering-
                 process will skip all nested tags which it-self contain a
-                “render”-Attribute, since any of those tags will be processed
+                “render”-Attribute, hence any of those tags will be processed
                 automatically in the order of their appearance.
 
 • source        Formerly “transclude”. If a “source” action is present no
@@ -45,18 +48,21 @@ Outer Processors
                 or if “jQuery” is available also an external reference, like in
                    `jQuery(this).load( 'http://source.url #element-id'” );`.
 
-• select        Formerly “jsselect”. If “select” is array-valued, remaining
+• list          Formerly “jsselect”. If “list” is array-valued, remaining
                 actions will be copied to each new duplicate element created
-                by the “select” and processed when the further dom-traversal
+                by the “list” and processed when the further dom-traversal
                 visits the new elements. If “json:select” is available and
-                “select” is a string, it is used as css3-like query onto the
+                “list” is a String, it is used as css3-like query onto the
                 current context. Therefore the context must be suiteable as 2nd
                 argument of “JSONSelect.match”. @see http://jsonselect.org
 
 Inner Processors
 -------------------
 
-• show          Formerly “jsdisplay”.
+Inner processors operate on tag element-attributes, -properties and -methods as
+well as the context-data, -variables and -values.
+
+• display       Formerly “jsdisplay”.
 
 • set           Formerly “jsvars”.
 
@@ -64,12 +70,12 @@ Inner Processors
 
 • exec(ute)     Formerly “jseval”.
 
-• stop          Formerly “jsskip”.
+• skip          Formerly “jsskip”.
 
 • markup        This action is present if `(cheerio|jQuery)(…).html()` is
                 available.
 
-• content       Formerly “jscontent”. Uses `(cheerio|jQuery)(…).text()` if
+• text          Formerly “jscontent”. Uses `(cheerio|jQuery)(…).text()` if
                 available, otherwise Node.innerHTML will be assigned to given
                 content.
 
@@ -92,15 +98,6 @@ root = exports ? this
 # @class
 # @constructor
 root.Processor = class Processor
-  ##
-  # @type goatee.DomCache
-  cache: null
-  compiler: null
-  env: null
-  engine: null
-
-  constructor: (options) ->
-    {@cache, @compiler, @env, @engine} = options
 
   ##
   # Runs the given function in our state machine.
@@ -266,9 +263,8 @@ JST_ATTRIBUTES = [
 # @return {Object} The jstcache entry. The processed jst attributes
 # are properties of this object. If the node has no jst attributes,
 # returns an object with no properties (the jscache_[0] entry).
-Processor.prepareNode_ = (node) ->
+Processor.prepareNode = (node) ->
 
-  return @cache.get(node) if @cache.has(node)
   # If the node already has a cache property, return it.
   return node[constant.PROP_jstcache] if node[constant.PROP_jstcache]?
 
@@ -290,7 +286,7 @@ Processor.prepareNode_ = (node) ->
 
   # Look for interesting attributes.
   for [name] in JST_ATTRIBUTES
-    value = doc.getAttribute(node, attr[0])
+    value = doc.getAttribute(node, name)
     values[name] = value
     list.push(name + "=" + value) if value?
 

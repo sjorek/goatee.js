@@ -27,12 +27,12 @@ root.InMemory = class InMemory
 
   _cache = {}
 
-  has: (id) ->
+  has: (obj, id) ->
     _cache[id]?
 
-  get: (id) ->
+  get: (obj, id) ->
     _cache[id]
 
-  set: (id, value) ->
+  set: (obj, id, value) ->
     _cache[id] = value
     return

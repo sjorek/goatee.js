@@ -16,3 +16,40 @@ permissions and limitations under the License.
 ###
 
 
+constant  = require 'goatee/Core/Constants'
+doc       = require 'goatee/Dom/Document'
+
+InMemory  = require 'goatee/Core/InstructionCache/InMemory'
+
+root = exports ? this
+
+## Composite
+# Internal class used by goatee-templates to cache actions.
+# @class
+# @constructor
+root.Composite = class Composite
+
+  constructor: (@caches) ->
+    @caches = caches ? [
+      new ObjectPropertyCache,
+      new InMemoryCache,
+      new DomDataAttributeCache,
+      new DomElementAttributeCache
+    ]
+
+  has: (node, id) ->
+    for cache in @caches
+      return true if cache.has(node, id)
+    return false
+
+  get: (node, id) ->
+    for cache in @caches
+      data = cache.get(node, id)
+      return data if data?
+    #throw new Exception 'Found neither a node-based “#{node}” nor an id-based
+    #                     “#{id}” cache-entry.'
+    return null
+
+  set: (node, id, value) ->
+    cache.set(node, id, value) for cache in @caches
+    return

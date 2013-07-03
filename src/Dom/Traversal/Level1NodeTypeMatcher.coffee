@@ -15,39 +15,28 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-
-node = Node ? require 'goatee/Dom/Node'
+ElementTraversal = require 'goatee/Dom/Traversal/ElementTraversal'
+node            = require 'goatee/Dom/Node'
 
 root = exports ? this
 
-#### Traversal
+#### Level1NodeTypeMatcher
 
 # A class to hold state for a dom traversal.
 # 
 # @class
 # @namespace goatee
-root.Traversal = class Traversal
-
-  ##
-  # @param {Function} callback A function, called on each node in the traversal.
-  # @constructor
-  constructor: (@callback) ->
-
-  ##
-  # Processes the dom tree in breadth-first order.
-  # @param {Node} root  The root node of the traversal.
-  run: (root) ->
-    @queue = [ root ]
-    @process @queue.shift() while @queue.length > 0
-    return
+root.Level1NodeTypeMatcher = \
+class Level1NodeTypeMatcher extends ElementTraversal
 
   ##
   # Processes a single node.
-  # @param {Node} node  The current node of the traversal.
-  process: (node) ->
-    @callback(node)
-    child = node.firstChild
-    while child
-      @queue.push(child) if `child.nodeType == node.ELEMENT_NODE`
-      child = child.nextSibling
-    return
+  # @param {Node}    node  The current node of the traversal.
+  collect: (node) ->
+    result = []
+    `for (var child = node.firstChild; child; child = child.nextSibling) {
+        if (child.nodeType == node.ELEMENT_NODE) {
+          result.push(child);
+        }
+      }`
+    return result
