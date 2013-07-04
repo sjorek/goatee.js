@@ -21,11 +21,11 @@ utility   = require 'goatee/Core/Utility'
 root = exports ? this
 
 ###
-NativeJavascript
+Javascript
 
 @memberOf goatee.Instruction.Compiler
 ###
-root.NativeJavascript = class NativeJavascript
+root.Javascript = class Javascript
 
   ##
   # Wrapper for the eval() builtin function to evaluate expressions and
@@ -132,11 +132,11 @@ root.NativeJavascript = class NativeJavascript
 
 ##
 # Reference to singleton instance
-# @type {goatee.Instruction.Compiler.NativeJavascript}
-NativeJavascript.instance = instance = null
+# @type {goatee.Instruction.Compiler.Javascript}
+Javascript.instance = instance = null
 
 ##
 # Singleton implementation
-# @return {goatee.Instruction.Compiler.NativeJavascript}
-NativeJavascript.get = () ->
-  instance ? (instance = new NativeJavascript)
+# @return {goatee.Instruction.Compiler.Javascript}
+Javascript.get = () ->
+  instance ? (instance = new Javascript)

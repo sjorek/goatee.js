@@ -16,7 +16,7 @@ permissions and limitations under the License.
 ###
 
 constants = require 'goatee/Core/Constants'
-Compiler  = require 'goatee/Instruction/Compiler/NativeJavascript'
+Compiler  = require 'goatee/Instruction/Compiler/Javascript'
 
 root = exports ? this
 
