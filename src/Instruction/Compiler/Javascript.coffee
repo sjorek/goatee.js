@@ -23,9 +23,23 @@ root = exports ? this
 ###
 Javascript
 
-@memberOf goatee.Instruction.Compiler
+@class
+@namespace goatee.Instruction.Compiler
 ###
 root.Javascript = class Javascript
+
+  ##
+  # Wrapper for @evaluateExpression() catching and logging any Exceptions
+  # raised during expression evaluation to console.
+  #
+  # @param {String} expression
+  # @return {Object|null}
+  evaluate: (expression) ->
+    try
+      @evaluateExpression(expression)
+    catch e
+      console.log "Failed to evaluate “#{expression}”: #{e}"
+    return null
 
   ##
   # Wrapper for the eval() builtin function to evaluate expressions and
@@ -34,29 +48,25 @@ root.Javascript = class Javascript
   # wrapping, they are evaluated as block, and create syntax
   # errors. Also protects against other syntax errors in the eval()ed
   # code and returns null if the eval throws an exception.
-  
+
   # @param {String} expression
   # @return {Object|null}
   evaluateExpression: (expression) ->
-    try
-      ###
-      NOTE(mesch): An alternative idiom would be:
-      
-        eval('(' + expr + ')');
-      
-      Note that using the square brackets as below, "" evals to undefined.
-      The alternative of using parentheses does not work when evaluating
-      function literals in IE.
-      e.g. eval("(function() {})") returns undefined, and not a function
-      object, in IE.
-      
-      NOTE(sjorek): Due to the underlying coffescript-specific language
-      agnostics we deliberatly fall back to vanilla javascript here.
-      ###
-      return `eval('[' + expression + '][0]')`
-    catch e
-      console.log "Failed to evaluate “#{expression}”: #{e}"
-    return null
+    ###
+    NOTE(mesch): An alternative idiom would be:
+
+      eval('(' + expr + ')');
+
+    Note that using the square brackets as below, "" evals to undefined.
+    The alternative of using parentheses does not work when evaluating
+    function literals in IE.
+    e.g. eval("(function() {})") returns undefined, and not a function
+    object, in IE.
+
+    NOTE(sjorek): Due to the underlying coffescript-specific language
+    agnostics we deliberatly fall back to vanilla javascript here.
+    ###
+    return `eval('[' + expression + '][0]')`
 
   ##
   # Cache for jsEvalToFunction results.
@@ -79,8 +89,8 @@ root.Javascript = class Javascript
     try
       # NOTE(mesch): The Function constructor is faster than eval().
       return _evaluateToFunctionCache[expression] = \
-        new Function constants.STRING_variables, constants.STRING_data, \
-                     constants.STRING_with + expression
+        Function constants.STRING_variables, constants.STRING_data, \
+                 constants.STRING_with + expression
     catch e
       console.log "Failed to evalaluate “#{expression}” to function: #{e}"
     return null

@@ -15,17 +15,37 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-constants = require 'goatee/Core/Constants'
-utility   = require 'goatee/Core/Utility'
+coffee     = require 'coffee-script'
+constants  = require 'goatee/Core/Constants'
+utility    = require 'goatee/Core/Utility'
+
+Javascript = require 'goatee/Instruction/Compiler/Javascript'
 
 root = exports ? this
 
 ###
-Javascript
+Coffeescript
 
-@memberOf goatee.Instruction.Compiler
+@class
+@namespace goatee.Instruction.Compiler
 ###
-root.Javascript = class Javascript
+root.Coffeescript = class Coffeescript extends Javascript
+
+  ##
+  # @param {Object} options
+  # @constructor
+  constructor: (options) ->
+    @options = options ? {
+      bare      : on
+      inline    : on
+      sourceMap : off
+      shiftLine : off
+    }
+
+  ##
+  # Cache for jsEvalToFunction results.
+  # @type {Object}
+  _expressionCache = {}
 
   ##
   # Wrapper for the eval() builtin function to evaluate expressions and
@@ -34,29 +54,13 @@ root.Javascript = class Javascript
   # wrapping, they are evaluated as block, and create syntax
   # errors. Also protects against other syntax errors in the eval()ed
   # code and returns null if the eval throws an exception.
-  
+
   # @param {String} expression
   # @return {Object|null}
   evaluateExpression: (expression) ->
-    try
-      ###
-      NOTE(mesch): An alternative idiom would be:
-      
-        eval('(' + expr + ')');
-      
-      Note that using the square brackets as below, "" evals to undefined.
-      The alternative of using parentheses does not work when evaluating
-      function literals in IE.
-      e.g. eval("(function() {})") returns undefined, and not a function
-      object, in IE.
-      
-      NOTE(sjorek): Due to the underlying coffescript-specific language
-      agnostics we deliberatly fall back to vanilla javascript here.
-      ###
-      return `eval('[' + expression + '][0]')`
-    catch e
-      console.log "Failed to evaluate “#{expression}”: #{e}"
-    return null
+    javascript = _expressionCache[expression] ? _expressionCache[expression] = \
+      new Function(coffee.compile expression, @options)
+    super javascript
 
   ##
   # Cache for jsEvalToFunction results.
@@ -132,11 +136,11 @@ root.Javascript = class Javascript
 
 ##
 # Reference to singleton instance
-# @type {goatee.Instruction.Compiler.Javascript}
-Javascript.instance = instance = null
+# @type {goatee.Instruction.Compiler.Coffeescript}
+Coffeescript.instance = _instance = null
 
 ##
 # Singleton implementation
-# @return {goatee.Instruction.Compiler.Javascript}
-Javascript.get = () ->
-  instance ? (instance = new Javascript)
+# @return {goatee.Instruction.Compiler.Coffeescript}
+Coffeescript.get = () ->
+  _instance ? (_instance = new Coffeescript)
