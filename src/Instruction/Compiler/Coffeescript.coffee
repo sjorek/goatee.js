@@ -15,11 +15,10 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-coffee     = require 'coffee-script'
-constants  = require 'goatee/Core/Constants'
-utility    = require 'goatee/Core/Utility'
-
-Javascript = require 'goatee/Instruction/Compiler/Javascript'
+Coffee       = require 'coffee-script'
+{Constants}  = require 'goatee/Core/Constants'
+{Utility}    = require 'goatee/Core/Utility'
+{Javascript} = require 'goatee/Instruction/Compiler/Javascript'
 
 root = exports ? this
 
@@ -43,7 +42,7 @@ root.Coffeescript = class Coffeescript extends Javascript
     }
 
   ##
-  # Cache for jsEvalToFunction results.
+  # Cache for compiled expressions
   # @type {Object}
   _expressionCache = {}
 
@@ -54,90 +53,18 @@ root.Coffeescript = class Coffeescript extends Javascript
   # wrapping, they are evaluated as block, and create syntax
   # errors. Also protects against other syntax errors in the eval()ed
   # code and returns null if the eval throws an exception.
-
+  #
   # @param {String} expression
   # @return {Object|null}
   evaluateExpression: (expression) ->
     javascript = _expressionCache[expression] ? _expressionCache[expression] = \
-      new Function(coffee.compile expression, @options)
+      new Function Coffee.compile(expression, @options)
     super javascript
-
-  ##
-  # Cache for jsEvalToFunction results.
-  # @type Object
-  _evaluateToFunctionCache = {}
-
-  ##
-  # Evaluates the given expression as the body of a function that takes
-  # variables and data as arguments. Since the resulting function depends
-  # only on expression, we cache the result so we save some Function
-  # invocations, and some object creations in IE6.
-  #
-  # @param  {String}   expression A javascript expression.
-  # @return {Function}            A function that returns the expression's value
-  #                               in the context of variables and data.
-  evaluateToFunction: (expression) ->
-    return _evaluateToFunctionCache[expression] \
-      unless _evaluateToFunctionCache[expression]?
-
-    try
-      # NOTE(mesch): The Function constructor is faster than eval().
-      return _evaluateToFunctionCache[expression] = \
-        new Function constants.STRING_variables, constants.STRING_data, \
-                     constants.STRING_with + expression
-    catch e
-      console.log "Failed to evalaluate “#{expression}” to function: #{e}"
-    return null
-
-  ##
-  # Evaluates the given expression to itself. This is meant to pass through
-  # string instruction values.
-  #
-  # @param  {String} expression
-  # @return {String}
-  evaluateToSelf = (expression) ->
-    return expression
-
-  ##
-  # Parses the value of the alter instruction in goatee-templates: splits it up into
-  # a map of keys and expressions, and creates functions from the expressions
-  # that are suitable for execution by @evaluateExpression(). All that is
-  # returned as a flattened array of pairs of a String and a Function.
-  #
-  # @param {String} expressions
-  # @return {Array}
-  evaluateToFunctions: (expressions) ->
-    # TODO(mesch): It is insufficient to split the values by simply finding
-    # semicolons, as the semicolon may be part of a string constant or escaped.
-    # TODO(sjorek): This does not look like coffescript … Das ist Doof :-)
-    result = []
-    for expression in expressions.split constants.REGEXP_semicolon
-      colon = expression.indexOf(constants.CHAR_colon)
-      continue if colon < 0
-      key   = utility.stringTrim expression.substr(0, colon)
-      value = @evaluateToFunction expression.substr(colon + 1)
-      result.push(key, value)
-    return result
-
-  ##
-  # Parses the value of the execute instructions in goatee-templates: splits it up
-  # into a list of expressions, and creates anonymous functions from the
-  # expressions, hence closures, that are suitable for execution by
-  # @evaluateExpression().
-  #
-  # All that is returned as an Array of Functions.
-  #
-  # @param {String} expressions
-  # @return {Array.<Function>}
-  evaluateToClosures: (expressions) ->
-    @evaluateToFunction expression \
-      for expression in expressions.split constants.REGEXP_semicolon \
-        when expression
 
 ##
 # Reference to singleton instance
 # @type {goatee.Instruction.Compiler.Coffeescript}
-Coffeescript.instance = _instance = null
+_instance = Coffeescript.instance = null
 
 ##
 # Singleton implementation

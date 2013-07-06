@@ -17,58 +17,63 @@ permissions and limitations under the License.
 
 ###
 
-Order of Evaluation
+Gaotee Evaluation
 ===================
 
-Goatee instruction attributes and event instructions within a single element are
-evaluated in the following order:
+Goatee instruction attributes and event instruction names have been choosen
+carefully in order to avoid naming collision with existing dom attributes,
+events and properties.
 
-Outer Processors
+Within a single element they are evaluated in the following order:
+
+Outer Instructions
 -------------------
 
-Outer processors operate on the tag only. Not on its attributes, but on aspects
-like automation, recursion or multiplicity.
+Outer instructions operate with and on tag and context, without touching any tag-
+attributes. They implement aspects like automation, recursion or multiplicity.
 
-• render        This instruction initiates the rendering automatically, after the
-                dom is ready. The algorithm uses the given “render”-data as
+• render        This instruction initiates the rendering automatically, after
+                the dom is ready. The algorithm uses the given “render”-data as
                 Context. Additionally if “jQuery” is available and the given
                 data is a string, “render” may be either an global javascript
                 variable reference, or if that fails an url to an external json-
-                file. Changes to the render value, will stop any process 
+                file. Changes to the render value, will stop any process
                 rendering the same tag and start re-rendering. The rendering-
                 process will skip all nested tags which it-self contain a
                 “render”-Attribute, hence any of those tags will be processed
                 automatically in the order of their appearance.
 
+• match         If “json:select” is available and “match” value is used as
+                css3-like query onto the current context. Therefore the context
+                must be suiteable as 2nd argument of “JSONSelect.match”.
+                @see http://jsonselect.org
+
 • source        Formerly “transclude”. If a “source” instruction is present no
-                further instructions are processed. Additionally if either “Sizzle”, 
-                “cheerio” or “jQuery” is available, “source” may be an internal
-                template-reference, like in
+                further instructions are processed. Additionally if either
+                “Sizzle”, “cheerio” or “jQuery” is available, “source” may be
+                an internal template-reference, like in
                    `(jQuery||cheerio||Sizzle)( 'source #id .selector', this )`
-                or if “jQuery” is available also an external reference, like in
+                or in the case of “jQuery” an external reference, like in
                    `jQuery(this).load( 'http://source.url #element-id'” );`.
 
-• list          Formerly “jsselect”. If “list” is array-valued, remaining
-                instructions will be copied to each new duplicate element created
-                by the “list” and processed when the further dom-traversal
-                visits the new elements. If “json:select” is available and
-                “list” is a String, it is used as css3-like query onto the
-                current context. Therefore the context must be suiteable as 2nd
-                argument of “JSONSelect.match”. @see http://jsonselect.org
+• repeat        Formerly “jsselect”.  If “repeat” is array-valued, remaining
+                instructions will be copied to each new duplicate element
+                created by the “repeat” and processed when the further dom
+                traversal visits the new elements.
 
-Inner Processors
+Inner Instructions
 -------------------
 
-Inner processors operate on tag element-attributes, -properties and -methods as
+Inner instructions operate on tag element-attributes, -properties and -methods as
 well as the context-data, -variables and -values.
 
-• display       Formerly “jsdisplay”.
+• appear        Formerly “jsdisplay”.
 
 • set           Formerly “jsvars”.
 
 • alter         Formerly “jsvalues”.
 
-• exec(ute)     Formerly “jseval”.
+• do            Formerly “jseval”.
 
 • skip          Formerly “jsskip”.
 
@@ -84,10 +89,9 @@ well as the context-data, -variables and -values.
 
 ###
 
-constant  = require 'goatee/Core/Constants'
-utility   = require 'goatee/Core/Utility'
-doc       = require 'goatee/Dom/Document'
-cache     = require 'goatee/Cache/Composite'
+{Constants} = require 'goatee/Core/Constants'
+{Utility}   = require 'goatee/Core/Utility'
+{Document}  = require 'goatee/Dom/Document'
 
 root = exports ? this
 
@@ -97,6 +101,27 @@ root = exports ? this
 # relatively shallow maximum recursion depth of 100.
 # @class
 root.Processor = class Processor
+
+  ##
+  # @type {Document}
+  document: null
+
+  ##
+  # @type {Object}
+  options: null
+
+  ##
+  # @param  {Object}  options
+  # @constuctor
+  constructor: (@options) ->
+
+    ##
+    # Caches the document of the template node, so we don't have to
+    # access it through ownerDocument.
+    # @type {Document}
+    @document = @options.document \
+      if not @document? and @options? and @options.document?
+
 
   ##
   # Runs the given function in our state machine.
@@ -117,7 +142,7 @@ root.Processor = class Processor
   # @param {Function} f The first function to run.
   run: (f) ->
     self = this
-  
+
     ##
     # A stack of queues of pre-order calls.
     # The inner arrays (constituent queues) are structured as
@@ -129,20 +154,20 @@ root.Processor = class Processor
     #
     # @type Array.<Array>
     calls = self.calls = []
-  
+
     ##
     # The index into the queue for each depth. NOTE: Alternative would
     # be to maintain the queues in reverse order (popping off of the
     # end) but the repeated calls to .pop() consumed 90% of this
     # function's execution time.
-    # @type Array.<number>
+    # @type {Array.<Number>}
     indices = self.indices = []
-  
+
     ##
     # A pool of empty arrays.  Minimizes object allocation for IE6's benefit.
-    # @type Array.<Array>
+    # @type {Array.<Array>}
     arrays = self.arrays = []
-  
+
     f()
     while calls.length > 0
       queue = calls[calls.length - 1]
@@ -151,7 +176,7 @@ root.Processor = class Processor
         self.recycleArray calls.pop()
         indices.pop()
         continue
-  
+
       # Run the first function in the queue.
       method = queue[index++]
       arg1 = queue[index++]
@@ -167,7 +192,7 @@ root.Processor = class Processor
   # This method takes ownership of the given array!
   #
   # @param {Array} args Array of method calls structured as
-  #     [ method, arg1, arg2, method, arg1, arg2, ... ]
+  #                     [ method, arg1, arg2, method, arg1, arg2, ... ]
   push: (args) ->
     this.calls.push args
     this.indices.push 0
@@ -189,16 +214,54 @@ root.Processor = class Processor
   #
   # @type {Array.<Array>}
   instructions: [
-  #    [ constant.ATT_select, jsEvalToFunction ],
-  #    [ constant.ATT_display, jsEvalToFunction ],
-  #    [ constant.ATT_values, jsEvalToValues ],
-  #    [ constant.ATT_vars, jsEvalToValues ],
-  #    [ constant.ATT_eval, jsEvalToExpressions ],
-  #    [ constant.ATT_transclude, jsEvalToSelf ],
-  #    [ constant.ATT_content, jsEvalToFunction ],
-  #    [ constant.ATT_skip, jsEvalToFunction ]
+  #    [ Constants.ATT_select, jsEvalToFunction ],
+  #    [ Constants.ATT_display, jsEvalToFunction ],
+  #    [ Constants.ATT_values, jsEvalToValues ],
+  #    [ Constants.ATT_vars, jsEvalToValues ],
+  #    [ Constants.ATT_eval, jsEvalToExpressions ],
+  #    [ Constants.ATT_transclude, jsEvalToSelf ],
+  #    [ Constants.ATT_content, jsEvalToFunction ],
+  #    [ Constants.ATT_skip, jsEvalToFunction ]
   ]
 
+  ##
+  # A list for storing non-empty instructions found on a node in prepare().
+  # The array is global since it can be reused - this way there is no need to
+  # construct a new array object for each invocation. (IE6 perf)
+  #
+  # @type Array
+  _list   = []
+
+  ##
+  # Map for storing temporary instruction values in prepare() so they don't have
+  # to be retrieved twice. (IE6 perf)
+  #
+  # @type Object
+  _values = {}
+
+  ##
+  # Counter to generate cache ids. These ids will be stored used to lookup the
+  # preprocessed instructions from the cache.  The id is stored with the element
+  # to survive cloneNode() and thus cloned template nodes can share the same
+  # cache entry.
+  #
+  # @type {Number}
+  _id = 0
+
+  ##
+  # Map from cache id to processed instructions.
+  #
+  # @type Object
+  _instructions = {}
+
+  ##
+  # The neutral cache entry. Used for all nodes that lack any instructions.
+  # We still set the id on those nodes so we can avoid looking again for all
+  # the other instructions that aren't there.  Remember: not only the
+  # processing of the instruction-values is expensive and we thus want to
+  # cache it.  The access to the instructions on the Node in the first place
+  # is very expensive too.
+  _empty = _instructions[Constants.STRING_zero] = {}
 
   ##
   # Prepares a single node: preprocesses all template attributes of the
@@ -221,7 +284,7 @@ root.Processor = class Processor
     # don't find the property on a node that was cloned in jstSelect_(), we
     # will fall back to check for the attribute and set the property
     # from cache.
-  
+
     # If the node has an attribute indexing a cache object, set it as a property
     # and return it.
     id = @getElementIdentifier(node)
@@ -232,13 +295,13 @@ root.Processor = class Processor
 
     # If the node has an attribute indexing a cache object, set it as a property
     # and return it.
-    [list, values] = @collect(node)
+    @collect(node, _list, _values)
 
     # If none found, mark this node to prevent further inspection, and return
     # an empty cache object.
-    return @setEmpty node if list.length == 0
+    return @setEmpty node if _list.length == 0
 
-    source = list.join constant.CHAR_ampersand
+    source = @combine _list
 
     # If we already have a cache object corresponding to these attributes,
     # annotate the node with it, and return it
@@ -250,50 +313,56 @@ root.Processor = class Processor
         return @setCacheProperty node, cache
 
     # Otherwise, build a new cache object.
-    [cache, id] = @build(node, values)
+    cache = @build(node, _values)
+    id    = Constants.STRING_empty + ++_id
 
     @setCache(id, cache)
     @setElementIdentifier(node, id)
     @setSourceIdentifier(source, id)
     @setCacheProperty(node, cache)
 
-
-  ##
-  # A list for storing non-empty instructions found on a node in prepare().
-  # The array is global since it can be reused - this way there is no need to
-  # construct a new array object for each invocation. (IE6 perf)
-  #
-  # @type Array
-  _list   = []
-
-  ##
-  # Map for storing temporary instruction values in prepare() so they don't have
-  # to be retrieved twice. (IE6 perf)
-  #
-  # @type Object
-  _values = {}
-
   ##
   # Collect instructions from node.
   #
   # @param  {Element}       node
+  # @param  {Array}         Array to append collected intructions to
+  # @param  {Element}       node
   # @return {Array.<Array,Object>} Array of instruction-list and its value-map
-  collect: (node) ->
-    utility.clearArray _list
+  collect: (node, list, values) ->
     for [name] in @instructions
       value = doc.getAttribute node, name
-      _values[name] = value
-      _list.push(name + "=" + value) if value?
-    [_list, _values]
+      values[name] = value
+      list.push @translate(name, value) if value?
+    return
 
-  ##
-  # Counter to generate cache ids. These ids will be stored used to lookup the
-  # preprocessed instructions from the cache.  The id is stored with the element
-  # to survive cloneNode() and thus cloned template nodes can share the same
-  # cache entry.
-  #
-  # @type number
-  _id = 0
+  translate: (name, value) ->
+    # raw rule (uses “|=|” as assignment)
+    return Constants.STRING_empty + name + \
+      Constants.STRING_assigment + value
+
+    # url encoded rule
+    # uses “=” as assignment, encodes the value
+    return Constants.STRING_empty + name + \
+      Constants.CHAR_equals + encodeUriComponent(value)
+
+    # css-like formatted rule
+    # uses “:” as assignment, escapes and double-quotes the value
+    return Constants.STRING_empty + name + \
+      Constants.CHAR_colon + \
+      Constants.CHAR_doublequote + \
+      (Constants.STRING_empty + value).replace('"','\\"') + \
+      Constants.CHAR_doublequote
+
+  combine: (list) ->
+
+    # raw rule (uses “|||” as seperator)
+    return list.join Constants.STRING_seperator
+
+    # url encoded rule (uses “&” as seperator)
+    return list.join Constants.CHAR_ampersand
+
+    # css-like formatted rule (uses “;” as seperator)
+    return list.join Constants.CHAR_semicolon
 
   ##
   # Build a new cache object.
@@ -305,10 +374,10 @@ root.Processor = class Processor
       value = values[name]
       continue unless value?
       cache[name] = parse value
-      if constant.DEBUG
-        instructions = cache.instructions ? {}
-        instructions[name] = value
-    [cache, constant.STRING_empty + ++_id]
+      if Constants.DEBUG
+        goatee = cache.goatee ? cache.goatee = {}
+        goatee[name] = value
+    cache
 
   ##
   # Get cached instructions-property from given node.
@@ -316,8 +385,8 @@ root.Processor = class Processor
   # @param  {Element} node
   # @return {Object}
   getCacheProperty: (node) ->
-    node[constant.PROP_jstcache]
-    
+    node[Constants.PROP_jstcache]
+
   ##
   # Cache instructions in a node-property.
   #
@@ -325,22 +394,7 @@ root.Processor = class Processor
   # @param  {Object}  instructions
   # @return {Object}
   setCacheProperty: (node, instructions) ->
-    node[constant.PROP_jstcache] = instructions
-
-  ##
-  # Map from cache id to processed instructions.
-  #
-  # @type Object
-  _instructions = {
-    ##
-    # The neutral cache entry. Used for all nodes that lack any instructions.
-    # We still set the id on those nodes so we can avoid looking again for all
-    # the other instructions that aren't there.  Remember: not only the
-    # processing of the instruction-values is expensive and we thus want to
-    # cache it.  The access to the instructions on the Node in the first place
-    # is very expensive too.
-    0:{}
-  }
+    node[Constants.PROP_jstcache] = instructions
 
   ##
   # Get cached instructions-property for given id.
@@ -365,7 +419,7 @@ root.Processor = class Processor
   # @param  {Element} node
   # @return {String}
   getElementIdentifier: (node) ->
-    doc.getAttribute node, constant.ATT_jstcache
+    doc.getAttribute node, Constants.ATT_jstcache
 
   ##
   # Cache identifier as node-attribute.
@@ -374,7 +428,7 @@ root.Processor = class Processor
   # @param  {String}  id
   # @return {String}
   setElementIdentifier: (node, id) ->
-    doc.setAttribute node, constant.ATT_jstcache, id
+    doc.setAttribute node, Constants.ATT_jstcache, id
     id
 
   ##
@@ -412,5 +466,39 @@ root.Processor = class Processor
   # @param  {Element}  node
   # @return {Object}
   setEmpty: (node) ->
-    doc.setAttribute node, constant.ATT_jstcache, constant.STRING_zero
-    @setCacheProperty _instructions[0]
+    @setElementIdentifier node, Constants.STRING_zero
+    @setCacheProperty _empty
+
+##
+# @param  {Object}  options  Options passed to `new Processor()`.
+# @return {Processor}
+Processor.create = (options) ->
+  return new Processor options
+
+##
+# HTML template processor. Data values are bound to HTML templates
+# using the attributes transclude, jsselect, jsdisplay, jscontent,
+# jsvalues. The template is modifed in place. The values of those
+# attributes are JavaScript expressions that are evaluated in the
+# context of the data object fragment.
+#
+# @param  {Context} context  Context created from the input data object.
+# @param  {Element} template DOM node of the template. This will be processed
+#                            in place. After processing, it will still be a
+#                            valid template that, if processed again with the
+#                            same data, it will remain unchanged.
+# @param  {Object}  options  Options passed to `Processor.create()`.
+# @return void
+Processor.process = (context, template, options) ->
+
+  processor = Processor.create options
+
+    # Cache the owner document
+  processor.document = doc.ownerDocument(template)
+
+    # Traverse the template, emit instructions and cache them
+  processor.setup template
+
+    # Execute all instructions
+  processor.run(Utility.bind(processor, processor.outer, context, template))
+  return

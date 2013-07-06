@@ -15,27 +15,14 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-constant  = require 'goatee/Core/Constants'
-doc       = require 'goatee/Dom/Document'
-
-InMemory  = require 'goatee/Core/InstructionCache/InMemory'
+{Instruction} = require 'goatee/Instruction/Outer'
 
 root = exports ? this
 
-## DomElementAttribute
-# Internal class used by goatee-templates to cache instructions.
+#### List
+
+# A class implementing the repeat instruction (formerly “jsselect”)
+#
 # @class
-# @constructor
-root.DomElementAttribute = class DomElementAttribute extends InMemory
-
-  has: (node) ->
-    doc.hasAttribute(node, constant.ATT_jstcache)
-
-  get: (node) ->
-    id = doc.getAttribute(node, constant.ATT_jstcache)
-    super(id)
-
-  set: (node, value) ->
-    id = doc.getAttribute(node, constant.ATT_jstcache)
-    super(id, value)
-    return
+# @namespace goatee
+root.Repeat = class Repeat extends Instruction

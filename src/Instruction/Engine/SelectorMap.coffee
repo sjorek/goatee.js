@@ -15,24 +15,23 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-constant  = require 'goatee/Core/Constants'
+{Processor} = require 'goatee/Instruction/Processor'
+
+Emitter     = require('goatee/Instruction/Emitter/DomEvents').DomEvents
+#Emitter     = require('goatee/Instruction/Emitter/JqueryEvents').JqueryEvents
+#Emitter     = require('goatee/Instruction/Emitter/NodejsEvents').NodejsEvents
 
 root = exports ? this
 
-## InMemory
-# Internal class used by goatee-templates to cache instructions.
+## SelectorMap
 # @class
-# @constructor
-root.InMemory = class InMemory
+# @namespace goatee.Instruction.Engine
+root.SelectorMap = class SelectorMap extends Processor
 
-  _cache = {}
+  _emitter       = null
 
-  has: (obj, id) ->
-    _cache[id]?
-
-  get: (obj, id) ->
-    _cache[id]
-
-  set: (obj, id, value) ->
-    _cache[id] = value
-    return
+  ##
+  # @param {Node} The current node to process
+  # @return {Array.<goatee.Instruction.Outer|goatee.Instruction.Inner>}
+  collect: (node) ->
+    (_emitter ? _emitter = Emitter.create this).collect(node)

@@ -15,8 +15,8 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-constants = require 'goatee/Core/Constants'
-utility   = require 'goatee/Core/Utility'
+{Constants} = require 'goatee/Core/Constants'
+{Utility}   = require 'goatee/Core/Utility'
 
 root = exports ? this
 
@@ -89,8 +89,8 @@ root.Javascript = class Javascript
     try
       # NOTE(mesch): The Function constructor is faster than eval().
       return _evaluateToFunctionCache[expression] = \
-        Function constants.STRING_variables, constants.STRING_data, \
-                 constants.STRING_with + expression
+        Function Constants.STRING_variables, Constants.STRING_data, \
+                 Constants.STRING_with + expression
     catch e
       console.log "Failed to evalaluate “#{expression}” to function: #{e}"
     return null
@@ -114,13 +114,13 @@ root.Javascript = class Javascript
   # @return {Array}
   evaluateToFunctions: (expressions) ->
     # TODO(mesch): It is insufficient to split the values by simply finding
-    # semicolons, as the semicolon may be part of a string constant or escaped.
+    # semicolons, as the semicolon may be part of a string Constants or escaped.
     # TODO(sjorek): This does not look like coffescript … Das ist Doof :-)
     result = []
-    for expression in expressions.split constants.REGEXP_semicolon
-      colon = expression.indexOf(constants.CHAR_colon)
+    for expression in expressions.split Constants.REGEXP_semicolon
+      colon = expression.indexOf(Constants.CHAR_colon)
       continue if colon < 0
-      key   = utility.stringTrim expression.substr(0, colon)
+      key   = Utility.stringTrim expression.substr(0, colon)
       value = @evaluateToFunction expression.substr(colon + 1)
       result.push(key, value)
     return result
@@ -137,16 +137,16 @@ root.Javascript = class Javascript
   # @return {Array.<Function>}
   evaluateToClosures: (expressions) ->
     @evaluateToFunction expression \
-      for expression in expressions.split constants.REGEXP_semicolon \
+      for expression in expressions.split Constants.REGEXP_semicolon \
         when expression
 
 ##
 # Reference to singleton instance
 # @type {goatee.Instruction.Compiler.Javascript}
-Javascript.instance = instance = null
+_instance = Javascript.instance = null
 
 ##
 # Singleton implementation
 # @return {goatee.Instruction.Compiler.Javascript}
 Javascript.get = () ->
-  instance ? (instance = new Javascript)
+  _instance ? (_instance = new Javascript)

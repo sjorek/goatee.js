@@ -15,14 +15,14 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-Instruction = require 'goatee/Instruction/Abstract'
+Instruction = require('goatee/Instruction/Abstract').Abstract
 
 root = exports ? this
 
 #### Outer
 
-# A abstract class implementing an inner instruction 
-# 
+# A abstract class implementing an inner instruction
+#
 # @class
 # @namespace goatee
 root.Outer = class Outer extends Instruction

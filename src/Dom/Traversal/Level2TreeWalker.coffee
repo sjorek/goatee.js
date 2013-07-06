@@ -14,15 +14,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
-doc                 = require 'goatee/Dom/Document'
-Level2NodeIterator  = require 'goatee/Dom/Visitor/Level2NodeIterator'
+
+{Document}           = require 'goatee/Dom/Document'
+{Level2NodeIterator} = require 'goatee/Dom/Visitor/Level2NodeIterator'
 
 root = exports ? this
 
 #### Level2TreeWalker
 
 # A class to hold state for a dom traversal.
-# 
+#
 # @class
 # @namespace goatee
 root.Level2TreeWalker = \
@@ -37,13 +38,13 @@ class Level2TreeWalker extends Level2NodeIterator
     doc.ownerDocument(root).createTreeWalker(
       # Node to use as root
       root,
-      
+
       # Only consider nodes that match this filter
       @filter,
-      
+
       # Object containing the function to use as method of the NodeFilter
       @options,
-      
+
       false
     )
 

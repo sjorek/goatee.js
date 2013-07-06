@@ -31,7 +31,7 @@ root.Constants = Constants =
 
   ##
   # The name of the global variable which holds the value to be returned if
-  # context evaluation results in an error. 
+  # context evaluation results in an error.
   # Use `Context.setGlobal(Constants.GLOB_default, value)` to set this.
   GLOB_default         : '$default'
 
@@ -68,7 +68,15 @@ root.Constants = Constants =
   CHAR_dollar          : '$'
   CHAR_period          : '.'
   CHAR_ampersand       : '&'
+  CHAR_equals          : '='
+  CHAR_colon           : ':'
+  CHAR_semicolon       : ';'
+  CHAR_doublequote     : '"'
+  CHAR_singlequote     : "'"
+
   STRING_div           : 'div'
   STRING_id            : 'id'
   STRING_asteriskzero  : '*0'
   STRING_zero          : '0'
+  STRING_assignment    : '|=|'
+  STRING_seperator     : '|||'

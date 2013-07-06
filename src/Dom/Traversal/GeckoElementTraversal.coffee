@@ -15,14 +15,14 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-Level1NodeTypeMatcher = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
+{Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
 
 root = exports ? this
 
 #### GeckoElementTraversal
 
 # A class to hold state for a dom traversal.
-# 
+#
 # @class
 # @namespace goatee
 root.GeckoElementTraversal = \

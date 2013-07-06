@@ -15,7 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-Instruction = require 'goatee/Instruction/Inner'
+{Instruction} = require 'goatee/Instruction/Inner'
 
 root = exports ? this
 

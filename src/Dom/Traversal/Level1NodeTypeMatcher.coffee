@@ -15,7 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-node = require 'goatee/Dom/Node'
+{Node} = require 'goatee/Core/Node'
 
 root = exports ? this
 
@@ -47,7 +47,7 @@ class Level1NodeTypeMatcher extends Level1NodeTypeMatcher
   # @param  {Node}  node  The root node of the traversal.
   # @return {Array.<Node>}
   prepare: (root) ->
-    if `root.nodeType == node.DOCUMENT_FRAGMENT_NODE`
+    if `root.nodeType == Node.DOCUMENT_FRAGMENT_NODE`
       return @collect root
     [ root ]
 
@@ -65,7 +65,7 @@ class Level1NodeTypeMatcher extends Level1NodeTypeMatcher
   collect: (node) ->
     result = []
     `for (var child = node.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType == node.ELEMENT_NODE) {
+        if (child.nodeType == Node.ELEMENT_NODE) {
           result.push(child);
         }
       }`

@@ -28,11 +28,11 @@ root.Abstract = class Abstract
   ##
   # Derivates must implement this method to perform the instruction.
   #
-  # @param {Processor}  processor   The calling processor
+  # @param {Processor}  instruction   The calling instruction
   # @param {Context}    context     The current evaluation context
   # @param {Node}       template    The currently processed node of the template
   # @param {Function}   attribute   Processed value of the content attribute
   # @return Boolean
-  process: (processor, context, template, attribute) ->
+  process: (instruction, context, template, attribute) ->
     throw new Exception 'Missing “process”-method implementation'
     return

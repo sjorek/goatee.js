@@ -15,12 +15,16 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+{Processor} = require 'goatee/Instruction/Processor'
+
 root = exports ? this
 
-## Chips
-
-# Chips = Cascading Hierarchical Instruction Projection Sheet
+## InstructionObjectModel
+#
+# The Instruction Object Model provides chips (= Cascading Hierarchical
+# Instruction Projection Sheets) and implements the IOM to complement
+# DOM and CSSOM.
 #
 # @class
-# @namespace goatee.Instruction.Emitter
-root.Chips = class Chips
+# @namespace goatee.Instruction.Engine
+root.InstructionObjectModel = class InstructionObjectModel extends Processor

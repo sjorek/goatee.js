@@ -15,15 +15,15 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-doc  = require 'goatee/Dom/Document'
-node = require 'goatee/Dom/Node'
+{Document} = require 'goatee/Dom/Document'
+{Node}     = require 'goatee/Core/Node'
 
 root = exports ? this
 
 #### Level2NodeIterator
 
 # A class to hold state for a dom traversal.
-# 
+#
 # @class
 # @namespace goatee
 root.Level2NodeIterator = \
@@ -38,7 +38,7 @@ class Level2NodeIterator
   # Object containing the function to use as method of the NodeFilter. It
   # contains logic to determine whether to accept, reject or skip node, eg.:
   #   {
-  #     ## 
+  #     ##
   #     # @param  {Node}  node  The root node of the traversal.
   #     # @return {NodeFilter.[FILTER_ACCEPT|FILTER_REJECT|FILTER_SKIP]}
   #     acceptNode: (node) ->
@@ -62,13 +62,13 @@ class Level2NodeIterator
     doc.ownerDocument(root).createNodeIterator(
       # Node to use as root
       root,
-      
+
       # Only consider nodes that match this filter
       @filter,
-      
+
       # Object containing the function to use as method of the NodeFilter
       @options,
-      
+
       false
     )
 
@@ -78,7 +78,7 @@ class Level2NodeIterator
   # @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator
   run: (root) ->
     @iterator = @prepare root
-    @callback root if `root.nodeType == node.DOCUMENT_NODE`
+    @callback root if `root.nodeType == Node.DOCUMENT_NODE`
     @callback node while node = @iterator.nextNode()
     return
 

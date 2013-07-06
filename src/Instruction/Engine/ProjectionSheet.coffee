@@ -15,27 +15,13 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-constant  = require 'goatee/Core/Constants'
-doc       = require 'goatee/Dom/Document'
-
-InMemory  = require 'goatee/Core/InstructionCache/InMemory'
+{Processor} = require 'goatee/Instruction/Processor'
 
 root = exports ? this
 
-## DomDataAttribute
-# Internal class used by goatee-templates to cache instructions.
+## ProjectionSheet
+
+#
 # @class
-# @constructor
-root.DomDataAttribute = class DomDataAttribute extends InMemory
-
-  has: (node) ->
-    doc.hasData(node, constant.ATT_jstcache)
-
-  get: (node) ->
-    id = doc.getData(node, constant.ATT_jstcache)
-    super(id)
-
-  set: (node, value) ->
-    id = doc.getData(node, constant.ATT_jstcache)
-    super(id, value)
-    return
+# @namespace goatee.Instruction.Engine
+root.ProjectionSheet = class ProjectionSheet extends Processor

@@ -15,15 +15,15 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-constants = require 'goatee/Core/Constants'
-node      = require 'goatee/Dom/Node'
+{Constants} = require 'goatee/Core/Constants'
+{Node}      = require 'goatee/Core/Node'
 
-#Traversal = require 'goatee/Dom/Traversal/GeckoElementTraversal'
-Traversal = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
-#Traversal = require 'goatee/Dom/Traversal/Level2NodeIterator'
-#Traversal = require 'goatee/Dom/Traversal/Level2TreeWalker'
-#Traversal = require 'goatee/Dom/Traversal/Level4ChildNodesIterator'
-#Traversal = require 'goatee/Dom/Traversal/Level4ElementChildrenIterator'
+#Traversal = require('goatee/Dom/Traversal/GeckoElementTraversal').GeckoElementTraversal
+Traversal = require('goatee/Dom/Traversal/Level1NodeTypeMatcher').Level1NodeTypeMatcher
+#Traversal = require('goatee/Dom/Traversal/Level2NodeIterator').Level2NodeIterator
+#Traversal = require('goatee/Dom/Traversal/Level2TreeWalker').Level2TreeWalker
+#Traversal = require('goatee/Dom/Traversal/Level4ChildNodesIterator').Level4ChildNodesIterator
+#Traversal = require('goatee/Dom/Traversal/Level4ElementChildrenIterator').Level4ElementChildrenIterator
 
 root = exports ? this
 
@@ -31,23 +31,18 @@ root = exports ? this
 
 # This implementation provides function shortcuts depending on a generic browser
 # based DOM-Implementation
-root.Document = class Document
+root.Document = Document =
 
   ##
   # @type {Document} Global target document reference.
   document: window?.document
 
   ##
-  # @type {Document} Global target document reference.
-  constructor: (doc) ->
-    @document = doc if doc?
-
-  ##
   # @param  {String}    id
   # @param  {Document}  doc
   # @return {Node|null}
   getElementById: (id, doc) ->
-    (doc || @document).getElementById(id)
+    (doc || Document.document).getElementById(id)
 
   ##
   # Creates a new node in the given document
@@ -56,7 +51,7 @@ root.Document = class Document
   # @param {Document} doc  Target document.
   # @return {Element}  Newly constructed element.
   createElement: (name, doc) ->
-    (doc || @document).createElement(name)
+    (doc || Document.document).createElement(name)
 
   ##
   # Traverses the element nodes in the DOM section underneath the given
@@ -75,9 +70,9 @@ root.Document = class Document
   # @param {Element} node  Element to interrogate.
   # @param {String} name  Name of parameter to extract.
   # @return {String|null}  Resulting attribute.
-  hasAttribute: (node, name) ->
-    return node.hasAttribute name if node.hasAttribute?
-    @getAttribute(name)?
+  hasAttribute: if Element?::hasAttribute? \
+    then (node, name) -> node.hasAttribute name \
+    else (node, name) -> Document.getAttribute(name)?
 
   ##
   # Get an attribute from the DOM.  Simple redirect, exists to compress code.
@@ -177,14 +172,14 @@ root.Document = class Document
   # @param {Document|null|undefined} node  The optional fallback value.
   # @returns {Document}  The owner document or window.document if unsupported.
   ownerDocument: (node, doc) ->
+    return doc || Document.document if not node? # or \
       # we delibratly force equality instead of identity
-    return doc || @document \
-      if not node? # or `node.nodeType == node.DOCUMENT_FRAGMENT_NODE`
+      #`node.nodeType == Node.DOCUMENT_FRAGMENT_NODE`
 
-      # we delibratly force equality instead of identity
-    return node if `node.nodeType == node.DOCUMENT_NODE`
+    # we delibratly force equality instead of identity
+    return node if `node.nodeType == Node.DOCUMENT_NODE`
 
-    return node.ownerDocument || doc || @document
+    return node.ownerDocument || doc || Document.document
 
   ##
   # Creates a new text node in the given document.
@@ -193,7 +188,7 @@ root.Document = class Document
   # @param  {Document} doc  Target document.
   # @return {Text}     Newly constructed text node.
   createTextNode: (text, doc) ->
-    (doc || @document).createTextNode text
+    (doc || Document.document).createTextNode text
 
   ##
   # Appends a new child to the specified (parent) node.
@@ -209,7 +204,7 @@ root.Document = class Document
   #
   # @param {Element} node  The dom element to manipulate.
   displayDefault: (node) ->
-    node.style[constants.CSS_display] = ''
+    node.style[Constants.CSS_display] = ''
     return
 
   ##
@@ -217,9 +212,16 @@ root.Document = class Document
   # the 'style.display' property and the 'none' literal.
   #
   # @param {Element} node  The dom element to manipulate.
-  #/
   displayNone: (node) ->
-    node.style[constants.CSS_display] = 'none'
+    node.style[Constants.CSS_display] = 'none'
+    return
+
+  ##
+  # Sets position style attribute to default.
+  #
+  # @param {Element} node  The dom element to manipulate.
+  positionDefault: (node) ->
+    node.style[Constants.CSS_position] = ''
     return
 
   ##
@@ -227,7 +229,7 @@ root.Document = class Document
   #
   # @param {Element} node  The dom element to manipulate.
   positionAbsolute: (node) ->
-    node.style[constants.CSS_position] = 'absolute'
+    node.style[Constants.CSS_position] = 'absolute'
     return
 
   ##
@@ -254,7 +256,7 @@ root.Document = class Document
   # @param  {Node} node  The node to remove.
   # @return {Node} The removed node.
   removeNode: (node) ->
-    @removeChild node.parentNode, node
+    Document.removeChild node.parentNode, node
 
   ##
   # Remove a child from the specified (parent) node.

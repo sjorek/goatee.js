@@ -15,15 +15,15 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-node                  = require 'goatee/Dom/Node'
-Level1NodeTypeMatcher = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
+{Node}                  = require 'goatee/Core/Node'
+{Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
 
 root = exports ? this
 
 #### Level4ElementChildNodesList
 
 # A class to hold state for a dom traversal.
-# 
+#
 # @class
 # @namespace goatee
 root.Level4ChildNodesIterator = \
@@ -33,7 +33,7 @@ class Level4ChildNodesIterator extends Level1NodeTypeMatcher
   # Collect children of the current node of the traversal
   # @param {Node}    node  The current node of the traversal.
   collect: (node) ->
-    child for child in node.childNodes when `child.nodeType == node.ELEMENT_NODE`
+    child for child in node.childNodes when `child.nodeType == Node.ELEMENT_NODE`
 
 Level4ChildNodesIterator.create = (callback) ->
   new Level4ChildNodesIterator callback

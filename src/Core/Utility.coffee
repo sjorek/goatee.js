@@ -18,11 +18,11 @@ permissions and limitations under the License.
 ##
 # @fileoverview Miscellaneous functions referenced in
 # the main source files.
-# 
+#
 # @author Steffen Meschkat (mesch@google.com)
 ##
 
-constants = require 'goatee/Core/Constants'
+{Constants} = require 'goatee/Core/Constants'
 
 root = exports ? this
 
@@ -35,7 +35,7 @@ root.Utility = Utility =
   # @param {Object|null} value Object to interrogate
   # @return {Boolean} Is the object an array?
   isArray: (value) ->
-    typeof value?.length is constants.TYPE_number
+    typeof value?.length is Constants.TYPE_number
 
   ##
   # Finds a slice of an array.
@@ -95,7 +95,7 @@ root.Utility = Utility =
   # @return {String}  Trimmed string.
   trim: (string) ->
     # Utility.trimRight(Utility.trimLeft(string))
-    string.replace(constants.REGEXP_trim, '')
+    string.replace(Constants.REGEXP_trim, '')
 
   ##
   # Trim whitespace from beginning of string.
@@ -105,8 +105,8 @@ root.Utility = Utility =
   # @param {String} str  Input string.
   # @return {String}  Trimmed string.
   trimLeft: (string) ->
-    string.replace(constants.REGEXP_trimLeft, '')
-  
+    string.replace(Constants.REGEXP_trimLeft, '')
+
   ##
   # Trim whitespace from end of string.
   #
@@ -115,4 +115,4 @@ root.Utility = Utility =
   # @param {String} str  Input string.
   # @return {String}  Trimmed string.
   trimRight: (string) ->
-    string.replace(constants.REGEXP_trimRight, '')
+    string.replace(Constants.REGEXP_trimRight, '')

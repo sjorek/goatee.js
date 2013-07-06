@@ -15,21 +15,14 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-Emitter = 'goatee/Instruction/Emitter/DomEvents'
-#Emitter = 'goatee/Instruction/Emitter/JqueryEvents'
-#Emitter = 'goatee/Instruction/Emitter/NodejsEvents'
+{Instruction} = require 'goatee/Instruction/Outer'
 
 root = exports ? this
 
-## EventDriven
+#### List
+
+# A class implementing the match instruction
+#
 # @class
-# @namespace goatee.Instruction.Processor
-root.EventDriven = class EventDriven
-
-  _emitter       = null
-
-  ##
-  # @param {Node} The current node to process
-  # @return {Array.<goatee.Instruction.Outer|goatee.Instruction.Inner>}
-  collect: (node) ->
-    (_emitter ? _emitter = Emitter.create this).collect(node)
+# @namespace goatee
+root.Match = class Match extends Instruction
