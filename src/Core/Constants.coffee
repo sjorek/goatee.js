@@ -53,7 +53,7 @@ root.Constants = Constants =
   STRING_with          : 'with ($_variables) with ($_data) return '
   STRING_empty         : ''
 
-  # CSS Properties used in by some instructions
+  # CSS Properties used in by some actions
   CSS_display          : 'display'
   CSS_position         : 'position'
 
