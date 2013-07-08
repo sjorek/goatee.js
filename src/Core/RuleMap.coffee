@@ -14,7 +14,30 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Utility} = require './Utility'
+{Constants:{
+  CHAR_space
+  CHAR_tab
+  CHAR_vtab
+  CHAR_cr
+  CHAR_lf
+  CHAR_ff
+  CHAR_doublequote
+  CHAR_singlequote
+  CHAR_slash
+  CHAR_backslash
+  CHAR_colon
+  CHAR_semicolon
+  CHAR_exclamation
+  CHAR_asterisk
+  STRING_empty
+  STRING_closecomment
+  STRING_nonimportant
+  REGEXP_isEscaped
+}} = require './Constants'
+
+{Utility:{
+  trim
+}} = require './Utility'
 
 root = exports ? this
 
@@ -36,132 +59,204 @@ root.RuleMap = class RuleMap
     @rules    ?= {}
     @priorize ?= {}
 
+  ##
+  # adds a new rule to this instance
+  # @param  {String} string
+  # @return {RuleMap}
+  add: (key, value, important) ->
+    k = @normalizeKey key
+    return @ unless important is true or \
+       not @rules.hasOwnProperty(k) or \
+       not @priorize.hasOwnProperty(k)
+
+    @rules[k]    = @normalizeValue value
+    @priorize[k] = true if important is true
+
+    return @
+
+  ##
+  # Opposite of @merge(map). Returns this map with all rules from given map
+  # applied to this map, taking my and their priorities into consideration.
+  #
+  # @param  {RuleMap} map
+  # @return {RuleMap}
+  inject: (map) ->
+    {rules,priorize} = map
+    @add key, value, priorize.hasOwnProperty(key) for own key, value of rules
+    @
+
+  ##
+  # Opposite of @inject(map). Returns the given map with all my rules applied
+  # to given map, taking their and my priorities into consideration.
+  #
+  # @param  {RuleMap} map
+  # @return {RuleMap}
+  merge: (map) ->
+    map.inject(@)
+
+  ##
+  # @param  {String} string
+  # @return {String}
+  normalizeKey: (string) ->
+    trim string
+
+  ##
+  # @param  {String} string
+  # @return {String}
+  normalizeValue: (string) ->
+    trim string
+
+##
+# Internal list of error messages, used by RuleMap.parse
+# @type {Array}
+_errors = [
+  "Unexpected content after important declaration"
+  "Missing closing string"
+  "Missing closing comment"
+  "Unexpected string opener"
+  "Missing identifier key"
+  "Important already declared"
+]
+
 ##
 # NON-STANDARD
 # lightweight version of CSSOM.CSSStyleRule.parse, which in turn is a
 # lightweight version of parse.js
 #
 # @param  {String}  text
-# @param  {RuleMap} map
-# @return RuleMap
-RuleMap.parse = (text) ->
+# @param  {RuleMap} Optional _map instance to merge into, for internal use.
+# @return {RuleMap}
+RuleMap.parse = (text, _map) ->
 
     i          = 0
     j          = i
-    state      = "name"
+    stateKey   = "key"
+    stateValue = "value"
+    state      = stateKey
     buffer     = ""
     char       = ""
-    rules      = {}
-    priorize   = {}
+    key        = ""
+    value      = ""
     important  = false
+    _map      ?= new RuleMap
+    rules      = _map.rules
+    priorize   = _map.priorize
 
-    add        = (name) ->
-      if not `(name in rules)` or important or not `(name in priorize)`
-        rules[name] = Utility.trim buffer
-        priorize[name] = true if important
+    error      = (num) ->
+      msg = _errors[num - 1]
+      msg + ":" + CHAR_lf + "“" +
+      text.slice(0, i) + '»»»' + text.charAt(i) + '«««' + text.slice(i + 1) +
+      "”" + CHAR_lf + "(state: #{state}, position: #{i}, character: “#{char}”)"
 
-    error      = () ->
-      "“" +
-      text.slice(0, i) + '»»»' + text.charAt(i) + '«««' + text.slice(i + 1) + \
-      "” (state: #{state}, position: #{i}, character: “#{char}”)"
 
     `for (char = text.charAt(i); (char = text.charAt(i)) !== ""; i++) {`
 
+    # console.log 'Processing', i, '=', char
+
     switch char
 
-      when " ", "\t", "\r", "\n", "\f"
+      # " ", "\t", "\v", "\r", "\n", "\f"
+      when CHAR_space, CHAR_tab, CHAR_vtab, CHAR_cr, CHAR_lf, CHAR_ff
+
         # SIGNIFICANT_WHITESPACE
-        buffer += char if state is "value" and not important
+        buffer += char if state is stateValue and not important
         continue
         break
 
       # String
-      when "'", '"'
+      # "'", '"'
+      when CHAR_singlequote, CHAR_doublequote
         if important
-          throw "unexpected content after important declaration: #{error()}"
-        else if state is "value"
+          throw (error 1)
+        else if state is stateValue
           j = i + 1
           while index = text.indexOf(char, j) + 1
-            console.log(1, index, 2, j, 3, text.charAt(index - 2), 4, text.slice(i, index - 1))
-            break if text.charAt(index - 2) isnt "\\" or \
-                  /[^\\](\\\\)*$/.test(text.slice(i, index - 1))
+            break if text.charAt(index - 2) isnt CHAR_backslash or \
+                  REGEXP_isEscaped.test text.slice(i, index - 1)
             j = index
 
-          throw "Missing closing string: #{error()}" if index is 0
+          throw (error 2) if index is 0
           buffer += text.slice(i, index)
           i = index - 1
           continue
         else
-          throw "unexpected string: #{error()}"
+          throw (error 4)
         break
 
       # Comment
-      when "/"
-        if text.charAt(i + 1) is "*"
+      # "/"
+      when CHAR_slash
+        if text.charAt(i + 1) is CHAR_asterisk # "*"
           i += 2
-          index = text.indexOf "*/", i
-          throw "Missing closing comment: #{error()}" if index is -1
+          index = text.indexOf STRING_closecomment, i # "*/", i
+          throw (error 3) if index is -1
           i = index + 1
           continue
         else if important
-          throw "unexpected content after important declaration: #{error()}"
+          throw (error 1)
         else
           buffer += char
           continue
         break
 
-      when ":"
-        if state is "name"
-          name = Utility.trim buffer
-          throw "missing identifer: #{error()}" if name is ""
+      # ":"
+      when CHAR_colon
+        if state is stateKey
+          key   += buffer
+          throw (error 5) if key is STRING_empty
           buffer = ""
-          state = "value"
+          state  = stateValue
           continue
         else if important
-          throw "unexpected content after important declaration: #{error()}"
+          throw (error 1)
         else
           buffer += char
           continue
         break
 
-      when "!"
-        if state is "value" and text.indexOf("!important", i) is i
-          if important
-            throw "unexpected important after another important declaration: #{error()}"
+      # "!"
+      when CHAR_exclamation
+        if state is stateValue and text.indexOf(STRING_nonimportant, i) is i
+          throw (error 6) if important
           important = true
           i += 9 # = "important".length
           continue
         else if important
-          throw "unexpected content after important declaration: #{error()}"
+          throw (error 1)
         else
           buffer += char;
           continue
         break
 
-      when ";"
-        continue if state is "name"
-        if state is "value"
-          add(name)
+      # ";"
+      when CHAR_semicolon
+        continue if state is stateKey
+        if state is stateValue
+          value    += buffer
+
+          _map.add(key, value, important)
+
           important = false
-          buffer = ""
-          state = "name"
+          key       = ""
+          value     = ""
+          buffer    = ""
+          state     = stateKey
           continue
         else if important
-          throw "unexpected content after important declaration: #{error()}"
+          throw (error 1)
         else
           buffer += char
           continue
         break
 
       else
-        if important
-          throw "unexpected content after important declaration: #{error()}"
+        throw (error 1) if important
         buffer += char
         continue
         break
 
     `}`
 
-    add(name) if state is "value"
+    _map.add(key, value + buffer, important) if state is stateValue
 
-    return new RuleMap rules, priorize
+    return _map

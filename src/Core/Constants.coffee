@@ -42,6 +42,9 @@ root.Constants = Constants =
   REGEXP_trim          : /^\s+|\s+$/g
   REGEXP_trimLeft      : /^\s+/
   REGEXP_trimRight     : /\s+$/
+  REGEXP_camelize      : /-([a-z])/gi
+  REGEXP_dashify       : /(^|[a-zA-Z])([A-Z])/g
+  REGEXP_isEscaped     : /[^\\](\\\\)*$/
 
   ##
   # String literals defined globally and not to be inlined. (IE6 performance).
@@ -67,13 +70,27 @@ root.Constants = Constants =
   CHAR_asterisk        : '*'
   CHAR_dollar          : '$'
   CHAR_period          : '.'
+  CHAR_exclamation     : '!'
   CHAR_ampersand       : '&'
+  CHAR_dash            : '-'
+  CHAR_slash           : '/'
+  CHAR_backslash       : '''\\'''
   CHAR_equals          : '='
   CHAR_colon           : ':'
   CHAR_semicolon       : ';'
   CHAR_doublequote     : '"'
   CHAR_singlequote     : "'"
 
+  CHAR_space           : " "
+  CHAR_tab             : "\t" # tabulator
+  CHAR_vtab            : "\v" # vertical tabulator
+  CHAR_cr              : "\r" # carriage return
+  CHAR_lf              : "\n" # line feed
+  CHAR_ff              : "\f" # form feed
+
+  STRING_nonimportant  : '!important'
+  STRING_opencomment   : '/*'
+  STRING_closecomment  : '*/'
   STRING_div           : 'div'
   STRING_id            : 'id'
   STRING_asteriskzero  : '*0'

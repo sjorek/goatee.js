@@ -19,12 +19,20 @@ permissions and limitations under the License.
 # @fileoverview Miscellaneous functions referenced in
 # the main source files.
 #
-# @author Steffen Meschkat (mesch@google.com)
+# @author Steffen Meschkat <mesch@google.com>
+# @author Stephan Jorek    <stephan.jorek@gmail.com>
 ##
 
 {Constants} = require './Constants'
 
 root = exports ? this
+
+
+_camelizeReplaceFn = (match, char, index, str) ->
+  char.toUpperCase()
+
+_dashifyReplaceFn  = (match, char, camel, index, str) ->
+  char + Constants.CHAR_dash + camel.toLowerCase()
 
 root.Utility = Utility =
 
@@ -35,7 +43,7 @@ root.Utility = Utility =
   # @param {Object|null} value Object to interrogate
   # @return {Boolean} Is the object an array?
   isArray: (value) ->
-    typeof value?.length is Constants.TYPE_number
+    value.length? and typeof value.length is Constants.TYPE_number
 
   ##
   # Finds a slice of an array.
@@ -93,7 +101,9 @@ root.Utility = Utility =
   #
   # @param {String} str  Input string.
   # @return {String}  Trimmed string.
-  trim: (string) ->
+  trim: if String::trim?
+  then (string) -> (string.trim())
+  else (string) ->
     # Utility.trimRight(Utility.trimLeft(string))
     string.replace(Constants.REGEXP_trim, '')
 
@@ -116,3 +126,19 @@ root.Utility = Utility =
   # @return {String}  Trimmed string.
   trimRight: (string) ->
     string.replace(Constants.REGEXP_trimRight, '')
+
+  ##
+  # Converts “a-property-name” to “aPropertyName”
+  #
+  # @param {String} str  Input string.
+  # @return {String}  Camelized string.
+  camelize: (string) ->
+    string.replace Constants.REGEXP_camelize, _camelizeReplaceFn
+
+  ##
+  # Converts “aPropertyName” to “a-property-name”
+  #
+  # @param {String} str  Input string.
+  # @return {String}  Dashed string.
+  dashify: (string) ->
+    string.replace Constants.REGEXP_dashify, _dashifyReplaceFn
