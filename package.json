@@ -2,7 +2,10 @@
   "name": "goatee",
   "version": "0.1.0",
   "description": "Goatee is the missing complement for handbar mustaches.",
-  "main": "lib/goatee.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib/goatee.js",
   "scripts": {
     "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
   },

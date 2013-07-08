@@ -22,7 +22,7 @@ permissions and limitations under the License.
 # @author Steffen Meschkat (mesch@google.com)
 ##
 
-{Constants} = require 'goatee/Core/Constants'
+{Constants} = require './Constants'
 
 root = exports ? this
 
