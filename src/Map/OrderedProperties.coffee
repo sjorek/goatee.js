@@ -14,21 +14,22 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{RuleMap}   = require './RuleMap'
+{OrderedRules} = require './OrderedRules'
 
 {Utility:{
   camelize
-}}          = require './Utility'
+}}             = require './Utility'
 
 root = exports ? this
 
-## PropertyMap
+## OrderedProperties
 
-# A RuleMap looks like “propertyId: expression; anotherProperty: expression2”.
-# They provide a implementation of normalized to camel-case RuleMap
+# OrderedProperties look like “propertyId: expression; anotherProp: value”.
+# They provide a implementation of normalized to camel-case OrderedRules.
+#
 # @class
 # @namespace goatee.Core
-root.PropertyMap = class PropertyMap extends RuleMap
+root.OrderedProperties = class OrderedProperties extends OrderedRules
 
   ##
   # @param  {String} string
@@ -42,7 +43,7 @@ root.PropertyMap = class PropertyMap extends RuleMap
 # lightweight version of parse.js
 #
 # @param  {String}  text
-# @param  {PropertyMap} Optional _map instance to merge into, for internal use.
-# @return {PropertyMap}
-PropertyMap.parse = (text, _map) ->
-  return RuleMap.parse text, _map ? new PropertyMap
+# @param  {OrderedProperties} Optional _map instance to merge into, for internal use.
+# @return {OrderedProperties}
+OrderedProperties.parse = (text, _map) ->
+  return OrderedRules.parse text, _map ? new OrderedProperties

@@ -14,21 +14,22 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{RuleMap}   = require './RuleMap'
+{UnorderedRules} = require './UnorderedRules'
 
 {Utility:{
   dashify
-}}          = require './Utility'
+}}               = require './Utility'
 
 root = exports ? this
 
-## AttributeMap
+## UnorderedAttributes
 
-# A RuleMap looks like “propertyId: expression; anotherProperty: expression2”.
-# They provide a implementation of normalized to camel-case RuleMap
+# UnorderedAttributes look like “attribute-key: expression; another-key: value”.
+# They provide a implementation of normalized to dash-seperated UnorderedRules.
+#
 # @class
 # @namespace goatee.Core
-root.AttributeMap = class AttributeMap extends RuleMap
+root.UnorderedAttributes = class UnorderedAttributes extends UnorderedRules
 
   ##
   # @param  {String} string
@@ -42,7 +43,7 @@ root.AttributeMap = class AttributeMap extends RuleMap
 # lightweight version of parse.js
 #
 # @param  {String}  text
-# @param  {AttributeMap} Optional _map instance to merge into, for internal use.
-# @return {AttributeMap}
-AttributeMap.parse = (text, _map) ->
-  return RuleMap.parse text, _map ? new AttributeMap
+# @param  {UnorderedAttributes} Optional _map instance to merge into, for internal use.
+# @return {UnorderedAttributes}
+UnorderedAttributes.parse = (text, _map) ->
+  return UnorderedRules.parse text, _map ? new UnorderedAttributes
