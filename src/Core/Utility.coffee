@@ -28,10 +28,10 @@ permissions and limitations under the License.
 root = exports ? this
 
 
-_camelizeReplaceFn = (match, char, index, str) ->
+_camelize = (match, char, index, str) ->
   char.toUpperCase()
 
-_dashifyReplaceFn  = (match, char, camel, index, str) ->
+_dashify  = (match, char, camel, index, str) ->
   char + Constants.CHAR_dash + camel.toLowerCase()
 
 root.Utility = Utility =
@@ -133,7 +133,7 @@ root.Utility = Utility =
   # @param {String} str  Input string.
   # @return {String}  Camelized string.
   camelize: (string) ->
-    string.replace Constants.REGEXP_camelize, _camelizeReplaceFn
+    string.replace Constants.REGEXP_camelize, _camelize
 
   ##
   # Converts “aPropertyName” to “a-property-name”
@@ -141,4 +141,4 @@ root.Utility = Utility =
   # @param {String} str  Input string.
   # @return {String}  Dashed string.
   dashify: (string) ->
-    string.replace Constants.REGEXP_dashify, _dashifyReplaceFn
+    string.replace Constants.REGEXP_dashify, _dashify

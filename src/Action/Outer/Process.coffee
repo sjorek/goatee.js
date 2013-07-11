@@ -19,11 +19,10 @@ permissions and limitations under the License.
 
 root = exports ? this
 
-#### Render
+#### Process
 
-# A class implementing the render action (formerly jstransclude)
+# A class implementing the process action 
 # 
 # @class
 # @namespace goatee
-root.Render = class Render extends Action
-
+root.Process = class Process extends Action

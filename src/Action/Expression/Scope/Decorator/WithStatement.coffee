@@ -1,6 +1,5 @@
 ###
 © Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
-© Copyright 2006 Google Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,15 +14,28 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Action} = require 'goatee/Action/Outer'
-
 root = exports ? this
 
-#### Render
+root.WithStatement = class WithStatement
+  _cache: {}
 
-# A class implementing the render action (formerly jstransclude)
-# 
-# @class
-# @namespace goatee
-root.Render = class Render extends Action
+  bind: (code, scope...) ->
+    @buildMany(code).apply(scope[0], scope)
 
+  build: (code) ->
+    self = @
+    return (scope...) ->
+      code = "return #{code}"
+      args = for index, object in scope
+        name = "__scope#{index}__"
+        code = "with(#{name}) #{code}"
+        name
+      id = self.identify(args, code)
+      _cache[id] || _cache[id] = self.compile args, code
+
+  identify: (args, code) ->
+    "(#{args.join(',')}) -> (#{code})"
+
+  compile: (id, args, code) ->
+    args.push(code)
+    Function.apply null, args

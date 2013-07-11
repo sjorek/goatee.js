@@ -1,6 +1,5 @@
 ###
 © Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
-© Copyright 2006 Google Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,15 +14,17 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Action} = require 'goatee/Action/Outer'
+{Constants:{
+  CHAR_comma
+}}              = require '../../Core/Constants'
+
+{WithStatement} = require './WithStatement'
 
 root = exports ? this
 
-#### Render
+root.WithStatementEvaluation = \
+class WithStatementEvaluation extends WithStatement
 
-# A class implementing the render action (formerly jstransclude)
-# 
-# @class
-# @namespace goatee
-root.Render = class Render extends Action
-
+  compile: (args, code) ->
+    fn = null
+    eval "fn = function(#{args.implode(CHAR_comma)}) { #{code} }"

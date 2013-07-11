@@ -32,15 +32,15 @@ Outer Actions
 Outer actions operate with and on tag and context, without touching any tag-
 attributes. They implement aspects like automation, recursion or multiplicity.
 
-• render        This action initiates the rendering automatically, after
-                the dom is ready. The algorithm uses the given “render”-data as
+• process       This action initiates the processing automatically, after
+                the dom is ready. The algorithm uses the given “process”-data as
                 Context. Additionally if “jQuery” is available and the given
-                data is a string, “render” may be either an global javascript
+                data is a string, “process” may be either an global javascript
                 variable reference, or if that fails an url to an external json-
-                file. Changes to the render value, will stop any process
-                rendering the same tag and start re-rendering. The rendering-
+                file. Changes to the process value, will stop any process
+                processing the same tag and start re-processing. The processing-
                 process will skip all nested tags which it-self contain a
-                “render”-Attribute, hence any of those tags will be processed
+                “process”-Attribute, hence any of those tags will be processed
                 automatically in the order of their appearance.
 
 • match         If “json:select” is available and “match” value is used as
@@ -48,9 +48,9 @@ attributes. They implement aspects like automation, recursion or multiplicity.
                 must be suiteable as 2nd argument of “JSONSelect.match”.
                 @see http://jsonselect.org
 
-• source        Formerly “transclude”. If a “source” action is present no
+• render        Formerly “transclude”. If a “render” action is present no
                 further actions are processed. Additionally if either
-                “Sizzle”, “cheerio” or “jQuery” is available, “source” may be
+                “Sizzle”, “cheerio” or “jQuery” is available, “render” may be
                 an internal template-reference, like in
                    `(jQuery||cheerio||Sizzle)( 'source #id .selector', this )`
                 or in the case of “jQuery” an external reference, like in
@@ -97,8 +97,8 @@ root = exports ? this
 
 ## Processor
 # Internal class used by goatee-templates to maintain context.  This is
-# necessary to process deep templates in Safari which has a
-# relatively shallow maximum recursion depth of 100.
+# necessary to process deep templates in Safari≤5 which has a relatively 
+# shallow maximum recursion depth of 100.
 # @class
 root.Processor = class Processor
 

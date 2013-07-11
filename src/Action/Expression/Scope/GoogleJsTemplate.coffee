@@ -15,15 +15,4 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Action} = require 'goatee/Action/Outer'
-
-root = exports ? this
-
-#### Render
-
-# A class implementing the render action (formerly jstransclude)
-# 
-# @class
-# @namespace goatee
-root.Render = class Render extends Action
 
