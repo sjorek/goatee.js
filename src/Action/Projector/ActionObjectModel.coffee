@@ -28,3 +28,5 @@ root = exports ? this
 # @class
 # @namespace goatee.Action.Engine
 root.ActionObjectModel = class ActionObjectModel extends Processor
+
+ActionObjectModel.boot = (document) ->
