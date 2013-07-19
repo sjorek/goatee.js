@@ -41,7 +41,7 @@ bop = (op) -> o 'Expression ' + op + ' Expression', -> new yy.Expression $2, [$1
 root.grammar = grammar =
   header:
       '''
-      var global = (function(){return this;})()
+      var global = (function(){return this;})();
       require('./Expression');
       Expression = global.goatee.Expression;
 
@@ -50,17 +50,17 @@ root.grammar = grammar =
       '''
 
       Expression.parse = (function() {
-          var cache = {}
+          var cache = {};
           return function(code) {
               if (cache.hasOwnProperty(code)) {
-                  return cache[string]
+                  return cache[string];
               }
-              var expression = parser.parse(code)
-              return cache[code] = cache[expression.toString()] = expression
+              var expression = parser.parse(code);
+              return cache[code] = cache[expression.toString()] = expression;
           }
       })()
       if (typeof module !== 'undefined')
-          module.exports = Expression.parse
+          module.exports = Expression.parse;
       '''
   comment: 'Goatee Expression Parser'
   lex:

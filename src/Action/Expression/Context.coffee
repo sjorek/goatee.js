@@ -20,7 +20,7 @@ permissions and limitations under the License.
 # Compiler    = require('goatee/Action/Compiler/Coffeescript').Coffeescript
 Compiler    = require('goatee/Action/Compiler/Javascript').Javascript
 
-root = exports ? this
+root = module?.exports ? this
 
 ## Context
 

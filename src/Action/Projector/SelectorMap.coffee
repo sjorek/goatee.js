@@ -21,7 +21,7 @@ Emitter     = require('goatee/Action/Emitter/DomEvents').DomEvents
 #Emitter     = require('goatee/Action/Emitter/JqueryEvents').JqueryEvents
 #Emitter     = require('goatee/Action/Emitter/NodejsEvents').NodejsEvents
 
-root = exports ? this
+root = module?.exports ? this
 
 ## SelectorMap
 # @class

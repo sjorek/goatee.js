@@ -19,7 +19,7 @@ permissions and limitations under the License.
 {Utility}   = require 'goatee/Core/Utility'
 {Document}  = require 'goatee/Dom/Document'
 
-root = exports ? this
+root = module?.exports ? this
 
 ## ElementData
 # Internal class used by goatee-templates to maintain context.  This is

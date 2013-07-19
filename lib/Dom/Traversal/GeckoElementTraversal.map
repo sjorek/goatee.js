@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "GeckoElementTraversal.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Traversal/GeckoElementTraversal.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,yDAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAyB,IAAA,cAjB1B,uBAiB0B;;CAjB1B,CAmBA,CAAyB,CAAzB;;CAnBA,CA2BA,CACM,CADF,iBAAJ;CAME;;;;;CAAA;;CAAA,EAAS,CAAA,GAAT,EAAU;CACR,KAAA,IAAA;CAAA,CAAA,CAAS,GAAT;CAAA,KACA;;CADA,OAAA;CAIA,KAAA,OAAO;CALT,IAAS;;CAAT;;CALkC;;CA5BpC,CAwCA,CAA+B,GAA/B,EAA+B,CAAC,YAAX;CACO,GAAtB,IAAA,GAAA,UAAA;CAzCN,EAwC+B;CAxC/B"
+}

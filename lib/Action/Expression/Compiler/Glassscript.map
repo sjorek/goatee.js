@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Glassscript.js",
+  "sourceRoot": "../../../../src",
+  "sources": [
+    "Action/Expression/Compiler/Glassscript.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,0EAAA;KAAA;oSAAA;;CAAA,CAgBA,CAAe,EAAf,EAAe,OAAA;;CAhBf,CAiBC,CAAc,IAAA,EAjBf,cAiBe;;CAjBf,CAkBC,CAAc,IAAA,cAAA;;CAlBf,CAmBC,CAAc,IAAA,GAnBf,yBAmBe;;CAnBf,CAqBA,CAAyB,CAAzB;;CAEA;;;;;;CAvBA;;CAAA,CA6BA,CAAyB,CAArB,OAAJ;CAKE,OAAA,QAAA;;CAAA;;;;;CAAA;;CAAA,CAAA,CAAmB,CAAnB,YAAA;;CAAA,EAYoB,MAAC,CAAD,QAApB;CACE,CAAA,QAAA;CAAA,CACC,CAAK,CAAN,CAA0C,CAD1C,IACuB,MAAA,6BADvB;CADkB,CAGlB,WAAA,uCAAM;CAfR,IAYoB;;CAZpB;;CAL2C;;CA7B7C,CAsDA,CAAY,CAtDZ,IAsDY,CAAZ,EAAuB;;CAtDvB,CA2DA,CAAA,MAAkB,EAAP;AACgB,CAAZ,EAAb,MAAa,EAAD;CA5Dd,EA2DkB;CA3DlB"
+}

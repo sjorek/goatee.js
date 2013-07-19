@@ -25,7 +25,7 @@ permissions and limitations under the License.
 
 {Constants} = require './Constants'
 
-root = exports ? this
+root = module?.exports ? this
 
 
 _camelize = (match, char, index, str) ->

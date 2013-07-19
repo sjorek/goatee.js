@@ -93,7 +93,7 @@ well as the context-data, -variables and -values.
 {Utility}   = require 'goatee/Core/Utility'
 {Document}  = require 'goatee/Dom/Document'
 
-root = exports ? this
+root = module?.exports ? this
 
 ## Processor
 # Internal class used by goatee-templates to maintain context.  This is

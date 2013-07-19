@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Sizzle.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Selector/Sizzle.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA;;CAAA,CAiBA,CAAI,IAAA,CAAA;CAjBJ"
+}

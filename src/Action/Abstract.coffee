@@ -15,12 +15,12 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-root = exports ? this
+root = module?.exports ? this
 
 #### Abstract
 
-# A abstract class implementing a basic action 
-# 
+# A abstract class implementing a basic action
+#
 # @class
 # @namespace goatee
 root.Abstract = class Abstract

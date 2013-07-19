@@ -15,7 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-root = exports ? this
+root = module?.exports ? this
 
 root.Constants = Constants =
 

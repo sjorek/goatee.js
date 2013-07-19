@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ElementAttribute.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Projector/ElementAttribute.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,2DAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAa,IAAA,EAjBd,cAiBc;;CAjBd,CAkBC,CAAa,IAAA,cAAA;;CAlBd,CAmBC,CAAa,IAAA,CAnBd,aAmBc;;CAnBd,CAqBA,CAAyB,CAAzB;;CArBA,CA6BA,CAA8B,CAA1B,YAAJ;CAAwB;;;;;CAAA;;CAAA;;CAA+B;CA7BvD"
+}

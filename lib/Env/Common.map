@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Common.js",
+  "sourceRoot": "../../src",
+  "sources": [
+    "Env/Common.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA;CAAA"
+}

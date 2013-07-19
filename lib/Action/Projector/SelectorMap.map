@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "SelectorMap.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Projector/SelectorMap.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,4CAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAa,IAAA,EAjBd,gBAiBc;;CAjBd,CAmBA,CAAc,IAAd,EAnBA,wBAmBc;;CAnBd,CAuBA,CAAyB,CAAzB;;CAvBA,CA4BA,CAAyB,CAArB,OAAJ;CAEE,OAAA;;CAAA;;;;;CAAA;;CAAA,EAAiB,CAAjB,IAAA;;CAAA,EAKS,CAAA,GAAT,EAAU;CACuB,EAA9B,CAAsB,EAAA,CAAO,CAAlB,KAAZ;CANF,IAKS;;CALT;;CAF2C;CA5B7C"
+}

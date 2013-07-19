@@ -18,7 +18,7 @@ permissions and limitations under the License.
 {Node}                  = require 'goatee/Core/Node'
 {Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
 
-root = exports ? this
+root = module?.exports ? this
 
 #### Level4ElementChildNodesList
 

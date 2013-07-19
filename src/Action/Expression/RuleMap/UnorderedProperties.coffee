@@ -20,7 +20,7 @@ permissions and limitations under the License.
   camelize
 }}               = require './Utility'
 
-root = exports ? this
+root = module?.exports ? this
 
 ## UnorderedProperties
 

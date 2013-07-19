@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ActionObjectModel.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Projector/ActionObjectModel.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,yCAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAa,IAAA,EAjBd,gBAiBc;;CAjBd,CAmBA,CAAyB,CAAzB;;CAnBA,CA6BA,CAA+B,CAA3B,aAAJ;CAAyB;;;;;CAAA;;CAAA;;CAAgC;;CA7BzD,CA+BA,CAAyB,CAAzB,IAAyB,CAAC,QAAT;CA/BjB"
+}

@@ -39,7 +39,7 @@ permissions and limitations under the License.
   trim
 }} = require '../Core/Utility'
 
-root = exports ? this
+root = module?.exports ? this
 
 ## UnorderedRules
 

@@ -22,7 +22,7 @@ permissions and limitations under the License.
 
 {UnorderedRules}    = require './UnorderedRules'
 
-root = exports ? this
+root = module?.exports ? this
 
 ## OrderedRules
 

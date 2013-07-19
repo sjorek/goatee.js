@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "WithStatementEvaluation.js",
+  "sourceRoot": "../../../../../src",
+  "sources": [
+    "Action/Expression/Scope/Decorator/WithStatementEvaluation.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,+DAAA;KAAA;oSAAA;;CAAA,CAiBE,CACgB,IAAA,GAlBlB,YAkBkB;;CAlBlB,CAoBC,CAAiB,IAAA,MApBlB,IAoBkB;;CApBlB,CAsBA,CAAyB,CAAzB;;CAtBA,CAwBA,CACM,CADF,mBAAJ;CAGE;;;;;CAAA;;CAAA,CAAgB,CAAP,CAAA,GAAT,EAAU;CACR,CAAA,QAAA;CAAA,CAAA,CAAK,CAAL,EAAA;CACM,EAAe,CAArB,EAAM,CAAe,GAAA,GAArB,GAAM;CAFR,IAAS;;CAAT;;CAFoC;CAzBtC"
+}

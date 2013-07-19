@@ -25,7 +25,7 @@ Traversal = require('goatee/Dom/Traversal/Level1NodeTypeMatcher').Level1NodeType
 #Traversal = require('goatee/Dom/Traversal/Level4ChildNodesIterator').Level4ChildNodesIterator
 #Traversal = require('goatee/Dom/Traversal/Level4ElementChildrenIterator').Level4ElementChildrenIterator
 
-root = exports ? this
+root = module?.exports ? this
 
 ## Document
 

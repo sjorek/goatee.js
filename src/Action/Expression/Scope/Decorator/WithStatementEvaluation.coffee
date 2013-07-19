@@ -20,7 +20,7 @@ permissions and limitations under the License.
 
 {WithStatement} = require './WithStatement'
 
-root = exports ? this
+root = module?.exports ? this
 
 root.WithStatementEvaluation = \
 class WithStatementEvaluation extends WithStatement

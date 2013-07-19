@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "DomElementAttributes.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Injector/DomElementAttributes.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,0BAAA;;CAAA,CAkBA,CAAyB,CAAzB;;CAlBA,CAwBA,CAAkC,CAA9B,gBAAJ;CAA4B;;CAAA;;CAxB5B;CAAA"
+}

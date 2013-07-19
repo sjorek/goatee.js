@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Inner.js",
+  "sourceRoot": "../../src",
+  "sources": [
+    "Action/Inner.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,0BAAA;KAAA;oSAAA;;CAAA,CAiBA,CAAS,GAAT,CAAS,CAjBT,gBAiBS;;CAjBT,CAmBA,CAAyB,CAAzB;;CAnBA,CA2BA,CAAmB,CAAf,CAAJ;CAAa;;;;;CAAA;;CAAA;;CAAoB;CA3BjC"
+}

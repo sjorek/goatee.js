@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "NativeSelectorApiLevel1.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Selector/NativeSelectorApiLevel1.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA;CAAA"
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Jquery2.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Selector/Jquery2.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA;;CAAA,CAiBA,CAAI,IAAA,EAAA;CAjBJ"
+}

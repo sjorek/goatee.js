@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 {Processor} = require 'goatee/Action/Processor'
 
-root = exports ? this
+root = module?.exports ? this
 
 ## ProjectionSheet
 

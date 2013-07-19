@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 Action = require('goatee/Action/Abstract').Abstract
 
-root = exports ? this
+root = module?.exports ? this
 
 #### Outer
 

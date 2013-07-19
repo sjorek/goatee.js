@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "GoogleJsTemplate.js",
+  "sourceRoot": "../../../../src",
+  "sources": [
+    "Action/Expression/Scope/GoogleJsTemplate.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA;CAAA"
+}

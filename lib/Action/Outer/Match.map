@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Match.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Outer/Match.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,0BAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAU,GAjBX,CAiBW,cAAA;;CAjBX,CAmBA,CAAyB,CAAzB;;CAnBA,CA2BA,CAAmB,CAAf,CAAJ;CAAa;;;;;CAAA;;CAAA;;CAAoB;CA3BjC"
+}

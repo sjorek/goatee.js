@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ElementData.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Projector/ElementData.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,sDAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAa,IAAA,EAjBd,cAiBc;;CAjBd,CAkBC,CAAa,IAAA,cAAA;;CAlBd,CAmBC,CAAa,IAAA,CAnBd,aAmBc;;CAnBd,CAqBA,CAAyB,CAAzB;;CArBA,CA6BA,CAAyB,CAArB,OAAJ;CAAmB;;;;;CAAA;;CAAA;;CAA0B;CA7B7C"
+}

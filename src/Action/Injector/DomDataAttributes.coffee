@@ -16,7 +16,7 @@ permissions and limitations under the License.
 ###
 
 
-root = exports ? this
+root = module?.exports ? this
 
 ## DomDataAttributes
 

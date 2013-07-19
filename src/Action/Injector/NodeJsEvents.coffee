@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 events = require 'events'
 
-root = exports ? this
+root = module?.exports ? this
 
 ## NodeEvents
 

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Cheerio.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Selector/Cheerio.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA;;CAAA,CAiBA,CAAI,IAAA,EAAA;CAjBJ"
+}

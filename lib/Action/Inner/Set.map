@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Set.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Inner/Set.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,wBAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAU,GAjBX,CAiBW,cAAA;;CAjBX,CAmBA,CAAyB,CAAzB;;CAnBA,CA2BA,CAAA,CAAI;CAAO;;;;;CAAA;;CAAA;;CAAkB;CA3B7B"
+}

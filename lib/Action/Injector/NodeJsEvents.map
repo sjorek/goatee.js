@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "NodeJsEvents.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Injector/NodeJsEvents.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,0BAAA;;CAAA,CAiBA,CAAS,GAAT,CAAS,CAAA;;CAjBT,CAmBA,CAAyB,CAAzB;;CAnBA,CAyBA,CAA0B,CAAtB,QAAJ;CAKE;;CAAA,EAAO,CAAA,CAAP,IAAQ;;CAAR,EAKO,CAAA,CAAP,IAAQ;;CALR;;CA9BF;CAAA"
+}

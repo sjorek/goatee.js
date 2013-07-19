@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Skip.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Inner/Skip.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,yBAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAU,GAjBX,CAiBW,cAAA;;CAjBX,CAmBA,CAAyB,CAAzB;;CAnBA,CA2BA,CAAkB,CAAd;CAAQ;;;;;CAAA;;CAAA;;CAAmB;CA3B/B"
+}

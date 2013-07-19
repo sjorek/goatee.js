@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 {Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
 
-root = exports ? this
+root = module?.exports ? this
 
 #### GeckoElementTraversal
 

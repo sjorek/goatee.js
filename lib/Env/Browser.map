@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Browser.js",
+  "sourceRoot": "../../src",
+  "sources": [
+    "Env/Browser.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA;CAAA"
+}

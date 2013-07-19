@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Level2TreeWalker.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Traversal/Level2TreeWalker.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,2DAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAsB,IAAA,CAjBvB,aAiBuB;;CAjBvB,CAkBC,CAAsB,IAAA,WAlBvB,qBAkBuB;;CAlBvB,CAoBA,CAAyB,CAAzB;;CApBA,CA4BA,CACM,CADF,YAAJ;CAQE;;;;;CAAA;;CAAA,EAAS,CAAA,GAAT,EAAU;CACJ,CAKF,CALC,CAAH,CAAA,CAAA,CAAA,MAAA,GAAA;CADF,IAAS;;CAAT;;CAP6B;;CA7B/B,CAkDA,CAA0B,GAA1B,EAA0B,CAAC,OAAX;CACO,GAAjB,IAAA,GAAA,KAAA;CAnDN,EAkD0B;CAlD1B"
+}

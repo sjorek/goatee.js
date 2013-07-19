@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ProjectionSheet.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Projector/ProjectionSheet.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,uCAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAa,IAAA,EAjBd,gBAiBc;;CAjBd,CAmBA,CAAyB,CAAzB;;CAnBA,CA0BA,CAA6B,CAAzB,WAAJ;CAAuB;;;;;CAAA;;CAAA;;CAA8B;CA1BrD"
+}

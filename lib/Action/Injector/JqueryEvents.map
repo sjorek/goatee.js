@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "JqueryEvents.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Injector/JqueryEvents.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,eAAA;;CAAA,CAiBA,CAAS,IAAU,CAAA;;CAjBnB,CAkBA,CAAS,CAAT;;CAlBA,CAwBA,CAA0B,CAAtB,QAAJ;CAAoB;;CAAA;;CAxBpB;CAAA"
+}

@@ -19,7 +19,7 @@ Glass        = require 'glass-script'
 {Utility}    = require 'goatee/Core/Utility'
 {Javascript} = require 'goatee/Action/Compiler/Javascript'
 
-root = exports ? this
+root = module?.exports ? this
 
 ###
 Glassscript

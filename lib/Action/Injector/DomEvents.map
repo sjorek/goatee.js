@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "DomEvents.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Injector/DomEvents.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,eAAA;;CAAA,CAkBA,CAAyB,CAAzB;;CAlBA,CAwBA,CAAuB,CAAnB,KAAJ;CAAiB;;CAAA;;CAxBjB;CAAA"
+}
