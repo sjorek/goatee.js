@@ -24,6 +24,7 @@ root = module?.exports ? this
 # @namespace goatee.Action.Expression.Compiler.Goateescript
 root.Expression = (global.goatee ?= {}).Expression = class Expression
 
+  # TODO Move to Scope !
   # global will not just reference the original context from any expression
   _global             = undefined
   _variables          = null
@@ -91,6 +92,7 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
       values = params
     op.evaluate.apply context, values
 
+  # TODO Move to Scope !
   Expression.operations = _operations =
     '=':  #  assignment
       evaluate: (a,b) ->

@@ -15,15 +15,16 @@ permissions and limitations under the License.
 ###
 
 {Parser} = require 'jison'
-{Expression} = require './Expression'
+yy       = require('./Scope').Scope
 
 root = module?.exports ? this
 
-$1 = $2 = $3 = null
+$1 = $2 = $3 = $4 = $5 = $6 = $7 = null
 
 #  lifted from coffeescript http:#jashkenas.github.com/coffee-script/documentation/docs/grammar.html
 unwrap = /^function\s*\(\)\s*\{\s*return\s*([\s\S]*);\s*\}/
 
+# return
 r = (patternString, action) ->
     if patternString.source?
         patternString = patternString.source
@@ -31,38 +32,44 @@ r = (patternString, action) ->
     action = if match = unwrap.exec action then match[1] else "(#{action}())"
     [patternString, "return #{action};"]
 
+# operation
 o = (patternString, action, options) ->
     return [patternString, '$$ = $1;', options] unless action
     action = if match = unwrap.exec action then match[1] else "(#{action}())"
     [patternString, "$$ = #{action};", options]
 
-bop = (op) -> o 'Expression ' + op + ' Expression', -> new yy.Expression $2, [$1, $3]   #  binary operation shortcut
+#  binary operation shortcut
+bop = (op) -> o "Expression #{op} Expression", ->
+  new yy.Expression $2, [$1, $3]
 
-root.grammar = grammar =
-  header:
-      '''
+root.Grammar = Grammar =
+  comment: 'Goatee Expression Parser'
+  header: (comment) ->
+      """
+      /* // #{comment} */
       var global = (function(){return this;})();
-      require('./Expression');
-      Expression = global.goatee.Expression;
+      var Expression = require('./Expression').Expression;
+      var yy = require('./Scope').Scope
 
-      '''
-  footer:
-      '''
+      """
+  footer: ->
+      """
+
+      parser.yy = yy;
 
       Expression.parse = (function() {
           var cache = {};
           return function(code) {
               if (cache.hasOwnProperty(code)) {
-                  return cache[string];
+                  return cache[code];
               }
               var expression = parser.parse(code);
-              return cache[code] = cache[expression.toString()] = expression;
-          }
-      })()
+              return cache[code] = cache['' + expression] = expression;
+          };
+      })();
       if (typeof module !== 'undefined')
           module.exports = Expression.parse;
-      '''
-  comment: 'Goatee Expression Parser'
+      """
   lex:
     rules: [
       r /\s+/                     , ->
@@ -82,7 +89,8 @@ root.grammar = grammar =
       r /false\b/                 , -> 'FALSE'
       r /new\b/                   , -> 'NEW'
       r /[@$.:]/                  , -> 'CONTEXT'
-      r /[a-zA-Z_$]\w*/           , -> 'REFERENCE'    # identifier has to come AFTER reserved words
+      r /[a-zA-Z_$]\w*/           , -> 'REFERENCE'
+      # identifier has to come AFTER reserved words
 
       # identifier above
       r ///
@@ -172,184 +180,187 @@ root.grammar = grammar =
   ].reverse()
   startSymbol : 'Root'
 
-# The syntax description
-# ----------------------
-grammar.bnf = bnf =
-  # The **Root** is the top-level node in the syntax tree. Since we parse bottom-up,
-  # all parsing must end here.
-  Root: [
-    r 'EOF'                       , -> null
-    r 'Statements EOF'            , -> if $1 is yy.Empty then null else $1
-    r 'Statements'                , -> if $1 is yy.Empty then null else $1
-  ]
-  Parameters: [
-    o ''                          , -> []
-    o 'Expression'                , -> [$1]
-    o 'Parameters , Expression'   , -> $1.concat $3
-  ]
-  Key: [
-    o 'Primitive'                 , -> $1
-    o 'Identifier'                , -> $1
-  ]
-  KeyValue: [
-    o 'Key : Expression'          , -> [$1,$3]
-  ]
-  KeyValues: [
-    o ''                          , -> []
-    o 'KeyValue'                  , -> $1
-    o 'KeyValues , KeyValue'      , -> $1.concat $3
-  ]
-  Object: [
-    o '{ KeyValues }'             , -> new yy.Expression 'object', $2
-  ]
-  Elements: [
-    o ''                          , -> []
-    o 'Expression'                , -> [$1]
-    o 'Elements , Expression'     , -> $1.concat $3
-  ]
-  Array: [
-    o '[ Elements ]'              , -> new yy.Expression 'array', $2
-  ]
-  Assign: [
-    o '='
-    o '-='
-    o '+='
-    o '*='
-    o '/='
-    o '<<='
-    o '>>='
-    o '>>>='
-    o '&='
-    o '^='
-    o '|='
-    o '%='
-  ]
-  Statements: [
-    o 'Statement'
-    o 'Statements Statement'      , ->
-      if $1 is yy.Empty
-        if $2 is yy.Empty
-          yy.Empty
+  ##
+  # The syntax description
+  # ----------------------
+  bnf:
+    # The **Root** is the top-level node in the syntax tree. Since we parse bottom-up,
+    # all parsing must end here.
+    Root: [
+      r 'EOF'                       , -> null
+      r 'Statements EOF'            , -> if $1 is yy.Empty then null else $1
+      r 'Statements'                , -> if $1 is yy.Empty then null else $1
+    ]
+    Parameters: [
+      o ''                          , -> []
+      o 'Expression'                , -> [$1]
+      o 'Parameters , Expression'   , -> $1.concat $3
+    ]
+    Key: [
+      o 'Primitive'                 , -> $1
+      o 'Identifier'                , -> $1
+    ]
+    KeyValue: [
+      o 'Key : Expression'          , -> [$1,$3]
+    ]
+    KeyValues: [
+      o ''                          , -> []
+      o 'KeyValue'                  , -> $1
+      o 'KeyValues , KeyValue'      , -> $1.concat $3
+    ]
+    Object: [
+      o '{ KeyValues }'             , -> new yy.Expression 'object', $2
+    ]
+    Elements: [
+      o ''                          , -> []
+      o 'Expression'                , -> [$1]
+      o 'Elements , Expression'     , -> $1.concat $3
+    ]
+    Array: [
+      o '[ Elements ]'              , -> new yy.Expression 'array', $2
+    ]
+    Assign: [
+      o '='
+      o '-='
+      o '+='
+      o '*='
+      o '/='
+      o '<<='
+      o '>>='
+      o '>>>='
+      o '&='
+      o '^='
+      o '|='
+      o '%='
+    ]
+    Statements: [
+      o 'Statement'
+      o 'Statements Statement'      , ->
+        if $1 is yy.Empty
+          if $2 is yy.Empty
+            yy.Empty
+          else
+            new yy.Expression 'block', [$2]
+        else if $1.operator.name is 'block'
+          $1.parameters.push $2 unless $2 is yy.Empty
+          $1
+        else if $2 is yy.Empty
+          new yy.Expression 'block', [$1]
         else
-          new yy.Expression 'block', [$2]
-      else if $1.operator.name is 'block'
-        $1.parameters.push $2 unless $2 is yy.Empty
-        $1
-      else if $2 is yy.Empty
-        new yy.Expression 'block', [$1]
-      else
-        new yy.Expression 'block', [$1, $2]
-  ]
-  Statement: [
-    o 'EmptyStatement'
-    o 'ExpressionStatement'
-    o 'ConditionalStatement'
-    o 'AssignStatement'
-  ]
-  Block: [
-    o '{ Statements }'            , -> if $2 is yy.Empty then null else $2
-  ]
-  EmptyStatement: [
-    o ';'                         , -> yy.Empty
-  ]
-  ExpressionStatement: [
-    o 'Expression ;'
-    o 'Expression EOF'
-  ]
-  ConditionalStatement: [
-    o 'Conditional ;'
-    o 'Conditional EOF'
-  ]
-  AssignStatement: [
-    o 'Identifier Assign ExpressionStatement', -> new yy.Expression $2, [$1, $3]   #  assignment
-  ]
-  Conditional: [
-    o 'IF ( Expression ) Block ELSE Conditional', -> new yy.Expression 'if',  [$3,$5,$7]
-    o 'IF ( Expression ) Block ELSE Block'      , -> new yy.Expression 'if',  [$3,$5,$7]
-    o 'IF ( Expression ) Block'                 , -> new yy.Expression 'if',  [$3,$5]
-    #o 'FOR ( e ) block'                         , -> new yy.Expression 'for', [$3,$5]
-  ]
-  Primitive: [
-    o 'NUMBER'                    , -> Number($1)
-    o '- NUMBER'                  , -> - Number($2)
-    o 'NULL'                      , -> null
-    o 'TRUE'                      , -> true
-    o 'FALSE'                     , -> false
-    o 'STRING'                    , -> yy.escapeString($1)
-  ]
-  Math: [
-    bop '*'
-    bop '/'
-    bop '%'
-    bop '+'
-    bop '-'
-  ]
-  Boolean: [
-    # logical not
-    o '! Expression'              , -> new yy.Expression '!' , [$2]
-    bop '<='
-    bop '>='
-    bop '<'
-    bop '>'
-    bop '==='
-    bop '!=='
-    bop '=='
-    bop '!='
-    bop '&&'
-    bop '||'
-  ]
-  Literal: [
-    o 'Object'                   , -> $1                                    # object literal
-    o 'Array'                    , -> $1                                    # array literal
-    o 'Primitive'                , -> new yy.Expression 'primitive',  [$1]     # number, boolean, string, null
-  ]
-  Identifier: [
-    o 'REFERENCE'                , -> $1                                    # identifier
-  ]
-  Scope: [
-    o 'CONTEXT'                  , -> new yy.Expression 'context', $1
-  ]
-  Reference: [
-    o 'Identifier'               , -> new yy.Expression 'reference', [$1]
-    o 'Scope Identifier'         , -> new yy.Expression '.', [$1, $2]          # shorthand dot operator
-    o 'Scope'                    , -> $1                                       # global or local
-  ]
-  Path: [
-      o 'Expression . Identifier' , -> new yy.Expression $2, [$1, new yy.Expression('reference', [$3])]
-  ]
-  Expression: [
-    o 'Expression ? Expression : Expression',          -> new yy.Expression '?:', [$1, $3, $5]     # ternary conditional
-    o 'Expression ( Parameters )',   -> new yy.Expression '()', [$1].concat $3   # function call
-    o 'Expression [ Expression ]',   -> new yy.Expression '[]', [$1, $3]         # indexer
-    o 'Reference',          -> $1
-    o 'Literal',            -> $1
-    o 'Math',               -> $1
-    o 'Boolean',            -> $1
-    o 'Path',               -> $1
-  ]
-
+          new yy.Expression 'block', [$1, $2]
+    ]
+    Statement: [
+      o 'EmptyStatement'
+      o 'ExpressionStatement'
+      o 'ConditionalStatement'
+      o 'AssignStatement'
+    ]
+    Block: [
+      o '{ Statements }'            , -> if $2 is yy.Empty then null else $2
+    ]
+    EmptyStatement: [
+      o ';'                         , -> yy.Empty
+    ]
+    ExpressionStatement: [
+      o 'Expression ;'
+      o 'Expression EOF'
+    ]
+    ConditionalStatement: [
+      o 'Conditional ;'
+      o 'Conditional EOF'
+    ]
+    AssignStatement: [
+      o 'Identifier Assign ExpressionStatement', -> new yy.Expression $2, [$1, $3]   #  assignment
+    ]
+    Conditional: [
+      o 'IF ( Expression ) Block ELSE Conditional', -> new yy.Expression 'if',  [$3,$5,$7]
+      o 'IF ( Expression ) Block ELSE Block'      , -> new yy.Expression 'if',  [$3,$5,$7]
+      o 'IF ( Expression ) Block'                 , -> new yy.Expression 'if',  [$3,$5]
+      #o 'FOR ( e ) block'                         , -> new yy.Expression 'for', [$3,$5]
+    ]
+    Primitive: [
+      o 'NUMBER'                    , -> Number($1)
+      o '- NUMBER'                  , -> - Number($2)
+      o 'NULL'                      , -> null
+      o 'TRUE'                      , -> true
+      o 'FALSE'                     , -> false
+      o 'STRING'                    , -> yy.escapeString($1)
+    ]
+    Math: [
+      bop '*'
+      bop '/'
+      bop '%'
+      bop '+'
+      bop '-'
+    ]
+    Boolean: [
+      # logical not
+      o '! Expression'              , -> new yy.Expression '!' , [$2]
+      bop '<='
+      bop '>='
+      bop '<'
+      bop '>'
+      bop '==='
+      bop '!=='
+      bop '=='
+      bop '!='
+      bop '&&'
+      bop '||'
+    ]
+    Literal: [
+      o 'Object'                   , -> $1                                    # object literal
+      o 'Array'                    , -> $1                                    # array literal
+      o 'Primitive'                , -> new yy.Expression 'primitive',  [$1]     # number, boolean, string, null
+    ]
+    Identifier: [
+      o 'REFERENCE'                , -> $1                                    # identifier
+    ]
+    Scope: [
+      o 'CONTEXT'                  , -> new yy.Expression 'context', $1
+    ]
+    Reference: [
+      o 'Identifier'               , -> new yy.Expression 'reference', [$1]
+      o 'Scope Identifier'         , -> new yy.Expression '.', [$1, $2]          # shorthand dot operator
+      o 'Scope'                    , -> $1                                       # global or local
+    ]
+    Path: [
+        o 'Expression . Identifier' , -> new yy.Expression $2, [$1, new yy.Expression('reference', [$3])]
+    ]
+    Expression: [
+      o 'Expression ? Expression : Expression', -> new yy.Expression '?:', [$1, $3, $5]     # ternary conditional
+      o 'Expression ( Parameters )', -> new yy.Expression '()', [$1].concat $3   # function call
+      o 'Expression [ Expression ]', -> new yy.Expression '[]', [$1, $3]         # indexer
+      o 'Reference',                 -> $1
+      o 'Literal',                   -> $1
+      o 'Math',                      -> $1
+      o 'Boolean',                   -> $1
+      o 'Path',                      -> $1
+    ]
 
 # Wrapping Up
 # -----------
 
-# Finally, now that we have our **grammar** and our **operators**, we can create
-# our **Jison.Parser**. We do this by processing all of our rules, recording all
-# terminals (every symbol which does not appear as the name of a rule above)
-# as "tokens".
-tokens = []
+# Finally, now that we have our **Grammar.bnf** and our **Grammar.operators**,
+# we can create our **Jison.Parser**.  We do this by processing all of our
+# rules, recording all terminals (every symbol which does not appear as the
+# name of a rule above) as "tokens".
+Grammar.tokens = do ->
+  tokens = []
+  bnf = Grammar.bnf
+  known = {}
+  tokenize = (name, alternatives) ->
+    for alt in alternatives
+      for token in alt[0].split ' '
+        tokens.push token if not bnf[token]? and not known[token]?
+        known[token] = true
+      alt[1] = "#{alt[1]}" if name is 'Root'
+      alt
+  for own name, alternatives of bnf
+    bnf[name] = tokenize(name, alternatives)
+  tokens.join ' '
 
-for own name, alternatives of bnf
-  bnf[name] = for alt in alternatives
-    for token in alt[0].split ' '
-      tokens.push token unless bnf[token]
-    alt[1] = "#{alt[1]}" if name is 'Root'
-    alt
-
-grammar.tokens = tokens.join ' '
-
-# Initialize the **Parser** with our grammar
-root.parser = parser = new Parser grammar
-
-parser.yy.escapeString = (s) -> s.replace(/\\\n/,'').replace(/\\([^xubfnvrt0\\])/g, '$1')
-parser.yy.Expression   = Expression
-parser.yy.Empty        = {operator:{name:'empty'}}
+# Initialize the **Parser** with our **Grammar**
+root.Parser = do ->
+  parser = new Parser Grammar
+  parser.yy = yy
+  parser

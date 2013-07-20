@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Scope.js",
+  "sourceRoot": "../../../../../src",
+  "sources": [
+    "Action/Expression/Compiler/Goateescript/Scope.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,gBAAA;;CAAA,CAgBC,CAAc,IAAA,GAhBf,IAgBe;;CAhBf,CAkBA,CAAyB,CAAzB;;CAlBA,CAsBA,CAIE,CAJE,CAAJ;CAIE,CAAc,EAAd,MAAA;CAAA,CAIc,EAAd,CAAA;CAAc,CAAU,IAAT,EAAA;CAAS,CAAM,EAAL,GAAD,CAAC;QAAX;MAJd;CAAA,CASc,CAAA,CAAd,KAAe,GAAf;CACG,CAAgB,EAAjB,EAAA,CAAA,MAAA,QAAA;CAVF,IASc;CAnChB,GAAA;CAAA"
+}
