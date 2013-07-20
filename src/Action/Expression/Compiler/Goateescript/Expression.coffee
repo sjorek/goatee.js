@@ -97,6 +97,40 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
     '=':  #  assignment
       evaluate: (a,b) ->
         _variables[a] = b
+    '-=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) - b
+    '+=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) + b
+    '*=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) * b
+    '/=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) / b
+    '>>>=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) >>> b
+    '>>=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) >> b
+    '<<=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) << b
+    '&=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) & b
+    '^=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) ^ b
+    '|=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) | b
+    '%=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) % b
+
     '.':
       chain: true
       #  functions must be bound to their container now or else they would have the global as their context.
@@ -337,8 +371,8 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
     if format?
       return format.apply this, value.parameters
     else if value.parameters.length == 2
-      return '(' + _stringfy(value.parameters[0]) + value.operator +
-                   _stringfy(value.parameters[1]) + ')'
+      return '(' + _stringify(value.parameters[0]) + value.operator +
+                   _stringify(value.parameters[1]) + ')'
     else
       return value.parameters.map(_stringfy).join ' '
 
@@ -378,8 +412,8 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
   ##
   # @return String
   toString: ->
-    return @text = _stringify this if @text is undefined
-    @text
+    return @text unless @text is undefined
+    @text = _stringify(@)
 
   ##
   # @return Object.<String:op,Array:parameters>

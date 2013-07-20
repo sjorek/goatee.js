@@ -19,7 +19,7 @@ yy       = require('./Scope').Scope
 
 root = module?.exports ? this
 
-$1 = $2 = $3 = $4 = $5 = $6 = $7 = null
+$1 = $2 = $3 = $4 = $5 = $6 = $7 = $8 = null
 
 #  lifted from coffeescript http:#jashkenas.github.com/coffee-script/documentation/docs/grammar.html
 unwrap = /^function\s*\(\)\s*\{\s*return\s*([\s\S]*);\s*\}/
@@ -82,13 +82,14 @@ root.Grammar = Grammar =
         ///                       , -> 'NUMBER'
       r /return\b/                , -> 'RETURN'
       r /if\b/                    , -> 'IF'
-      #r /for\b/                   , -> 'FOR'
+      r /then\b/                  , -> 'THEN'
       r /else\b/                  , -> 'ELSE'
+      #r /for\b/                   , -> 'FOR'
       r /null\b/                  , -> 'NULL'
       r /true\b/                  , -> 'TRUE'
       r /false\b/                 , -> 'FALSE'
       r /new\b/                   , -> 'NEW'
-      r /[@$.:]/                  , -> 'CONTEXT'
+      r /[@$]/                    , -> 'CONTEXT'
       r /[a-zA-Z_$]\w*/           , -> 'REFERENCE'
       # identifier has to come AFTER reserved words
 
@@ -115,6 +116,19 @@ root.Grammar = Grammar =
       r /\/\*(?:.|[\r\n])*?\*\//  , ->
       # operators below
 
+      r '-='                      , ->   '-='
+      r '\\+='                    , ->   '+='
+      r '\\*='                    , ->   '*='
+      r '\\/='                    , ->   '/='
+      r '>>>='                    , -> '>>>='
+      r '>>='                     , ->  '>>='
+      r '<<='                     , ->  '<<='
+      r '&='                      , ->   '&='
+      r '\\^='                    , ->   '^='
+      r '\\|='                    , ->   '|='
+      r '%='                      , ->   '%='
+      r '='                       , ->    '='
+
       r '\\.'                     , -> '.'
       r '\\['                     , -> '['
       r '\\]'                     , -> ']'
@@ -135,18 +149,6 @@ root.Grammar = Grammar =
       r '>='                      , -> '>='
       r '<'                       , -> '<'
       r '>'                       , -> '>'
-      r '='                       , ->    '='
-      r '-='                      , ->   '-='
-      r '\\+='                    , ->   '+='
-      r '\\*='                    , ->   '*='
-      r '\\/='                    , ->   '/='
-      r '<<='                     , ->  '<<='
-      r '>>='                     , ->  '>>='
-      r '>>>='                    , -> '>>>='
-      r '&='                      , ->   '&='
-      r '\\^='                    , ->   '^='
-      r '\\|='                    , ->   '|='
-      r '%='                      , ->   '%='
       r '\\&\\&'                  , -> '&&'
       r '\\|\\|'                  , -> '||'
       r '\\?'                     , -> '?'
@@ -172,6 +174,8 @@ root.Grammar = Grammar =
     ['right', '?', ':']
     ['left', '*=', '/=', '%=']
     ['left', '+=', '-=']
+    ['left', '&=', '^=', '|=']
+    ['left', '>>>=','>>=', '<<=']
     ['left', '=']
     ['left', ',']
   # Reverse the operators because Jison orders precedence from low to high,
@@ -187,9 +191,12 @@ root.Grammar = Grammar =
     # The **Root** is the top-level node in the syntax tree. Since we parse bottom-up,
     # all parsing must end here.
     Root: [
-      r 'EOF'                       , -> null
-      r 'Statements EOF'            , -> if $1 is yy.Empty then null else $1
-      r 'Statements'                , -> if $1 is yy.Empty then null else $1
+      r 'EOF'                       , ->
+        new yy.Expression 'primitive', [null]
+      r 'Statements EOF'            , ->
+        if $1 is yy.Empty then new yy.Expression 'primitive', [null] else $1
+      r 'Statements'                , ->
+        if $1 is yy.Empty then new yy.Expression 'primitive', [null] else $1
     ]
     Parameters: [
       o ''                          , -> []
@@ -256,7 +263,8 @@ root.Grammar = Grammar =
       o 'AssignStatement'
     ]
     Block: [
-      o '{ Statements }'            , -> if $2 is yy.Empty then null else $2
+      o '{ Statements }'            , ->
+        if $2 is yy.Empty then new yy.Expression 'primitive', [null] else $2
     ]
     EmptyStatement: [
       o ';'                         , -> yy.Empty
@@ -273,10 +281,10 @@ root.Grammar = Grammar =
       o 'Identifier Assign ExpressionStatement', -> new yy.Expression $2, [$1, $3]   #  assignment
     ]
     Conditional: [
-      o 'IF ( Expression ) Block ELSE Conditional', -> new yy.Expression 'if',  [$3,$5,$7]
-      o 'IF ( Expression ) Block ELSE Block'      , -> new yy.Expression 'if',  [$3,$5,$7]
-      o 'IF ( Expression ) Block'                 , -> new yy.Expression 'if',  [$3,$5]
-      #o 'FOR ( e ) block'                         , -> new yy.Expression 'for', [$3,$5]
+      o 'IF ( Expression ) Block ELSE Conditional'                 , -> new yy.Expression 'if',  [$3,$5,$7]
+      o 'IF ( Expression ) Block ELSE Block'                       , -> new yy.Expression 'if',  [$3,$5,$7]
+      o 'IF ( Expression ) Block'                                  , -> new yy.Expression 'if',  [$3,$5]
+      #o 'FOR ( Expression ) Block'                , -> new yy.Expression 'for', [$2,$3]
     ]
     Primitive: [
       o 'NUMBER'                    , -> Number($1)
@@ -323,6 +331,9 @@ root.Grammar = Grammar =
       o 'Scope Identifier'         , -> new yy.Expression '.', [$1, $2]          # shorthand dot operator
       o 'Scope'                    , -> $1                                       # global or local
     ]
+    Group: [
+        o '( Expression )'         , -> $2
+    ]
     Path: [
         o 'Expression . Identifier' , -> new yy.Expression $2, [$1, new yy.Expression('reference', [$3])]
     ]
@@ -330,11 +341,12 @@ root.Grammar = Grammar =
       o 'Expression ? Expression : Expression', -> new yy.Expression '?:', [$1, $3, $5]     # ternary conditional
       o 'Expression ( Parameters )', -> new yy.Expression '()', [$1].concat $3   # function call
       o 'Expression [ Expression ]', -> new yy.Expression '[]', [$1, $3]         # indexer
-      o 'Reference',                 -> $1
-      o 'Literal',                   -> $1
-      o 'Math',                      -> $1
-      o 'Boolean',                   -> $1
-      o 'Path',                      -> $1
+      o 'Reference'                , -> $1
+      o 'Literal'                  , -> $1
+      o 'Math'                     , -> $1
+      o 'Boolean'                  , -> $1
+      o 'Path'                     , -> $1
+      o 'Group'                    , -> $1
     ]
 
 # Wrapping Up
