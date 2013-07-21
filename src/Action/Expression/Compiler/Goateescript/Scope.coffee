@@ -34,4 +34,5 @@ root.Scope =
   # @param {String} s
   # @return String
   escapeString: (s) ->
-    s.replace(/\\\n/,'').replace(/\\([^xubfnvrt0\\])/g, '$1')
+    return "" if s.length <= 2
+    s.slice(1, s.length-1) # .replace(/\\\n/,'').replace(/\\([^xubfnvrt0])/g, '$1')

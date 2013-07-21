@@ -116,30 +116,11 @@ root.Grammar = Grammar =
       r /\/\*(?:.|[\r\n])*?\*\//  , ->
       # operators below
 
-      r '-='                      , ->   '-='
-      r '\\+='                    , ->   '+='
-      r '\\*='                    , ->   '*='
-      r '\\/='                    , ->   '/='
-      r '>>>='                    , -> '>>>='
-      r '>>='                     , ->  '>>='
-      r '<<='                     , ->  '<<='
-      r '&='                      , ->   '&='
-      r '\\^='                    , ->   '^='
-      r '\\|='                    , ->   '|='
-      r '%='                      , ->   '%='
-      r '='                       , ->    '='
-
-      r '\\.'                     , -> '.'
-      r '\\['                     , -> '['
-      r '\\]'                     , -> ']'
-      r '\\('                     , -> '('
-      r '\\)'                     , -> ')'
-      r '\\*'                     , -> '*'
-      r '\\/'                     , -> '/'
-
-      r '%'                       , -> '%'
-      r '-'                       , -> '-'
-      r '\\+'                     , -> '+'
+      r /\./                      , -> '.'
+      r /\[/                      , -> '['
+      r /\]/                      , -> ']'
+      r /\(/                      , -> '('
+      r /\)/                      , -> ')'
 
       r '==='                     , -> '==='
       r '!=='                     , -> '!=='
@@ -149,15 +130,42 @@ root.Grammar = Grammar =
       r '>='                      , -> '>='
       r '<'                       , -> '<'
       r '>'                       , -> '>'
-      r '\\&\\&'                  , -> '&&'
-      r '\\|\\|'                  , -> '||'
-      r '\\?'                     , -> '?'
+      r /\&\&/                    , -> '&&'
+      r /\|\|/                    , -> '||'
+
+      r /\?/                      , -> '?'
       r ':'                       , -> ':'
       r ';'                       , -> ';'
       r ','                       , -> ','
       r '{'                       , -> '{'
       r '}'                       , -> '}'
       r '!'                       , -> '!'    # must be lower priority than != and !==
+
+      r '-='                      , ->   '-='
+      r /\+=/                     , ->   '+='
+      r /\*=/                     , ->   '*='
+      r /\/=/                     , ->   '/='
+      r '>>>='                    , -> '>>>='
+      r '>>='                     , ->  '>>='
+      r '<<='                     , ->  '<<='
+      r /\&=/                     , ->   '&='
+      r /\^=/                     , ->   '^='
+      r /\|=/                     , ->   '|='
+      r '%='                      , ->   '%='
+      r '='                       , ->    '='
+
+      r '-'                       , -> '-'
+      r /\+/                      , -> '+'
+      r /\*/                      , -> '*'
+      r /\//                      , -> '/'
+      r '>>>'                     , -> '>>>'
+      r '>>'                      , -> '>>'
+      r '<<'                      , -> '<<'
+      r /\&/                      , -> '&'
+      r /\^/                      , -> '^'
+      r /\|/                      , -> '|'
+      r '%'                       , -> '%'
+
       r '$'                       , -> 'EOF'
     ]
   operators: [
@@ -188,14 +196,14 @@ root.Grammar = Grammar =
   # The syntax description
   # ----------------------
   bnf:
-    # The **Root** is the top-level node in the syntax tree. Since we parse bottom-up,
-    # all parsing must end here.
+    # The **Root** is the top-level node in the syntax tree.
+    # Since we parse bottom-up, all parsing must end here.
     Root: [
       r 'EOF'                       , ->
         new yy.Expression 'primitive', [null]
       r 'Statements EOF'            , ->
         if $1 is yy.Empty then new yy.Expression 'primitive', [null] else $1
-      r 'Statements'                , ->
+      r 'Statements ; EOF'          , ->
         if $1 is yy.Empty then new yy.Expression 'primitive', [null] else $1
     ]
     Parameters: [
@@ -242,49 +250,43 @@ root.Grammar = Grammar =
     ]
     Statements: [
       o 'Statement'
-      o 'Statements Statement'      , ->
+      o 'Statements ; Statement'      , ->
         if $1 is yy.Empty
-          if $2 is yy.Empty
+          if $3 is yy.Empty
             yy.Empty
           else
-            new yy.Expression 'block', [$2]
+            new yy.Expression 'block', [$3]
         else if $1.operator.name is 'block'
-          $1.parameters.push $2 unless $2 is yy.Empty
+          $1.parameters.push $3 unless $3 is yy.Empty
           $1
-        else if $2 is yy.Empty
+        else if $3 is yy.Empty
           new yy.Expression 'block', [$1]
         else
-          new yy.Expression 'block', [$1, $2]
+          new yy.Expression 'block', [$1, $3]
     ]
     Statement: [
-      o 'EmptyStatement'
-      o 'ExpressionStatement'
-      o 'ConditionalStatement'
-      o 'AssignStatement'
-    ]
-    Block: [
-      o '{ Statements }'            , ->
-        if $2 is yy.Empty then new yy.Expression 'primitive', [null] else $2
+      o ';'                         , -> yy.Empty
+      o 'Expression'
+      o 'Conditional'
+      o 'Assignment'
     ]
     EmptyStatement: [
       o ';'                         , -> yy.Empty
     ]
-    ExpressionStatement: [
-      o 'Expression ;'
-      o 'Expression EOF'
-    ]
-    ConditionalStatement: [
-      o 'Conditional ;'
-      o 'Conditional EOF'
-    ]
-    AssignStatement: [
-      o 'Identifier Assign ExpressionStatement', -> new yy.Expression $2, [$1, $3]   #  assignment
+    Block: [
+      o '{ }'                          , ->
+        new yy.Expression 'primitive', [null]
+      o '{ Statements }'          , ->
+        if $2 is yy.Empty then new yy.Expression 'primitive', [null] else $2
     ]
     Conditional: [
-      o 'IF ( Expression ) Block ELSE Conditional'                 , -> new yy.Expression 'if',  [$3,$5,$7]
-      o 'IF ( Expression ) Block ELSE Block'                       , -> new yy.Expression 'if',  [$3,$5,$7]
-      o 'IF ( Expression ) Block'                                  , -> new yy.Expression 'if',  [$3,$5]
+      o 'IF ( Expression ) Block ELSE Conditional' , -> new yy.Expression 'if',  [$3,$5,$7]
+      o 'IF ( Expression ) Block ELSE Block'       , -> new yy.Expression 'if',  [$3,$5,$7]
+      o 'IF ( Expression ) Block'                  , -> new yy.Expression 'if',  [$3,$5]
       #o 'FOR ( Expression ) Block'                , -> new yy.Expression 'for', [$2,$3]
+    ]
+    Assignment: [
+      o 'Identifier Assign Expression', -> new yy.Expression $2, [$1, $3]   #  assignment
     ]
     Primitive: [
       o 'NUMBER'                    , -> Number($1)
