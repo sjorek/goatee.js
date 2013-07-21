@@ -149,11 +149,11 @@ root.UnorderedRules = class UnorderedRules
       [key, value, priority]
 
   ##
-  # Opposite of @merge(map). Returns this map with all rules from given map
-  # applied to this map, taking my and their priorities into consideration.
+  # Return a css-like representation of this maps' rules. It looks, like:
   #
-  # @param  {UnorderedRules} map
-  # @return {UnorderedRules}
+  #   identifier: value; key: expression=1+1; action: expr( … ; … );
+  #
+  # @return {String}
   toString: () ->
     rules = @map (key, value, priority) ->
       rule  = key + CHAR_colon + value
