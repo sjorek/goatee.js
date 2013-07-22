@@ -38,6 +38,10 @@ o = (patternString, action, options) ->
     action = if match = unwrap.exec action then match[1] else "(#{action}())"
     [patternString, "$$ = #{action};", options]
 
+#  assignment operation shortcut
+aop = (op) -> o "Identifier #{op} Expression", ->
+  new yy.Expression $2, [$1, $3]
+
 #  binary operation shortcut
 bop = (op) -> o "Expression #{op} Expression", ->
   new yy.Expression $2, [$1, $3]
@@ -49,7 +53,7 @@ root.Grammar = Grammar =
       /* // #{comment} */
       var global = (function(){return this;})();
       var Expression = require('./Expression').Expression;
-      var yy = require('./Scope').Scope
+      var yy = require('./Scope').Scope;
 
       """
   footer: ->
@@ -80,15 +84,23 @@ root.Grammar = Grammar =
         ([eE][-+]?[0-9]+)?
         \b
         ///                       , -> 'NUMBER'
-      r /return\b/                , -> 'RETURN'
+      # constants
+      r /null\b/                  , -> 'NULL'
+      r /true\b/                  , -> 'TRUE'
+      r /false\b/                 , -> 'FALSE'
+      # control flow statements
       r /if\b/                    , -> 'IF'
       r /then\b/                  , -> 'THEN'
       r /else\b/                  , -> 'ELSE'
       #r /for\b/                   , -> 'FOR'
-      r /null\b/                  , -> 'NULL'
-      r /true\b/                  , -> 'TRUE'
-      r /false\b/                 , -> 'FALSE'
+      r /return\b/                , -> 'RETURN'
+      # operational statements
       r /new\b/                   , -> 'NEW'
+      r /typeof\b/                , -> 'TYPEOF'
+      r /void\b/                  , -> 'VOID'
+      r /instanceof\b/            , -> 'INSTANCEOF'
+      r /yield\b/                 , -> 'YIELD'
+
       r /[@$]/                    , -> 'CONTEXT'
       r /[a-zA-Z_$]\w*/           , -> 'REFERENCE'
       # identifier has to come AFTER reserved words
@@ -122,6 +134,26 @@ root.Grammar = Grammar =
       r /\(/                      , -> '('
       r /\)/                      , -> ')'
 
+      r /\?/                      , -> '?'
+      r ':'                       , -> ':'
+      r ';'                       , -> ';'
+      r ','                       , -> ','
+      r '{'                       , -> '{'
+      r '}'                       , -> '}'
+      # Mathematical assigment operators
+      r '-='                      , ->   '-='
+      r /\+=/                     , ->   '+='
+      r /\*=/                     , ->   '*='
+      r /\/=/                     , ->   '/='
+      r '%='                      , ->   '%='
+      # Bitwise assigment operators
+      r '>>>='                    , -> '>>>='
+      r '>>='                     , ->  '>>='
+      r '<<='                     , ->  '<<='
+      r /\&=/                     , ->   '&='
+      r /\|=/                     , ->   '|='
+      r /\^=/                     , ->   '^='
+      # Boolean operators
       r '==='                     , -> '==='
       r '!=='                     , -> '!=='
       r '=='                      , -> '=='
@@ -132,60 +164,52 @@ root.Grammar = Grammar =
       r '>'                       , -> '>'
       r /\&\&/                    , -> '&&'
       r /\|\|/                    , -> '||'
-
-      r /\?/                      , -> '?'
-      r ':'                       , -> ':'
-      r ';'                       , -> ';'
-      r ','                       , -> ','
-      r '{'                       , -> '{'
-      r '}'                       , -> '}'
       r '!'                       , -> '!'    # must be lower priority than != and !==
-
-      r '-='                      , ->   '-='
-      r /\+=/                     , ->   '+='
-      r /\*=/                     , ->   '*='
-      r /\/=/                     , ->   '/='
-      r '>>>='                    , -> '>>>='
-      r '>>='                     , ->  '>>='
-      r '<<='                     , ->  '<<='
-      r /\&=/                     , ->   '&='
-      r /\^=/                     , ->   '^='
-      r /\|=/                     , ->   '|='
-      r '%='                      , ->   '%='
-      r '='                       , ->    '='
-
+      # Mathemetical operators
       r '-'                       , -> '-'
       r /\+/                      , -> '+'
       r /\*/                      , -> '*'
       r /\//                      , -> '/'
+      r /\^/                      , -> '^'
+      r '%'                       , -> '%'
+      # Bitwise operators
       r '>>>'                     , -> '>>>'
       r '>>'                      , -> '>>'
       r '<<'                      , -> '<<'
       r /\&/                      , -> '&'
-      r /\^/                      , -> '^'
       r /\|/                      , -> '|'
-      r '%'                       , -> '%'
-
-      r '$'                       , -> 'EOF'
+      r '~'                       , -> '~'
+      # Assignment operator
+      r '='                       , -> '='
+      # EOF is always last …
+      r '$'                       , -> 'EOF' # TODO have to figure out why the token is “$”
     ]
   operators: [
     # from highest to lowest precedence
-    ['left', '.', '[', ']']
-    ['left', '(', ')']
-    ['right', '!']
-    ['left', '*', '/', '%']
-    ['left', '+', '-']
-    ['left', '<=', '>=', '<', '>']
-    ['left', '===', '!==', '==', '!=']
-    ['left', '&&']
-    ['left', '||']
-    ['right', '?', ':']
-    ['left', '*=', '/=', '%=']
-    ['left', '+=', '-=']
-    ['left', '&=', '^=', '|=']
-    ['left', '>>>=','>>=', '<<=']
-    ['left', '=']
-    ['left', ',']
+    # @see https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/Operator_Precedence
+    ['left', '.', '[', ']']                  #  1 member
+    ['right', 'NEW']                         #    new
+    ['left', '(', ')']                       #  2 call
+    ['nonassoc', '++', '--']                 #  3 decrement
+    ['right', '!', '~', \ # '+', '-', \      #  4 usually contains unary +/-
+              'TYPEOF', 'VOID', 'DELETE']
+    ['left', '*', '/', '%']                  #  5 multiply, divide, modulus
+    ['left', '+', '-']                       #  6 plus/add, minus/substract
+    ['left', '>>>', '>>', '<<']              #  7 bitwise shift
+    ['left', '<=', '>=', '<', '>']           #  8 relational
+    ['left', 'IN', 'INSTANCEOF']             #   … in …, … instanceof …
+    ['left', '===', '!==', '==', '!=']       #  9 equality
+    ['left', '^']                            # 11 bitwise and
+    ['left', '&']                            # 10 bitwise xor
+    ['left', '|']                            # 12 bitwise or
+    ['left', '&&']                           # 13 logical and
+    ['left', '||']                           # 14 logical or
+    ['right', '?', ':']                      # 15 inline conditional
+    ['right', 'YIELD']                       # 16 yield is not (yet?) supported
+    ['right', '=',    '+=', '-=',  '*=', \   # 17 assignments
+              '/=',   '%=', '<<=', '>>=',
+              '>>>=', '&=', '^=',  '|=']
+    ['left', ',']                            # 18 comma
   # Reverse the operators because Jison orders precedence from low to high,
   # and we have it high to low
   # (as in [Yacc](http://dinosaur.compilertools.net/yacc/index.html)).
@@ -201,56 +225,22 @@ root.Grammar = Grammar =
     Root: [
       r 'EOF'                       , ->
         new yy.Expression 'primitive', [null]
-      r 'Statements EOF'            , ->
+      r 'Statements EOF'   , ->
         if $1 is yy.Empty then new yy.Expression 'primitive', [null] else $1
-      r 'Statements ; EOF'          , ->
-        if $1 is yy.Empty then new yy.Expression 'primitive', [null] else $1
-    ]
-    Parameters: [
-      o ''                          , -> []
-      o 'Expression'                , -> [$1]
-      o 'Parameters , Expression'   , -> $1.concat $3
-    ]
-    Key: [
-      o 'Primitive'                 , -> $1
-      o 'Identifier'                , -> $1
-    ]
-    KeyValue: [
-      o 'Key : Expression'          , -> [$1,$3]
-    ]
-    KeyValues: [
-      o ''                          , -> []
-      o 'KeyValue'                  , -> $1
-      o 'KeyValues , KeyValue'      , -> $1.concat $3
-    ]
-    Object: [
-      o '{ KeyValues }'             , -> new yy.Expression 'object', $2
-    ]
-    Elements: [
-      o ''                          , -> []
-      o 'Expression'                , -> [$1]
-      o 'Elements , Expression'     , -> $1.concat $3
-    ]
-    Array: [
-      o '[ Elements ]'              , -> new yy.Expression 'array', $2
-    ]
-    Assign: [
-      o '='
-      o '-='
-      o '+='
-      o '*='
-      o '/='
-      o '<<='
-      o '>>='
-      o '>>>='
-      o '&='
-      o '^='
-      o '|='
-      o '%='
     ]
     Statements: [
+      o 'Seperator Seperated Seperator', -> $2
+      o 'Seperator Seperated'          , -> $2
+      o 'Seperated Seperator'
+      o 'Seperated'
+    ]
+    Seperator: [
+      o ';'                         , -> yy.Empty
+      o 'Seperator ;'               , -> yy.Empty
+    ]
+    Seperated: [
       o 'Statement'
-      o 'Statements ; Statement'      , ->
+      o 'Seperated Seperator Statement', ->
         if $1 is yy.Empty
           if $3 is yy.Empty
             yy.Empty
@@ -265,47 +255,88 @@ root.Grammar = Grammar =
           new yy.Expression 'block', [$1, $3]
     ]
     Statement: [
-      o ';'                         , -> yy.Empty
       o 'Expression'
       o 'Conditional'
-      o 'Assignment'
     ]
-    EmptyStatement: [
-      o ';'                         , -> yy.Empty
+    Parameters: [
+      o ''                          , -> []
+      o 'Expression'                , -> [$1]
+      o 'Parameters , Expression'   , -> $1.concat $3
+    ]
+    Key: [
+      o 'Primitive'
+      o 'Identifier'
+    ]
+    KeyValue: [
+      o 'Key : Expression'          , -> [$1,$3]
+    ]
+    KeyValues: [
+      o ''                          , -> []
+      o 'KeyValue'
+      o 'KeyValues , KeyValue'      , -> $1.concat $3
+    ]
+    Object: [
+      o '{ KeyValues }'             , ->
+        new yy.Expression 'object', $2
+    ]
+    Elements: [
+      o ''                          , -> []
+      o 'Expression'                , -> [$1]
+      o 'Elements , Expression'     , -> $1.concat $3
+    ]
+    Array: [
+      o '[ Elements ]'              , ->
+        new yy.Expression 'array', $2
     ]
     Block: [
-      o '{ }'                          , ->
+      o '{ }'                       , ->
         new yy.Expression 'primitive', [null]
-      o '{ Statements }'          , ->
+      o '{ Statements }'   , ->
         if $2 is yy.Empty then new yy.Expression 'primitive', [null] else $2
     ]
     Conditional: [
-      o 'IF ( Expression ) Block ELSE Conditional' , -> new yy.Expression 'if',  [$3,$5,$7]
-      o 'IF ( Expression ) Block ELSE Block'       , -> new yy.Expression 'if',  [$3,$5,$7]
-      o 'IF ( Expression ) Block'                  , -> new yy.Expression 'if',  [$3,$5]
-      #o 'FOR ( Expression ) Block'                , -> new yy.Expression 'for', [$2,$3]
+      o 'IF ( Expression ) Block ELSE Conditional' , ->
+        new yy.Expression 'if',  [$3,$5,$7]
+      o 'IF ( Expression ) Block ELSE Block'       , ->
+        new yy.Expression 'if',  [$3,$5,$7]
+      o 'IF ( Expression ) Block'                  , ->
+        new yy.Expression 'if',  [$3,$5]
+      #o 'FOR ( Expression ) Block'                 , ->
+      #  new yy.Expression 'for', [$2,$3]
     ]
     Assignment: [
-      o 'Identifier Assign Expression', -> new yy.Expression $2, [$1, $3]   #  assignment
+      aop '-='
+      aop '+='
+      aop '*='
+      aop '/='
+      aop '%='
+      aop '^='
+      aop '>>>='
+      aop '>>='
+      aop '<<='
+      aop '&='
+      aop '|='
+      aop '='
     ]
     Primitive: [
       o 'NUMBER'                    , -> Number($1)
+      o '+ NUMBER'                  , -> + Number($2)
       o '- NUMBER'                  , -> - Number($2)
       o 'NULL'                      , -> null
       o 'TRUE'                      , -> true
       o 'FALSE'                     , -> false
       o 'STRING'                    , -> yy.escapeString($1)
     ]
-    Math: [
+    Operation: [
+      # Mathemetical operations
       bop '*'
       bop '/'
       bop '%'
       bop '+'
       bop '-'
-    ]
-    Boolean: [
-      # logical not
-      o '! Expression'              , -> new yy.Expression '!' , [$2]
+      # Boolean operations
+      o '! Expression'              , ->                # logical not
+        new yy.Expression '!' , [$2]
       bop '<='
       bop '>='
       bop '<'
@@ -316,39 +347,56 @@ root.Grammar = Grammar =
       bop '!='
       bop '&&'
       bop '||'
+      # Bitwise operations
+      o '~ Expression'              , ->                # bitwise not
+         new yy.Expression '~' , [$2]
+      bop '>>>'
+      bop '>>'
+      bop '<<'
+      bop '&'
+      bop '|'
+      bop '^'
     ]
     Literal: [
-      o 'Object'                   , -> $1                                    # object literal
-      o 'Array'                    , -> $1                                    # array literal
-      o 'Primitive'                , -> new yy.Expression 'primitive',  [$1]     # number, boolean, string, null
+      o 'Object'                                        # object literal
+      o 'Array'                                         # array literal
+      o 'Primitive'                , ->                 # number, boolean,
+        new yy.Expression 'primitive',  [$1]            # string, null
     ]
     Identifier: [
-      o 'REFERENCE'                , -> $1                                    # identifier
+      o 'REFERENCE'
     ]
     Scope: [
-      o 'CONTEXT'                  , -> new yy.Expression 'context', $1
+      o 'CONTEXT'                  , ->                 # global or local
+        new yy.Expression 'context', [$1]
     ]
     Reference: [
-      o 'Identifier'               , -> new yy.Expression 'reference', [$1]
-      o 'Scope Identifier'         , -> new yy.Expression '.', [$1, $2]          # shorthand dot operator
-      o 'Scope'                    , -> $1                                       # global or local
+      o 'Identifier'               , ->
+        new yy.Expression 'reference', [$1]
+      o 'Scope Identifier'         , ->                 # shorthand dot operator
+        new yy.Expression '.', [$1, new yy.Expression('reference', [$2])]
+      o 'Scope'
     ]
     Group: [
-        o '( Expression )'         , -> $2
+      o '( Expression )'          , -> $2
     ]
     Path: [
-        o 'Expression . Identifier' , -> new yy.Expression $2, [$1, new yy.Expression('reference', [$3])]
+      o 'Expression . Identifier' , ->
+        new yy.Expression '.', [$1, new yy.Expression('reference', [$3])]
     ]
     Expression: [
-      o 'Expression ? Expression : Expression', -> new yy.Expression '?:', [$1, $3, $5]     # ternary conditional
-      o 'Expression ( Parameters )', -> new yy.Expression '()', [$1].concat $3   # function call
-      o 'Expression [ Expression ]', -> new yy.Expression '[]', [$1, $3]         # indexer
-      o 'Reference'                , -> $1
-      o 'Literal'                  , -> $1
-      o 'Math'                     , -> $1
-      o 'Boolean'                  , -> $1
-      o 'Path'                     , -> $1
-      o 'Group'                    , -> $1
+      o 'Expression ? Expression : Expression', ->      # ternary conditional
+        new yy.Expression '?:', [$1, $3, $5]
+      o 'Expression ( Parameters )', ->                 # function call
+        new yy.Expression '()', [$1].concat $3
+      o 'Expression [ Expression ]', ->                 # indexer
+        new yy.Expression '[]', [$1, $3]
+      o 'Assignment'
+      o 'Reference'
+      o 'Literal'
+      o 'Operation'
+      o 'Path'
+      o 'Group'
     ]
 
 # Wrapping Up

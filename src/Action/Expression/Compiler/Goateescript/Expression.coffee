@@ -17,6 +17,8 @@ permissions and limitations under the License.
 global = do -> this
 _ = global._ ? require 'underscore'
 
+{Stack} = require './Stack'
+
 root = module?.exports ? this
 
 ##
@@ -24,41 +26,43 @@ root = module?.exports ? this
 # @namespace goatee.Action.Expression.Compiler.Goateescript
 root.Expression = (global.goatee ?= {}).Expression = class Expression
 
-  # TODO Move to Scope !
-  # global will not just reference the original context from any expression
-  _global             = undefined
-  _variables          = null
-  _errors             = null
-  _stack              = null
+  _stack              = undefined
   _scope              = null
-  _current            = -> _stack?[_stack.length - 1]
-  _parent             = -> _stack?[_stack.length - 2]
+  _errors             = null
+  _global             = null
+  _variables          = null
+  _operations         = null
   _isExpression       = (obj) -> _.isFunction obj?.evaluate
   _isRightReference   = ->
-    p = _parent()
-    p? and p.operator.name is '.' and p.parameters[1] is _current()
+    p = _stack.parent()
+    p? and p.operator.name is '.' and p.parameters[1] is _stack.current()
 
   Expression.evaluate = _evaluate = (context={}, expression) ->
     return expression unless _isExpression expression
-    isGlobalScope = _global is undefined
-    if isGlobalScope
-      _global    = context
-      _errors    = null
-      _variables = {}
-      _stack     = []
-      _scope     = []
 
-    _stack.push expression
-    _scope.push context
+    isGlobalScope = _stack is undefined
+    if isGlobalScope
+      _stack     = new Stack(context)
+      _scope     = _stack.scope
+      _errors    = null
+      _global    = _stack.global
+      _variables = _stack.variables
+
+    _stack.push context, expression
+
     try
       result = _process context, expression
     catch e
       (_errors ?= []).push e
     finally
-      if isGlobalScope
-        _global = undefined
       _stack.pop()
-      _scope.pop()
+      if isGlobalScope
+        _stack.destructor()
+        _stack     = undefined
+        _scope     = null
+        _global    = null
+        _variables = null
+    console.log '_errors', _errors if _errors?
     result
 
   _process = (context, expression) ->
@@ -84,7 +88,7 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
             values.push value
         return values
       else
-        return op.evaluate.call context, context, e(context, right)
+        return op.evaluate.call context, context, _evaluate(context, right)
 
     if op.evaluateParameters != false
       values = (_evaluate context, p for p in params)
@@ -104,69 +108,59 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
     if not _isExpression value
       return JSON.stringify value
 
-    format = value.operator.format
+    {operator,parameters} = value
+    {format}              = operator
+
     if format?
-      return format.apply this, value.parameters
-    else if value.parameters.length == 2
-      return '(' + _stringify(value.parameters[0]) + value.operator +
-                   _stringify(value.parameters[1]) + ')'
+      return format.apply @, parameters
+    else if parameters.length == 2
+      return "(#{_stringify(parameters[0])}#{operator}#{_stringify(parameters[1])})"
     else
-      return value.parameters.map(_stringfy).join ' '
+      return parameters.map(_stringify).join ' '
 
   # TODO Move to Scope !
   Expression.operations = _operations =
     '=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = b
     '-=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]-=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) - b
     '+=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]+=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) + b
     '*=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]*=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) * b
     '/=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]/=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) / b
+    '%=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) % b
+    '^=':  #  assignment
+      evaluate: (a,b) ->
+        _variables[a] = _operations.reference.evaluate(a) ^ b
     '>>>=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]>>>=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) >>> b
     '>>=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]>>=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) >> b
     '<<=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]<<=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) << b
     '&=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]&=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) & b
-    '^=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]^=#{_stringify(b)}"
-      evaluate: (a,b) ->
-        _variables[a] = _operations.reference.evaluate(a) ^ b
     '|=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]|=#{_stringify(b)}"
       evaluate: (a,b) ->
         _variables[a] = _operations.reference.evaluate(a) | b
-    '%=':  #  assignment
-      format: (a,b) -> "this[#{_stringify(a)}]%=#{_stringify(b)}"
-      evaluate: (a,b) ->
-        _variables[a] = _operations.reference.evaluate(a) % b
     '.':
       chain: true
       #  functions must be bound to their container now or else they would have the global as their context.
-      evaluate: (a,b) -> if a != global and _.isFunction b then b.bind a else b
+      evaluate: (a,b) ->
+        if a isnt _global and _.isFunction b then b.bind a else b
     '+':
       constant: true
       evaluate: (a,b) -> a + b
@@ -179,29 +173,50 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
     '!':
       constant: true
       evaluate: (a) -> !a
+    '~':
+      constant: true
+      evaluate: (a) -> ~a
     '/':
       constant: true
       evaluate: (a,b) -> a / b
     '%':
       constant: true
       evaluate: (a,b) -> a % b
+    '^':
+      constant: true
+      evaluate: (a,b) -> a ^ b
+    '>>>':
+      constant: true
+      evaluate: (a,b) -> a >>> b
+    '>>':
+      constant: true
+      evaluate: (a,b) -> a >> b
+    '<<':
+      constant: true
+      evaluate: (a,b) -> a << b
+    '&':
+      constant: true
+      evaluate: (a,b) -> a & b
+    '|':
+      constant: true
+      evaluate: (a,b) -> a | b
     '&&':
       evaluateParameters: false
       constant: true
       evaluate: (a,b) ->
-        a = _evaluate this, a
+        a = _evaluate @, a
         if not a
           return a
-        b = _evaluate this, b
+        b = _evaluate @, b
         return b
     '||':
       evaluateParameters: false
       constant: true
       evaluate: (a,b) ->
-        a = _evaluate this, a
+        a = _evaluate @, a
         if a
           return a
-        b = _evaluate this, b
+        b = _evaluate @, b
         return b
     '<':
       constant: true
@@ -247,12 +262,11 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
       constant: true
       evaluateParameters: false
       vector: false
+      format: (a, b, c) ->
+        "(#{_stringify(a)}?#{_stringify(b)}:#{_stringify(c)})"
       evaluate: (a, b, c) ->
-        a = _evaluate this, a
-        if _booleanize a
-          _evaluate this, b
-        else
-          _evaluate this, c
+        a = _evaluate @, a
+        if _booleanize a then _evaluate @, b else _evaluate @, c
     #'$':
     #  format: -> '$'
     #  vector: false
@@ -260,13 +274,15 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
     #'@':
     #  format: -> '@'
     #  vector: false
-    #  evaluate: -> this
+    #  evaluate: -> @
     '()':
       vector: false
       format: (func) ->
-        return func + '(' + Array.prototype.slice.call(arguments, 1).join(',') + ')'
+        func + '(' + Array.prototype.slice.call(arguments, 1).join(',') + ')'
       evaluate: (func) ->
-        return func?.apply(this, Array.prototype.slice.call(arguments, 1))
+        throw new Error "Missing reference to call." if not func?
+        throw new Error "Reference is not callable." if not func.apply?
+        func.apply @, Array.prototype.slice.call(arguments, 1)
     '[]':
       chain: false
       vector: false
@@ -284,19 +300,21 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
     context:
       format: (a) -> a
       vector: false
-      evaluate: (a) -> { '$':_global, '@':@ }[a]
+      evaluate: (a) ->
+        { '$':_global, '@':_variables }[a]
     reference:
       format: (a) -> a
       vector: false
       evaluate: (a) ->
-        if _isRightReference()
-          if this.hasOwnProperty a
-            value = this[a]
+        ref = _isRightReference()
+        if ref
+          if @.hasOwnProperty a
+            value = @[a]
         else
           if _variables.hasOwnProperty a
             value = _variables[a]
           else
-            value = this[a]
+            value = @[a]
             #  walk the context stack from top to bottom looking for value
             index = _scope.length - 1
             while index >= 0
@@ -311,23 +329,19 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
     #  vector: true
     #  #watch: (object, expression, handler, connect) -> gl_as.watch object, handler, connect
     #  evaluate: () ->
-    #    if Array.isArray this
-    #      _.clone this
+    #    if Array.isArray @
+    #      _.clone @
     #    else
-    #      _.values this
+    #      _.values @
     primitive:
       constant: true
       vector: false
       format: (a) -> JSON.stringify a
       evaluate: (a) -> a
     block:
-      format: ->
-        b = ['{ ']
-        for arg in arguments
-          b.push arg.toString(), '; '
-        b.push '}'
-        b.join ''
-      evaluate: -> arguments[arguments.length-1]
+      format: (statements...) -> "{#{statements.join ';'}}"
+      evaluate: ->
+        arguments[arguments.length-1]
     if:
       evaluateParameters: false
       format: (a, b, c) ->
@@ -336,51 +350,53 @@ root.Expression = (global.goatee ?= {}).Expression = class Expression
         else
           "if (#{a}) #{b}"
       evaluate: (a, b, c) ->
-        a = _evaluate this, a
+        a = _evaluate @, a
         if _booleanize a
-          _evaluate this, b
+          _evaluate @, b
         else if c?
-          _evaluate this, c
+          _evaluate @, c
         else
           undefined
     #for:
     #  evaluateParameters: false
     #  format: (a, b) -> "for (#{a}) { #{b} }"
     #  evaluate: (a, b) ->
-    #    a = _evaluate this, a
+    #    a = _evaluate @, a
     #    return undefined unless a?
     #    for value in _.values a
     #      _evaluate value, b
     array:
-      format: -> "[#{(arg for arg in arguments).join ','}]"
-      evaluate: -> arg for arg in arguments
+      format  : (elements...) -> "[#{elements.join ','}]"
+      evaluate: (elements...) -> elements
     object:
       format: ->
         buffer = []
-        buffer.push '{'
         i = 0
-        while i < arguments.length
-          if (i > 0)
-            buffer.push ','
-          buffer.push arguments[i]
-          buffer.push ':'
-          buffer.push arguments[i+1]
+        l = arguments.length
+        while i < l
+          buffer.push "#{arguments[i]}:#{arguments[i+1]}"
           i += 2
-        buffer.push '}'
-        buffer.join ''
+        "{#{buffer.join ','}}"
       evaluate: ->
         object = {}
         i = 0
-        while i < arguments.length
+        l = arguments.length
+        while i < l
           object[arguments[i]] = arguments[i+1]
           i += 2
         object
 
   do ->
+
+    _format = _operations.reference.format
+
     for key, value of _operations
       value.name = key
       value.toString = do -> k = key; -> k
-      value.toJSON = -> @name
+      value.toJSON = ->
+        @name
+      if not value.format? and key[key.length - 1] is "="
+          value.format = do -> k = key; (a,b) -> "(#{_format(a)}#{k}#{_stringify(b)})"
     return
 
   Expression.operator = _operator = (name) ->
