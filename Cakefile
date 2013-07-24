@@ -29,8 +29,11 @@ task 'build:once', 'compile Coffeescript in “src/” to Javascript in “lib/�
 
 task 'build:parser', 'rebuild the Goateescript parser', ->
   require 'jison' # TODO This seems to be important, have to figure out why !
-  {Grammar,Parser} = require('./src/Action/Expression/Compiler/Goateescript/Grammar')
+  {Grammar} = require('./src/Action/Expression/Compiler/Goateescript/Grammar')
+  {Parser}  = require('./src/Action/Expression/Compiler/Goateescript/Parser')
   fs.writeFile './lib/Action/Expression/Compiler/Goateescript/Parser.js', \
     (Grammar.header(Grammar.comment) ? "") +
     Parser.generate() +
     (Grammar.footer() ? "")
+  if fs.exists './lib/Action/Expression/Compiler/Goateescript/Parser.map'
+    fs.removeFile './lib/Action/Expression/Compiler/Goateescript/Parser.map'

@@ -50,29 +50,22 @@ root.Grammar = Grammar =
   comment: 'Goatee Expression Parser'
   header: (comment) ->
       """
-      /* // #{comment} */
-      var global = (function(){return this;})();
-      var Expression = require('./Expression').Expression;
-      var yy = require('./Scope').Scope;
+      /* #{comment} */
+      (function() {
+
+      var _ref, global, yy;
+      global = (function(){return this;})();
+      root = (_ref = typeof module !== "undefined" && module !== null ? module.exports : void 0) != null ? _ref : this;
+      yy = require('./Scope').Scope;
 
       """
   footer: ->
       """
 
       parser.yy = yy;
+      root.Parser = parser;
 
-      Expression.parse = (function() {
-          var cache = {};
-          return function(code) {
-              if (cache.hasOwnProperty(code)) {
-                  return cache[code];
-              }
-              var expression = parser.parse(code);
-              return cache[code] = cache['' + expression] = expression;
-          };
-      })();
-      if (typeof module !== 'undefined')
-          module.exports = Expression.parse;
+      }).call(this);
       """
   lex:
     rules: [
@@ -102,7 +95,7 @@ root.Grammar = Grammar =
       r /yield\b/                 , -> 'YIELD'
 
       r /[@$]/                    , -> 'CONTEXT'
-      r /[a-zA-Z_$]\w*/           , -> 'REFERENCE'
+      r /[$_a-zA-Z]\w*/           , -> 'REFERENCE'
       # identifier has to come AFTER reserved words
 
       # identifier above
@@ -368,7 +361,7 @@ root.Grammar = Grammar =
     ]
     Scope: [
       o 'CONTEXT'                  , ->                 # global or local
-        new yy.Expression 'context', [$1]
+        new yy.Expression 'context', [$1[0]]            # only the first letter is used
     ]
     Reference: [
       o 'Identifier'               , ->
@@ -422,7 +415,7 @@ Grammar.tokens = do ->
   tokens.join ' '
 
 # Initialize the **Parser** with our **Grammar**
-root.Parser = do ->
-  parser = new Parser Grammar
-  parser.yy = yy
-  parser
+Grammar.createParser = (grammar = Grammar, scope = yy) ->
+    parser = new Parser grammar
+    parser.yy = scope
+    parser

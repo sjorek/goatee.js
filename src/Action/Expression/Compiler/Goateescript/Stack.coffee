@@ -14,6 +14,10 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+{Utility:{
+  arrayClear
+}}                  = require '../../../../Core/Utility'
+
 root = module?.exports ? this
 
 ##
@@ -24,20 +28,21 @@ root.Stack = class Stack
   variables  : {}
   stack      : null
   scope      : null
+  operations : null
 
   constructor: (@global, @variables = {}, @stack = [], @scope = []) ->
 
   destructor : () ->
     @global    = undefined
     @variables = {}
-    @stack     = null
-    @scope     = null
+    arrayClear(@stack)
+    arrayClear(@scope)
 
   current    : ->
-    @stack[@stack.length - 1]
+    if @stack.length > 0 then @stack[@stack.length - 1] else undefined
 
   parent     : ->
-    @stack[@stack.length - 2]
+    if @stack.length > 1 then @stack[@stack.length - 2] else undefined
 
   push       : (context, expression) ->
     @scope.push context
