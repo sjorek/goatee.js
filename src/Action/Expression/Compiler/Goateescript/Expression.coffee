@@ -356,7 +356,7 @@ root.Expression = class Expression
       format  : (a) -> JSON.stringify a
       evaluate: (a) -> a
     block:
-      alias   : ';'
+      alias   : 'b'
       format  : (statements...) -> statements.join ';'
       evaluate: -> arguments[arguments.length-1]
     if:
@@ -424,11 +424,16 @@ root.Expression = class Expression
       # process assigments and equality
       if value.alias? and not _operations[value.alias]?
         _operations[value.alias] = key
+    
+    _aliases = (c for c in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_'.split('').reverse() when not _operations[c]?)
+    for key, value of _operations when value.name? and not value.alias?
+      _operations[value.alias = _aliases.pop()] = key
+      break if _aliases.length is 0
     return
 
   Expression.operator = _operator = (name) ->
     if (op = _operations[name])?
-      return if _isString(op) then _operator(op) else op
+      return if op.name? then op else _operator op
     throw new Error "operation not found: #{name}"
 
   ##
@@ -455,12 +460,66 @@ root.Expression = class Expression
   ##
   # @param  {String}     code
   # @return {String}
-  Expression.compress = (code) -> _parse(code).toString()
+  Expression.render = (code) -> _parse(code).toString()
 
   ##
-  # @param  {String}     code
-  # @return mixed
-  Expression.compile  = (code, compress) -> _parse(code).compile(compress)
+  # @param  {String|Expression} data
+  # @param  {Function}          callback (optional)
+  # @param  {Boolean}           compress, default is true
+  # @param  {Boolean}           optimize, default is true
+  # @return Array|String|Number|true|false|null
+  Expression.compile = _compile = (data, callback, compress = true, optimize = true) ->
+    expression = if _isExpression data then data else _parse(data)
+    expression.toJSON(callback, compress, optimize)
+
+  ##
+  # @param  {String|Expression} data
+  # @param  {Function}          callback (optional)
+  # @param  {Boolean}           compress, default is true
+  # @param  {Boolean}           optimize, default is true
+  # @return Array|String|Number|true|false|null
+  Expression.toOpcode = (data, callback, compress = true, optimize = true) ->
+    opcode = _compile(data, callback, compress, optimize)
+    if optimize then opcode[0] else JSON.stringify opcode
+
+  ##
+  # @param  {String|Expression} data
+  # @param  {Function}          callback (optional)
+  # @param  {Boolean}           compress, default is true
+  # @param  {Boolean}           optimize, default is true
+  # @return Function
+  Expression.toClosure = (data, callback, compress = true, optimize = true, prefix) ->
+    opcode = _compile(data, callback, compress, optimize)
+    if optimize
+      [code,map] = opcode
+      keys = (k for k,v of map)
+      args = if keys.length is 0 then '' else ",'" + keys.join("','") + "'"
+      code = "(function(#{keys.join ','}) { return #{code}; }).call(this#{args});"
+    else
+      keys = []
+      args = ''
+      code = JSON.stringify(opcode)
+    #Function "#{prefix || ''}return [#{code}][0];"
+    Function "#{prefix || ''}return #{code};"
+
+  ##
+  # @param  {Array}      opcode
+  # @param  {Object}     map of aliases
+  # @return Array.<Array,Object>
+  _optimize = (opcode, map = {}) ->
+    code = for o in opcode
+      if not o.length?
+        o
+      else if o.substring?
+        if o.match /^[a-zA-Z$_]$/
+          if map[o]? then map[o]++ else map[o]=1
+          o
+        else
+          JSON.stringify o
+      else
+        [c, map] = _optimize(o, map)
+        c
+    ["[#{code.join ','}]", map]
 
   ##
   # @param  {Array}      opcode
@@ -525,7 +584,7 @@ root.Expression = class Expression
 
   ##
   # @return Object.<String:op,Array:parameters>
-  compile: (compress = true) ->
+  toJSON: (callback, compress = false, optimize = false) ->
     if compress and @operator.name is _operations.primitive.name
       return @parameters
     opcode = [
@@ -533,9 +592,11 @@ root.Expression = class Expression
     ]
     opcode.push(
       if _isExpression parameter \
-        then parameter.compile compress \
+        then parameter.toJSON callback, compress, false \
         else parameter
     ) for parameter in @parameters
+    opcode = _optimize opcode if optimize
+    return callback(opcode) if callback
     opcode
 
   ##
