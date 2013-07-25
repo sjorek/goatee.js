@@ -16,7 +16,15 @@ permissions and limitations under the License.
 
 global = do -> this
 
-{Stack}  = require './Stack'
+{Stack}         = require './Stack'
+{Utility:{
+  toString,
+  isString,
+  isArray,
+  isNumber,
+  isFunction,
+  isExpression
+}}              = require './Utility'
 
 root = module?.exports ? this
 
@@ -31,38 +39,17 @@ root.Expression = class Expression
   _global       = null
   _variables    = null
   _operations   = null
-  _parse        = null
   _parser       = null
-
-  _toString     = Object::toString
-
-  # Modified version using String::substring instead of String::substr
-  # @see http://coffeescript.org/documentation/docs/underscore.html
-  _isString     = (obj) -> !!(obj is '' or (obj and obj.charCodeAt and obj.substring))
-
-  # @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
-  _isArray      = if Array.isArray? then Array.isArray else (obj) ->
-    _toString.call(obj) is '[object Array]'
-
-  # @see http://coffeescript.org/documentation/docs/underscore.html
-  _isNumber     = (obj) ->
-    (obj is +obj) or _toString.call(obj) is '[object Number]'
-
-  # @see http://coffeescript.org/documentation/docs/underscore.html
-  _isFunction   = (obj) ->
-    !!(obj and obj.constructor and obj.call and obj.apply)
 
   _isProperty   = () ->
     p = _stack.parent()
     p? and p.operator.name is '.' and p.parameters[1] is _stack.current()
 
-  _isExpression = (obj) -> _isFunction obj?.evaluate
-
   ##
   # @param {Object}           context
   # @param {Expression|mixed} expression
   _execute      = (context, expression) ->
-    return expression unless _isExpression expression
+    return expression unless isExpression expression
     _stack.push context, expression
     try
       result = _process context, expression
@@ -80,7 +67,7 @@ root.Expression = class Expression
   # @param {Array}            expression (optional)
   # @return mixed
   Expression.evaluate = _evaluate = (context={}, expression, variables, stack, scope) ->
-    return expression unless _isExpression expression
+    return expression unless isExpression expression
 
     isGlobalScope = _stack is undefined
     if isGlobalScope
@@ -119,7 +106,7 @@ root.Expression = class Expression
           value = operator.evaluate.call leftValue, leftValue, rightValue
           #  see if the right part of the operation is vector or not
           if right.vector
-            unless _isArray value
+            unless isArray value
               throw new Error "vector operation did not return an array as expected: #{JSON.stringify operator}"
             values.push.apply values, value
           else if value?
@@ -137,7 +124,7 @@ root.Expression = class Expression
     operator.evaluate.apply context, values
 
   Expression.booleanize = _booleanize = (value) ->
-    if _isArray value
+    if isArray value
       for item in value
         if _booleanize item
           return true
@@ -145,7 +132,7 @@ root.Expression = class Expression
     return Boolean value
 
   Expression.stringify = _stringify = (value) ->
-    if not _isExpression value
+    if not isExpression value
       return JSON.stringify value
 
     {operator,parameters} = value
@@ -180,7 +167,7 @@ root.Expression = class Expression
       chain: true
       #  functions must be bound to their container now or else they would have the global as their context.
       evaluate: (a,b) ->
-        if a isnt _global and _isFunction b then b.bind a else b
+        if a isnt _global and isFunction b then b.bind a else b
     '+':
       constant: true
       evaluate: (a,b) -> a + b
@@ -259,16 +246,16 @@ root.Expression = class Expression
       vector: false
       expandParameters: false
       evaluate: (a,b) ->
-        #return `a[0] == b` if _isArray a and a.length is 1
-        #return `a == b[0]` if _isArray b and b.length is 1
+        #return `a[0] == b` if isArray a and a.length is 1
+        #return `a == b[0]` if isArray b and b.length is 1
         return `a == b`
     '!=':
       constant: true
       vector: false
       expandParameters: false
       evaluate: (a,b) ->
-        #return `a[0] != b` if _isArray a and a.length is 1
-        #return `a != b[0]` if _isArray b and b.length is 1
+        #return `a[0] != b` if isArray a and a.length is 1
+        #return `a != b[0]` if isArray b and b.length is 1
         return `a != b`
     '===':
       constant: true
@@ -301,7 +288,7 @@ root.Expression = class Expression
         func + '(' + args.join(',') + ')'
       evaluate: (func, args...) ->
         throw new Error "Missing argument to call." unless func?
-        throw new Error "Given argument is not callable." unless _isFunction func
+        throw new Error "Given argument is not callable." unless isFunction func
         func.apply this, args
     '[]':
       chain: false
@@ -309,7 +296,7 @@ root.Expression = class Expression
       format: (a,b) -> "#{a}[#{b}]"
       evaluate: (a, b) ->
         #  support negative indexers, if you literally want "-1" then use a string literal
-        if _isNumber(b) and b < 0
+        if isNumber(b) and b < 0
           index = (if a.length? then a.length else 0) + b
         else
           index = b
@@ -345,7 +332,7 @@ root.Expression = class Expression
     #  vector  : true
     #  #watch   : (object, expression, handler, connect) -> gl_as.watch object, handler, connect
     #  evaluate: () ->
-    #    if _isArray @
+    #    if isArray @
     #      _.clone @
     #    else
     #      _.values @
@@ -424,123 +411,12 @@ root.Expression = class Expression
       # process assigments and equality
       if value.alias? and not _operations[value.alias]?
         _operations[value.alias] = key
-    
-    _aliases = (c for c in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_'.split('').reverse() when not _operations[c]?)
-    for key, value of _operations when value.name? and not value.alias?
-      _operations[value.alias = _aliases.pop()] = key
-      break if _aliases.length is 0
     return
 
   Expression.operator = _operator = (name) ->
     if (op = _operations[name])?
       return if op.name? then op else _operator op
     throw new Error "operation not found: #{name}"
-
-  ##
-  # @param  {String}     code
-  # @return {Expression}
-  Expression.parse = _parse = do ->
-    cache  = {}
-    (code) ->
-      return cache[code] if cache.hasOwnProperty(code)
-      _parser ?= require './Parser'
-      expression = _parser.parse code
-      cache[code] = cache['' + expression] = expression
-
-  ##
-  # @param  {String}     code
-  # @param  {Object}     context
-  # @return mixed
-  Expression.run = (code, context) ->
-    expression = if _isArray code \
-      then _interpretate(code) \
-      else _parse(if _isString code then code else '' + code)
-    expression.evaluate(context)
-
-  ##
-  # @param  {String}     code
-  # @return {String}
-  Expression.render = (code) -> _parse(code).toString()
-
-  ##
-  # @param  {String|Expression} data
-  # @param  {Function}          callback (optional)
-  # @param  {Boolean}           compress, default is true
-  # @param  {Boolean}           optimize, default is true
-  # @return Array|String|Number|true|false|null
-  Expression.compile = _compile = (data, callback, compress = true, optimize = true) ->
-    expression = if _isExpression data then data else _parse(data)
-    expression.toJSON(callback, compress, optimize)
-
-  ##
-  # @param  {String|Expression} data
-  # @param  {Function}          callback (optional)
-  # @param  {Boolean}           compress, default is true
-  # @param  {Boolean}           optimize, default is true
-  # @return Array|String|Number|true|false|null
-  Expression.toOpcode = (data, callback, compress = true, optimize = true) ->
-    opcode = _compile(data, callback, compress, optimize)
-    if optimize then opcode[0] else JSON.stringify opcode
-
-  ##
-  # @param  {String|Expression} data
-  # @param  {Function}          callback (optional)
-  # @param  {Boolean}           compress, default is true
-  # @param  {Boolean}           optimize, default is true
-  # @return Function
-  Expression.toClosure = (data, callback, compress = true, optimize = true, prefix) ->
-    opcode = _compile(data, callback, compress, optimize)
-    if optimize
-      [code,map] = opcode
-      keys = (k for k,v of map)
-      args = if keys.length is 0 then '' else ",'" + keys.join("','") + "'"
-      code = "(function(#{keys.join ','}) { return #{code}; }).call(this#{args});"
-    else
-      keys = []
-      args = ''
-      code = JSON.stringify(opcode)
-    #Function "#{prefix || ''}return [#{code}][0];"
-    Function "#{prefix || ''}return #{code};"
-
-  ##
-  # @param  {Array}      opcode
-  # @param  {Object}     map of aliases
-  # @return Array.<Array,Object>
-  _optimize = (opcode, map = {}) ->
-    code = for o in opcode
-      if not o.length?
-        o
-      else if o.substring?
-        if o.match /^[a-zA-Z$_]$/
-          if map[o]? then map[o]++ else map[o]=1
-          o
-        else
-          JSON.stringify o
-      else
-        [c, map] = _optimize(o, map)
-        c
-    ["[#{code.join ','}]", map]
-
-  ##
-  # @param  {Array}      opcode
-  # @return mixed
-  _interpretate = (opcode) ->
-    _len = opcode.length or 0
-    if _len < 2
-      return new Expression 'primitive', \
-        if _len is 0 then [opcode ? null] else opcode
-
-    parameters = [].concat(opcode)
-    operator   = parameters.shift()
-    for value, index in parameters
-      parameters[index] = if _isArray value then _interpretate value else value
-    new Expression(operator, parameters)
-
-  ##
-  # @param  {Array}      opcode
-  # @return mixed
-  Expression.interpretate = (opcode = null) ->
-    _interpretate(opcode)
 
   ##
   # @param {Array.<>} context
@@ -553,7 +429,7 @@ root.Expression = class Expression
     @constant = @operator.constant is true
     if @constant
       for parameter in parameters
-        if _isExpression(parameter) and not parameter.constant
+        if isExpression(parameter) and not parameter.constant
           @constant = false
           break
 
@@ -564,7 +440,7 @@ root.Expression = class Expression
       for parameter in parameters
         # if the parameter has a vector quantity
         # then the result is a vector result
-        if _isExpression(parameter) and parameter.vector
+        if isExpression(parameter) and parameter.vector
           @vector = true
           break
 
@@ -584,20 +460,7 @@ root.Expression = class Expression
 
   ##
   # @return Object.<String:op,Array:parameters>
-  toJSON: (callback, compress = false, optimize = false) ->
-    if compress and @operator.name is _operations.primitive.name
-      return @parameters
-    opcode = [
-      if compress and @operator.alias? then @operator.alias else @operator.name
-    ]
-    opcode.push(
-      if _isExpression parameter \
-        then parameter.toJSON callback, compress, false \
-        else parameter
-    ) for parameter in @parameters
-    opcode = _optimize opcode if optimize
-    return callback(opcode) if callback
-    opcode
+  toJSON: -> {op:@operator.name, parameters:@parameters};
 
   ##
   # @param {Object} context (optional)
