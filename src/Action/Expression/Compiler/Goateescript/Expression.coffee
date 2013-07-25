@@ -18,6 +18,7 @@ global = do -> this
 
 {Stack}         = require './Stack'
 {Utility:{
+  bindFn,
   toString,
   isString,
   isArray,
@@ -40,6 +41,7 @@ root.Expression = class Expression
   _variables    = null
   _operations   = null
   _parser       = null
+  _context      = { '$':_global, '@':_variables }
 
   _isProperty   = () ->
     p = _stack.parent()
@@ -66,7 +68,8 @@ root.Expression = class Expression
   # @param {Array}            stack (optional)
   # @param {Array}            expression (optional)
   # @return mixed
-  Expression.evaluate = _evaluate = (context={}, expression, variables, stack, scope) ->
+  Expression.evaluate = \
+  _evaluate = (context={}, expression, variables, stack, scope) ->
     return expression unless isExpression expression
 
     isGlobalScope = _stack is undefined
@@ -116,7 +119,7 @@ root.Expression = class Expression
       rightValue = _execute context, right
       return operator.evaluate.call context, context, rightValue
 
-    if operator.rawParameters
+    if operator.raw
       return operator.evaluate.apply context, parameters
 
     values = []
@@ -149,66 +152,69 @@ root.Expression = class Expression
 
   # TODO Move to Scope !
   Expression.operations = _operations =
+# _assign
     '=':  #  assignment, filled below
       evaluate: (a,b) ->
         _variables[a] = b
-    '-='  : {} #  assignment, filled below
-    '+='  : {} #  assignment, filled below
-    '*='  : {} #  assignment, filled below
-    '/='  : {} #  assignment, filled below
-    '%='  : {} #  assignment, filled below
-    '^='  : {} #  assignment, filled below
-    '>>>=': {} #  assignment, filled below
-    '>>=' : {} #  assignment, filled below
-    '<<=' : {} #  assignment, filled below
-    '&='  : {} #  assignment, filled below
-    '|='  : {} #  assignment, filled below
+#    '-='  : {} #  assignment, filled below
+#    '+='  : {} #  assignment, filled below
+#    '*='  : {} #  assignment, filled below
+#    '/='  : {} #  assignment, filled below
+#    '%='  : {} #  assignment, filled below
+#    '^='  : {} #  assignment, filled below
+#    '>>>=': {} #  assignment, filled below
+#    '>>=' : {} #  assignment, filled below
+#    '<<=' : {} #  assignment, filled below
+#    '&='  : {} #  assignment, filled below
+#    '|='  : {} #  assignment, filled below
     '.':
       chain: true
       #  functions must be bound to their container now or else they would have the global as their context.
       evaluate: (a,b) ->
-        if a isnt _global and isFunction b then b.bind a else b
-    '+':
-      constant: true
-      evaluate: (a,b) -> a + b
-    '-':
-      constant: true
-      evaluate: (a,b) -> a - b
-    '*':
-      constant: true
-      evaluate: (a,b) -> a * b
-    '!':
-      constant: true
-      evaluate: (a) -> !a
-    '~':
-      constant: true
-      evaluate: (a) -> ~a
-    '/':
-      constant: true
-      evaluate: (a,b) -> a / b
-    '%':
-      constant: true
-      evaluate: (a,b) -> a % b
-    '^':
-      constant: true
-      evaluate: (a,b) -> a ^ b
-    '>>>':
-      constant: true
-      evaluate: (a,b) -> a >>> b
-    '>>':
-      constant: true
-      evaluate: (a,b) -> a >> b
-    '<<':
-      constant: true
-      evaluate: (a,b) -> a << b
-    '&':
-      constant: true
-      evaluate: (a,b) -> a & b
-    '|':
-      constant: true
-      evaluate: (a,b) -> a | b
+        if a isnt _global and isFunction b then bindFn b, a else b
+# _single
+#    '!':
+#      constant: true
+#      evaluate: (a) -> !a
+#    '~':
+#      constant: true
+#      evaluate: (a) -> ~a
+# _pair
+#    '+':
+#      constant: true
+#      evaluate: (a,b) -> a + b
+#    '-':
+#      constant: true
+#      evaluate: (a,b) -> a - b
+#    '*':
+#      constant: true
+#      evaluate: (a,b) -> a * b
+#    '/':
+#      constant: true
+#      evaluate: (a,b) -> a / b
+#    '%':
+#      constant: true
+#      evaluate: (a,b) -> a % b
+#    '^':
+#      constant: true
+#      evaluate: (a,b) -> a ^ b
+#    '>>>':
+#      constant: true
+#      evaluate: (a,b) -> a >>> b
+#    '>>':
+#      constant: true
+#      evaluate: (a,b) -> a >> b
+#    '<<':
+#      constant: true
+#      evaluate: (a,b) -> a << b
+#    '&':
+#      constant: true
+#      evaluate: (a,b) -> a & b
+#    '|':
+#      constant: true
+#      evaluate: (a,b) -> a | b
     '&&':
-      rawParameters: true
+      raw     : true
       constant: true
       evaluate: (a,b) ->
         a = _execute this, a
@@ -217,7 +223,7 @@ root.Expression = class Expression
         b = _execute this, b
         return b
     '||':
-      rawParameters: true
+      raw     : true
       constant: true
       evaluate: (a,b) ->
         a = _execute this, a
@@ -225,49 +231,51 @@ root.Expression = class Expression
           return a
         b = _execute this, b
         return b
-    '<':
-      constant: true
-      vector: false
-      evaluate: (a,b) -> a < b
-    '>':
-      constant: true
-      vector: false
-      evaluate: (a,b) -> a > b
-    '<=':
-      constant: true
-      vector: false
-      evaluate: (a,b) -> a <= b
-    '>=':
-      constant: true
-      vector: false
-      evaluate: (a,b) -> a >= b
-    '==':
-      constant: true
-      vector: false
-      expandParameters: false
-      evaluate: (a,b) ->
-        #return `a[0] == b` if isArray a and a.length is 1
-        #return `a == b[0]` if isArray b and b.length is 1
-        return `a == b`
-    '!=':
-      constant: true
-      vector: false
-      expandParameters: false
-      evaluate: (a,b) ->
-        #return `a[0] != b` if isArray a and a.length is 1
-        #return `a != b[0]` if isArray b and b.length is 1
-        return `a != b`
-    '===':
-      constant: true
-      vector: false
-      evaluate: (a,b) -> `a === b`
-    '!==':
-      constant: true
-      vector: false
-      evaluate: (a,b) -> `a !== b`
+# _bools
+#    '<':
+#      constant: true
+#      vector: false
+#      evaluate: (a,b) -> a < b
+#    '>':
+#      constant: true
+#      vector: false
+#      evaluate: (a,b) -> a > b
+#    '<=':
+#      constant: true
+#      vector: false
+#      evaluate: (a,b) -> a <= b
+#    '>=':
+#      constant: true
+#      vector: false
+#      evaluate: (a,b) -> a >= b
+#    '===':
+#      constant: true
+#      vector: false
+#      evaluate: (a,b) -> `a === b`
+#    '!==':
+#      constant: true
+#      vector: false
+#      evaluate: (a,b) -> `a !== b`
+# _raws
+#    '==':
+#      constant: true
+#      vector: false
+#      raw     : true
+#      evaluate: (a,b) ->
+#        #return `a[0] == b` if isArray a and a.length is 1
+#        #return `a == b[0]` if isArray b and b.length is 1
+#        return `a == b`
+#    '!=':
+#      constant: true
+#      vector: false
+#      raw     : true
+#      evaluate: (a,b) ->
+#        #return `a[0] != b` if isArray a and a.length is 1
+#        #return `a != b[0]` if isArray b and b.length is 1
+#        return `a != b`
     '?:':
       constant: true
-      rawParameters: true
+      raw     : true
       vector: false
       format: (a, b, c) ->
         "(#{_stringify(a)}?#{_stringify(b)}:#{_stringify(c)})"
@@ -310,7 +318,7 @@ root.Expression = class Expression
       alias   : 'c'
       format  : (a) -> a
       vector  : false
-      evaluate: (a) -> { '$':_global, '@':_variables }[a]
+      evaluate: (a) -> _context[a]
     reference:
       alias   : 'r'
       format  : (a) -> a
@@ -327,7 +335,7 @@ root.Expression = class Expression
             return context[a] if context.hasOwnProperty a
         value
     #children:
-    #  alias   : '*'
+    #  alias   : 'C'
     #  format  : -> '*'
     #  vector  : true
     #  #watch   : (object, expression, handler, connect) -> gl_as.watch object, handler, connect
@@ -348,7 +356,7 @@ root.Expression = class Expression
       evaluate: -> arguments[arguments.length-1]
     if:
       alias   : 'i'
-      rawParameters: true
+      raw     : true
       format  : (a, b, c) ->
         if c?
           "if (#{a}) {#{b}} else {#{c}}"
@@ -363,7 +371,7 @@ root.Expression = class Expression
           undefined
     #for:
     #  alias   : 'f'
-    #  rawParameters: true
+    #  raw     : true
     #  format  : (a, b) -> "for (#{a}) {#{b}}"
     #  evaluate: (a, b) ->
     #    a = _execute this, a
@@ -389,25 +397,49 @@ root.Expression = class Expression
 
     _evaluateRef = _operations.reference.evaluate
     _formatRef   = _operations.reference.format
-    _assign      = _operations['='].evaluate
+    _assignment  = _operations['='].evaluate
+
+    _single = ['!', '~', ]
+    _pairs  = ['+', '-', '*', '/', '%', '^', '>>>', '>>', '<<', '&', '|']
+    _bools  = ['<', '>', '<=', '>=', '===', '!==']
+    _raws   = ['==', '!=']
+    _assign = ['=', '-=', '+=', '*=', '/=', '%=', '^=', '>>>=', '>>=', '<<=', '&=', '|=']
+
+    for key in _single
+      _operations[key] =
+        constant: true
+        evaluate: Function("return function(a) { return #{key} a ; };")()
+
+    for key in _pairs.concat(_bools).concat(_raws)
+      _operations[key] =
+        constant: true
+        evaluate: Function("return function(a,b) { return a #{key} b ; };")()
+
+    for key in _bools
+      value = _operations[key]
+      value.vector = false
+
+    for key in _raws
+      value = _operations[key]
+      value.raw = true
+
+    # process assigments and equality
+    for key in _assign
+      value = if _operations[key]? then _operations[key] else _operations[key] = {}
+      value.format   ?= do -> k = key; (a,b) ->
+        "(#{_formatRef(a)}#{k}#{_stringify(b)})"
+      if key.length is 1
+        continue
+      value.evaluate ?= do ->
+        _op = _operations[key.substring 0, key.length - 1].evaluate
+        (a,b) ->
+          _assignment a, _op(_evaluateRef(a), b)
 
     for key, value of _operations
       value.name       = key
       value.toString   = do -> k = key; -> k
       value.toJSON     = -> @name
 
-      # process assigments and equality
-      if key[key.length - 1] is "="
-        # assigments and equality
-        unless value.format?
-          value.format = do -> k = key; (a,b) ->
-            "(#{_formatRef(a)}#{k}#{_stringify(b)})"
-        # assigments only
-        unless value.evaluate?
-          value.evaluate = do ->
-            _op = _operations[key.substring 0, key.length - 1].evaluate
-            (a,b) ->
-              _assign a, _op(_evaluateRef(a), b)
       # process assigments and equality
       if value.alias? and not _operations[value.alias]?
         _operations[value.alias] = key
@@ -460,7 +492,9 @@ root.Expression = class Expression
 
   ##
   # @return Object.<String:op,Array:parameters>
-  toJSON: -> {op:@operator.name, parameters:@parameters};
+  toJSON: (callback) ->
+    return callback this if callback
+    [@operator.name].concat @parameters
 
   ##
   # @param {Object} context (optional)

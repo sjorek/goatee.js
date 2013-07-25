@@ -23,7 +23,22 @@ root.Utility = class Utility
 
   _parser = null
 
-  Utility.toString = _toString = Object::toString
+  _toString = Object::toString
+
+  # New in EcmaScript 1.5
+  # http://webreflection.blogspot.com/2010/02/functionprototypebind.html
+  # This is still needed by Safari.
+  Utility.bindFn = do ->
+    _bind = Function::bind
+    if _bind?
+      (args...) ->
+        -> _bind.apply args
+    else
+      (fn, context, args...) ->
+        if args.length is 0
+          -> fn.call(context)
+        else
+          -> fn.apply context, args
 
   # Modified version using String::substring instead of String::substr
   # @see http://coffeescript.org/documentation/docs/underscore.html
@@ -48,7 +63,7 @@ root.Utility = class Utility
   ##
   # @param  {String}     code
   # @return {Expression}
-  Utility.parse = do ->
+  Utility.parseExpression = do ->
     cache  = {}
     (code) ->
       return cache[code] if cache.hasOwnProperty(code)

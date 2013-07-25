@@ -18,12 +18,12 @@ global = do -> this
 
 {Expression}    = require './Expression'
 {Utility:{
-  toString,
   isString,
   isArray,
   isNumber,
   isFunction,
-  isExpression
+  isExpression,
+  parseExpression
 }}              = require './Utility'
 
 root = module?.exports ? this
@@ -33,7 +33,6 @@ root = module?.exports ? this
 # @namespace goatee.Action.Expression.Compiler.Goateescript
 root.Interpreter = class Interpreter
 
-  _expression  = Expression.parse
   _aliasSymbol = /^[a-zA-Z$_]$/
   _primitive   = null
 
@@ -42,7 +41,7 @@ root.Interpreter = class Interpreter
     _primitive  = operations.primitive.name
 
     aliases     = []
-    for alias in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_'.split('').reverse() when not operations[c]?
+    for alias in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_'.split('').reverse() when not operations[alias]?
       aliases.push alias
     index       = aliases.length
 
@@ -51,8 +50,8 @@ root.Interpreter = class Interpreter
     for key, value of operations
       if not value.name? or value.alias?
         continue
-      operations[value.alias = aliases[index]] = key
-      if --index is 0
+      operations[value.alias = aliases[--index]] = key
+      if index is 0
         return
     return
 
@@ -101,7 +100,7 @@ root.Interpreter = class Interpreter
   #                               toString method
   # @return Expression
   Interpreter.parse = _parse = (code) ->
-    return _expression(code) if isString code
+    return parseExpression(code) if isString code
     _process(code)
 
   ##

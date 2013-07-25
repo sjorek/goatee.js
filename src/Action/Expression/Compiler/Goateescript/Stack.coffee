@@ -14,10 +14,6 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Utility:{
-  arrayClear
-}}                  = require '../../../../Core/Utility'
-
 root = module?.exports ? this
 
 ##
@@ -35,8 +31,8 @@ root.Stack = class Stack
   destructor : () ->
     @global    = undefined
     @variables = {}
-    arrayClear(@stack)
-    arrayClear(@scope)
+    @stack     = []
+    @scope     = []
 
   current    : ->
     if @stack.length > 0 then @stack[@stack.length - 1] else undefined
