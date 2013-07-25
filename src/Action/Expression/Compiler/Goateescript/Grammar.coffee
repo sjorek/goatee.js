@@ -53,17 +53,11 @@ root.Grammar = Grammar =
       /* #{comment} */
       (function() {
 
-      var _ref, global, yy;
-      global = (function(){return this;})();
-      root = (_ref = typeof module !== "undefined" && module !== null ? module.exports : void 0) != null ? _ref : this;
-      yy = require('./Scope').Scope;
-
       """
   footer: ->
       """
 
-      parser.yy = yy;
-      root.Parser = parser;
+      parser.yy = require('./Scope').Scope;
 
       }).call(this);
       """
@@ -226,6 +220,7 @@ root.Grammar = Grammar =
       o 'Seperator Seperated'          , -> $2
       o 'Seperated Seperator'
       o 'Seperated'
+      o 'Seperator'
     ]
     Seperator: [
       o ';'                         , -> yy.Empty

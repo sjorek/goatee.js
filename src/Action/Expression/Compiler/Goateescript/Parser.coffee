@@ -21,4 +21,18 @@ root = module?.exports ? this
 ##
 # Compatibillity layer for the “on-the-fly” generated parser
 # @type {Parser}
-root.Parser = Grammar.createParser()
+root.parser = parser = Grammar.createParser()
+root.Parser = parser.Parser;
+root.parse  = () -> parser.parse.apply(parser, arguments)
+root.main   = (args) ->
+    if !args[1]
+      console.log "Usage: #{args[0]} FILE"
+      process.exit 1
+    source = require('fs').readFileSync(
+      require('path').normalize(args[1]), "utf8"
+    )
+    parser.parse(source)
+
+if (module isnt undefined && require.main is module)
+  exports.main process.argv.slice(1)
+

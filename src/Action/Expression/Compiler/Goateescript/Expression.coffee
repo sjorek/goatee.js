@@ -31,9 +31,16 @@ root.Expression = class Expression
   _global       = null
   _variables    = null
   _operations   = null
+  _parse        = null
+  _parser       = null
 
   _toString     = Object::toString
 
+  # Modified version using String::substring instead of String::substr
+  # @see http://coffeescript.org/documentation/docs/underscore.html
+  _isString     = (obj) -> !!(obj is '' or (obj and obj.charCodeAt and obj.substring))
+
+  # @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
   _isArray      = if Array.isArray? then Array.isArray else (obj) ->
     _toString.call(obj) is '[object Array]'
 
@@ -64,18 +71,6 @@ root.Expression = class Expression
     finally
       _stack.pop()
     return result
-
-  ##
-  # @param  {String}     code
-  # @return {Expression}
-  Expression.parse = do ->
-    cache  = {}
-    Parser = null
-    (code) ->
-      return cache[code] if cache.hasOwnProperty(code)
-      Parser ?= require './Parser'
-      expression = Parser.parse code
-      cache[code] = cache['' + expression] = expression
 
   ##
   # @param {Object}           context (optional)
@@ -325,13 +320,14 @@ root.Expression = class Expression
       format: (a,b) -> "#{a}{#{b}}"
       evaluate: (a, b) -> if _booleanize b then a else undefined
     context:
-      format: (a) -> a
-      vector: false
-      evaluate: (a) ->
-        { '$':_global, '@':_variables }[a]
+      alias   : 'c'
+      format  : (a) -> a
+      vector  : false
+      evaluate: (a) -> { '$':_global, '@':_variables }[a]
     reference:
-      format: (a) -> a
-      vector: false
+      alias   : 'r'
+      format  : (a) -> a
+      vector  : false
       evaluate: (a) ->
         ref   = _isProperty()
         value = this[a]
@@ -344,30 +340,33 @@ root.Expression = class Expression
             return context[a] if context.hasOwnProperty a
         value
     #children:
-    #  format: -> '*'
-    #  vector: true
-    #  #watch: (object, expression, handler, connect) -> gl_as.watch object, handler, connect
+    #  alias   : '*'
+    #  format  : -> '*'
+    #  vector  : true
+    #  #watch   : (object, expression, handler, connect) -> gl_as.watch object, handler, connect
     #  evaluate: () ->
     #    if _isArray @
     #      _.clone @
     #    else
     #      _.values @
     primitive:
+      alias   : 'p'
       constant: true
-      vector: false
-      format: (a) -> JSON.stringify a
+      vector  : false
+      format  : (a) -> JSON.stringify a
       evaluate: (a) -> a
     block:
-      format: (statements...) -> "{#{statements.join ';'}}"
-      evaluate: ->
-        arguments[arguments.length-1]
+      alias   : ';'
+      format  : (statements...) -> statements.join ';'
+      evaluate: -> arguments[arguments.length-1]
     if:
+      alias   : 'i'
       rawParameters: true
-      format: (a, b, c) ->
+      format  : (a, b, c) ->
         if c?
-          "if (#{a}) #{b} else #{c}"
+          "if (#{a}) {#{b}} else {#{c}}"
         else
-          "if (#{a}) #{b}"
+          "if (#{a}) {#{b}}"
       evaluate: (a, b, c) ->
         if _booleanize _execute(this, a)
           _execute this, b
@@ -376,18 +375,21 @@ root.Expression = class Expression
         else
           undefined
     #for:
+    #  alias   : 'f'
     #  rawParameters: true
-    #  format: (a, b) -> "for (#{a}) { #{b} }"
+    #  format  : (a, b) -> "for (#{a}) {#{b}}"
     #  evaluate: (a, b) ->
     #    a = _execute this, a
     #    return undefined unless a?
     #    for value in _.values a
     #      _execute value, b
     array:
+      alias   : 'a'
       format  : (elements...) -> "[#{elements.join ','}]"
       evaluate: (elements...) -> elements
     object:
-      format: ->
+      alias   : 'o'
+      format  : ->
         buffer = []
         buffer.push "#{k}:#{arguments[i+1]}" for k,i in arguments by 2
         "{#{buffer.join ','}}"
@@ -419,25 +421,80 @@ root.Expression = class Expression
             _op = _operations[key.substring 0, key.length - 1].evaluate
             (a,b) ->
               _assign a, _op(_evaluateRef(a), b)
+      # process assigments and equality
+      if value.alias? and not _operations[value.alias]?
+        _operations[value.alias] = key
     return
 
   Expression.operator = _operator = (name) ->
-    return op if (op = _operations[name])?
+    if (op = _operations[name])?
+      return if _isString(op) then _operator(op) else op
     throw new Error "operation not found: #{name}"
+
+  ##
+  # @param  {String}     code
+  # @return {Expression}
+  Expression.parse = _parse = do ->
+    cache  = {}
+    (code) ->
+      return cache[code] if cache.hasOwnProperty(code)
+      _parser ?= require './Parser'
+      expression = _parser.parse code
+      cache[code] = cache['' + expression] = expression
+
+  ##
+  # @param  {String}     code
+  # @param  {Object}     context
+  # @return mixed
+  Expression.run = (code, context) ->
+    expression = if _isArray code \
+      then _interpretate(code) \
+      else _parse(if _isString code then code else '' + code)
+    expression.evaluate(context)
+
+  ##
+  # @param  {String}     code
+  # @return {String}
+  Expression.compress = (code) -> _parse(code).toString()
+
+  ##
+  # @param  {String}     code
+  # @return mixed
+  Expression.compile  = (code, compress) -> _parse(code).compile(compress)
+
+  ##
+  # @param  {Array}      opcode
+  # @return mixed
+  _interpretate = (opcode) ->
+    _len = opcode.length or 0
+    if _len < 2
+      return new Expression 'primitive', \
+        if _len is 0 then [opcode ? null] else opcode
+
+    parameters = [].concat(opcode)
+    operator   = parameters.shift()
+    for value, index in parameters
+      parameters[index] = if _isArray value then _interpretate value else value
+    new Expression(operator, parameters)
+
+  ##
+  # @param  {Array}      opcode
+  # @return mixed
+  Expression.interpretate = (opcode = null) ->
+    _interpretate(opcode)
 
   ##
   # @param {Array.<>} context
   # @return void
   # @constructor
-  constructor: (op, params=[]) ->
-    @operator = _operator(op)
-    @parameters = params
+  constructor: (op, @parameters=[]) ->
+    @operator   = _operator(op)
 
     #  is this expression a constant?
     @constant = @operator.constant is true
     if @constant
-      for param in params
-        if _isExpression(param) and not param.constant
+      for parameter in parameters
+        if _isExpression(parameter) and not parameter.constant
           @constant = false
           break
 
@@ -445,14 +502,16 @@ root.Expression = class Expression
     @vector = @operator.vector
     if @vector is undefined
       @vector = false     #   assume false
-      for param in params
-        if _isExpression(param) and param.vector    #   if the parameter has a vector quantity then the result is a vector result
+      for parameter in parameters
+        # if the parameter has a vector quantity
+        # then the result is a vector result
+        if _isExpression(parameter) and parameter.vector
           @vector = true
           break
 
     #  if this expression is a constant then we pre-evaluate it now
     #  and just return a primitive expression with the result
-    if @constant and @operator.name isnt 'primitive'
+    if @constant and @operator.name isnt _operations.primitive.name
       return new Expression 'primitive', [ @evaluate global ]
 
     #  otherwise return this expression
@@ -466,8 +525,18 @@ root.Expression = class Expression
 
   ##
   # @return Object.<String:op,Array:parameters>
-  toJSON: ->
-    {op:@operator.name, parameters:@parameters};
+  compile: (compress = true) ->
+    if compress and @operator.name is _operations.primitive.name
+      return @parameters
+    opcode = [
+      if compress and @operator.alias? then @operator.alias else @operator.name
+    ]
+    opcode.push(
+      if _isExpression parameter \
+        then parameter.compile compress \
+        else parameter
+    ) for parameter in @parameters
+    opcode
 
   ##
   # @param {Object} context (optional)
