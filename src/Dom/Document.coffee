@@ -25,13 +25,13 @@ Traversal = require('goatee/Dom/Traversal/Level1NodeTypeMatcher').Level1NodeType
 #Traversal = require('goatee/Dom/Traversal/Level4ChildNodesIterator').Level4ChildNodesIterator
 #Traversal = require('goatee/Dom/Traversal/Level4ElementChildrenIterator').Level4ElementChildrenIterator
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## Document
 
 # This implementation provides function shortcuts depending on a generic browser
 # based DOM-Implementation
-root.Document = Document =
+exports.Document = Document =
 
   ##
   # @type {Document} Global target document reference.

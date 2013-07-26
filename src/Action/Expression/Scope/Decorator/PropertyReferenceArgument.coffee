@@ -18,9 +18,9 @@ permissions and limitations under the License.
   CHAR_comma
 }}              = require '../../Core/Constants'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
-root.PropertyReferenceArgument = class PropertyReferenceArgument
+exports.PropertyReferenceArgument = class PropertyReferenceArgument
 
   _cache = {}
 

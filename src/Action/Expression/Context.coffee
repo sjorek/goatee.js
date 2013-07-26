@@ -20,7 +20,7 @@ permissions and limitations under the License.
 # Compiler    = require('goatee/Action/Compiler/Coffeescript').Coffeescript
 Compiler    = require('goatee/Action/Compiler/Javascript').Javascript
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## Context
 
@@ -28,7 +28,7 @@ root = module?.exports ? this
 # object, whose properties can be referred to in goatee-template expressions,
 # and it holds the locally defined variables.
 #
-root.Context = class Context
+exports.Context = class Context
 
   # Holds this context's local variables
   _variables : {}

@@ -19,7 +19,7 @@ permissions and limitations under the License.
 {Utility}   = require 'goatee/Core/Utility'
 {Document}  = require 'goatee/Dom/Document'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## Processor
 # Internal class used by goatee-templates to maintain context.  This is
@@ -27,4 +27,4 @@ root = module?.exports ? this
 # relatively shallow maximum recursion depth of 100.
 # @class
 # @namespace goatee.Action.Engine
-root.ElementAttribute = class ElementAttribute extends Processor
+exports.ElementAttribute = class ElementAttribute extends Processor

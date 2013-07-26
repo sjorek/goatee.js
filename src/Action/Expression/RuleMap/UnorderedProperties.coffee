@@ -20,7 +20,7 @@ permissions and limitations under the License.
   camelize
 }}               = require './Utility'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## UnorderedProperties
 
@@ -29,7 +29,7 @@ root = module?.exports ? this
 #
 # @class
 # @namespace goatee.Core
-root.UnorderedProperties = class UnorderedProperties extends UnorderedRules
+exports.UnorderedProperties = class UnorderedProperties extends UnorderedRules
 
   ##
   # @param  {String} string

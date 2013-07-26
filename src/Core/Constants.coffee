@@ -15,9 +15,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
-root.Constants = Constants =
+exports.Constants = Constants =
 
   ##
   # Names of special variables defined by the jstemplate evaluation

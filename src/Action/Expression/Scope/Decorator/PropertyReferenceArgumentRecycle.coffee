@@ -24,9 +24,9 @@ permissions and limitations under the License.
   arrayClear
 }}                          = require '../../Core/Constants'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
-root.PropertyReferenceArgumentRecycle = \
+exports.PropertyReferenceArgumentRecycle = \
 class PropertyReferenceArgumentRecycle extends PropertyReferenceArgument
 
   _map   = {}

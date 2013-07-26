@@ -17,13 +17,13 @@ permissions and limitations under the License.
 
 events = require 'events'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## NodeEvents
 
 # @class
 # @namespace goatee.Action.Emitter
-root.NodeJsEvents = class NodeJsEvents
+exports.NodeJsEvents = class NodeJsEvents
 
   ##
   # @param {Node} The current node to process

@@ -14,9 +14,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
-root.WithStatement = class WithStatement
+exports.WithStatement = class WithStatement
   _cache: {}
 
   bind: (code, scope...) ->

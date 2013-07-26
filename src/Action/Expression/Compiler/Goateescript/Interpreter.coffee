@@ -26,12 +26,12 @@ global = do -> this
   parseExpression
 }}              = require './Utility'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ##
 # @class
 # @namespace goatee.Action.Expression.Compiler.Goateescript
-root.Interpreter = class Interpreter
+exports.Interpreter = class Interpreter
 
   _aliasSymbol = /^[a-zA-Z$_]$/
   _primitive   = null

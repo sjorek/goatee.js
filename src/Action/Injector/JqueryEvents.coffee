@@ -16,10 +16,10 @@ permissions and limitations under the License.
 ###
 
 $      = jQuery  ? require 'jQuery'
-root   = exports ? this
+exports   = exports ? this
 
 ## JqueryEvents
 
 # @class
 # @namespace goatee.Action.Emitter
-root.JqueryEvents = class JqueryEvents
+exports.JqueryEvents = class JqueryEvents

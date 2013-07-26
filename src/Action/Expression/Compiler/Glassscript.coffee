@@ -19,7 +19,7 @@ Glass        = require 'glass-script'
 {Utility}    = require 'goatee/Core/Utility'
 {Javascript} = require 'goatee/Action/Compiler/Javascript'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ###
 Glassscript
@@ -27,7 +27,7 @@ Glassscript
 @class
 @namespace goatee.Action.Compiler
 ###
-root.Glassscript = class Glassscript extends Javascript
+exports.Glassscript = class Glassscript extends Javascript
 
   ##
   # Cache for compiled expressions

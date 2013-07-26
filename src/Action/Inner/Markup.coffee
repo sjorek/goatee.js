@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 {Action} = require 'goatee/Action/Inner'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 #### Markup
 
@@ -25,4 +25,4 @@ root = module?.exports ? this
 # 
 # @class
 # @namespace goatee
-root.Markup = class Markup extends Action
+exports.Markup = class Markup extends Action

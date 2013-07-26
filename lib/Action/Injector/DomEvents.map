@@ -6,5 +6,5 @@
     "Action/Injector/DomEvents.coffee"
   ],
   "names": [],
-  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,eAAA;;CAAA,CAkBA,CAAyB,CAAzB;;CAlBA,CAwBA,CAAuB,CAAnB,KAAJ;CAAiB;;CAAA;;CAxBjB;CAAA"
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,kBAAA;;CAAA,CAkBA,CAA4B,CAlB5B,GAkBA;;CAlBA,CAwBA,CAA0B,IAAnB,EAAP;CAAoB;;CAAA;;CAxBpB;CAAA"
 }

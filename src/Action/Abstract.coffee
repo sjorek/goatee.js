@@ -15,7 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 #### Abstract
 
@@ -23,7 +23,7 @@ root = module?.exports ? this
 #
 # @class
 # @namespace goatee
-root.Abstract = class Abstract
+exports.Abstract = class Abstract
 
   ##
   # Derivates must implement this method to perform the action.

@@ -29,7 +29,7 @@ permissions and limitations under the License.
   trim
 }}                  = require '../../Core/Utility'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ###
 Javascript
@@ -37,7 +37,7 @@ Javascript
 @class
 @namespace goatee.Action.Compiler
 ###
-root.Javascript = class Javascript
+exports.Javascript = class Javascript
 
   ##
   # Wrapper for @evaluateExpression() catching and logging any Exceptions

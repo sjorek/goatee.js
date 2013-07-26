@@ -17,11 +17,11 @@ permissions and limitations under the License.
 
 {Processor} = require 'goatee/Action/Processor'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## ProjectionSheet
 
 #
 # @class
 # @namespace goatee.Action.Engine
-root.ProjectionSheet = class ProjectionSheet extends Processor
+exports.ProjectionSheet = class ProjectionSheet extends Processor

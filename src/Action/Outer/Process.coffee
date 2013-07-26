@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 {Action} = require 'goatee/Action/Outer'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 #### Process
 
@@ -25,4 +25,4 @@ root = module?.exports ? this
 # 
 # @class
 # @namespace goatee
-root.Process = class Process extends Action
+exports.Process = class Process extends Action

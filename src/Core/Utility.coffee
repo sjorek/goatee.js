@@ -25,7 +25,7 @@ permissions and limitations under the License.
 
 {Constants} = require './Constants'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 
 _camelize = (match, char, index, str) ->
@@ -34,7 +34,7 @@ _camelize = (match, char, index, str) ->
 _dashify  = (match, char, camel, index, str) ->
   char + Constants.CHAR_dash + camel.toLowerCase()
 
-root.Utility = Utility =
+exports.Utility = Utility =
 
   ##
   # Detect if an object looks like an Array.

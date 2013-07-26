@@ -21,12 +21,12 @@ Emitter     = require('goatee/Action/Emitter/DomEvents').DomEvents
 #Emitter     = require('goatee/Action/Emitter/JqueryEvents').JqueryEvents
 #Emitter     = require('goatee/Action/Emitter/NodejsEvents').NodejsEvents
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## SelectorMap
 # @class
 # @namespace goatee.Action.Engine
-root.SelectorMap = class SelectorMap extends Processor
+exports.SelectorMap = class SelectorMap extends Processor
 
   _emitter       = null
 

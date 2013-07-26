@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 {Node} = require 'goatee/Core/Node'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 #### Level1NodeTypeMatcher
 
@@ -25,7 +25,7 @@ root = module?.exports ? this
 # 
 # @class
 # @namespace goatee
-root.Level1NodeTypeMatcher = \
+exports.Level1NodeTypeMatcher = \
 class Level1NodeTypeMatcher extends Level1NodeTypeMatcher
 
   ##

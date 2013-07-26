@@ -39,7 +39,7 @@ permissions and limitations under the License.
   trim
 }} = require '../Core/Utility'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## UnorderedRules
 
@@ -51,7 +51,7 @@ root = module?.exports ? this
 #
 # @class
 # @namespace goatee.Core
-root.UnorderedRules = class UnorderedRules
+exports.UnorderedRules = class UnorderedRules
 
   ##
   # @param {Object} rules

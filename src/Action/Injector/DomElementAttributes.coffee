@@ -16,10 +16,10 @@ permissions and limitations under the License.
 ###
 
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## DomElementAttributes
 
 # @class
 # @namespace goatee.Action.Emitter
-root.DomElementAttributes = class DomElementAttributes
+exports.DomElementAttributes = class DomElementAttributes

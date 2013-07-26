@@ -22,7 +22,7 @@ permissions and limitations under the License.
 
 {UnorderedRules}    = require './UnorderedRules'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## OrderedRules
 
@@ -32,7 +32,7 @@ root = module?.exports ? this
 #
 # @class
 # @namespace goatee.Core
-root.OrderedRules = class OrderedRules extends UnorderedRules
+exports.OrderedRules = class OrderedRules extends UnorderedRules
 
   ##
   # @param {Array}  sequence

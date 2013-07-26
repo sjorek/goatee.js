@@ -6,5 +6,5 @@
     "Action/Injector/JqueryEvents.coffee"
   ],
   "names": [],
-  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,eAAA;;CAAA,CAiBA,CAAS,IAAU,CAAA;;CAjBnB,CAkBA,CAAS,CAAT;;CAlBA,CAwBA,CAA0B,CAAtB,QAAJ;CAAoB;;CAAA;;CAxBpB;CAAA"
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,kBAAA;;CAAA,CAiBA,CAAS,IAAU,CAAA;;CAjBnB,CAkBA,CAAY,CAlBZ,GAkBA;;CAlBA,CAwBA,CAA6B,IAAtB,KAAP;CAAuB;;CAAA;;CAxBvB;CAAA"
 }

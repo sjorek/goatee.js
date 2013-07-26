@@ -19,7 +19,7 @@ Coffee       = require 'coffee-script'
 {Utility}    = require 'goatee/Core/Utility'
 {Javascript} = require 'goatee/Action/Compiler/Javascript'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ###
 Coffeescript
@@ -27,7 +27,7 @@ Coffeescript
 @class
 @namespace goatee.Action.Compiler
 ###
-root.Coffeescript = class Coffeescript extends Javascript
+exports.Coffeescript = class Coffeescript extends Javascript
 
   ##
   # @param {Object} options

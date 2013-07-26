@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 {Processor} = require 'goatee/Action/Processor'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## ActionObjectModel
 #
@@ -27,6 +27,6 @@ root = module?.exports ? this
 #
 # @class
 # @namespace goatee.Action.Engine
-root.ActionObjectModel = class ActionObjectModel extends Processor
+exports.ActionObjectModel = class ActionObjectModel extends Processor
 
 ActionObjectModel.boot = (document) ->

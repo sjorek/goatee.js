@@ -17,7 +17,7 @@ permissions and limitations under the License.
 
 Action = require('goatee/Action/Abstract').Abstract
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 #### Inner
 
@@ -25,4 +25,4 @@ root = module?.exports ? this
 #
 # @class
 # @namespace goatee
-root.Inner = class Inner extends Action
+exports.Inner = class Inner extends Action

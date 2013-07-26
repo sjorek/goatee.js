@@ -27,12 +27,12 @@ global = do -> this
   isExpression
 }}              = require './Utility'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ##
 # @class
 # @namespace goatee.Action.Expression.Compiler.Goateescript
-root.Expression = class Expression
+exports.Expression = class Expression
 
   _stack        = undefined
   _scope        = null

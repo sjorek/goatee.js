@@ -20,7 +20,7 @@ permissions and limitations under the License.
   dashify
 }}               = require './Utility'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 ## UnorderedAttributes
 
@@ -29,7 +29,7 @@ root = module?.exports ? this
 #
 # @class
 # @namespace goatee.Core
-root.UnorderedAttributes = class UnorderedAttributes extends UnorderedRules
+exports.UnorderedAttributes = class UnorderedAttributes extends UnorderedRules
 
   ##
   # @param  {String} string

@@ -18,7 +18,7 @@ permissions and limitations under the License.
 {Document} = require 'goatee/Dom/Document'
 {Node}     = require 'goatee/Core/Node'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
 #### Level2NodeIterator
 
@@ -26,7 +26,7 @@ root = module?.exports ? this
 #
 # @class
 # @namespace goatee
-root.Level2NodeIterator = \
+exports.Level2NodeIterator = \
 class Level2NodeIterator
 
   ##

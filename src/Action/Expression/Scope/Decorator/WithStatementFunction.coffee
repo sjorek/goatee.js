@@ -20,9 +20,9 @@ permissions and limitations under the License.
 
 {WithStatement} = require './WithStatement'
 
-root = module?.exports ? this
+exports = module?.exports ? this
 
-root.WithStatementFunction = \
+exports.WithStatementFunction = \
 class WithStatementFunction extends WithStatement
 
   compile: (args, code) ->
