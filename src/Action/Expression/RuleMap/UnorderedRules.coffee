@@ -80,12 +80,12 @@ exports.UnorderedRules = class UnorderedRules
     return @
 
   ##
-  # Call fn for each rule's key, value and priority.
+  # Call fn for each rule's key, value and priority and return this.
   #
   # @param  {Function} fn
-  # @return {Array}
+  # @return {UnorderedRules}
   each: (fn) ->
-    fn key, value, @priority.hasOwnProperty(key) for own key, value of @rules
+    @map(fn)
     @
 
   ##
@@ -98,8 +98,8 @@ exports.UnorderedRules = class UnorderedRules
     fn key, value, @priority.hasOwnProperty(key) for own key, value of @rules
 
   ##
-  # Opposite of @apply(string). Returns this map with all rules from given map
-  # applied to this map, taking my and their priorities into consideration.
+  # Parses the given string  and applies the resulting map to this map, taking
+  # priorities into consideration.
   #
   # @param  {String} string
   # @return {UnorderedRules}
