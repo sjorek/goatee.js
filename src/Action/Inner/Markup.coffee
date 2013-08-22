@@ -18,7 +18,7 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-#### Markup
+## Markup
 
 # A class implementing the markup action
 #

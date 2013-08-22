@@ -19,7 +19,7 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-#### Display
+## Display
 
 # A class implementing the display action (formerly jsdisplay)
 # 

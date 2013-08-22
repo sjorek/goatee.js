@@ -18,7 +18,7 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-#### GeckoElementTraversal
+## GeckoElementTraversal
 
 # A class to hold state for a dom traversal.
 #

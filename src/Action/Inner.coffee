@@ -18,7 +18,7 @@ Action = require('goatee/Action/Abstract').Abstract
 
 exports = module?.exports ? this
 
-#### Inner
+## Inner
 
 # A abstract class implementing an inner action
 #

@@ -18,7 +18,7 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-#### Next
+## Next
 
 # A class implementing the next action
 #

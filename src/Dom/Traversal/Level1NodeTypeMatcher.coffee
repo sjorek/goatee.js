@@ -18,7 +18,7 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-#### Level1NodeTypeMatcher
+## Level1NodeTypeMatcher
 
 # A class to hold state for a dom traversal.
 # 

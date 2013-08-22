@@ -19,7 +19,7 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-#### Content
+## Content
 
 # A class implementing the content action (formerly jscontent)
 # 

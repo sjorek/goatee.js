@@ -19,7 +19,7 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-#### Render
+## Render
 
 # A class implementing the render action (formerly jstransclude)
 #

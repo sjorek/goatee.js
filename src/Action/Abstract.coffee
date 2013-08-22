@@ -16,7 +16,7 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-#### Abstract
+## Abstract
 
 # A abstract class implementing a basic action
 #
