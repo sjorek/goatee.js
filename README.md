@@ -141,5 +141,6 @@ Goatee is not yet useable, but some components are … see above.
   [Coffee-Script](http://coffeescript.org/).
 
 - … [Nodeclipse v0.4](https://github.com/Nodeclipse/nodeclipse-1)
- ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))
+ ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse),
+  [site](http://www.nodeclipse.org))
 
