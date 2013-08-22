@@ -33,6 +33,7 @@ task 'all', 'invokes build and clean in given order', ->
   console.log 'all'
   invoke 'clean'
   invoke 'build'
+  invoke 'doc'
 
 task 'build', 'invokes build:once and … in given order', ->
   console.log 'build'

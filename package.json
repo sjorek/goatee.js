@@ -28,7 +28,7 @@
     "benchmark": "~1.0",
     "groc": "~0.4"
   },
-  "homepage": "https://github.com/sjorek/goatee-js/",
+  "homepage": "http://sjorek.github.io/goatee-js/",
   "bugs": "https://github.com/sjorek/goatee-js/issues",
   "repository": {
     "type": "git",
