@@ -56,7 +56,6 @@ task 'doc', 'invokes “doc:source” and “doc:github” in given order', ->
   invoke 'doc:source'
   #invoke 'doc:github'
 
-
 task 'doc:source', 'rebuild the internal documentation', ->
   console.log 'doc:source'
   clean 'doc'

@@ -114,8 +114,8 @@ The answer: My goals. I promise that “goatee” will have …
 
 Goatee is not yet installable, but some components are …
 
-- [goatee-script](https://github.com/sjorek/goatee-script)
-- [goatee-rules](https://github.com/sjorek/goatee-rules)
+- [goatee-script](http://sjorek.github.io/goatee-script)
+- [goatee-rules](http://sjorek.github.io/goatee-rules)
 
 ## Usage
 
