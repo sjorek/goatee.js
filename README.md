@@ -75,7 +75,7 @@ similar projects like “[knockout.js](http://knockoutjs.com)” then ?
 
 The answer: My goals. I promise that “goatee” will have …
 
-- … html4, html5, xhtml 1.1, and xhtml5 flavours,
+- … html4, html5, xhtml 1.1 and xhtml5 flavours,
 
 - … an extremly modular architecture,
 
