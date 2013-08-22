@@ -29,9 +29,14 @@ clean = (root) ->
         clean path
   fs.rmdirSync root
 
-task 'build', 'invokes build:once and build:parser in given order', ->
+task 'all', 'invokes build and clean in given order', ->
+  console.log 'all'
+  invoke 'clean'
+  invoke 'build'
+
+task 'build', 'invokes build:once and … in given order', ->
+  console.log 'build'
   invoke 'build:once'
-  invoke 'build:parser'
 
 task 'clean', 'removes Javascript in “lib/”', ->
   console.log 'clean'

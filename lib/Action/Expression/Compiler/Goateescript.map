@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Goateescript.js",
+  "sourceRoot": "../../../../src",
+  "sources": [
+    "Action/Expression/Compiler/Goateescript.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,sFAAA;KAAA;oSAAA;;CAAA,CAgBA,CAAe,GAAf,CAAe,KAhBf,GAgBe;;CAhBf,CAiBA,CAAe,EAAf,EAAe,IAjBf,GAiBe;;CAjBf,CAkBC,CAAc,IAAA,EAlBf,cAkBe;;CAlBf,CAmBC,CAAc,IAAA,cAAA;;CAnBf,CAoBC,CAAc,IAAA,GApBf,yBAoBe;;CApBf,CAsBA,CAA4B,CAtB5B,GAsBA;;CAEA;;;;;;CAxBA;;CAAA,CA8BA,CAA6B,IAAtB,KAAP;CAYE;;;;;CAAA;;CAAA,EAAoB,MAAC,CAAD,QAApB;CACe,KAAD,CAAN,GAAA,GAAN,wCAAM;CADR,IAAoB;;CAApB;;CAZgD;;CA9BlD,CAgDA,CAAY,CAhDZ,IAgDY,CAAZ,GAAwB;;CAhDxB,CAqDA,CAAA,MAAmB,GAAP;AACe,CAAZ,EAAb,MAAa,GAAD;CAtDd,EAqDmB;CArDnB"
+}
