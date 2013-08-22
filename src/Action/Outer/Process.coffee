@@ -1,6 +1,5 @@
 ###
 © Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
-© Copyright 2006 Google Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,8 +20,8 @@ exports = module?.exports ? this
 
 #### Process
 
-# A class implementing the process action 
-# 
+# A class implementing the process action
+#
 # @class
 # @namespace goatee
 exports.Process = class Process extends Action

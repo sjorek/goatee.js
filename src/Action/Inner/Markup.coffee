@@ -1,6 +1,5 @@
 ###
 © Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
-© Copyright 2006 Google Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,8 +20,8 @@ exports = module?.exports ? this
 
 #### Markup
 
-# A class implementing the markup action 
-# 
+# A class implementing the markup action
+#
 # @class
 # @namespace goatee
 exports.Markup = class Markup extends Action

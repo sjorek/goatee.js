@@ -22,7 +22,7 @@ exports = module?.exports ? this
 #### Render
 
 # A class implementing the render action (formerly jstransclude)
-# 
+#
 # @class
 # @namespace goatee
 exports.Render = class Render extends Action
