@@ -123,7 +123,7 @@ Goatee is not yet useable, but some components are … see above.
 
 ## Development
 
-    $ git clone https://github.com/sjorek/goatee
+    $ git clone https://github.com/sjorek/goatee-js
     $ cd goatee
     $ PATH=$PATH:./node_modules/.bin cake all
 
