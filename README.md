@@ -36,7 +36,7 @@ goatee-js
 
 For those who like acronyms:
 
-  **G**oatee - a **O**bject **A**ccessor **T**emplate **E**ngine **E**ngine
+  **G**oatee - an **O**bject **A**ccessor **T**emplate **E**ngine **E**ngine
 
 And yes, the word “engine” occurs deliberately twice, as goatee is recursive :-)
 
