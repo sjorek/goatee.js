@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+=========
+goatee-js
+=========
 
 > :-{>~ A goatee is the perfect complement for handlebar mustaches. ~<}-:
 
@@ -140,9 +142,4 @@ Goatee is not yet useable, but some components are … see above.
 
 - … [Nodeclipse v0.4](https://github.com/Nodeclipse/nodeclipse-1)
  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))
-=======
-goatee-js
-=========
 
-A goatee is a perfect complement for handlebar mustaches.
->>>>>>> 67bd792d1e909ab251a666fedf7764dc4265b381
