@@ -100,8 +100,8 @@ The answer: My goals. I promise that “goatee” will have …
   - Playframework (Java/Scala)
 
 - … 100% compatiblity for all runtimes in all those different languages,
-  producing exactly the same results, no matter if it runs in on the client
-  side (browser) or on the server side,
+  producing exactly the same results, no matter if it runs on the client-
+  side (browser) or on the server-side,
 
 - … content-management-extensions with the same look and feel as well as
   behaviour, no matter which implementation has been choosen, and with
