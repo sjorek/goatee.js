@@ -1,5 +1,5 @@
-fs      = require 'fs'
-{exec,spawn} = require 'child_process'
+fs            = require 'fs'
+{exec,spawn}  = require 'child_process'
 
 # ANSI Terminal Colors.
 bold = red = green = reset = ''
@@ -26,12 +26,3 @@ task 'build:watch', 'compile Coffeescript in “src/” to Javascript in “lib/
 
 task 'build:once', 'compile Coffeescript in “src/” to Javascript in “lib/” once', ->
   spawn 'coffee', '-o ../lib/ -mc .'.split(' '), stdio: 'inherit', cwd: 'src'
-
-task 'build:parser', 'rebuild the Goateescript parser', ->
-  require 'jison' # TODO This seems to be important, have to figure out why !
-  {Grammar} = require('./src/Action/Expression/Compiler/Goateescript/Grammar')
-  fs.writeFile './lib/Action/Expression/Compiler/Goateescript/Parser.js', \
-    (Grammar.header(Grammar.comment) ? "") +
-    Grammar.createParser().generate() +
-    (Grammar.footer() ? "")
-  fs.unlink './lib/Action/Expression/Compiler/Goateescript/Parser.map'
