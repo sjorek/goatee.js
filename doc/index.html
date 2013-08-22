@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en"><head><title>index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="index"><meta name="groc-project-path" content="README.md"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path">README.md</div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="goatee-js">goatee-js</h1>
+
+<pre><code>     _______  _______  _______  _______  _______  _______
+    |    ___||       ||       ||_     _||    ___||    ___|
+    |   | __ |   _   ||   _   |  |   |  |   |___ |   |___
+    |   ||  ||  |_|  ||  |_|  |  |   |  |    ___||    ___|
+    |   |_| ||       ||   _   |  |   |  |   |___ |   |___
+    |_______||_______||__| |__|  |___|  |_______||_______|
+                                     . ,
+                                     (\\
+                                  .--, \\__
+                                   `-.     *`-.__
+                                     |          ')
+                                    / \__.-'-, ~;
+                                   /     |   { /
+                    ._..,-.-"``~"-'      ;    (
+                 .;'                    ;'    ´
+            ~;,./                      ;'
+               ';                     ;'
+                ';                 /;'|
+                 |    .;._.,;';\   |  |
+                 \   /  /       \  |\ |
+                  \ || |         | )| )
+      ___         | || |         | || |            _______
+     |   |  ~~~~~ | \| \  ~~~~~~ | \| \  ~~~~~~~  |  _____|
+     |   |  "''"' `##`##' "'"''" `##`##' '"''"'"  | |_____
+  ___|   |  '"'"''"'"''"''"''"'"'''"'"'''"''"'"'  |_____  |
+ |       |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   _____| |
+ |_______|                                        |_______|
+</code></pre>
+
+<p>:-{>~ A goatee is the perfect complement for handlebar mustaches. ~&lt;}-:</p>
+
+<h2 id="meaning">Meaning</h2>
+
+<p>For those who like acronyms:</p>
+
+<p><strong>G</strong>oatee - an <strong>O</strong>bject <strong>A</strong>ccessor <strong>T</strong>emplate <strong>E</strong>ngine <strong>E</strong>ngine</p>
+
+<p>And yes, the word “engine” occurs deliberately twice, as goatee is recursive :-)</p>
+
+<h2 id="objective">Objective</h2>
+
+<p>First of all a citation from the originating
+“<a href="http://code.google.com/p/google-jstemplate/">google-jstemplate</a>” project:</p>
+
+<blockquote>
+  <p>Template processing is the staple pattern for separation of data and
+    presentation in web applications. But it usually works on one page at
+    a time, which is inadequate for incremental, asynchronous page updates
+    typical of Ajax applications.</p>
+  
+  <p>This system provides templates that allow for …</p>
+  
+  <ul>
+  <li><p><strong>incremental processing</strong>: every processing operation produces valid output</p></li>
+  <li><p><strong>differential processing</strong>: output text is again a template.</p></li>
+  </ul>
+  
+  <p>It also fixes other undesirable properties of standard template processing:</p>
+  
+  <ul>
+  <li><p><strong>Wellformed output</strong> is guaranteed.</p></li>
+  <li><p><strong>Escaped</strong> by default.</p></li>
+  <li><p>Templates are intelligible: <strong>input template is valid output</strong>.</p></li>
+  </ul>
+  
+  <p>And, of course:</p>
+  
+  <ul>
+  <li>Pure javascript, HTML, browser side processing.</li>
+  </ul>
+</blockquote>
+
+<p>That's what goatee is all about. So what's the difference between “goatee”,
+“<a href="http://code.google.com/p/google-jstemplate/">google-jstemplate</a>” or other
+similar projects like “<a href="http://knockoutjs.com">knockout.js</a>” then ?</p>
+
+<p>The answer: My goals. I promise that “goatee” will have …</p>
+
+<ul>
+<li><p>… html4, html5, xhtml 1.1 and xhtml5 flavours,</p></li>
+<li><p>… an extremly modular architecture,</p></li>
+<li><p>… an interpreter during development-phase, with quick'n'dirty instant updates,</p></li>
+<li><p>… small and fast pre-compiled bytecode for production-releases,</p></li>
+<li><p>… no external dependencies and no name collisions in browser environments with
+popular frameworks as jquery, underscore and so on,</p></li>
+<li><p>… all the features of
+<a href="http://code.google.com/p/google-jstemplate/">google-jstemplate</a>,</p></li>
+<li><p>… implementations for the following platforms:</p>
+
+<ul><li>Express.js (Node)</li>
+<li>Slim Framework (PHP)</li>
+<li>Symfony Framework (PHP)</li>
+<li>TYPO3 Flow (PHP)</li>
+<li>Django (Python)</li>
+<li>Rails (Ruby)</li>
+<li>Grails (Groovy)</li>
+<li>Playframework (Java/Scala)</li></ul></li>
+<li><p>… 100% compatiblity for all runtimes in all those different languages,
+producing exactly the same results, no matter if it runs on the client-
+side (browser) or on the server-side,</p></li>
+<li><p>… content-management-extensions with the same look and feel as well as
+behaviour, no matter which implementation has been choosen and with
+versioning for all contents and assets,</p></li>
+<li><p>… a very low learning curve, because it's just javascript with css-philosophy
+combined. Which means you won't have to learn a new syntax or grammar.</p></li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Goatee is not yet installable, but some components are …</p>
+
+<ul>
+<li><a href="https://github.com/sjorek/goatee-script">goatee-script</a></li>
+<li><a href="https://github.com/sjorek/goatee-rules">goatee-rules</a></li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<p>Goatee is not yet useable, but some components are … see above.</p>
+
+<h2 id="development">Development</h2>
+
+<pre><code>$ git clone https://github.com/sjorek/goatee-js
+$ cd goatee
+$ PATH=$PATH:./node_modules/.bin cake all
+</code></pre>
+
+<h2 id="credits-go-to-">Credits go to …</h2>
+
+<ul>
+<li><p>… Steffen Meschkat for meeting me in 2004 and sharing all his passion and
+knowledge about his (sadly proprietary) perl-based content-managment-system,
+which still is my main motivation behind this project.</p></li>
+<li><p>… Google Inc. and especially Steffen Meschkat and all the other contributors
+for their <a href="http://code.google.com/p/google-jstemplate/">google-jstemplate</a>
+as a source of motivation and inspiration.</p></li>
+<li><p>… Jeremy Ashkenas and all contributors for their
+<a href="http://coffeescript.org/">Coffee-Script</a>.</p></li>
+<li><p>… <a href="https://github.com/Nodeclipse/nodeclipse-1">Nodeclipse v0.4</a>
+(<a href="http://marketplace.eclipse.org/content/nodeclipse">Eclipse Marketplace</a>,
+<a href="http://www.nodeclipse.org">site</a>)</p></li>
+</ul></div></div></div></div></body></html>

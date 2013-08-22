@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en"><head><title>Action/Processor</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Processor"><meta name="groc-project-path" content="src/Action/Processor.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Processor.coffee</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="cm">###</span>
+<span class="cm">© Copyright 2013 Stephan Jorek &lt;stephan.jorek@gmail.com&gt;</span>
+<span class="cm">© Copyright 2006 Google Inc.</span>
+
+<span class="cm">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="cm">you may not use this file except in compliance with the License.</span>
+<span class="cm">You may obtain a copy of the License at</span>
+
+<span class="cm">http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="cm">Unless required by applicable law or agreed to in writing, software</span>
+<span class="cm">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="cm">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span>
+<span class="cm">implied. See the License for the specific language governing</span>
+<span class="cm">permissions and limitations under the License.</span>
+<span class="cm">###</span>
+
+<span class="cm">###</span>
+
+<span class="cm">Gaotee Evaluation</span>
+<span class="cm">===================</span>
+
+<span class="cm">Goatee action attributes and event action names have been choosen</span>
+<span class="cm">carefully in order to avoid naming collision with existing dom attributes,</span>
+<span class="cm">events and properties.</span>
+
+<span class="cm">Within a single element they are evaluated in the following order:</span>
+
+<span class="cm">Outer Actions</span>
+<span class="cm">-------------------</span>
+
+<span class="cm">Outer actions operate with and on tag and context, without touching any tag-</span>
+<span class="cm">attributes. They implement aspects like automation, recursion or multiplicity.</span>
+
+<span class="cm">• process       This action initiates the processing automatically, after</span>
+<span class="cm">                the dom is ready. The algorithm uses the given “process”-data as</span>
+<span class="cm">                Context. Additionally if “jQuery” is available and the given</span>
+<span class="cm">                data is a string, “process” may be either an global javascript</span>
+<span class="cm">                variable reference, or if that fails an url to an external json-</span>
+<span class="cm">                file. Changes to the process value, will stop any process</span>
+<span class="cm">                processing the same tag and start re-processing. The processing-</span>
+<span class="cm">                process will skip all nested tags which it-self contain a</span>
+<span class="cm">                “process”-Attribute, hence any of those tags will be processed</span>
+<span class="cm">                automatically in the order of their appearance.</span>
+
+<span class="cm">• match         If “json:select” is available and “match” value is used as</span>
+<span class="cm">                css3-like query onto the current context. Therefore the context</span>
+<span class="cm">                must be suiteable as 2nd argument of “JSONSelect.match”.</span>
+<span class="cm">                @see http://jsonselect.org</span>
+
+<span class="cm">• render        Formerly “transclude”. If a “render” action is present no</span>
+<span class="cm">                further actions are processed. Additionally if either</span>
+<span class="cm">                “Sizzle”, “cheerio” or “jQuery” is available, “render” may be</span>
+<span class="cm">                an internal template-reference, like in</span>
+<span class="cm">                   `(jQuery||cheerio||Sizzle)( &#39;source #id .selector&#39;, this )`</span>
+<span class="cm">                or in the case of “jQuery” an external reference, like in</span>
+<span class="cm">                   `jQuery(this).load( &#39;http://source.url #element-id&#39;” );`.</span>
+
+<span class="cm">• repeat        Formerly “jsselect”.  If “repeat” is array-valued, remaining</span>
+<span class="cm">                actions will be copied to each new duplicate element</span>
+<span class="cm">                created by the “repeat” and processed when the further dom</span>
+<span class="cm">                traversal visits the new elements.</span>
+
+<span class="cm">Inner Actions</span>
+<span class="cm">-------------------</span>
+
+<span class="cm">Inner actions operate on tag element-attributes, -properties and -methods as</span>
+<span class="cm">well as the context-data, -variables and -values.</span>
+
+<span class="cm">• appear        Formerly “jsdisplay”.</span>
+
+<span class="cm">• set           Formerly “jsvars”.</span>
+
+<span class="cm">• alter         Formerly “jsvalues”.</span>
+
+<span class="cm">• do            Formerly “jseval”.</span>
+
+<span class="cm">• skip          Formerly “jsskip”.</span>
+
+<span class="cm">• markup        This action is present if `(cheerio|jQuery)(…).html()` is</span>
+<span class="cm">                available.</span>
+
+<span class="cm">• text          Formerly “jscontent”. Uses `(cheerio|jQuery)(…).text()` if</span>
+<span class="cm">                available, otherwise Node.innerHTML will be assigned to given</span>
+<span class="cm">                content.</span>
+
+<span class="cm">• next          This action is present if `(cheerio|jQuery)(…).next()` is</span>
+<span class="cm">                available.</span>
+
+<span class="cm">###</span>
+
+<span class="p">{</span><span class="nx">Constants</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Constants&#39;</span>
+<span class="p">{</span><span class="nx">Utility</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Utility&#39;</span>
+<span class="p">{</span><span class="nx">Document</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Document&#39;</span>
+
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
+
+<span class="c1">## Processor</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Internal class used by goatee-templates to maintain context.  This is
+necessary to process deep templates in Safari≤5 which has a relatively 
+shallow maximum recursion depth of 100.
+@class</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Processor = </span><span class="k">class</span> <span class="nx">Processor</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type {Document}</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="kc">null</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type {Object}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Object}  options
+@constuctor</p></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@options) -&gt;</span>
+
+    <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Caches the document of the template node, so we don't have to
+access it through ownerDocument.
+@type {Document}</p></div></div><div class="code"><div class="wrapper">    <span class="vi">@document = </span><span class="nx">@options</span><span class="p">.</span><span class="nb">document</span> <span class="o">\</span>
+      <span class="k">if</span> <span class="o">not</span> <span class="nx">@</span><span class="nb">document</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="p">.</span><span class="nb">document</span><span class="o">?</span>
+
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Runs the given function in our state machine.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>It's informative to view the set of all function calls as a tree:
+- nodes are states
+- edges are state transitions, implemented as calls to the pending
+  functions in the stack.
+  - pre-order function calls are downward edges (recursion into call).
+  - post-order function calls are upward edges (return from call).
+- leaves are nodes which do not recurse.
+We represent the call tree as an array of array of calls, indexed as
+stack[depth][index].  Here [depth] indexes into the call stack, and
+[index] indexes into the call queue at that depth.  We require a call
+queue so that a node may branch to more than one child
+(which will be called serially), typically due to a loop structure.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {Function} f The first function to run.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(f) -&gt;</span>
+    <span class="nv">self = </span><span class="k">this</span>
+
+    <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>A stack of queues of pre-order calls.
+The inner arrays (constituent queues) are structured as
+[ arg2, arg1, method, arg2, arg1, method, ...]
+ie. a flattened array of methods with 2 arguments, in reverse order
+for efficient push/pop.</p></div></div><div class="code"><div class="wrapper">    <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>The outer array is a stack of such queues.</p></div></div><div class="code"><div class="wrapper">    <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type Array.<Array></p></div></div><div class="code"><div class="wrapper">    <span class="nv">calls = self.calls = </span><span class="p">[]</span>
+
+    <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>The index into the queue for each depth. NOTE: Alternative would
+be to maintain the queues in reverse order (popping off of the
+end) but the repeated calls to .pop() consumed 90% of this
+function's execution time.
+@type {Array.<Number>}</p></div></div><div class="code"><div class="wrapper">    <span class="nv">indices = self.indices = </span><span class="p">[]</span>
+
+    <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>A pool of empty arrays.  Minimizes object allocation for IE6's benefit.
+@type {Array.<Array>}</p></div></div><div class="code"><div class="wrapper">    <span class="nv">arrays = self.arrays = </span><span class="p">[]</span>
+
+    <span class="nx">f</span><span class="p">()</span>
+    <span class="k">while</span> <span class="nx">calls</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span>
+      <span class="nv">queue = </span><span class="nx">calls</span><span class="p">[</span><span class="nx">calls</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+      <span class="nv">index = </span><span class="nx">indices</span><span class="p">[</span><span class="nx">indices</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+      <span class="k">if</span> <span class="nx">index</span> <span class="o">&gt;=</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">length</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">recycleArray</span> <span class="nx">calls</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+        <span class="nx">indices</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+        <span class="k">continue</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Run the first function in the queue.</p></div></div><div class="code"><div class="wrapper">      <span class="nv">method = </span><span class="nx">queue</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span>
+      <span class="nv">arg1 = </span><span class="nx">queue</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span>
+      <span class="nv">arg2 = </span><span class="nx">queue</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span>
+      <span class="nx">indices</span><span class="p">[</span><span class="nx">indices</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span>
+      <span class="nx">method</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">)</span>
+    <span class="k">return</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Pushes one or more functions onto the stack.  These will be run in sequence,
+interspersed with any recursive calls that they make.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>This method takes ownership of the given array!</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {Array} args Array of method calls structured as
+                    [ method, arg1, arg2, method, arg1, arg2, ... ]</p></div></div><div class="code"><div class="wrapper">  <span class="nv">push: </span><span class="nf">(args) -&gt;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">calls</span><span class="p">.</span><span class="nx">push</span> <span class="nx">args</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">indices</span><span class="p">.</span><span class="nx">push</span> <span class="mi">0</span>
+    <span class="k">return</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Prepares the template: preprocesses all goatee-template actions.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {Element} template</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setup: </span><span class="nf">(template) -&gt;</span>
+    <span class="k">unless</span> <span class="nx">@getCacheProperty</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span><span class="o">?</span>
+      <span class="nv">self = </span><span class="nx">@</span>
+      <span class="nx">doc</span><span class="p">.</span><span class="nx">traverseElements</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nf">(node) -&gt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
+    <span class="k">return</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>A list of attributes we use to specify jst processing actions,
+and the functions used to parse their values.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type {Array.<Array>}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">actions: </span><span class="p">[</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>[ Constants.ATT<em>select, jsEvalToFunction ],
+   [ Constants.ATT</em>display, jsEvalToFunction ],
+   [ Constants.ATT<em>values, jsEvalToValues ],
+   [ Constants.ATT</em>vars, jsEvalToValues ],
+   [ Constants.ATT<em>eval, jsEvalToExpressions ],
+   [ Constants.ATT</em>transclude, jsEvalToSelf ],
+   [ Constants.ATT<em>content, jsEvalToFunction ],
+   [ Constants.ATT</em>skip, jsEvalToFunction ]</p></div></div><div class="code"><div class="wrapper">  <span class="p">]</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>A list for storing non-empty actions found on a node in prepare().
+The array is global since it can be reused - this way there is no need to
+construct a new array object for each invocation. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type Array</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_list   = </span><span class="p">[]</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Map for storing temporary action values in prepare() so they don't have
+to be retrieved twice. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type Object</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_values = </span><span class="p">{}</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Counter to generate cache ids. These ids will be stored used to lookup the
+preprocessed actions from the cache.  The id is stored with the element
+to survive cloneNode() and thus cloned template nodes can share the same
+cache entry.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type {Number}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_id = </span><span class="mi">0</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Map from cache id to processed actions.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type Object</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_actions = </span><span class="p">{}</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>The neutral cache entry. Used for all nodes that lack any actions.
+We still set the id on those nodes so we can avoid looking again for all
+the other actions that aren't there.  Remember: not only the
+processing of the action-values is expensive and we thus want to
+cache it.  The access to the actions on the Node in the first place
+is very expensive too.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_empty = </span><span class="nx">_actions</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Prepares a single node: preprocesses all template attributes of the
+node, and if there are any, assigns a jsid attribute and stores the
+preprocessed attributes under the jsid in the jstcache.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {Element} node</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@return {Object} The jstcache entry. The processed jst attributes
+are properties of this object. If the node has no jst attributes,
+returns an object with no properties (the jscache_[0] entry).</p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(node) -&gt;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>If the node already has a cache property, return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">cache = </span><span class="nx">@getCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">cache</span> <span class="k">if</span> <span class="nx">cache</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>If it is not found, we always set the PROP<em>jstcache property on the node.
+Accessing the property is faster than executing getAttribute(). If we
+don't find the property on a node that was cloned in jstSelect</em>(), we
+will fall back to check for the attribute and set the property
+from cache.</p></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>If the node has an attribute indexing a cache object, set it as a property
+and return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">id = </span><span class="nx">@getElementIdentifier</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">id</span><span class="o">?</span>
+      <span class="nv">cache = </span><span class="nx">@getCache</span> <span class="nx">id</span>
+      <span class="k">if</span> <span class="nx">cache</span><span class="o">?</span>
+        <span class="k">return</span> <span class="nx">@setCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>If the node has an attribute indexing a cache object, set it as a property
+and return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@collect</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">_list</span><span class="p">,</span> <span class="nx">_values</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>If none found, mark this node to prevent further inspection, and return
+an empty cache object.</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">@setEmpty</span> <span class="nx">node</span> <span class="k">if</span> <span class="nx">_list</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span>
+
+    <span class="nv">source = </span><span class="nx">@combine</span> <span class="nx">_list</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>If we already have a cache object corresponding to these attributes,
+annotate the node with it, and return it</p></div></div><div class="code"><div class="wrapper">    <span class="nv">id = </span><span class="nx">@getSourceIdentifier</span> <span class="nx">source</span>
+    <span class="k">if</span> <span class="nx">id</span><span class="o">?</span>
+      <span class="nv">cache = </span><span class="nx">@getCache</span> <span class="nx">id</span>
+      <span class="k">if</span> <span class="nx">cache</span><span class="o">?</span>
+        <span class="nx">@setElementIdentifier</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">id</span>
+        <span class="k">return</span> <span class="nx">@setCacheProperty</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Otherwise, build a new cache object.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">cache = </span><span class="nx">@build</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">_values</span><span class="p">)</span>
+    <span class="nv">id    = </span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="o">++</span><span class="nx">_id</span>
+
+    <span class="nx">@setCache</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span>
+    <span class="nx">@setElementIdentifier</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
+    <span class="nx">@setSourceIdentifier</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
+    <span class="nx">@setCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Collect actions from node.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Element}       node
+@param  {Array}         Array to append collected intructions to
+@param  {Element}       node
+@return {Array.<Array,Object>} Array of action-list and its value-map</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node, list, values) -&gt;</span>
+    <span class="k">for</span> <span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="k">in</span> <span class="nx">@actions</span>
+      <span class="nv">value = </span><span class="nx">doc</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">name</span>
+      <span class="nx">values</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
+      <span class="nx">list</span><span class="p">.</span><span class="nx">push</span> <span class="nx">@translate</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="k">if</span> <span class="nx">value</span><span class="o">?</span>
+    <span class="k">return</span>
+
+  <span class="nv">translate: </span><span class="nf">(name, value) -&gt;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>raw rule (uses “|=|” as assignment)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
+      <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_assigment</span> <span class="o">+</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>url encoded rule
+uses “=” as assignment, encodes the value</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
+      <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_equals</span> <span class="o">+</span> <span class="nx">encodeUriComponent</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>css-like formatted rule
+uses “:” as assignment, escapes and double-quotes the value</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
+      <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_colon</span> <span class="o">+</span> <span class="o">\</span>
+      <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_doublequote</span> <span class="o">+</span> <span class="o">\</span>
+      <span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">value</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s">&#39;&quot;&#39;</span><span class="p">,</span><span class="s">&#39;\\&quot;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="o">\</span>
+      <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_doublequote</span>
+
+  <span class="nv">combine: </span><span class="nf">(list) -&gt;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>raw rule (uses “|||” as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_seperator</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>url encoded rule (uses “&amp;” as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_ampersand</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>css-like formatted rule (uses “;” as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_semicolon</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Build a new cache object.
+@param  {Element}       node
+@return {Array.<Array>} Array of node's action-list and its value-map</p></div></div><div class="code"><div class="wrapper">  <span class="nv">build: </span><span class="nf">(node, values) -&gt;</span>
+    <span class="nv">cache = </span><span class="p">{}</span>
+    <span class="k">for</span> <span class="p">[</span><span class="nx">name</span><span class="p">,</span> <span class="nx">parse</span><span class="p">]</span> <span class="k">in</span> <span class="nx">@actions</span>
+      <span class="nv">value = </span><span class="nx">values</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span>
+      <span class="k">continue</span> <span class="k">unless</span> <span class="nx">value</span><span class="o">?</span>
+      <span class="nx">cache</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">parse</span> <span class="nx">value</span>
+      <span class="k">if</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">DEBUG</span>
+        <span class="nv">goatee = </span><span class="nx">cache</span><span class="p">.</span><span class="nx">goatee</span> <span class="o">?</span> <span class="nv">cache.goatee = </span><span class="p">{}</span>
+        <span class="nx">goatee</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
+    <span class="nx">cache</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Get cached actions-property from given node.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Element} node
+@return {Object}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCacheProperty: </span><span class="nf">(node) -&gt;</span>
+    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_jstcache</span><span class="p">]</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Cache actions in a node-property.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Element} node
+@param  {Object}  actions
+@return {Object}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCacheProperty: </span><span class="nf">(node, actions) -&gt;</span>
+    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_jstcache</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Get cached actions-property for given id.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String} id
+@return {Object}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCache: </span><span class="nf">(id) -&gt;</span>
+    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Cache actions under given id.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String}  id
+@param  {Object}  actions
+@return {Object}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCache: </span><span class="nf">(id, actions) -&gt;</span>
+    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Get cached identifier-attribute from given node.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Element} node
+@return {String}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getElementIdentifier: </span><span class="nf">(node) -&gt;</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_jstcache</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Cache identifier as node-attribute.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Element} node
+@param  {String}  id
+@return {String}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setElementIdentifier: </span><span class="nf">(node, id) -&gt;</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_jstcache</span><span class="p">,</span> <span class="nx">id</span>
+    <span class="nx">id</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Map from source, a concatenated action string, to cache id.  The key
+is the concatenation of all actions found on a node formatted as
+"name1=value1&amp;name2=value2&amp;...", in the order defined by @actions.
+The value is the id of the cache-entry that can be used for this node.
+This allows the reuse of cache entries in cases when a cached entry already
+exists for a given combination of attribute values. (For example when two
+template-nodes share the same actions.)</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@type Object</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_sources = </span><span class="p">{}</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Get cached identifier for given source.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String} source
+@return {String}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getSourceIdentifier: </span><span class="nf">(source) -&gt;</span>
+    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Cache identifier for given source.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String}  source
+@param  {String}  id
+@return {String}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setSourceIdentifier: </span><span class="nf">(source, id) -&gt;</span>
+    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span> <span class="o">=</span> <span class="nx">id</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Mark all relevant caches as empty</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Element}  node
+@return {Object}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setEmpty: </span><span class="nf">(node) -&gt;</span>
+    <span class="nx">@setElementIdentifier</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span>
+    <span class="nx">@setCacheProperty</span> <span class="nx">_empty</span>
+
+<span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Object}  options  Options passed to <code>new Processor()</code>.
+@return {Processor}</p></div></div><div class="code"><div class="wrapper"><span class="nv">Processor.create = </span><span class="nf">(options) -&gt;</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Processor</span> <span class="nx">options</span>
+
+<span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>HTML template processor. Data values are bound to HTML templates
+using the attributes transclude, jsselect, jsdisplay, jscontent,
+jsvalues. The template is modifed in place. The values of those
+attributes are JavaScript expressions that are evaluated in the
+context of the data object fragment.</p></div></div><div class="code"><div class="wrapper"><span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Context} context  Context created from the input data object.
+@param  {Element} template DOM node of the template. This will be processed
+                           in place. After processing, it will still be a
+                           valid template that, if processed again with the
+                           same data, it will remain unchanged.
+@param  {Object}  options  Options passed to <code>Processor.create()</code>.
+@return void</p></div></div><div class="code"><div class="wrapper"><span class="nv">Processor.process = </span><span class="nf">(context, template, options) -&gt;</span>
+
+  <span class="nv">processor = </span><span class="nx">Processor</span><span class="p">.</span><span class="nx">create</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Cache the owner document</p></div></div><div class="code"><div class="wrapper">  <span class="nv">processor.document = </span><span class="nx">doc</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Traverse the template, emit actions and cache them</p></div></div><div class="code"><div class="wrapper">  <span class="nx">processor</span><span class="p">.</span><span class="nx">setup</span> <span class="nx">template</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Execute all actions</p></div></div><div class="code"><div class="wrapper">  <span class="nx">processor</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">Utility</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">processor</span><span class="p">,</span> <span class="nx">processor</span><span class="p">.</span><span class="nx">outer</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">template</span><span class="p">))</span>
+  <span class="k">return</span></div></div></div></div></body></html>

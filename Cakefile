@@ -43,7 +43,25 @@ task 'clean', 'removes Javascript in “lib/”', ->
   clean 'lib'
 
 task 'build:watch', 'compile Coffeescript in “src/” to Javascript in “lib/” continiously', ->
+  console.log 'build:watch'
   spawn 'coffee', '-o ../lib/ -mcw .'.split(' '), stdio: 'inherit', cwd: 'src'
 
 task 'build:once', 'compile Coffeescript in “src/” to Javascript in “lib/” once', ->
+  console.log 'build:once'
   spawn 'coffee', '-o ../lib/ -mc .'.split(' '), stdio: 'inherit', cwd: 'src'
+
+task 'doc', 'invokes “doc:source” and “doc:github” in given order', ->
+  console.log 'doc'
+  invoke 'doc:source'
+  invoke 'doc:github'
+
+
+task 'doc:source', 'rebuild the internal documentation', ->
+  console.log 'doc:source'
+  clean 'doc'
+  spawn 'groc', [], stdio: 'inherit', cwd: '.'
+
+task 'doc:github', 'rebuild the github documentation', ->
+  console.log 'doc:github'
+  spawn 'groc', '--github'.split(' '), stdio: 'inherit', cwd: '.'
+

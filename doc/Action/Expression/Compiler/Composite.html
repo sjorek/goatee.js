@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Compiler/Composite</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="Action/Expression/Compiler/Composite"><meta name="groc-project-path" content="src/Action/Expression/Compiler/Composite.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Compiler/Composite.coffee</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="cm">###</span>
+<span class="cm">© Copyright 2013 Stephan Jorek &lt;stephan.jorek@gmail.com&gt;</span>
+
+<span class="cm">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="cm">you may not use this file except in compliance with the License.</span>
+<span class="cm">You may obtain a copy of the License at</span>
+
+<span class="cm">http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="cm">Unless required by applicable law or agreed to in writing, software</span>
+<span class="cm">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="cm">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span>
+<span class="cm">implied. See the License for the specific language governing</span>
+<span class="cm">permissions and limitations under the License.</span>
+<span class="cm">###</span>
+
+<span class="p">{</span><span class="nx">Constants</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">STRING_variables</span>
+  <span class="nx">STRING_data</span>
+  <span class="nx">STRING_with</span>
+<span class="p">}}</span>                  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../../Core/Constants&#39;</span>
+
+<span class="p">{</span><span class="nx">UnorderedRules</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">parse</span>
+<span class="p">}}</span>                  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../../Map/UnorderedRules&#39;</span>
+
+<span class="p">{</span><span class="nx">Utility</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">trim</span>
+<span class="p">}}</span>                  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../../Core/Utility&#39;</span>
+
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
+
+<span class="cm">###</span>
+<span class="cm">Javascript</span>
+
+<span class="cm">@class</span>
+<span class="cm">@namespace goatee.Action.Compiler</span>
+<span class="cm">###</span>
+<span class="nv">exports.Javascript = </span><span class="k">class</span> <span class="nx">Javascript</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Wrapper for @evaluateExpression() catching and logging any Exceptions
+raised during expression evaluation to console.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {String} expression
+@return {Object|null}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluate: </span><span class="nf">(expression) -&gt;</span>
+    <span class="k">try</span>
+      <span class="nx">@evaluateExpression</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span>
+    <span class="k">catch</span> <span class="nx">e</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Failed to evaluate “</span><span class="si">#{</span><span class="nx">expression</span><span class="si">}</span><span class="s">”: </span><span class="si">#{</span><span class="nx">e</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="k">return</span> <span class="kc">null</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Wrapper for the eval() builtin function to evaluate expressions and
+obtain their value. It wraps the expression in parentheses such
+that object literals are really evaluated to objects. Without the
+wrapping, they are evaluated as block, and create syntax
+errors. Also protects against other syntax errors in the eval()ed
+code and returns null if the eval throws an exception.</p></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {String} expression
+@return {Object|null}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span>
+    <span class="cm">###</span>
+<span class="cm">    NOTE(mesch): An alternative idiom would be:</span>
+
+<span class="cm">      eval(&#39;(&#39; + expr + &#39;)&#39;);</span>
+
+<span class="cm">    Note that using the square brackets as below, &quot;&quot; evals to undefined.</span>
+<span class="cm">    The alternative of using parentheses does not work when evaluating</span>
+<span class="cm">    function literals in IE.</span>
+<span class="cm">    e.g. eval(&quot;(function() {})&quot;) returns undefined, and not a function</span>
+<span class="cm">    object, in IE.</span>
+
+<span class="cm">    NOTE(sjorek): Due to the underlying coffescript-specific language</span>
+<span class="cm">    agnostics we deliberatly fall back to vanilla javascript here.</span>
+<span class="cm">    ###</span>
+    <span class="k">return</span> <span class="o">`</span><span class="nb">eval</span><span class="p">(</span><span class="s">&#39;[&#39;</span> <span class="o">+</span> <span class="nx">expression</span> <span class="o">+</span> <span class="s">&#39;][0]&#39;</span><span class="p">)</span><span class="o">`</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Cache for jsEvalToFunction results.
+@type Object</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_evaluateToFunctionCache = </span><span class="p">{}</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Evaluates the given expression as the body of a function that takes
+variables and data as arguments. Since the resulting function depends
+only on expression, we cache the result so we save some Function
+invocations, and some object creations in IE6.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String}   expression A javascript expression.
+@return {Function}            A function that returns the expression's value
+                              in the context of variables and data.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToFunction: </span><span class="nf">(expression) -&gt;</span>
+    <span class="k">return</span> <span class="nx">_evaluateToFunctionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span> <span class="o">\</span>
+      <span class="k">unless</span> <span class="nx">_evaluateToFunctionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span><span class="o">?</span>
+
+    <span class="k">try</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>NOTE(mesch): The Function constructor is faster than eval().</p></div></div><div class="code"><div class="wrapper">      <span class="k">return</span> <span class="nx">_evaluateToFunctionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span> <span class="o">=</span> <span class="o">\</span>
+        <span class="nb">Function</span> <span class="nx">STRING_variables</span><span class="p">,</span> <span class="nx">STRING_data</span><span class="p">,</span> <span class="nx">STRING_with</span> <span class="o">+</span> <span class="nx">expression</span>
+    <span class="k">catch</span> <span class="nx">e</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Failed to evalaluate “</span><span class="si">#{</span><span class="nx">expression</span><span class="si">}</span><span class="s">” to function: </span><span class="si">#{</span><span class="nx">e</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="k">return</span> <span class="kc">null</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Evaluates the given expression to itself. This is meant to pass through
+string action values.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String} expression
+@return {String}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToSelf = </span><span class="nf">(expression) -&gt;</span>
+    <span class="k">return</span> <span class="nx">expression</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Parses the value of the alter action in goatee-templates: splits it up into
+a map of keys and expressions, and creates functions from the expressions
+that are suitable for execution by @evaluateExpression(). All that is
+returned as a flattened array of pairs of a String and a Function.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String} expressions
+@return {Array}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToFunctions: </span><span class="nf">(expressions) -&gt;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>TODO(mesch): It is insufficient to split the values by simply finding
+semicolons, as the semicolon may be part of a string Constants or escaped.
+TODO(sjorek): This does not look like coffescript … Das ist Doof :-)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">result = </span><span class="p">[]</span>
+    <span class="k">for</span> <span class="nx">expression</span> <span class="k">in</span> <span class="nx">expressions</span><span class="p">.</span><span class="nx">split</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_semicolon</span>
+      <span class="nv">colon = </span><span class="nx">expression</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_colon</span><span class="p">)</span>
+      <span class="k">continue</span> <span class="k">if</span> <span class="nx">colon</span> <span class="o">&lt;</span> <span class="mi">0</span>
+      <span class="nv">key   = </span><span class="nx">trim</span> <span class="nx">expression</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">colon</span><span class="p">)</span>
+      <span class="nv">value = </span><span class="nx">@evaluateToFunction</span> <span class="nx">expression</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">colon</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">result</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Parses the value of the alter action in goatee-templates: splits it up into
+a map of keys and expressions, and creates functions from the expressions
+that are suitable for execution by @evaluateExpression(). All that is
+returned as a flattened array of pairs of a String and a Function.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Fixes the insufficient implementation of @evaluateToFunctions(expressions)</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String}         expressions
+@param  {UnorderedRules} Optional instance populated with rules from
+                         expressions. For internal use only.
+@return {Array}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToRules: </span><span class="nf">(expressions, _rules) -&gt;</span>
+    <span class="nv">self    = </span><span class="nx">@</span>
+    <span class="nv">_rules  = </span><span class="nx">parse</span> <span class="nx">expressions</span><span class="p">,</span> <span class="nx">_rules</span>
+    <span class="nv">result  = </span><span class="p">[]</span>
+    <span class="nv">collect = </span><span class="nf">(key, value, priority) -&gt;</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">evaluateToFunction</span> <span class="nx">value</span><span class="p">)</span>
+    <span class="nx">_rules</span><span class="p">.</span><span class="nx">each</span> <span class="nx">collect</span>
+    <span class="k">return</span> <span class="nx">result</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Parses the value of the execute actions in goatee-templates: splits it up
+into a list of expressions, and creates anonymous functions from the
+expressions, hence closures, that are suitable for execution by
+@evaluateExpression().</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>All that is returned as an Array of Functions.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {String} expressions
+@return {Array.<Function>}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToClosures: </span><span class="nf">(expressions) -&gt;</span>
+    <span class="nx">@evaluateToFunction</span> <span class="nx">expression</span> <span class="o">\</span>
+      <span class="k">for</span> <span class="nx">expression</span> <span class="k">in</span> <span class="nx">expressions</span><span class="p">.</span><span class="nx">split</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_semicolon</span> <span class="o">\</span>
+        <span class="k">when</span> <span class="nx">expression</span>
+
+<span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Reference to singleton instance
+@type {goatee.Action.Compiler.Javascript}</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Javascript.instance = </span><span class="kc">null</span>
+
+<span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Singleton implementation
+@return {goatee.Action.Compiler.Javascript}</p></div></div><div class="code"><div class="wrapper"><span class="nv">Javascript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
+  <span class="nx">_instance</span> <span class="o">?</span> <span class="p">(</span><span class="nv">_instance = </span><span class="k">new</span> <span class="nx">Javascript</span><span class="p">)</span></div></div></div></div></body></html>

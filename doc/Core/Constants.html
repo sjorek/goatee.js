@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><title>Core/Constants</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Constants"><meta name="groc-project-path" content="src/Core/Constants.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Core/Constants.coffee</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="cm">###</span>
+<span class="cm">© Copyright 2013 Stephan Jorek &lt;stephan.jorek@gmail.com&gt;</span>
+<span class="cm">© Copyright 2006 Google Inc.</span>
+
+<span class="cm">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="cm">you may not use this file except in compliance with the License.</span>
+<span class="cm">You may obtain a copy of the License at</span>
+
+<span class="cm">http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="cm">Unless required by applicable law or agreed to in writing, software</span>
+<span class="cm">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="cm">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span>
+<span class="cm">implied. See the License for the specific language governing</span>
+<span class="cm">permissions and limitations under the License.</span>
+<span class="cm">###</span>
+
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
+
+<span class="nv">exports.Constants = Constants =</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Names of special variables defined by the jstemplate evaluation
+context. These can be used in js expression in jstemplate
+attributes.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">VAR_index            : </span><span class="s">&#39;$index&#39;</span>
+  <span class="nv">VAR_count            : </span><span class="s">&#39;$count&#39;</span>
+  <span class="nv">VAR_this             : </span><span class="s">&#39;$this&#39;</span>
+  <span class="nv">VAR_context          : </span><span class="s">&#39;$context&#39;</span>
+  <span class="nv">VAR_top              : </span><span class="s">&#39;$top&#39;</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>The name of the global variable which holds the value to be returned if
+context evaluation results in an error.
+Use <code>Context.setGlobal(Constants.GLOB_default, value)</code> to set this.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">GLOB_default         : </span><span class="s">&#39;$default&#39;</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Un-inlined literals, to avoid object creation in IE6.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">CHAR_colon           : </span><span class="s">&#39;:&#39;</span>
+  <span class="nv">REGEXP_semicolon     : </span><span class="sr">/\s*;\s*/</span>
+  <span class="nv">REGEXP_trim          : </span><span class="sr">/^\s+|\s+$/g</span>
+  <span class="nv">REGEXP_trimLeft      : </span><span class="sr">/^\s+/</span>
+  <span class="nv">REGEXP_trimRight     : </span><span class="sr">/\s+$/</span>
+  <span class="nv">REGEXP_camelize      : </span><span class="sr">/-([a-z])/gi</span>
+  <span class="nv">REGEXP_dashify       : </span><span class="sr">/(^|[a-zA-Z])([A-Z])/g</span>
+  <span class="nv">REGEXP_isEscaped     : </span><span class="sr">/[^\\](\\\\)*$/</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>String literals defined globally and not to be inlined. (IE6 performance).</p></div></div><div class="code"><div class="wrapper">  <span class="nv">STRING_variables     : </span><span class="s">&#39;$_variables&#39;</span>
+  <span class="nv">STRING_data          : </span><span class="s">&#39;$_data&#39;</span>
+  <span class="nv">STRING_with          : </span><span class="s">&#39;with ($_variables) with ($_data) return &#39;</span>
+  <span class="nv">STRING_empty         : </span><span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>CSS Properties used in by some actions</p></div></div><div class="code"><div class="wrapper">  <span class="nv">CSS_display          : </span><span class="s">&#39;display&#39;</span>
+  <span class="nv">CSS_position         : </span><span class="s">&#39;position&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Constants for possible values of the typeof operator.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">TYPE_boolean         : </span><span class="s">&#39;boolean&#39;</span>
+  <span class="nv">TYPE_number          : </span><span class="s">&#39;number&#39;</span>
+  <span class="nv">TYPE_object          : </span><span class="s">&#39;object&#39;</span>
+  <span class="nv">TYPE_string          : </span><span class="s">&#39;string&#39;</span>
+  <span class="nv">TYPE_function        : </span><span class="s">&#39;function&#39;</span>
+  <span class="nv">TYPE_undefined       : </span><span class="s">&#39;undefined&#39;</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Un-inlined string literals, to avoid object creation in IE6.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">CHAR_asterisk        : </span><span class="s">&#39;*&#39;</span>
+  <span class="nv">CHAR_dollar          : </span><span class="s">&#39;$&#39;</span>
+  <span class="nv">CHAR_period          : </span><span class="s">&#39;.&#39;</span>
+  <span class="nv">CHAR_exclamation     : </span><span class="s">&#39;!&#39;</span>
+  <span class="nv">CHAR_ampersand       : </span><span class="s">&#39;&amp;&#39;</span>
+  <span class="nv">CHAR_dash            : </span><span class="s">&#39;-&#39;</span>
+  <span class="nv">CHAR_slash           : </span><span class="s">&#39;/&#39;</span>
+  <span class="nv">CHAR_backslash       : </span><span class="s">&#39;&#39;&#39;\\&#39;&#39;&#39;</span>
+  <span class="nv">CHAR_equals          : </span><span class="s">&#39;=&#39;</span>
+  <span class="nv">CHAR_colon           : </span><span class="s">&#39;:&#39;</span>
+  <span class="nv">CHAR_semicolon       : </span><span class="s">&#39;;&#39;</span>
+  <span class="nv">CHAR_doublequote     : </span><span class="s">&#39;&quot;&#39;</span>
+  <span class="nv">CHAR_singlequote     : </span><span class="s">&quot;&#39;&quot;</span>
+
+  <span class="nv">CHAR_space           : </span><span class="s">&quot; &quot;</span>
+  <span class="nv">CHAR_tab             : </span><span class="s">&quot;\t&quot;</span> <span class="c1"># tabulator</span>
+  <span class="nv">CHAR_vtab            : </span><span class="s">&quot;\v&quot;</span> <span class="c1"># vertical tabulator</span>
+  <span class="nv">CHAR_cr              : </span><span class="s">&quot;\r&quot;</span> <span class="c1"># carriage return</span>
+  <span class="nv">CHAR_lf              : </span><span class="s">&quot;\n&quot;</span> <span class="c1"># line feed</span>
+  <span class="nv">CHAR_ff              : </span><span class="s">&quot;\f&quot;</span> <span class="c1"># form feed</span>
+
+  <span class="nv">STRING_nonimportant  : </span><span class="s">&#39;!important&#39;</span>
+  <span class="nv">STRING_opencomment   : </span><span class="s">&#39;/*&#39;</span>
+  <span class="nv">STRING_closecomment  : </span><span class="s">&#39;*/&#39;</span>
+  <span class="nv">STRING_div           : </span><span class="s">&#39;div&#39;</span>
+  <span class="nv">STRING_id            : </span><span class="s">&#39;id&#39;</span>
+  <span class="nv">STRING_asteriskzero  : </span><span class="s">&#39;*0&#39;</span>
+  <span class="nv">STRING_zero          : </span><span class="s">&#39;0&#39;</span>
+  <span class="nv">STRING_assignment    : </span><span class="s">&#39;|=|&#39;</span>
+  <span class="nv">STRING_seperator     : </span><span class="s">&#39;|||&#39;</span></div></div></div></div></body></html>

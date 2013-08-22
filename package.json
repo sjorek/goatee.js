@@ -25,10 +25,11 @@
     "jquery2": "~2.0"
   },
   "devDependencies": {
-    "benchmark": "~1.0"
+    "benchmark": "~1.0",
+    "groc": "~0.4"
   },
-  "homepage":     "https://github.com/sjorek/goatee-js/",
-  "bugs":         "https://github.com/sjorek/goatee-js/issues",
+  "homepage": "https://github.com/sjorek/goatee-js/",
+  "bugs": "https://github.com/sjorek/goatee-js/issues",
   "repository": {
     "type": "git",
     "url": "git://github.com/sjorek/goatee-js.git"
