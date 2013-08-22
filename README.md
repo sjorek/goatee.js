@@ -1,6 +1,6 @@
 
-goatee-js
-=========
+[goatee-js](http://sjorek.github.io/goatee-js/)
+===============================================
 
          _______  _______  _______  _______  _______  _______
         |    ___||       ||       ||_     _||    ___||    ___|
@@ -30,7 +30,7 @@ goatee-js
      |       |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   _____| |
      |_______|                                        |_______|
 
-:-{>~ A goatee is the perfect complement for handlebar mustaches. ~<}-:
+> A goatee is the perfect complement for handlebar mustaches. :-{>~
 
 ## Meaning
 
@@ -89,15 +89,15 @@ The answer: My goals. I promise that “goatee” will have …
 - … all the features of
   [google-jstemplate](http://code.google.com/p/google-jstemplate/),
 
-- … implementations for the following platforms:
-  - Express.js (Node)
-  - Slim Framework (PHP)
-  - Symfony Framework (PHP)
-  - TYPO3 Flow (PHP)
-  - Django (Python)
-  - Rails (Ruby)
-  - Grails (Groovy)
-  - Playframework (Java/Scala)
+- … implementations for the following frameworks:
+  - [Express.js](http://expressjs.com) (Node)
+  - [Slim](http://www.slimframework.com) (PHP)
+  - [Symfony](http://symfony.com) (PHP)
+  - [TYPO3 Flow](http://flow.typo3.org) (PHP)
+  - [Django](https://www.djangoproject.com) (Python)
+  - [Rails](http://rubyonrails.org) (Ruby)
+  - [Grails](http://grails.org) (Groovy)
+  - [Play](http://www.playframework.com) (Java/Scala)
 
 - … 100% compatiblity for all runtimes in all those different languages,
   producing exactly the same results, no matter if it runs on the client-
