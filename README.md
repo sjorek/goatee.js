@@ -104,7 +104,7 @@ The answer: My goals. I promise that “goatee” will have …
   side (browser) or on the server-side,
 
 - … content-management-extensions with the same look and feel as well as
-  behaviour, no matter which implementation has been choosen, and with
+  behaviour, no matter which implementation has been choosen and with
   versioning for all contents and assets,
 
 - … a very low learning curve, because it's just javascript with css-philosophy
