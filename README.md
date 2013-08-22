@@ -1,4 +1,4 @@
-=========
+
 goatee-js
 =========
 
@@ -123,14 +123,14 @@ Goatee is not yet useable, but some components are … see above.
 
 ## Development
 
-    $ git clone https://github.com/sjorek/goatee
+    $ git clone https://github.com/sjorek/goatee-js
     $ cd goatee
     $ PATH=$PATH:./node_modules/.bin cake all
 
 ## Credits go to …
 
 - … Steffen Meschkat for meeting me back in 2004 and sharing all his passion and
-  knowledge avout his (sadly proprietary) perl-based content-managment-system,
+  knowledge about his (sadly proprietary) perl-based content-managment-system,
   which still is my main motivation behind this project.
 
 - … Google Inc. and especially Steffen Meschkat and all the other contributors
