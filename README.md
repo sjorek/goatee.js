@@ -30,7 +30,7 @@
      |       |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   _____| |
      |_______|                                        |_______|
 
-> A goatee is the perfect complement for handlebar mustaches. :-{>~
+A goatee is the perfect complement for handlebar mustaches. :-{>~
 
 ## Meaning
 
