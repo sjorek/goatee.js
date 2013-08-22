@@ -11,4 +11,9 @@ components
 
 # Coverage report
 coverage*
-/inspiration
+
+# Eclipse specific stuff
+.project
+.settings*
+.externalToolBuilders*
+
