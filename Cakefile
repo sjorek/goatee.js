@@ -54,7 +54,7 @@ task 'build:once', 'compile Coffeescript in “src/” to Javascript in “lib/�
 task 'doc', 'invokes “doc:source” and “doc:github” in given order', ->
   console.log 'doc'
   invoke 'doc:source'
-  invoke 'doc:github'
+  #invoke 'doc:github'
 
 
 task 'doc:source', 'rebuild the internal documentation', ->
