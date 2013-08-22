@@ -16,68 +16,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/README.md",
         "projectPath": "README.md",
         "targetPath": "index",
-        "firstHeader": {
-          "type": "heading",
-          "data": {
-            "level": 1,
-            "title": "goatee-js",
-            "slug": "goatee-js",
-            "isFileHeader": true
-          },
-          "depth": 1,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Meaning",
-                "slug": "meaning"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Objective",
-                "slug": "objective"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Installation",
-                "slug": "installation"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Usage",
-                "slug": "usage"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Development",
-                "slug": "development"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Credits go to …",
-                "slug": "credits-go-to-"
-              },
-              "depth": 2
-            }
-          ]
-        },
-        "title": "goatee-js"
+        "title": "index"
       },
       "depth": 1,
       "outline": [
