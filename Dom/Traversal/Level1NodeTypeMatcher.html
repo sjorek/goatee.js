@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level1NodeTypeMatcher</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level1NodeTypeMatcher"><meta name="groc-project-path" content="src/Dom/Traversal/Level1NodeTypeMatcher.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Dom/Traversal/Level1NodeTypeMatcher.coffee">src/Dom/Traversal/Level1NodeTypeMatcher.coffee</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="cm">###</span>
+<span class="cm">© Copyright 2013 Stephan Jorek &lt;stephan.jorek@gmail.com&gt;</span>
+
+<span class="cm">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="cm">you may not use this file except in compliance with the License.</span>
+<span class="cm">You may obtain a copy of the License at</span>
+
+<span class="cm">http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="cm">Unless required by applicable law or agreed to in writing, software</span>
+<span class="cm">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="cm">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span>
+<span class="cm">implied. See the License for the specific language governing</span>
+<span class="cm">permissions and limitations under the License.</span>
+<span class="cm">###</span>
+
+<span class="p">{</span><span class="nx">Node</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Node&#39;</span>
+
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
+
+<span class="c1">#### Level1NodeTypeMatcher</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>A class to hold state for a dom traversal.</p>
+
+<p>@class
+@namespace goatee</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level1NodeTypeMatcher = </span><span class="o">\</span>
+<span class="k">class</span> <span class="nx">Level1NodeTypeMatcher</span> <span class="k">extends</span> <span class="nx">Level1NodeTypeMatcher</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {Function} callback A function, called on each node in the traversal.
+@constructor</p></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@callback) -&gt;</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Processes the dom tree in breadth-first order.
+@param {Node} root  The root node of the traversal.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(root) -&gt;</span>
+    <span class="vi">@queue = </span><span class="p">[].</span><span class="nx">concat</span><span class="p">(</span><span class="nx">@prepare</span> <span class="nx">root</span><span class="p">)</span>
+    <span class="nx">@process</span> <span class="nx">@queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span> <span class="k">while</span> <span class="nx">@queue</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">return</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Create processing queue for a single root node.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {Node}  node  The root node of the traversal.
+@return {Array.<Node>}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(root) -&gt;</span>
+    <span class="k">if</span> <span class="o">`</span><span class="nx">root</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">DOCUMENT_FRAGMENT_NODE</span><span class="o">`</span>
+      <span class="k">return</span> <span class="nx">@collect</span> <span class="nx">root</span>
+    <span class="p">[</span> <span class="nx">root</span> <span class="p">]</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Processes a single node.
+@param {Node}    node  The current node of the traversal.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(node) -&gt;</span>
+    <span class="nx">@callback</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+    <span class="vi">@queue = </span><span class="nx">@queue</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">@collect</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
+    <span class="k">return</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Processes a single node.
+@param {Node}    node  The current node of the traversal.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
+    <span class="nv">result = </span><span class="p">[]</span>
+    <span class="o">`</span><span class="k">for</span> <span class="p">(</span><span class="nx">var</span> <span class="nv">child = </span><span class="nx">node</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">;</span> <span class="nx">child</span><span class="p">;</span> <span class="nv">child = </span><span class="nx">child</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">child</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">ELEMENT_NODE</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">child</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span><span class="o">`</span>
+    <span class="k">return</span> <span class="nx">result</span>
+
+<span class="nv">Level1NodeTypeMatcher.create = </span><span class="nf">(callback) -&gt;</span>
+  <span class="k">new</span> <span class="nx">Level1NodeTypeMatcher</span> <span class="nx">callback</span></div></div></div></div></body></html>
