@@ -135,10 +135,10 @@ Goatee is not yet useable, but some components are … see above.
 
 - … Google Inc. and especially Steffen Meschkat and all the other contributors
   for their [google-jstemplate](http://code.google.com/p/google-jstemplate/)
-  as a source of motivation and inspiration
+  as a source of motivation and inspiration.
 
 - … Jeremy Ashkenas and all contributors for their
-  [Coffee-Script](http://coffeescript.org/)
+  [Coffee-Script](http://coffeescript.org/).
 
 - … [Nodeclipse v0.4](https://github.com/Nodeclipse/nodeclipse-1)
  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))
