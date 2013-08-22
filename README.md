@@ -2,8 +2,6 @@
 goatee-js
 =========
 
-> :-{>~ A goatee is the perfect complement for handlebar mustaches. ~<}-:
-
          _______  _______  _______  _______  _______  _______
         |    ___||       ||       ||_     _||    ___||    ___|
         |   | __ |   _   ||   _   |  |   |  |   |___ |   |___
@@ -32,11 +30,13 @@ goatee-js
      |       |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   _____| |
      |_______|                                        |_______|
 
+:-{>~ A goatee is the perfect complement for handlebar mustaches. ~<}-:
+
 ## Meaning
 
 For those who like acronyms:
 
-> [G]oatee - a [O]bject [A]ccessor [T]emplate [E]ngine [E]ngine
+  **G**oatee - a **O**bject **A**ccessor **T**emplate **E**ngine **E**ngine
 
 And yes, the word “engine” occurs deliberately twice, as goatee is recursive :-)
 
@@ -114,8 +114,8 @@ The answer: My goals. I promise that “goatee” will have …
 
 Goatee is not yet installable, but some components are …
 
-- [goatee-script](http://github.com/sjorek/goatee-script)
-- [goatee-rules](http://github.com/sjorek/goatee-rules)
+- [goatee-script](https://github.com/sjorek/goatee-script)
+- [goatee-rules](https://github.com/sjorek/goatee-rules)
 
 ## Usage
 
