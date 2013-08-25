@@ -17,14 +17,14 @@ permissions and limitations under the License.
 exports = module?.exports ? this
 
 ## Abstract
-
+#
 # Abstract class implementing a basic action
 #
 # @class
 # @namespace goatee.Action
 exports.Abstract = class Abstract
 
-  #
+  ##
   # Derivates must implement this method to perform the action.
   #
   # @param  {Processor} action      The calling action

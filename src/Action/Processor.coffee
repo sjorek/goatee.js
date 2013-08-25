@@ -97,7 +97,7 @@ exports = module?.exports ? this
 
 ## Processor
 # Internal class used by goatee-templates to maintain context.  This is
-# necessary to process deep templates in Safari≤5 which has a relatively 
+# necessary to process deep templates in Safari≤5 which has a relatively
 # shallow maximum recursion depth of 100.
 # @class
 exports.Processor = class Processor

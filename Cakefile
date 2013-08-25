@@ -51,17 +51,32 @@ task 'build:once', 'compile Coffeescript in “src/” to Javascript in “lib/�
   console.log 'build:once'
   spawn 'coffee', '-o ../lib/ -mc .'.split(' '), stdio: 'inherit', cwd: 'src'
 
+
+option '-v', '--verbose [LEVEL]', 'set groc\'s verbosity level (documentation generation) [0,1,2]'
+
 task 'doc', 'invokes “doc:source” and “doc:github” in given order', ->
   console.log 'doc'
   invoke 'doc:source'
   #invoke 'doc:github'
 
-task 'doc:source', 'rebuild the internal documentation', ->
+task 'doc:source', 'rebuild the internal documentation', (options) ->
   console.log 'doc:source'
   clean 'doc'
-  spawn 'groc', [], stdio: 'inherit', cwd: '.'
+  opts  = []
+  if options['verbose']?
+    opts.push '--verbose' if 0 < options.verbose
+    opts.push '--very-verbose' if 1 < options.verbose
+  else
+    opts.push '--silent'
+  spawn 'groc', opts, stdio: 'inherit', cwd: '.'
 
 task 'doc:github', 'rebuild the github documentation', ->
   console.log 'doc:github'
-  spawn 'groc', '--github'.split(' '), stdio: 'inherit', cwd: '.'
+  opts  = ['--github']
+  if options['verbose']?
+    opts.push '--verbose' if 0 < options.verbose
+    opts.push '--very-verbose' if 1 < options.verbose
+  else
+    opts.push '--silent'
+  spawn 'groc', opts, stdio: 'inherit', cwd: '.'
 
