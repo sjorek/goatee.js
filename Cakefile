@@ -51,7 +51,6 @@ task 'build:once', 'compile Coffeescript in “src/” to Javascript in “lib/�
   console.log 'build:once'
   spawn 'coffee', '-o ../lib/ -mc .'.split(' '), stdio: 'inherit', cwd: 'src'
 
-
 option '-v', '--verbose [LEVEL]', 'set groc\'s verbosity level (documentation generation) [0,1,2]'
 
 task 'doc', 'invokes “doc:source” and “doc:github” in given order', ->
