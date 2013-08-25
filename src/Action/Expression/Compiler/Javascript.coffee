@@ -81,7 +81,7 @@ exports.Javascript = class Javascript
 
   ##
   # Cache for jsEvalToFunction results.
-  # @type Object
+  # @type {Object}
   _evaluateToFunctionCache = {}
 
   ##

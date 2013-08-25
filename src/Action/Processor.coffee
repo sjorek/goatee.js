@@ -152,7 +152,7 @@ exports.Processor = class Processor
     #
     # The outer array is a stack of such queues.
     #
-    # @type Array.<Array>
+    # @type {Array.<Array>}
     calls = self.calls = []
 
     ##
@@ -229,14 +229,14 @@ exports.Processor = class Processor
   # The array is global since it can be reused - this way there is no need to
   # construct a new array object for each invocation. (IE6 perf)
   #
-  # @type Array
+  # @type {Array}
   _list   = []
 
   ##
   # Map for storing temporary action values in prepare() so they don't have
   # to be retrieved twice. (IE6 perf)
   #
-  # @type Object
+  # @type {Object}
   _values = {}
 
   ##
@@ -251,7 +251,7 @@ exports.Processor = class Processor
   ##
   # Map from cache id to processed actions.
   #
-  # @type Object
+  # @type {Object}
   _actions = {}
 
   ##
@@ -440,7 +440,7 @@ exports.Processor = class Processor
   # exists for a given combination of attribute values. (For example when two
   # template-nodes share the same actions.)
   #
-  # @type Object
+  # @type {Object}
   _sources = {}
 
   ##
@@ -488,7 +488,7 @@ Processor.create = (options) ->
 #                            valid template that, if processed again with the
 #                            same data, it will remain unchanged.
 # @param  {Object}  options  Options passed to `Processor.create()`.
-# @return void
+# @return {void}
 Processor.process = (context, template, options) ->
 
   processor = Processor.create options

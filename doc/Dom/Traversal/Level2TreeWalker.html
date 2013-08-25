@@ -19,13 +19,23 @@
 
 <span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
 
-<span class="c1">## Level2TreeWalker</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>A class to hold state for a dom traversal.</p></div></div><div class="code"><div class="wrapper"><span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@class
-@namespace goatee</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2TreeWalker = </span><span class="o">\</span>
+<span class="c1">## Level2TreeWalker</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
+
+<p>A class to hold state for a dom traversal.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2TreeWalker = </span><span class="o">\</span>
 <span class="k">class</span> <span class="nx">Level2TreeWalker</span> <span class="k">extends</span> <span class="nx">Level2NodeIterator</span>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Create TreeWalker instance for a single root node.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {Node} root  The root node of the traversal.
-@return {TreeWalker}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(root) -&gt;</span>
-    <span class="nx">doc</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">root</span><span class="p">).</span><span class="nx">createTreeWalker</span><span class="p">(</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Node to use as root</p></div></div><div class="code"><div class="wrapper">      <span class="nx">root</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Only consider nodes that match this filter</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@filter</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Object containing the function to use as method of the NodeFilter</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@options</span><span class="p">,</span>
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>Create TreeWalker instance for a single root node.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>root must be a Node.</strong><br/>(The root node of the traversal.)</li>
+</ul>
+
+<p><strong>Returns a TreeWalker</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(root) -&gt;</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">root</span><span class="p">).</span><span class="nx">createTreeWalker</span><span class="p">(</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Node to use as root</p></div></div><div class="code"><div class="wrapper">      <span class="nx">root</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Only consider nodes that match this filter</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@filter</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Object containing the function to use as method of the NodeFilter</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@options</span><span class="p">,</span>
 
       <span class="kc">false</span>
     <span class="p">)</span>

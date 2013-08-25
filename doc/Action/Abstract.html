@@ -16,13 +16,21 @@
 
 <span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
 
-<span class="c1">## Abstract</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>A abstract class implementing a basic action</p></div></div><div class="code"><div class="wrapper"><span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@class
-@namespace goatee</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Abstract = </span><span class="k">class</span> <span class="nx">Abstract</span>
+<span class="c1">## Abstract</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Derivates must implement this method to perform the action.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {Processor}  action      The calling action
-@param {Context}    context     The current evaluation context
-@param {Node}       template    The currently processed node of the template
-@param {Function}   attribute   Processed value of the content attribute
-@return Boolean</p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(action, context, template, attribute) -&gt;</span>
+<p>Abstract class implementing a basic action</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Abstract = </span><span class="k">class</span> <span class="nx">Abstract</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>Derivates must implement this method to perform the action.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>action must be a Processor.</strong><br/>(The calling action)</p></li>
+<li><p><strong>context must be a Context.</strong><br/>(The current evaluation context)</p></li>
+<li><p><strong>template must be a Node.</strong><br/>(The currently processed node of the template)</p></li>
+<li><p><strong>attribute must be a Function.</strong><br/>(Processed value of the content attribute)</p></li>
+</ul>
+
+<p><strong>Returns a Boolean</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(action, context, template, attribute) -&gt;</span>
     <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span> <span class="s">&#39;Missing “process”-method implementation&#39;</span>
     <span class="k">return</span></div></div></div></div></body></html>

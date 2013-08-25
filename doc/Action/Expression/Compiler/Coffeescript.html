@@ -29,8 +29,13 @@
 <span class="cm">###</span>
 <span class="nv">exports.Coffeescript = </span><span class="k">class</span> <span class="nx">Coffeescript</span> <span class="k">extends</span> <span class="nx">Javascript</span>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param {Object} options
-@constructor</p></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(options) -&gt;</span>
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Constructor</span></p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>options must be an Object.</strong></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(options) -&gt;</span>
     <span class="vi">@options = </span><span class="nx">options</span> <span class="o">?</span> <span class="p">{</span>
       <span class="nv">bare      : </span><span class="kc">on</span>
       <span class="nv">inline    : </span><span class="kc">on</span>
@@ -38,23 +43,37 @@
       <span class="nv">shiftLine : </span><span class="kc">off</span>
     <span class="p">}</span>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Cache for compiled expressions
-@type {Object}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_expressionCache = </span><span class="p">{}</span>
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Wrapper for the eval() builtin function to evaluate expressions and
+<p>Cache for compiled expressions</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_expressionCache = </span><span class="p">{}</span>
+
+  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>Wrapper for the eval() builtin function to evaluate expressions and
 obtain their value. It wraps the expression in parentheses such
 that object literals are really evaluated to objects. Without the
 wrapping, they are evaluated as block, and create syntax
 errors. Also protects against other syntax errors in the eval()ed
-code and returns null if the eval throws an exception.</p></div></div><div class="code"><div class="wrapper">  <span class="c1">#</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>@param  {String} expression
-@return {Object|null}</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span>
+code and returns null if the eval throws an exception.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>expression must be a String.</strong></li>
+</ul>
+
+<p><strong>Returns an Object or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span>
     <span class="p">(</span><span class="nv">js = </span><span class="nx">_expressionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">])</span><span class="o">?</span> <span class="o">or</span> <span class="o">\</span>
     <span class="p">(</span><span class="nv">js = </span><span class="nx">_expressionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">expression</span><span class="p">,</span> <span class="nx">@options</span><span class="p">))</span>
     <span class="k">super</span> <span class="nx">js</span>
 
-<span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Reference to singleton instance
-@type {goatee.Action.Compiler.Coffeescript}</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Coffeescript.instance = </span><span class="kc">null</span>
+<span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
 
-<span class="c1">##</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Singleton implementation
-@return {goatee.Action.Compiler.Coffeescript}</p></div></div><div class="code"><div class="wrapper"><span class="nv">Coffeescript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
+<p>Reference to singleton instance</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Coffeescript.instance = </span><span class="kc">null</span>
+
+<span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>Singleton implementation</p>
+
+<p><strong>Returns a goatee.Action.Compiler.Coffeescript</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Coffeescript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
   <span class="nx">_instance</span> <span class="o">?</span> <span class="p">(</span><span class="nv">_instance = </span><span class="k">new</span> <span class="nx">Coffeescript</span><span class="p">)</span></div></div></div></div></body></html>

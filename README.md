@@ -123,9 +123,21 @@ Goatee is not yet useable, but some components are … see above.
 
 ## Development
 
+Preperation (once):
+
     $ git clone https://github.com/sjorek/goatee-js
-    $ cd goatee
+    $ cd goatee-js
+    $ npm install
+
+For *nix-like environments (verified):
+
     $ PATH=$PATH:./node_modules/.bin cake all
+
+For Windows environments (not verified):
+
+    $ set path=%PATH%;.\node_modules\.bin
+    $ setx path "%PATH%"
+    $ cake all
 
 ## Credits go to …
 

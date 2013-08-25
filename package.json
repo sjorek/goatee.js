@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "benchmark": "~1.0",
-    "groc": "~0.4"
+    "groc": "sjorek/groc"
   },
   "homepage": "http://sjorek.github.io/goatee-js/",
   "bugs": "https://github.com/sjorek/goatee-js/issues",
