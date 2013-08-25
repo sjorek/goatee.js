@@ -70,7 +70,7 @@ task 'doc:source', 'rebuild the internal documentation', (options) ->
     opts.push '--silent'
   spawn 'groc', opts, stdio: 'inherit', cwd: '.'
 
-task 'doc:github', 'rebuild the github documentation', ->
+task 'doc:github', 'rebuild the github documentation', (options) ->
   console.log 'doc:github'
   opts  = ['--github']
   if options['verbose']?
