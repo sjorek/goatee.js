@@ -98,7 +98,7 @@
 <span class="c1">## Processor</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
 <p>Internal class used by goatee-templates to maintain context.  This is
-necessary to process deep templates in Safari≤5 which has a relatively 
+necessary to process deep templates in Safari≤5 which has a relatively
 shallow maximum recursion depth of 100.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Processor = </span><span class="k">class</span> <span class="nx">Processor</span>
 
   <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="kc">null</span>
@@ -124,12 +124,9 @@ access it through ownerDocument.</p></div></div><div class="code"><div class="wr
 
 <p>Runs the given function in our state machine.
 It's informative to view the set of all function calls as a tree:
-- nodes are states
-- edges are state transitions, implemented as calls to the pending
   functions in the stack.
   - pre-order function calls are downward edges (recursion into call).
   - post-order function calls are upward edges (return from call).
-- leaves are nodes which do not recurse.
 We represent the call tree as an array of array of calls, indexed as
 stack[depth][index].  Here [depth] indexes into the call stack, and
 [index] indexes into the call queue at that depth.  We require a call
@@ -140,7 +137,7 @@ queue so that a node may branch to more than one child
 
 <ul>
 <li><strong>f must be a Function.</strong><br/>(The first function to run.)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(f) -&gt;</span>
+</ul></div></div><div class="code folded"><div class="marker wrapper"><span class="c1">  # - leaves are nodes which do not recurse.</span></div><div class="wrapper">  <span class="nv">run: </span><span class="nf">(f) -&gt;</span>
     <span class="nv">self = </span><span class="k">this</span>
 
     <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
