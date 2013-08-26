@@ -16,6 +16,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/README.md",
         "projectPath": "README.md",
         "targetPath": "index",
+        "pageTitle": "goatee-js",
         "title": "index"
       },
       "depth": 1,
@@ -64,6 +65,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 2,
+            "title": "Documentation",
+            "slug": "documentation"
+          },
+          "depth": 2
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 2,
             "title": "Credits go to …",
             "slug": "credits-go-to-"
           },
@@ -92,6 +101,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Abstract.coffee",
             "projectPath": "src/Action/Abstract.coffee",
             "targetPath": "Action/Abstract",
+            "pageTitle": "Action/Abstract",
             "title": "Abstract"
           },
           "depth": 2,
@@ -126,6 +136,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Compiler/Coffeescript.coffee",
                     "projectPath": "src/Action/Expression/Compiler/Coffeescript.coffee",
                     "targetPath": "Action/Expression/Compiler/Coffeescript",
+                    "pageTitle": "Action/Expression/Compiler/Coffeescript",
                     "title": "Coffeescript"
                   },
                   "depth": 4,
@@ -144,6 +155,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Compiler/Composite.coffee",
                     "projectPath": "src/Action/Expression/Compiler/Composite.coffee",
                     "targetPath": "Action/Expression/Compiler/Composite",
+                    "pageTitle": "Action/Expression/Compiler/Composite",
                     "title": "Composite"
                   },
                   "depth": 4,
@@ -162,6 +174,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Compiler/Glassscript.coffee",
                     "projectPath": "src/Action/Expression/Compiler/Glassscript.coffee",
                     "targetPath": "Action/Expression/Compiler/Glassscript",
+                    "pageTitle": "Action/Expression/Compiler/Glassscript",
                     "title": "Glassscript"
                   },
                   "depth": 4,
@@ -180,6 +193,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Compiler/Goateescript.coffee",
                     "projectPath": "src/Action/Expression/Compiler/Goateescript.coffee",
                     "targetPath": "Action/Expression/Compiler/Goateescript",
+                    "pageTitle": "Action/Expression/Compiler/Goateescript",
                     "title": "Goateescript"
                   },
                   "depth": 4,
@@ -198,6 +212,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Compiler/Javascript.coffee",
                     "projectPath": "src/Action/Expression/Compiler/Javascript.coffee",
                     "targetPath": "Action/Expression/Compiler/Javascript",
+                    "pageTitle": "Action/Expression/Compiler/Javascript",
                     "title": "Javascript"
                   },
                   "depth": 4,
@@ -218,6 +233,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Context.coffee",
                 "projectPath": "src/Action/Expression/Context.coffee",
                 "targetPath": "Action/Expression/Context",
+                "pageTitle": "Action/Expression/Context",
                 "title": "Context"
               },
               "depth": 3,
@@ -252,6 +268,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Scope/Decorator/PropertyReferenceArgument.coffee",
                         "projectPath": "src/Action/Expression/Scope/Decorator/PropertyReferenceArgument.coffee",
                         "targetPath": "Action/Expression/Scope/Decorator/PropertyReferenceArgument",
+                        "pageTitle": "Action/Expression/Scope/Decorator/PropertyReferenceArgument",
                         "title": "PropertyReferenceArgument"
                       },
                       "depth": 5,
@@ -270,6 +287,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
                         "projectPath": "src/Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
                         "targetPath": "Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle",
+                        "pageTitle": "Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle",
                         "title": "PropertyReferenceArgumentRecycle"
                       },
                       "depth": 5,
@@ -288,6 +306,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Scope/Decorator/WithStatement.coffee",
                         "projectPath": "src/Action/Expression/Scope/Decorator/WithStatement.coffee",
                         "targetPath": "Action/Expression/Scope/Decorator/WithStatement",
+                        "pageTitle": "Action/Expression/Scope/Decorator/WithStatement",
                         "title": "WithStatement"
                       },
                       "depth": 5,
@@ -306,6 +325,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Scope/Decorator/WithStatementEvaluation.coffee",
                         "projectPath": "src/Action/Expression/Scope/Decorator/WithStatementEvaluation.coffee",
                         "targetPath": "Action/Expression/Scope/Decorator/WithStatementEvaluation",
+                        "pageTitle": "Action/Expression/Scope/Decorator/WithStatementEvaluation",
                         "title": "WithStatementEvaluation"
                       },
                       "depth": 5,
@@ -324,6 +344,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Scope/Decorator/WithStatementFunction.coffee",
                         "projectPath": "src/Action/Expression/Scope/Decorator/WithStatementFunction.coffee",
                         "targetPath": "Action/Expression/Scope/Decorator/WithStatementFunction",
+                        "pageTitle": "Action/Expression/Scope/Decorator/WithStatementFunction",
                         "title": "WithStatementFunction"
                       },
                       "depth": 5,
@@ -344,6 +365,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Scope/Goatee.coffee",
                     "projectPath": "src/Action/Expression/Scope/Goatee.coffee",
                     "targetPath": "Action/Expression/Scope/Goatee",
+                    "pageTitle": "Action/Expression/Scope/Goatee",
                     "title": "Goatee"
                   },
                   "depth": 4,
@@ -362,6 +384,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Expression/Scope/GoogleJsTemplate.coffee",
                     "projectPath": "src/Action/Expression/Scope/GoogleJsTemplate.coffee",
                     "targetPath": "Action/Expression/Scope/GoogleJsTemplate",
+                    "pageTitle": "Action/Expression/Scope/GoogleJsTemplate",
                     "title": "GoogleJsTemplate"
                   },
                   "depth": 4,
@@ -392,6 +415,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Injector/DomDataAttribute.coffee",
                 "projectPath": "src/Action/Injector/DomDataAttribute.coffee",
                 "targetPath": "Action/Injector/DomDataAttribute",
+                "pageTitle": "Action/Injector/DomDataAttribute",
                 "title": "DomDataAttribute"
               },
               "depth": 3,
@@ -410,6 +434,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Injector/DomDataAttributes.coffee",
                 "projectPath": "src/Action/Injector/DomDataAttributes.coffee",
                 "targetPath": "Action/Injector/DomDataAttributes",
+                "pageTitle": "Action/Injector/DomDataAttributes",
                 "title": "DomDataAttributes"
               },
               "depth": 3,
@@ -428,6 +453,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Injector/DomElementAttribute.coffee",
                 "projectPath": "src/Action/Injector/DomElementAttribute.coffee",
                 "targetPath": "Action/Injector/DomElementAttribute",
+                "pageTitle": "Action/Injector/DomElementAttribute",
                 "title": "DomElementAttribute"
               },
               "depth": 3,
@@ -446,6 +472,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Injector/DomElementAttributes.coffee",
                 "projectPath": "src/Action/Injector/DomElementAttributes.coffee",
                 "targetPath": "Action/Injector/DomElementAttributes",
+                "pageTitle": "Action/Injector/DomElementAttributes",
                 "title": "DomElementAttributes"
               },
               "depth": 3,
@@ -464,6 +491,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Injector/DomEvents.coffee",
                 "projectPath": "src/Action/Injector/DomEvents.coffee",
                 "targetPath": "Action/Injector/DomEvents",
+                "pageTitle": "Action/Injector/DomEvents",
                 "title": "DomEvents"
               },
               "depth": 3,
@@ -482,6 +510,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Injector/JqueryEvents.coffee",
                 "projectPath": "src/Action/Injector/JqueryEvents.coffee",
                 "targetPath": "Action/Injector/JqueryEvents",
+                "pageTitle": "Action/Injector/JqueryEvents",
                 "title": "JqueryEvents"
               },
               "depth": 3,
@@ -500,6 +529,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Injector/NodeJsEvents.coffee",
                 "projectPath": "src/Action/Injector/NodeJsEvents.coffee",
                 "targetPath": "Action/Injector/NodeJsEvents",
+                "pageTitle": "Action/Injector/NodeJsEvents",
                 "title": "NodeJsEvents"
               },
               "depth": 3,
@@ -520,6 +550,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner.coffee",
             "projectPath": "src/Action/Inner.coffee",
             "targetPath": "Action/Inner",
+            "pageTitle": "Action/Inner",
             "title": "Inner"
           },
           "depth": 2,
@@ -539,6 +570,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner/Alter.coffee",
                 "projectPath": "src/Action/Inner/Alter.coffee",
                 "targetPath": "Action/Inner/Alter",
+                "pageTitle": "Action/Inner/Alter",
                 "title": "Alter"
               },
               "depth": 3,
@@ -557,6 +589,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner/Content.coffee",
                 "projectPath": "src/Action/Inner/Content.coffee",
                 "targetPath": "Action/Inner/Content",
+                "pageTitle": "Action/Inner/Content",
                 "title": "Content"
               },
               "depth": 3,
@@ -575,6 +608,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner/Display.coffee",
                 "projectPath": "src/Action/Inner/Display.coffee",
                 "targetPath": "Action/Inner/Display",
+                "pageTitle": "Action/Inner/Display",
                 "title": "Display"
               },
               "depth": 3,
@@ -593,6 +627,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner/Execute.coffee",
                 "projectPath": "src/Action/Inner/Execute.coffee",
                 "targetPath": "Action/Inner/Execute",
+                "pageTitle": "Action/Inner/Execute",
                 "title": "Execute"
               },
               "depth": 3,
@@ -611,6 +646,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner/Markup.coffee",
                 "projectPath": "src/Action/Inner/Markup.coffee",
                 "targetPath": "Action/Inner/Markup",
+                "pageTitle": "Action/Inner/Markup",
                 "title": "Markup"
               },
               "depth": 3,
@@ -629,6 +665,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner/Next.coffee",
                 "projectPath": "src/Action/Inner/Next.coffee",
                 "targetPath": "Action/Inner/Next",
+                "pageTitle": "Action/Inner/Next",
                 "title": "Next"
               },
               "depth": 3,
@@ -647,6 +684,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner/Set.coffee",
                 "projectPath": "src/Action/Inner/Set.coffee",
                 "targetPath": "Action/Inner/Set",
+                "pageTitle": "Action/Inner/Set",
                 "title": "Set"
               },
               "depth": 3,
@@ -665,6 +703,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Inner/Skip.coffee",
                 "projectPath": "src/Action/Inner/Skip.coffee",
                 "targetPath": "Action/Inner/Skip",
+                "pageTitle": "Action/Inner/Skip",
                 "title": "Skip"
               },
               "depth": 3,
@@ -693,6 +732,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Namespace/Goatee.coffee",
                 "projectPath": "src/Action/Namespace/Goatee.coffee",
                 "targetPath": "Action/Namespace/Goatee",
+                "pageTitle": "Action/Namespace/Goatee",
                 "title": "Goatee"
               },
               "depth": 3,
@@ -711,6 +751,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Namespace/GoogleJsTemplate.coffee",
                 "projectPath": "src/Action/Namespace/GoogleJsTemplate.coffee",
                 "targetPath": "Action/Namespace/GoogleJsTemplate",
+                "pageTitle": "Action/Namespace/GoogleJsTemplate",
                 "title": "GoogleJsTemplate"
               },
               "depth": 3,
@@ -731,6 +772,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Outer.coffee",
             "projectPath": "src/Action/Outer.coffee",
             "targetPath": "Action/Outer",
+            "pageTitle": "Action/Outer",
             "title": "Outer"
           },
           "depth": 2,
@@ -750,6 +792,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Outer/Match.coffee",
                 "projectPath": "src/Action/Outer/Match.coffee",
                 "targetPath": "Action/Outer/Match",
+                "pageTitle": "Action/Outer/Match",
                 "title": "Match"
               },
               "depth": 3,
@@ -768,6 +811,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Outer/Process.coffee",
                 "projectPath": "src/Action/Outer/Process.coffee",
                 "targetPath": "Action/Outer/Process",
+                "pageTitle": "Action/Outer/Process",
                 "title": "Process"
               },
               "depth": 3,
@@ -786,6 +830,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Outer/Render.coffee",
                 "projectPath": "src/Action/Outer/Render.coffee",
                 "targetPath": "Action/Outer/Render",
+                "pageTitle": "Action/Outer/Render",
                 "title": "Render"
               },
               "depth": 3,
@@ -804,6 +849,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Outer/Repeat.coffee",
                 "projectPath": "src/Action/Outer/Repeat.coffee",
                 "targetPath": "Action/Outer/Repeat",
+                "pageTitle": "Action/Outer/Repeat",
                 "title": "Repeat"
               },
               "depth": 3,
@@ -824,6 +870,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Processor.coffee",
             "projectPath": "src/Action/Processor.coffee",
             "targetPath": "Action/Processor",
+            "pageTitle": "Action/Processor",
             "title": "Processor"
           },
           "depth": 2,
@@ -850,6 +897,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Projector/ActionObjectModel.coffee",
                 "projectPath": "src/Action/Projector/ActionObjectModel.coffee",
                 "targetPath": "Action/Projector/ActionObjectModel",
+                "pageTitle": "Action/Projector/ActionObjectModel",
                 "title": "ActionObjectModel"
               },
               "depth": 3,
@@ -868,6 +916,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Projector/ElementAttribute.coffee",
                 "projectPath": "src/Action/Projector/ElementAttribute.coffee",
                 "targetPath": "Action/Projector/ElementAttribute",
+                "pageTitle": "Action/Projector/ElementAttribute",
                 "title": "ElementAttribute"
               },
               "depth": 3,
@@ -886,6 +935,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Projector/ElementData.coffee",
                 "projectPath": "src/Action/Projector/ElementData.coffee",
                 "targetPath": "Action/Projector/ElementData",
+                "pageTitle": "Action/Projector/ElementData",
                 "title": "ElementData"
               },
               "depth": 3,
@@ -904,6 +954,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Projector/ProjectionSheet.coffee",
                 "projectPath": "src/Action/Projector/ProjectionSheet.coffee",
                 "targetPath": "Action/Projector/ProjectionSheet",
+                "pageTitle": "Action/Projector/ProjectionSheet",
                 "title": "ProjectionSheet"
               },
               "depth": 3,
@@ -922,6 +973,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Action/Projector/SelectorMap.coffee",
                 "projectPath": "src/Action/Projector/SelectorMap.coffee",
                 "targetPath": "Action/Projector/SelectorMap",
+                "pageTitle": "Action/Projector/SelectorMap",
                 "title": "SelectorMap"
               },
               "depth": 3,
@@ -944,6 +996,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/Cakefile",
         "projectPath": "Cakefile",
         "targetPath": "Cakefile",
+        "pageTitle": "Cakefile",
         "title": "Cakefile"
       },
       "depth": 1,
@@ -970,6 +1023,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Core/Constants.coffee",
             "projectPath": "src/Core/Constants.coffee",
             "targetPath": "Core/Constants",
+            "pageTitle": "Core/Constants",
             "title": "Constants"
           },
           "depth": 2,
@@ -988,6 +1042,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Core/Utility.coffee",
             "projectPath": "src/Core/Utility.coffee",
             "targetPath": "Core/Utility",
+            "pageTitle": "Core/Utility",
             "title": "Utility"
           },
           "depth": 2,
@@ -1016,6 +1071,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Document.coffee",
             "projectPath": "src/Dom/Document.coffee",
             "targetPath": "Dom/Document",
+            "pageTitle": "Dom/Document",
             "title": "Document"
           },
           "depth": 2,
@@ -1034,6 +1090,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Node.coffee",
             "projectPath": "src/Dom/Node.coffee",
             "targetPath": "Dom/Node",
+            "pageTitle": "Dom/Node",
             "title": "Node"
           },
           "depth": 2,
@@ -1060,6 +1117,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Selector/Cheerio.coffee",
                 "projectPath": "src/Dom/Selector/Cheerio.coffee",
                 "targetPath": "Dom/Selector/Cheerio",
+                "pageTitle": "Dom/Selector/Cheerio",
                 "title": "Cheerio"
               },
               "depth": 3,
@@ -1078,6 +1136,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Selector/Jquery.coffee",
                 "projectPath": "src/Dom/Selector/Jquery.coffee",
                 "targetPath": "Dom/Selector/Jquery",
+                "pageTitle": "Dom/Selector/Jquery",
                 "title": "Jquery"
               },
               "depth": 3,
@@ -1096,6 +1155,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Selector/Jquery2.coffee",
                 "projectPath": "src/Dom/Selector/Jquery2.coffee",
                 "targetPath": "Dom/Selector/Jquery2",
+                "pageTitle": "Dom/Selector/Jquery2",
                 "title": "Jquery2"
               },
               "depth": 3,
@@ -1114,6 +1174,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Selector/NativeSelectorApiLevel1.coffee",
                 "projectPath": "src/Dom/Selector/NativeSelectorApiLevel1.coffee",
                 "targetPath": "Dom/Selector/NativeSelectorApiLevel1",
+                "pageTitle": "Dom/Selector/NativeSelectorApiLevel1",
                 "title": "NativeSelectorApiLevel1"
               },
               "depth": 3,
@@ -1132,6 +1193,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Selector/Sizzle.coffee",
                 "projectPath": "src/Dom/Selector/Sizzle.coffee",
                 "targetPath": "Dom/Selector/Sizzle",
+                "pageTitle": "Dom/Selector/Sizzle",
                 "title": "Sizzle"
               },
               "depth": 3,
@@ -1160,6 +1222,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Traversal/GeckoElementTraversal.coffee",
                 "projectPath": "src/Dom/Traversal/GeckoElementTraversal.coffee",
                 "targetPath": "Dom/Traversal/GeckoElementTraversal",
+                "pageTitle": "Dom/Traversal/GeckoElementTraversal",
                 "title": "GeckoElementTraversal"
               },
               "depth": 3,
@@ -1178,6 +1241,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Traversal/Level1NodeTypeMatcher.coffee",
                 "projectPath": "src/Dom/Traversal/Level1NodeTypeMatcher.coffee",
                 "targetPath": "Dom/Traversal/Level1NodeTypeMatcher",
+                "pageTitle": "Dom/Traversal/Level1NodeTypeMatcher",
                 "title": "Level1NodeTypeMatcher"
               },
               "depth": 3,
@@ -1196,6 +1260,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Traversal/Level2NodeIterator.coffee",
                 "projectPath": "src/Dom/Traversal/Level2NodeIterator.coffee",
                 "targetPath": "Dom/Traversal/Level2NodeIterator",
+                "pageTitle": "Dom/Traversal/Level2NodeIterator",
                 "title": "Level2NodeIterator"
               },
               "depth": 3,
@@ -1214,6 +1279,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Traversal/Level2TreeWalker.coffee",
                 "projectPath": "src/Dom/Traversal/Level2TreeWalker.coffee",
                 "targetPath": "Dom/Traversal/Level2TreeWalker",
+                "pageTitle": "Dom/Traversal/Level2TreeWalker",
                 "title": "Level2TreeWalker"
               },
               "depth": 3,
@@ -1232,6 +1298,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Traversal/Level4ChildNodesIterator.coffee",
                 "projectPath": "src/Dom/Traversal/Level4ChildNodesIterator.coffee",
                 "targetPath": "Dom/Traversal/Level4ChildNodesIterator",
+                "pageTitle": "Dom/Traversal/Level4ChildNodesIterator",
                 "title": "Level4ChildNodesIterator"
               },
               "depth": 3,
@@ -1250,6 +1317,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Dom/Traversal/Level4ElementChildrenIterator.coffee",
                 "projectPath": "src/Dom/Traversal/Level4ElementChildrenIterator.coffee",
                 "targetPath": "Dom/Traversal/Level4ElementChildrenIterator",
+                "pageTitle": "Dom/Traversal/Level4ElementChildrenIterator",
                 "title": "Level4ElementChildrenIterator"
               },
               "depth": 3,
@@ -1280,6 +1348,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Env/Browser.coffee",
             "projectPath": "src/Env/Browser.coffee",
             "targetPath": "Env/Browser",
+            "pageTitle": "Env/Browser",
             "title": "Browser"
           },
           "depth": 2,
@@ -1298,6 +1367,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Env/Common.coffee",
             "projectPath": "src/Env/Common.coffee",
             "targetPath": "Env/Common",
+            "pageTitle": "Env/Common",
             "title": "Common"
           },
           "depth": 2,
@@ -1316,6 +1386,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace/goatee-js/src/Env/Node.coffee",
             "projectPath": "src/Env/Node.coffee",
             "targetPath": "Env/Node",
+            "pageTitle": "Env/Node",
             "title": "Node"
           },
           "depth": 2,

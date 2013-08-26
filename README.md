@@ -139,6 +139,11 @@ For Windows environments (not verified):
     $ setx path "%PATH%"
     $ cake all
 
+## Documentation
+
+Annotated sources are available here:
+[http://sjorek.github.io/goatee-js/](http://sjorek.github.io/goatee-js/)
+
 ## Credits go to …
 
 - … Steffen Meschkat for meeting me in 2004 and sharing all his passion and

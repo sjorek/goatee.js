@@ -48,7 +48,6 @@
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;build:once&#39;</span>
   <span class="nx">spawn</span> <span class="s">&#39;coffee&#39;</span><span class="p">,</span> <span class="s">&#39;-o ../lib/ -mc .&#39;</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">),</span> <span class="nv">stdio: </span><span class="s">&#39;inherit&#39;</span><span class="p">,</span> <span class="nv">cwd: </span><span class="s">&#39;src&#39;</span>
 
-
 <span class="nx">option</span> <span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="s">&#39;--verbose [LEVEL]&#39;</span><span class="p">,</span> <span class="s">&#39;set groc\&#39;s verbosity level (documentation generation) [0,1,2]&#39;</span>
 
 <span class="nx">task</span> <span class="s">&#39;doc&#39;</span><span class="p">,</span> <span class="s">&#39;invokes “doc:source” and “doc:github” in given order&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
@@ -67,7 +66,7 @@
     <span class="nx">opts</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--silent&#39;</span>
   <span class="nx">spawn</span> <span class="s">&#39;groc&#39;</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nv">stdio: </span><span class="s">&#39;inherit&#39;</span><span class="p">,</span> <span class="nv">cwd: </span><span class="s">&#39;.&#39;</span>
 
-<span class="nx">task</span> <span class="s">&#39;doc:github&#39;</span><span class="p">,</span> <span class="s">&#39;rebuild the github documentation&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+<span class="nx">task</span> <span class="s">&#39;doc:github&#39;</span><span class="p">,</span> <span class="s">&#39;rebuild the github documentation&#39;</span><span class="p">,</span> <span class="nf">(options) -&gt;</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;doc:github&#39;</span>
   <span class="nv">opts  = </span><span class="p">[</span><span class="s">&#39;--github&#39;</span><span class="p">]</span>
   <span class="k">if</span> <span class="nx">options</span><span class="p">[</span><span class="s">&#39;verbose&#39;</span><span class="p">]</span><span class="o">?</span>
