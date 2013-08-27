@@ -108,8 +108,7 @@ Goatee is not yet useable, but some components are … see above.
 
 ## Documentation
 
-Annotated sources are available here:
-[http://sjorek.github.io/goatee-js/](http://sjorek.github.io/goatee-js/)
+Read the [annotated sources](http://sjorek.github.io/goatee-js/).
 
 ## Development
 
