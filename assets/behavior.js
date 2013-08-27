@@ -93,9 +93,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Abstract.coffee",
@@ -105,7 +106,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Abstract"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Abstract",
+                "slug": "abstract"
+              },
+              "depth": 1
+            }
+          ]
         }, {
           "type": "folder",
           "data": {
@@ -128,9 +139,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "language": {
                       "nameMatchers": [".coffee", "Cakefile"],
                       "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
                       "singleLineComment": ["#"],
-                      "ignorePrefix": "}",
-                      "foldPrefix": "-",
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Coffeescript.coffee",
@@ -147,9 +159,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "language": {
                       "nameMatchers": [".coffee", "Cakefile"],
                       "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
                       "singleLineComment": ["#"],
-                      "ignorePrefix": "}",
-                      "foldPrefix": "-",
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Composite.coffee",
@@ -166,9 +179,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "language": {
                       "nameMatchers": [".coffee", "Cakefile"],
                       "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
                       "singleLineComment": ["#"],
-                      "ignorePrefix": "}",
-                      "foldPrefix": "-",
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Glassscript.coffee",
@@ -185,9 +199,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "language": {
                       "nameMatchers": [".coffee", "Cakefile"],
                       "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
                       "singleLineComment": ["#"],
-                      "ignorePrefix": "}",
-                      "foldPrefix": "-",
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Goateescript.coffee",
@@ -204,9 +219,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "language": {
                       "nameMatchers": [".coffee", "Cakefile"],
                       "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
                       "singleLineComment": ["#"],
-                      "ignorePrefix": "}",
-                      "foldPrefix": "-",
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Javascript.coffee",
@@ -225,9 +241,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Context.coffee",
@@ -237,7 +254,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Context"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Context",
+                    "slug": "context"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "folder",
               "data": {
@@ -260,9 +287,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "language": {
                           "nameMatchers": [".coffee", "Cakefile"],
                           "pygmentsLexer": "coffee-script",
+                          "multiLineComment": ["###", " ", "###"],
                           "singleLineComment": ["#"],
-                          "ignorePrefix": "}",
-                          "foldPrefix": "-",
+                          "ignorePrefix": "!",
+                          "foldPrefix": "~",
                           "name": "CoffeeScript"
                         },
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/PropertyReferenceArgument.coffee",
@@ -279,9 +307,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "language": {
                           "nameMatchers": [".coffee", "Cakefile"],
                           "pygmentsLexer": "coffee-script",
+                          "multiLineComment": ["###", " ", "###"],
                           "singleLineComment": ["#"],
-                          "ignorePrefix": "}",
-                          "foldPrefix": "-",
+                          "ignorePrefix": "!",
+                          "foldPrefix": "~",
                           "name": "CoffeeScript"
                         },
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
@@ -298,9 +327,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "language": {
                           "nameMatchers": [".coffee", "Cakefile"],
                           "pygmentsLexer": "coffee-script",
+                          "multiLineComment": ["###", " ", "###"],
                           "singleLineComment": ["#"],
-                          "ignorePrefix": "}",
-                          "foldPrefix": "-",
+                          "ignorePrefix": "!",
+                          "foldPrefix": "~",
                           "name": "CoffeeScript"
                         },
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/WithStatement.coffee",
@@ -317,9 +347,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "language": {
                           "nameMatchers": [".coffee", "Cakefile"],
                           "pygmentsLexer": "coffee-script",
+                          "multiLineComment": ["###", " ", "###"],
                           "singleLineComment": ["#"],
-                          "ignorePrefix": "}",
-                          "foldPrefix": "-",
+                          "ignorePrefix": "!",
+                          "foldPrefix": "~",
                           "name": "CoffeeScript"
                         },
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/WithStatementEvaluation.coffee",
@@ -336,9 +367,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "language": {
                           "nameMatchers": [".coffee", "Cakefile"],
                           "pygmentsLexer": "coffee-script",
+                          "multiLineComment": ["###", " ", "###"],
                           "singleLineComment": ["#"],
-                          "ignorePrefix": "}",
-                          "foldPrefix": "-",
+                          "ignorePrefix": "!",
+                          "foldPrefix": "~",
                           "name": "CoffeeScript"
                         },
                         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/WithStatementFunction.coffee",
@@ -357,9 +389,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "language": {
                       "nameMatchers": [".coffee", "Cakefile"],
                       "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
                       "singleLineComment": ["#"],
-                      "ignorePrefix": "}",
-                      "foldPrefix": "-",
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Goatee.coffee",
@@ -376,9 +409,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "language": {
                       "nameMatchers": [".coffee", "Cakefile"],
                       "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
                       "singleLineComment": ["#"],
-                      "ignorePrefix": "}",
-                      "foldPrefix": "-",
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
                     "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/GoogleJsTemplate.coffee",
@@ -407,9 +441,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomDataAttribute.coffee",
@@ -419,16 +454,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "DomDataAttribute"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "DomDataAttribute",
+                    "slug": "domdataattribute"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomDataAttributes.coffee",
@@ -438,16 +484,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "DomDataAttributes"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "DomDataAttributes",
+                    "slug": "domdataattributes"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomElementAttribute.coffee",
@@ -457,16 +514,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "DomElementAttribute"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "DomElementAttribute",
+                    "slug": "domelementattribute"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomElementAttributes.coffee",
@@ -476,16 +544,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "DomElementAttributes"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "DomElementAttributes",
+                    "slug": "domelementattributes"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomEvents.coffee",
@@ -495,16 +574,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "DomEvents"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "DomEvents",
+                    "slug": "domevents"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/JqueryEvents.coffee",
@@ -514,16 +604,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "JqueryEvents"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "JqueryEvents",
+                    "slug": "jqueryevents"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/NodeJsEvents.coffee",
@@ -533,7 +634,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "NodeJsEvents"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "NodeEvents",
+                    "slug": "nodeevents"
+                  },
+                  "depth": 1
+                }
+              ]
             }
           ]
         }, {
@@ -542,9 +653,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner.coffee",
@@ -554,7 +666,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Inner"
           },
           "depth": 2,
-          "outline": [],
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Inner",
+                "slug": "inner"
+              },
+              "depth": 1
+            }
+          ],
           "children": [
             {
               "type": "file",
@@ -562,9 +684,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Alter.coffee",
@@ -574,16 +697,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Alter"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Alter",
+                    "slug": "alter"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Content.coffee",
@@ -593,16 +727,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Content"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Content",
+                    "slug": "content"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Display.coffee",
@@ -612,16 +757,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Display"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Display",
+                    "slug": "display"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Execute.coffee",
@@ -631,16 +787,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Execute"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Execute",
+                    "slug": "execute"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Markup.coffee",
@@ -650,16 +817,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Markup"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Markup",
+                    "slug": "markup"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Next.coffee",
@@ -669,16 +847,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Next"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Next",
+                    "slug": "next"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Set.coffee",
@@ -688,16 +877,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Set"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Set",
+                    "slug": "set"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Skip.coffee",
@@ -707,7 +907,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Skip"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Skip",
+                    "slug": "skip"
+                  },
+                  "depth": 1
+                }
+              ]
             }
           ]
         }, {
@@ -724,9 +934,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Namespace/Goatee.coffee",
@@ -743,9 +954,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Namespace/GoogleJsTemplate.coffee",
@@ -764,9 +976,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer.coffee",
@@ -776,7 +989,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Outer"
           },
           "depth": 2,
-          "outline": [],
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Outer",
+                "slug": "outer"
+              },
+              "depth": 1
+            }
+          ],
           "children": [
             {
               "type": "file",
@@ -784,9 +1007,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer/Match.coffee",
@@ -796,16 +1020,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Match"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "List",
+                    "slug": "list"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer/Process.coffee",
@@ -815,16 +1050,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Process"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Process",
+                    "slug": "process"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer/Render.coffee",
@@ -834,16 +1080,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Render"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Render",
+                    "slug": "render"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer/Repeat.coffee",
@@ -853,7 +1110,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Repeat"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "List",
+                    "slug": "list"
+                  },
+                  "depth": 1
+                }
+              ]
             }
           ]
         }, {
@@ -862,9 +1129,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Processor.coffee",
@@ -874,7 +1142,44 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Processor"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Gaotee Evaluation",
+                "slug": "gaotee-evaluation"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Outer Actions",
+                    "slug": "outer-actions"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Inner Actions",
+                    "slug": "inner-actions"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Processor",
+                "slug": "processor"
+              },
+              "depth": 1
+            }
+          ]
         }, {
           "type": "folder",
           "data": {
@@ -889,9 +1194,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/ActionObjectModel.coffee",
@@ -901,16 +1207,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "ActionObjectModel"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "ActionObjectModel",
+                    "slug": "actionobjectmodel"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/ElementAttribute.coffee",
@@ -920,16 +1237,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "ElementAttribute"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Processor",
+                    "slug": "processor"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/ElementData.coffee",
@@ -939,16 +1267,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "ElementData"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "ElementData",
+                    "slug": "elementdata"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/ProjectionSheet.coffee",
@@ -958,16 +1297,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "ProjectionSheet"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "ProjectionSheet",
+                    "slug": "projectionsheet"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/SelectorMap.coffee",
@@ -977,7 +1327,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "SelectorMap"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "SelectorMap",
+                    "slug": "selectormap"
+                  },
+                  "depth": 1
+                }
+              ]
             }
           ]
         }
@@ -988,9 +1348,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         "language": {
           "nameMatchers": [".coffee", "Cakefile"],
           "pygmentsLexer": "coffee-script",
+          "multiLineComment": ["###", " ", "###"],
           "singleLineComment": ["#"],
-          "ignorePrefix": "}",
-          "foldPrefix": "-",
+          "ignorePrefix": "!",
+          "foldPrefix": "~",
           "name": "CoffeeScript"
         },
         "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/Cakefile",
@@ -1015,9 +1376,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Core/Constants.coffee",
@@ -1034,9 +1396,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Core/Utility.coffee",
@@ -1063,9 +1426,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Document.coffee",
@@ -1075,16 +1439,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Document"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Document",
+                "slug": "document"
+              },
+              "depth": 1
+            }
+          ]
         }, {
           "type": "file",
           "data": {
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Node.coffee",
@@ -1094,7 +1469,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Node"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Node",
+                "slug": "node"
+              },
+              "depth": 1
+            }
+          ]
         }, {
           "type": "folder",
           "data": {
@@ -1109,9 +1494,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/Cheerio.coffee",
@@ -1128,9 +1514,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/Jquery.coffee",
@@ -1147,9 +1534,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/Jquery2.coffee",
@@ -1166,9 +1554,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/NativeSelectorApiLevel1.coffee",
@@ -1185,9 +1574,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/Sizzle.coffee",
@@ -1214,9 +1604,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/GeckoElementTraversal.coffee",
@@ -1226,16 +1617,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "GeckoElementTraversal"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "GeckoElementTraversal",
+                    "slug": "geckoelementtraversal"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level1NodeTypeMatcher.coffee",
@@ -1245,16 +1647,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Level1NodeTypeMatcher"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Level1NodeTypeMatcher",
+                    "slug": "level1nodetypematcher"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level2NodeIterator.coffee",
@@ -1264,16 +1677,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Level2NodeIterator"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Level2NodeIterator",
+                    "slug": "level2nodeiterator"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level2TreeWalker.coffee",
@@ -1283,16 +1707,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Level2TreeWalker"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Level2TreeWalker",
+                    "slug": "level2treewalker"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level4ChildNodesIterator.coffee",
@@ -1302,16 +1737,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Level4ChildNodesIterator"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Level4ElementChildNodesList",
+                    "slug": "level4elementchildnodeslist"
+                  },
+                  "depth": 1
+                }
+              ]
             }, {
               "type": "file",
               "data": {
                 "language": {
                   "nameMatchers": [".coffee", "Cakefile"],
                   "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
                   "singleLineComment": ["#"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "-",
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
                 "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level4ElementChildrenIterator.coffee",
@@ -1321,7 +1767,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Level4ElementChildrenIterator"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Level4ElementChildNodesList",
+                    "slug": "level4elementchildnodeslist"
+                  },
+                  "depth": 1
+                }
+              ]
             }
           ]
         }
@@ -1340,9 +1796,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Env/Browser.coffee",
@@ -1359,9 +1816,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Env/Common.coffee",
@@ -1378,9 +1836,10 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "language": {
               "nameMatchers": [".coffee", "Cakefile"],
               "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
               "singleLineComment": ["#"],
-              "ignorePrefix": "}",
-              "foldPrefix": "-",
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
               "name": "CoffeeScript"
             },
             "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Env/Node.coffee",
