@@ -1,21 +1,17 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Compiler/Javascript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="Action/Expression/Compiler/Javascript"><meta name="groc-project-path" content="src/Action/Expression/Compiler/Javascript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Compiler/Javascript.coffee</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="cm">###</span>
-<span class="cm">© Copyright 2013 Stephan Jorek &lt;stephan.jorek@gmail.com&gt;</span>
-<span class="cm">© Copyright 2006 Google Inc.</span>
+<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Compiler/Javascript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="Action/Expression/Compiler/Javascript"><meta name="groc-project-path" content="src/Action/Expression/Compiler/Javascript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Compiler/Javascript.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#97;&#105;&#x6c;&#116;&#111;:&#115;t&#101;&#112;h&#97;&#110;&#46;&#x6a;&#x6f;&#x72;&#x65;&#x6b;&#64;&#103;&#109;&#x61;&#105;&#x6c;.&#x63;&#x6f;m">&#115;t&#101;&#112;h&#97;&#110;&#46;&#x6a;&#x6f;&#x72;&#x65;&#x6b;&#64;&#103;&#109;&#x61;&#105;&#x6c;.&#x63;&#x6f;m</a>
+© Copyright 2006 Google Inc.</p>
 
-<span class="cm">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<span class="cm">you may not use this file except in compliance with the License.</span>
-<span class="cm">You may obtain a copy of the License at</span>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
 
-<span class="cm">http://www.apache.org/licenses/LICENSE-2.0</span>
+<p>http://www.apache.org/licenses/LICENSE-2.0</p>
 
-<span class="cm">Unless required by applicable law or agreed to in writing, software</span>
-<span class="cm">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="cm">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span>
-<span class="cm">implied. See the License for the specific language governing</span>
-<span class="cm">permissions and limitations under the License.</span>
-<span class="cm">###</span>
-
-<span class="p">{</span><span class="nx">Constants</span><span class="o">:</span><span class="p">{</span>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="o">:</span><span class="p">{</span>
   <span class="nx">STRING_variables</span>
   <span class="nx">STRING_data</span>
   <span class="nx">STRING_with</span>
@@ -29,17 +25,11 @@
   <span class="nx">trim</span>
 <span class="p">}}</span>                  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../../Core/Utility&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>Javascript</p>
 
-<span class="cm">###</span>
-<span class="cm">Javascript</span>
+<p><span class='doc-section-header'> namespace goatee.Action.Compiler</span></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Javascript = </span><span class="k">class</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
 
-<span class="cm">@class</span>
-<span class="cm">@namespace goatee.Action.Compiler</span>
-<span class="cm">###</span>
-<span class="nv">exports.Javascript = </span><span class="k">class</span> <span class="nx">Javascript</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
+<p><span class='doc-section-header'> evaluateExpression raised during expression evaluation to console.</span></p>
 
 <p>Parameters:</p>
 
@@ -52,9 +42,8 @@
       <span class="nx">@evaluateExpression</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span>
     <span class="k">catch</span> <span class="nx">e</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Failed to evaluate “</span><span class="si">#{</span><span class="nx">expression</span><span class="si">}</span><span class="s">”: </span><span class="si">#{</span><span class="nx">e</span><span class="si">}</span><span class="s">&quot;</span>
-    <span class="k">return</span> <span class="kc">null</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Wrapper for the eval() builtin function to evaluate expressions and
+    <span class="k">return</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>#
+Wrapper for the eval() builtin function to evaluate expressions and
 obtain their value. It wraps the expression in parentheses such
 that object literals are really evaluated to objects. Without the
 wrapping, they are evaluated as block, and create syntax
@@ -67,33 +56,27 @@ code and returns null if the eval throws an exception.</p></div></div></div><div
 <li><strong>expression must be a String.</strong></li>
 </ul>
 
-<p><strong>Returns an Object or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span>
-    <span class="cm">###</span>
-<span class="cm">    NOTE(mesch): An alternative idiom would be:</span>
+<p><strong>Returns an Object or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): An alternative idiom would be:</p>
 
-<span class="cm">      eval(&#39;(&#39; + expr + &#39;)&#39;);</span>
+<p>eval('(' + expr + ')');</p>
 
-<span class="cm">    Note that using the square brackets as below, &quot;&quot; evals to undefined.</span>
-<span class="cm">    The alternative of using parentheses does not work when evaluating</span>
-<span class="cm">    function literals in IE.</span>
-<span class="cm">    e.g. eval(&quot;(function() {})&quot;) returns undefined, and not a function</span>
-<span class="cm">    object, in IE.</span>
+<p>Note that using the square brackets as below, "" evals to undefined.
+The alternative of using parentheses does not work when evaluating
+function literals in IE.
+e.g. eval("(function() {})") returns undefined, and not a function
+object, in IE.</p>
 
-<span class="cm">    NOTE(sjorek): Due to the underlying coffescript-specific language</span>
-<span class="cm">    agnostics we deliberatly fall back to vanilla javascript here.</span>
-<span class="cm">    ###</span>
-    <span class="k">return</span> <span class="o">`</span><span class="nb">eval</span><span class="p">(</span><span class="s">&#39;[&#39;</span> <span class="o">+</span> <span class="nx">expression</span> <span class="o">+</span> <span class="s">&#39;][0]&#39;</span><span class="p">)</span><span class="o">`</span>
+<p>NOTE(sjorek): Due to the underlying coffescript-specific language
+agnostics we deliberatly fall back to vanilla javascript here.</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="o">`</span><span class="nb">eval</span><span class="p">(</span><span class="s">&#39;[&#39;</span> <span class="o">+</span> <span class="nx">expression</span> <span class="o">+</span> <span class="s">&#39;][0]&#39;</span><span class="p">)</span><span class="o">`</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Cache for jsEvalToFunction results.</p>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
-
-<p>Cache for jsEvalToFunction results.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_evaluateToFunctionCache = </span><span class="p">{}</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Evaluates the given expression as the body of a function that takes
+<p><span class='doc-section-header'> of type <em>Object</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_evaluateToFunctionCache = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Evaluates the given expression as the body of a function that takes
 variables and data as arguments. Since the resulting function depends
 only on expression, we cache the result so we save some Function
 invocations, and some object creations in IE6.</p>
+
+<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -109,12 +92,11 @@ invocations, and some object creations in IE6.</p>
         <span class="nb">Function</span> <span class="nx">STRING_variables</span><span class="p">,</span> <span class="nx">STRING_data</span><span class="p">,</span> <span class="nx">STRING_with</span> <span class="o">+</span> <span class="nx">expression</span>
     <span class="k">catch</span> <span class="nx">e</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Failed to evalaluate “</span><span class="si">#{</span><span class="nx">expression</span><span class="si">}</span><span class="s">” to function: </span><span class="si">#{</span><span class="nx">e</span><span class="si">}</span><span class="s">&quot;</span>
-    <span class="k">return</span> <span class="kc">null</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Evaluates the given expression to itself. This is meant to pass through
+    <span class="k">return</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Evaluates the given expression to itself. This is meant to pass through
 string action values.</p>
+
+<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -123,12 +105,11 @@ string action values.</p>
 </ul>
 
 <p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToSelf = </span><span class="nf">(expression) -&gt;</span>
-    <span class="k">return</span> <span class="nx">expression</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
-
-<p>Parses the value of the alter action in goatee-templates: splits it up into
+    <span class="k">return</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Parses the value of the alter action in goatee-templates: splits it up into
 a map of keys and expressions, and creates functions from the expressions</p>
+
+<p><span class='doc-section-header'> evaluateExpression returned as a flattened array of pairs of a String and a Function.</span></p>
 
 <p>Parameters:</p>
 
@@ -145,12 +126,11 @@ TODO(sjorek): This does not look like coffescript … Das ist Doof :-)</p></div>
       <span class="nv">key   = </span><span class="nx">trim</span> <span class="nx">expression</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">colon</span><span class="p">)</span>
       <span class="nv">value = </span><span class="nx">@evaluateToFunction</span> <span class="nx">expression</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">colon</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
       <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nx">result</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
-
-<p>Parses the value of the alter action in goatee-templates: splits it up into
+    <span class="k">return</span> <span class="nx">result</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Parses the value of the alter action in goatee-templates: splits it up into
 a map of keys and expressions, and creates functions from the expressions</p>
+
+<p><span class='doc-section-header'> evaluateExpression returned as a flattened array of pairs of a String and a Function.</span></p>
 
 <p>Parameters:</p>
 
@@ -166,13 +146,12 @@ a map of keys and expressions, and creates functions from the expressions</p>
     <span class="nv">collect = </span><span class="nf">(key, value, priority) -&gt;</span>
       <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">self</span><span class="p">.</span><span class="nx">evaluateToFunction</span> <span class="nx">value</span><span class="p">)</span>
     <span class="nx">_rules</span><span class="p">.</span><span class="nx">each</span> <span class="nx">collect</span>
-    <span class="k">return</span> <span class="nx">result</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
-
-<p>Parses the value of the execute actions in goatee-templates: splits it up
+    <span class="k">return</span> <span class="nx">result</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Parses the value of the execute actions in goatee-templates: splits it up
 into a list of expressions, and creates anonymous functions from the
 expressions, hence closures, that are suitable for execution by</p>
+
+<p><span class='doc-section-header'> evaluateExpression All that is returned as an Array of Functions.</span></p>
 
 <p>Parameters:</p>
 
@@ -183,15 +162,13 @@ expressions, hence closures, that are suitable for execution by</p>
 <p><strong>Returns an Array.<Function></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToClosures: </span><span class="nf">(expressions) -&gt;</span>
     <span class="nx">@evaluateToFunction</span> <span class="nx">expression</span> <span class="o">\</span>
       <span class="k">for</span> <span class="nx">expression</span> <span class="k">in</span> <span class="nx">expressions</span><span class="p">.</span><span class="nx">split</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_semicolon</span> <span class="o">\</span>
-        <span class="k">when</span> <span class="nx">expression</span>
+        <span class="k">when</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Reference to singleton instance</p>
 
-<span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
+<p><span class='doc-section-header'> of type <em>goatee.Action.Compiler.Javascript</em></span></p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Javascript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Singleton implementation</p>
 
-<p>Reference to singleton instance</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Javascript.instance = </span><span class="kc">null</span>
-
-<span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Singleton implementation</p>
+<p><span class='doc-section-header'></span></p>
 
 <p><strong>Returns a goatee.Action.Compiler.Javascript</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Javascript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
   <span class="nx">_instance</span> <span class="o">?</span> <span class="p">(</span><span class="nv">_instance = </span><span class="k">new</span> <span class="nx">Javascript</span><span class="p">)</span></div></div></div></div></body></html>

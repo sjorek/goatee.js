@@ -1,46 +1,34 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Compiler/Glassscript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="Action/Expression/Compiler/Glassscript"><meta name="groc-project-path" content="src/Action/Expression/Compiler/Glassscript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Compiler/Glassscript.coffee</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="cm">###</span>
-<span class="cm">© Copyright 2013 Stephan Jorek &lt;stephan.jorek@gmail.com&gt;</span>
+<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Compiler/Glassscript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="Action/Expression/Compiler/Glassscript"><meta name="groc-project-path" content="src/Action/Expression/Compiler/Glassscript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Compiler/Glassscript.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;:&#x73;&#x74;&#x65;&#112;&#x68;&#x61;&#x6e;&#x2e;&#x6a;&#111;&#x72;&#101;&#x6b;&#x40;&#103;&#109;a&#105;&#x6c;&#46;&#99;o&#109;">&#x73;&#x74;&#x65;&#112;&#x68;&#x61;&#x6e;&#x2e;&#x6a;&#111;&#x72;&#101;&#x6b;&#x40;&#103;&#109;a&#105;&#x6c;&#46;&#99;o&#109;</a></p>
 
-<span class="cm">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<span class="cm">you may not use this file except in compliance with the License.</span>
-<span class="cm">You may obtain a copy of the License at</span>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
 
-<span class="cm">http://www.apache.org/licenses/LICENSE-2.0</span>
+<p>http://www.apache.org/licenses/LICENSE-2.0</p>
 
-<span class="cm">Unless required by applicable law or agreed to in writing, software</span>
-<span class="cm">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="cm">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span>
-<span class="cm">implied. See the License for the specific language governing</span>
-<span class="cm">permissions and limitations under the License.</span>
-<span class="cm">###</span>
-
-<span class="nv">Glass        = </span><span class="nx">require</span> <span class="s">&#39;glass-script&#39;</span>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="nv">Glass        = </span><span class="nx">require</span> <span class="s">&#39;glass-script&#39;</span>
 <span class="p">{</span><span class="nx">Constants</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Constants&#39;</span>
 <span class="p">{</span><span class="nx">Utility</span><span class="p">}</span>    <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Utility&#39;</span>
 <span class="p">{</span><span class="nx">Javascript</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Action/Compiler/Javascript&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>Glassscript</p>
 
-<span class="cm">###</span>
-<span class="cm">Glassscript</span>
+<p><span class='doc-section-header'> namespace goatee.Action.Compiler</span></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Glassscript = </span><span class="k">class</span> <span class="nx">Glassscript</span> <span class="k">extends</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Cache for compiled expressions</p>
 
-<span class="cm">@class</span>
-<span class="cm">@namespace goatee.Action.Compiler</span>
-<span class="cm">###</span>
-<span class="nv">exports.Glassscript = </span><span class="k">class</span> <span class="nx">Glassscript</span> <span class="k">extends</span> <span class="nx">Javascript</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
-
-<p>Cache for compiled expressions</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_expressionCache = </span><span class="p">{}</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Wrapper for the eval() builtin function to evaluate expressions and
+<p><span class='doc-section-header'> of type <em>Object</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_expressionCache = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Wrapper for the eval() builtin function to evaluate expressions and
 obtain their value. It wraps the expression in parentheses such
 that object literals are really evaluated to objects. Without the
 wrapping, they are evaluated as block, and create syntax
 errors. Also protects against other syntax errors in the eval()ed
 code and returns null if the eval throws an exception.</p>
+
+<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -51,15 +39,13 @@ code and returns null if the eval throws an exception.</p>
 <p><strong>Returns an Object or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span>
     <span class="p">(</span><span class="nv">js = </span><span class="nx">_expressionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">])</span><span class="o">?</span> <span class="o">or</span> <span class="o">\</span>
     <span class="p">(</span><span class="nv">js = </span><span class="nx">_expressionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Glass</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">expression</span><span class="p">))</span>
-    <span class="k">super</span> <span class="nx">js</span>
+    <span class="k">super</span> <span class="nx">js</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Reference to singleton instance</p>
 
-<span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
+<p><span class='doc-section-header'> of type <em>goatee.Action.Compiler.Glassscript</em></span></p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Glassscript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Singleton implementation</p>
 
-<p>Reference to singleton instance</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Glassscript.instance = </span><span class="kc">null</span>
-
-<span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Singleton implementation</p>
+<p><span class='doc-section-header'></span></p>
 
 <p><strong>Returns a goatee.Action.Compiler.Glassscript</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Glassscript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
   <span class="nx">_instance</span> <span class="o">?</span> <span class="p">(</span><span class="nv">_instance = </span><span class="k">new</span> <span class="nx">Glassscript</span><span class="p">)</span></div></div></div></div></body></html>

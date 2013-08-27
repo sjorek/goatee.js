@@ -18,12 +18,12 @@ permissions and limitations under the License.
 {Constants} = require 'goatee/Core/Constants'
 {Node}      = require 'goatee/Core/Node'
 
-#Traversal = require('goatee/Dom/Traversal/GeckoElementTraversal').GeckoElementTraversal
+#!Traversal = require('goatee/Dom/Traversal/GeckoElementTraversal').GeckoElementTraversal
 Traversal = require('goatee/Dom/Traversal/Level1NodeTypeMatcher').Level1NodeTypeMatcher
-#Traversal = require('goatee/Dom/Traversal/Level2NodeIterator').Level2NodeIterator
-#Traversal = require('goatee/Dom/Traversal/Level2TreeWalker').Level2TreeWalker
-#Traversal = require('goatee/Dom/Traversal/Level4ChildNodesIterator').Level4ChildNodesIterator
-#Traversal = require('goatee/Dom/Traversal/Level4ElementChildrenIterator').Level4ElementChildrenIterator
+#!Traversal = require('goatee/Dom/Traversal/Level2NodeIterator').Level2NodeIterator
+#!Traversal = require('goatee/Dom/Traversal/Level2TreeWalker').Level2TreeWalker
+#!Traversal = require('goatee/Dom/Traversal/Level4ChildNodesIterator').Level4ChildNodesIterator
+#!Traversal = require('goatee/Dom/Traversal/Level4ElementChildrenIterator').Level4ElementChildrenIterator
 
 exports = module?.exports ? this
 
@@ -72,7 +72,7 @@ exports.Document = Document =
   # @return {String|null}  Resulting attribute.
   hasAttribute: if Element?::hasAttribute? \
     then (node, name) -> node.hasAttribute name \
-    else (node, name) -> Document.getAttribute(name)?
+    else (node, name) -> Document.getAttribute(node, name)?
 
   ##
   # Get an attribute from the DOM.  Simple redirect, exists to compress code.

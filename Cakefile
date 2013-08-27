@@ -61,7 +61,7 @@ task 'doc', 'invokes “doc:source” and “doc:github” in given order', ->
 task 'doc:source', 'rebuild the internal documentation', (options) ->
   console.log 'doc:source'
   clean 'doc'
-  opts  = []
+  opts  = ['--languages', process.cwd() + '/build/languages']
   if options['verbose']?
     opts.push '--verbose' if 0 < options.verbose
     opts.push '--very-verbose' if 1 < options.verbose
@@ -71,7 +71,7 @@ task 'doc:source', 'rebuild the internal documentation', (options) ->
 
 task 'doc:github', 'rebuild the github documentation', (options) ->
   console.log 'doc:github'
-  opts  = ['--github']
+  opts  = ['--github', '--languages', process.cwd() + '/build/languages']
   if options['verbose']?
     opts.push '--verbose' if 0 < options.verbose
     opts.push '--very-verbose' if 1 < options.verbose

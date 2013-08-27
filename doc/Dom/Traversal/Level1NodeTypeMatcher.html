@@ -1,39 +1,32 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level1NodeTypeMatcher</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level1NodeTypeMatcher"><meta name="groc-project-path" content="src/Dom/Traversal/Level1NodeTypeMatcher.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/Level1NodeTypeMatcher.coffee</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="cm">###</span>
-<span class="cm">© Copyright 2013 Stephan Jorek &lt;stephan.jorek@gmail.com&gt;</span>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level1NodeTypeMatcher</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level1NodeTypeMatcher"><meta name="groc-project-path" content="src/Dom/Traversal/Level1NodeTypeMatcher.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/Level1NodeTypeMatcher.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#97;&#x69;&#x6c;&#116;o:&#x73;&#116;&#101;&#112;&#104;&#97;&#x6e;&#x2e;&#x6a;&#x6f;&#114;&#x65;&#107;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#109;">&#x73;&#116;&#101;&#112;&#104;&#97;&#x6e;&#x2e;&#x6a;&#x6f;&#114;&#x65;&#107;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#109;</a></p>
 
-<span class="cm">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<span class="cm">you may not use this file except in compliance with the License.</span>
-<span class="cm">You may obtain a copy of the License at</span>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
 
-<span class="cm">http://www.apache.org/licenses/LICENSE-2.0</span>
+<p>http://www.apache.org/licenses/LICENSE-2.0</p>
 
-<span class="cm">Unless required by applicable law or agreed to in writing, software</span>
-<span class="cm">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="cm">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span>
-<span class="cm">implied. See the License for the specific language governing</span>
-<span class="cm">permissions and limitations under the License.</span>
-<span class="cm">###</span>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Node&#39;</span>
 
-<span class="p">{</span><span class="nx">Node</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Node&#39;</span>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level1nodetypematcher">Level1NodeTypeMatcher</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>A class to hold state for a dom traversal.</p>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
+<p><span class='doc-section-header'> namespace goatee</span></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level1NodeTypeMatcher = </span><span class="o">\</span>
+<span class="k">class</span> <span class="nx">Level1NodeTypeMatcher</span> <span class="k">extends</span> <span class="nx">Level1NodeTypeMatcher</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
 
-<span class="c1">## Level1NodeTypeMatcher</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> </span></p>
-
-<p>A class to hold state for a dom traversal.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level1NodeTypeMatcher = </span><span class="o">\</span>
-<span class="k">class</span> <span class="nx">Level1NodeTypeMatcher</span> <span class="k">extends</span> <span class="nx">Level1NodeTypeMatcher</span>
-
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Constructor</span></p>
+<p><span class='doc-section-header'>Constructor</span></p>
 
 <p>Parameters:</p>
 
 <ul>
 <li><strong>callback must be a Function.</strong><br/>(A function, called on each node in the traversal.)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@callback) -&gt;</span>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@callback) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Processes the dom tree in breadth-first order.</p>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Processes the dom tree in breadth-first order.</p>
+<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -42,11 +35,10 @@
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(root) -&gt;</span>
     <span class="vi">@queue = </span><span class="p">[].</span><span class="nx">concat</span><span class="p">(</span><span class="nx">@prepare</span> <span class="nx">root</span><span class="p">)</span>
     <span class="nx">@process</span> <span class="nx">@queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span> <span class="k">while</span> <span class="nx">@queue</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Create processing queue for a single root node.</p>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Create processing queue for a single root node.</p>
+<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -57,11 +49,10 @@
 <p><strong>Returns an Array.<Node></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(root) -&gt;</span>
     <span class="k">if</span> <span class="o">`</span><span class="nx">root</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">DOCUMENT_FRAGMENT_NODE</span><span class="o">`</span>
       <span class="k">return</span> <span class="nx">@collect</span> <span class="nx">root</span>
-    <span class="p">[</span> <span class="nx">root</span> <span class="p">]</span>
+    <span class="p">[</span> <span class="nx">root</span> <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Processes a single node.</p>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Processes a single node.</p>
+<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -70,11 +61,10 @@
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">@callback</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
     <span class="vi">@queue = </span><span class="nx">@queue</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">@collect</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
-    <span class="k">return</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+Processes a single node.</p>
 
-  <span class="c1">##</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Processes a single node.</p>
+<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 

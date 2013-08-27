@@ -18,20 +18,24 @@ exports = module?.exports ? this
 
 ## Abstract
 #
-# Abstract class implementing a basic action
+# Abstract action class implementing a basic action
 #
 # @class
 # @namespace goatee.Action
 exports.Abstract = class Abstract
 
   ##
-  # Derivates must implement this method to perform the action.
+  # Derivates must override this method and perform the action.
   #
+  # @public
+  # @memberOf Abstract
+  # @method process
   # @param  {Processor} action      The calling action
   # @param  {Context}   context     The current evaluation context
   # @param  {Node}      template    The currently processed node of the template
   # @param  {Function}  attribute   Processed value of the content attribute
   # @return {Boolean}
+  # @throws {Exception}
   process: (action, context, template, attribute) ->
-    throw new Exception 'Missing “process”-method implementation'
+    throw new Exception 'Derivates must override this method'
     return
