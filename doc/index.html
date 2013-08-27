@@ -120,31 +120,38 @@ combined. Which means you won't have to learn a new syntax or grammar.</p></li>
 
 <p>Goatee is not yet useable, but some components are … see above.</p>
 
-<h2 id="development">Development</h2>
-
-<p>Preperation (once):</p>
-
-<pre><code>$ git clone https://github.com/sjorek/goatee-js
-$ cd goatee-js
-$ npm install
-</code></pre>
-
-<p>For *nix-like environments (verified):</p>
-
-<pre><code>$ PATH=$PATH:./node_modules/.bin cake all
-</code></pre>
-
-<p>For Windows environments (not verified):</p>
-
-<pre><code>$ set path=%PATH%;.\node_modules\.bin
-$ setx path "%PATH%"
-$ cake all
-</code></pre>
-
 <h2 id="documentation">Documentation</h2>
 
 <p>Annotated sources are available here:
 <a href="http://sjorek.github.io/goatee-js/">http://sjorek.github.io/goatee-js/</a></p>
+
+<h2 id="development">Development</h2>
+
+<ol>
+<li><p>Install dependencies</p>
+
+<ul><li><a href="http://git-scm.com">git</a></li>
+<li><a href="http://nodejs.org">node.js</a></li>
+<li><a href="http://pygments.org">pygments</a></li></ul></li>
+<li><p>Install project</p>
+
+<pre><code>$ git clone https://github.com/sjorek/goatee-js
+$ cd goatee-js
+$ npm install
+</code></pre></li>
+<li><p>Run build</p>
+
+<ul><li><p>*nix-like environments:</p>
+
+<pre><code>$ PATH=$PATH:./node_modules/.bin cake all
+</code></pre></li>
+<li><p>Windows environments (<strong><em>These steps are not verified !</em></strong>):</p>
+
+<pre><code>$ set path=%PATH%;.\node_modules\.bin
+$ setx path "%PATH%"
+$ cake all
+</code></pre></li></ul></li>
+</ol>
 
 <h2 id="credits-go-to-">Credits go to …</h2>
 
@@ -152,12 +159,9 @@ $ cake all
 <li><p>… Steffen Meschkat for meeting me in 2004 and sharing all his passion and
 knowledge about his (sadly proprietary) perl-based content-managment-system,
 which still is my main motivation behind this project.</p></li>
-<li><p>… Google Inc. and especially Steffen Meschkat and all the other contributors
-for their <a href="http://code.google.com/p/google-jstemplate/">google-jstemplate</a>
+<li><p>… Google Inc. and all contributors
+of <a href="http://code.google.com/p/google-jstemplate/">google-jstemplate</a>
 as a source of motivation and inspiration.</p></li>
-<li><p>… Jeremy Ashkenas and all contributors for their
+<li><p>… Jeremy Ashkenas and all contributors of
 <a href="http://coffeescript.org/">Coffee-Script</a>.</p></li>
-<li><p>… <a href="https://github.com/Nodeclipse/nodeclipse-1">Nodeclipse v0.4</a>
-(<a href="http://marketplace.eclipse.org/content/nodeclipse">Eclipse Marketplace</a>,
-<a href="http://www.nodeclipse.org">site</a>)</p></li>
 </ul></div></div></div></div></body></html>

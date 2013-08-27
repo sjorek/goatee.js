@@ -121,28 +121,36 @@ Goatee is not yet installable, but some components are …
 
 Goatee is not yet useable, but some components are … see above.
 
-## Development
-
-Preperation (once):
-
-    $ git clone https://github.com/sjorek/goatee-js
-    $ cd goatee-js
-    $ npm install
-
-For *nix-like environments (verified):
-
-    $ PATH=$PATH:./node_modules/.bin cake all
-
-For Windows environments (not verified):
-
-    $ set path=%PATH%;.\node_modules\.bin
-    $ setx path "%PATH%"
-    $ cake all
-
 ## Documentation
 
 Annotated sources are available here:
 [http://sjorek.github.io/goatee-js/](http://sjorek.github.io/goatee-js/)
+
+## Development
+
+1. Install dependencies
+
+    - [git](http://git-scm.com)
+    - [node.js](http://nodejs.org)
+    - [pygments](http://pygments.org)
+
+2. Install project
+
+        $ git clone https://github.com/sjorek/goatee-js
+        $ cd goatee-js
+        $ npm install
+
+3. Run build
+
+    - *nix-like environments:
+
+            $ PATH=$PATH:./node_modules/.bin cake all
+
+    -  Windows environments (***These steps are not verified !***):
+
+            $ set path=%PATH%;.\node_modules\.bin
+            $ setx path "%PATH%"
+            $ cake all
 
 ## Credits go to …
 
@@ -150,14 +158,9 @@ Annotated sources are available here:
   knowledge about his (sadly proprietary) perl-based content-managment-system,
   which still is my main motivation behind this project.
 
-- … Google Inc. and especially Steffen Meschkat and all the other contributors
-  for their [google-jstemplate](http://code.google.com/p/google-jstemplate/)
+- … Google Inc. and all contributors
+  of [google-jstemplate](http://code.google.com/p/google-jstemplate/)
   as a source of motivation and inspiration.
 
-- … Jeremy Ashkenas and all contributors for their
+- … Jeremy Ashkenas and all contributors of
   [Coffee-Script](http://coffeescript.org/).
-
-- … [Nodeclipse v0.4](https://github.com/Nodeclipse/nodeclipse-1)
- ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse),
-  [site](http://www.nodeclipse.org))
-
