@@ -35,9 +35,9 @@
 
 <p>For those who like acronyms:</p>
 
-<p><strong>G</strong>oatee - an <strong>O</strong>bject <strong>A</strong>ccessor <strong>T</strong>emplate <strong>E</strong>ngine <strong>E</strong>ngine</p>
-
-<p>And yes, the word “engine” occurs deliberately twice, as goatee is recursive :-)</p>
+<blockquote>
+  <p><strong>G</strong>eneric <strong>O</strong>bject <strong>A</strong>ccessor <strong>T</strong>emplate <strong>E</strong>ngine <strong>E</strong>nvironment</p>
+</blockquote>
 
 <h2 id="objective">Objective</h2>
 
@@ -50,25 +50,25 @@
     a time, which is inadequate for incremental, asynchronous page updates
     typical of Ajax applications.</p>
   
-  <p>This system provides templates that allow for …</p>
+  <p>This system provides templates that allow for:</p>
   
   <ul>
-  <li><p><strong>incremental processing</strong>: every processing operation produces valid output</p></li>
-  <li><p><strong>differential processing</strong>: output text is again a template.</p></li>
+  <li><strong>incremental</strong> processing: every processing operation produces valid output</li>
+  <li><strong>differential</strong> processing: output text is again a template.</li>
   </ul>
   
   <p>It also fixes other undesirable properties of standard template processing:</p>
   
   <ul>
-  <li><p><strong>Wellformed output</strong> is guaranteed.</p></li>
-  <li><p><strong>Escaped</strong> by default.</p></li>
-  <li><p>Templates are intelligible: <strong>input template is valid output</strong>.</p></li>
+  <li><strong>Wellformed</strong> output is guaranteed.</li>
+  <li><strong>Escaped</strong> by default.</li>
+  <li>Templates are <strong>intelligible</strong>: input template is valid output.</li>
   </ul>
   
   <p>And, of course:</p>
   
   <ul>
-  <li>Pure javascript, HTML, browser side processing.</li>
+  <li><strong>Pure javascript</strong>, HTML, browser side processing.</li>
   </ul>
 </blockquote>
 
@@ -79,16 +79,15 @@ similar projects like “<a href="http://knockoutjs.com">knockout.js</a>” then
 <p>The answer: My goals. I promise that “goatee” will have …</p>
 
 <ul>
-<li><p>… html4, html5, xhtml 1.1 and xhtml5 flavours,</p></li>
-<li><p>… an extremly modular architecture,</p></li>
-<li><p>… an interpreter during development-phase, with quick'n'dirty instant updates,</p></li>
-<li><p>… small and fast pre-compiled bytecode for production-releases,</p></li>
-<li><p>… no external dependencies and no name collisions in browser environments with
-popular frameworks as jquery, underscore and so on,</p></li>
-<li><p>… all the features of
-<a href="http://code.google.com/p/google-jstemplate/">google-jstemplate</a>,</p></li>
-<li><p>… implementations for the following frameworks:</p>
-
+<li>… html4, html5, xhtml 1.1 and xhtml5 flavours,</li>
+<li>… an extremly modular architecture,</li>
+<li>… an interpreter during development-phase, with quick'n'dirty instant updates,</li>
+<li>… small and fast pre-compiled bytecode for production-releases,</li>
+<li>… no external dependencies and no name collisions in browser environments with
+popular frameworks as jquery, underscore and so on,</li>
+<li>… all the features of
+<a href="http://code.google.com/p/google-jstemplate/">google-jstemplate</a>,</li>
+<li>… implementations for the following frameworks:
 <ul><li><a href="http://expressjs.com">Express.js</a> (Node)</li>
 <li><a href="http://www.slimframework.com">Slim</a> (PHP)</li>
 <li><a href="http://symfony.com">Symfony</a> (PHP)</li>
@@ -97,14 +96,14 @@ popular frameworks as jquery, underscore and so on,</p></li>
 <li><a href="http://rubyonrails.org">Rails</a> (Ruby)</li>
 <li><a href="http://grails.org">Grails</a> (Groovy)</li>
 <li><a href="http://www.playframework.com">Play</a> (Java/Scala)</li></ul></li>
-<li><p>… 100% compatiblity for all runtimes in all those different languages,
+<li>… 100% compatiblity for all runtimes in all those different languages,
 producing exactly the same results, no matter if it runs on the client-
-side (browser) or on the server-side,</p></li>
-<li><p>… content-management-extensions with the same look and feel as well as
+side (browser) or on the server-side,</li>
+<li>… content-management-extensions with the same look and feel as well as
 behaviour, no matter which implementation has been choosen and with
-versioning for all contents and assets,</p></li>
-<li><p>… a very low learning curve, because it's just javascript with css-philosophy
-combined. Which means you won't have to learn a new syntax or grammar.</p></li>
+versioning for all contents and assets,</li>
+<li>… a very low learning curve, because it's just javascript with css-philosophy
+combined. Which means you won't have to learn a new syntax or grammar.</li>
 </ul>
 
 <h2 id="installation">Installation</h2>
@@ -131,7 +130,7 @@ combined. Which means you won't have to learn a new syntax or grammar.</p></li>
 
 <ul>
 <li><a href="http://git-scm.com">git-scm</a></li>
-<li><a href="http://nodejs.org">node.js</a> (<strong><em>≥ 0.10</em></strong>)</li>
+<li><a href="http://nodejs.org">node.js <em>(≥ 0.10)</em></a></li>
 <li><a href="http://pygments.org">pygments</a></li>
 </ul>
 
@@ -147,7 +146,7 @@ $ npm install
 <pre><code>$ PATH=$PATH:./node_modules/.bin cake all
 </code></pre>
 
-<p>Run build in Windows environments (<strong><em>not tested</em></strong>):</p>
+<p>Run build in Windows environments (<strong>not tested</strong>):</p>
 
 <pre><code>$ set path=%PATH%;.\node_modules\.bin
 $ setx path "%PATH%"

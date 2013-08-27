@@ -36,38 +36,32 @@ A goatee is the perfect complement for handlebar mustaches. :-{>~
 
 For those who like acronyms:
 
-  **G**oatee - an **O**bject **A**ccessor **T**emplate **E**ngine **E**ngine
-
-And yes, the word “engine” occurs deliberately twice, as goatee is recursive :-)
+> **G**eneric **O**bject **A**ccessor **T**emplate **E**ngine **E**nvironment
 
 ## Objective
 
 First of all a citation from the originating
 “[google-jstemplate](http://code.google.com/p/google-jstemplate/)” project:
 
-
 > Template processing is the staple pattern for separation of data and
   presentation in web applications. But it usually works on one page at
   a time, which is inadequate for incremental, asynchronous page updates
   typical of Ajax applications.
-
-> This system provides templates that allow for …
-
-> - **incremental processing**: every processing operation produces valid output
-
-> - **differential processing**: output text is again a template.
-
+>
+> This system provides templates that allow for:
+>
+> - **incremental** processing: every processing operation produces valid output
+> - **differential** processing: output text is again a template.
+>
 > It also fixes other undesirable properties of standard template processing:
-
-> - **Wellformed output** is guaranteed.
-
+>
+> - **Wellformed** output is guaranteed.
 > - **Escaped** by default.
-
-> - Templates are intelligible: **input template is valid output**.
-
+> - Templates are **intelligible**: input template is valid output.
+>
 > And, of course:
-
-> - Pure javascript, HTML, browser side processing.
+>
+> - **Pure javascript**, HTML, browser side processing.
 
 That's what goatee is all about. So what's the difference between “goatee”,
 “[google-jstemplate](http://code.google.com/p/google-jstemplate/)” or other
@@ -76,19 +70,13 @@ similar projects like “[knockout.js](http://knockoutjs.com)” then ?
 The answer: My goals. I promise that “goatee” will have …
 
 - … html4, html5, xhtml 1.1 and xhtml5 flavours,
-
 - … an extremly modular architecture,
-
 - … an interpreter during development-phase, with quick'n'dirty instant updates,
-
 - … small and fast pre-compiled bytecode for production-releases,
-
 - … no external dependencies and no name collisions in browser environments with
   popular frameworks as jquery, underscore and so on,
-
 - … all the features of
   [google-jstemplate](http://code.google.com/p/google-jstemplate/),
-
 - … implementations for the following frameworks:
   - [Express.js](http://expressjs.com) (Node)
   - [Slim](http://www.slimframework.com) (PHP)
@@ -98,15 +86,12 @@ The answer: My goals. I promise that “goatee” will have …
   - [Rails](http://rubyonrails.org) (Ruby)
   - [Grails](http://grails.org) (Groovy)
   - [Play](http://www.playframework.com) (Java/Scala)
-
 - … 100% compatiblity for all runtimes in all those different languages,
   producing exactly the same results, no matter if it runs on the client-
   side (browser) or on the server-side,
-
 - … content-management-extensions with the same look and feel as well as
   behaviour, no matter which implementation has been choosen and with
   versioning for all contents and assets,
-
 - … a very low learning curve, because it's just javascript with css-philosophy
   combined. Which means you won't have to learn a new syntax or grammar.
 
@@ -131,7 +116,7 @@ Annotated sources are available here:
 Install dependencies:
 
 - [git-scm](http://git-scm.com)
-- [node.js](http://nodejs.org) (***≥ 0.10***)
+- [node.js *(≥ 0.10)*](http://nodejs.org)
 - [pygments](http://pygments.org)
 
 Install project:
@@ -144,7 +129,7 @@ Run build in *nix-like environments:
 
     $ PATH=$PATH:./node_modules/.bin cake all
 
-Run build in Windows environments (***not tested***):
+Run build in Windows environments (**not tested**):
 
     $ set path=%PATH%;.\node_modules\.bin
     $ setx path "%PATH%"
