@@ -36,7 +36,7 @@ A goatee is the perfect complement for handlebar mustaches. :-{>~
 
 For those who like acronyms:
 
-> **G**eneric **O**bject **A**ccessor **T**emplate **E**ngine **E**nvironment
+  **G**eneric **O**bject **A**ccessor **T**emplate **E**ngine **E**nvironment
 
 ## Objective
 
