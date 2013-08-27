@@ -128,29 +128,27 @@ Annotated sources are available here:
 
 ## Development
 
-1. Install dependencies
+Install dependencies:
 
-    - [git](http://git-scm.com)
-    - [node.js](http://nodejs.org)
-    - [pygments](http://pygments.org)
+- [git-scm](http://git-scm.com)
+- [node.js](http://nodejs.org) (***≥ 0.10***)
+- [pygments](http://pygments.org)
 
-2. Install project
+Install project:
 
-        $ git clone https://github.com/sjorek/goatee-js
-        $ cd goatee-js
-        $ npm install
+    $ git clone https://github.com/sjorek/goatee-js
+    $ cd goatee-js
+    $ npm install
 
-3. Run build
+Run build in *nix-like environments:
 
-    - *nix-like environments:
+    $ PATH=$PATH:./node_modules/.bin cake all
 
-            $ PATH=$PATH:./node_modules/.bin cake all
+Run build in Windows environments (***not tested***):
 
-    -  Windows environments (***These steps are not verified !***):
-
-            $ set path=%PATH%;.\node_modules\.bin
-            $ setx path "%PATH%"
-            $ cake all
+    $ set path=%PATH%;.\node_modules\.bin
+    $ setx path "%PATH%"
+    $ cake all
 
 ## Credits go to …
 
