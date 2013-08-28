@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Document</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Dom/Document"><meta name="groc-project-path" content="src/Dom/Document.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Document.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#x61;&#105;&#x6c;&#116;o:&#x73;&#x74;e&#112;&#x68;&#x61;&#110;&#46;&#106;&#111;&#114;&#x65;&#x6b;&#64;&#x67;m&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x73;&#x74;e&#112;&#x68;&#x61;&#110;&#46;&#106;&#111;&#114;&#x65;&#x6b;&#64;&#x67;m&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Document</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Dom/Document"><meta name="groc-project-path" content="src/Dom/Document.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Document.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#105;&#108;t&#x6f;:&#x73;&#116;&#101;p&#104;&#x61;n&#46;&#106;&#x6f;&#x72;&#x65;&#x6b;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#x73;&#116;&#101;p&#104;&#x61;n&#46;&#106;&#x6f;&#x72;&#x65;&#x6b;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#x6d;</a>
 © Copyright 2006 Google Inc.</p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +16,11 @@ permissions and limitations under the License.</p></div></div><div class="code">
 <span class="nv">Traversal = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;goatee/Dom/Traversal/Level1NodeTypeMatcher&#39;</span><span class="p">).</span><span class="nx">Level1NodeTypeMatcher</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/Level2NodeIterator&#39;).Level2NodeIterator</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/Level2TreeWalker&#39;).Level2TreeWalker</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/Level4ChildNodesIterator&#39;).Level4ChildNodesIterator</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/Level4ElementChildrenIterator&#39;).Level4ElementChildrenIterator</span>
 
 <span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="document">Document</h1></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>This implementation provides function shortcuts depending on a generic browser
-based DOM-Implementation</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Document = Document =</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+based DOM-Implementation</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Document = Document =</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>{Document} Global target document reference.</em></span></p>
 
-<p><span class='doc-section-header'> of type <em>{Document} Global target document reference.</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="nb">window</span><span class="o">?</span><span class="p">.</span><span class="nb">document</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="nb">window</span><span class="o">?</span><span class="p">.</span><span class="nb">document</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#</p>
 
 <p>Parameters:</p>
 
@@ -30,10 +30,10 @@ based DOM-Implementation</p></div></div><div class="code"><div class="wrapper"><
 </ul>
 
 <p><strong>Returns a Node or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getElementById: </span><span class="nf">(id, doc) -&gt;</span>
-    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Creates a new node in the given document</p>
+    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Creates a new node in the given document</p>
 
 <p>Parameters:</p>
 
@@ -43,12 +43,12 @@ Creates a new node in the given document</p>
 </ul>
 
 <p><strong>Returns an Element</strong><br/>(Newly constructed element.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">createElement: </span><span class="nf">(name, doc) -&gt;</span>
-    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Traverses the element nodes in the DOM section underneath the given
 node and invokes the given callback as a method on every element
 node encountered.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -57,10 +57,10 @@ node encountered.</p>
 <li><p><strong>callback must be a Function.</strong><br/>(Called on each node in the traversal.)</p></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">traverseElements: </span><span class="nf">(node, callback) -&gt;</span>
     <span class="nx">Traversal</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">callback</span><span class="p">).</span><span class="nx">run</span> <span class="nx">node</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Get an attribute from the DOM.  Simple redirect, exists to compress code.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Get an attribute from the DOM.  Simple redirect, exists to compress code.</p>
 
 <p>Parameters:</p>
 
@@ -71,10 +71,10 @@ Get an attribute from the DOM.  Simple redirect, exists to compress code.</p>
 
 <p><strong>Returns a String or a null</strong><br/>(Resulting attribute.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">hasAttribute: </span><span class="k">if</span> <span class="nx">Element</span><span class="o">?::</span><span class="nx">hasAttribute</span><span class="o">?</span> <span class="o">\</span>
     <span class="k">then</span> <span class="nf">(node, name) -&gt;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">hasAttribute</span> <span class="nx">name</span> <span class="o">\</span>
-    <span class="k">else</span> <span class="nf">(node, name) -&gt;</span> <span class="nx">Document</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Get an attribute from the DOM.  Simple redirect, exists to compress code.</p>
+    <span class="k">else</span> <span class="nf">(node, name) -&gt;</span> <span class="nx">Document</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Get an attribute from the DOM.  Simple redirect, exists to compress code.</p>
 
 <p>Parameters:</p>
 
@@ -88,10 +88,10 @@ Get an attribute from the DOM.  Simple redirect, exists to compress code.</p>
 implement namespaces. All items in the attribute collection have
 null localName and namespaceURI attribute values. In IE, we even
 encounter DIV elements that don't implement the method
-getAttributeNS().</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Set an attribute in the DOM.  Simple redirect to compress code.</p>
+getAttributeNS().</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Set an attribute in the DOM.  Simple redirect to compress code.</p>
 
 <p>Parameters:</p>
 
@@ -101,10 +101,10 @@ Set an attribute in the DOM.  Simple redirect to compress code.</p>
 <li><p><strong>value can be a String or a Number.</strong><br/>(Set attribute to this value.)</p></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">setAttribute: </span><span class="nf">(node, name, value) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">value</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Remove an attribute from the DOM.  Simple redirect to compress code.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Remove an attribute from the DOM.  Simple redirect to compress code.</p>
 
 <p>Parameters:</p>
 
@@ -113,10 +113,10 @@ Remove an attribute from the DOM.  Simple redirect to compress code.</p>
 <li><p><strong>name must be a String.</strong><br/>(Name of parameter to remove.)</p></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">removeAttribute: </span><span class="nf">(node, name) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Get an data-attribute from the DOM.  Simple redirect, exists to compress code.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Get an data-attribute from the DOM.  Simple redirect, exists to compress code.</p>
 
 <p>Parameters:</p>
 
@@ -126,10 +126,10 @@ Get an data-attribute from the DOM.  Simple redirect, exists to compress code.</
 </ul>
 
 <p><strong>Returns a String or a null</strong><br/>(Resulting data-attribute.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">hasData: </span><span class="nf">(node, name) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Get an data-attribute from the DOM.  Simple redirect, exists to compress code.</p>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Get an data-attribute from the DOM.  Simple redirect, exists to compress code.</p>
 
 <p>Parameters:</p>
 
@@ -139,10 +139,10 @@ Get an data-attribute from the DOM.  Simple redirect, exists to compress code.</
 </ul>
 
 <p><strong>Returns a String or a null</strong><br/>(Resulting data-attribute.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getData: </span><span class="nf">(node, name) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Set an data-attribute in the DOM.  Simple redirect to compress code.</p>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Set an data-attribute in the DOM.  Simple redirect to compress code.</p>
 
 <p>Parameters:</p>
 
@@ -152,10 +152,10 @@ Set an data-attribute in the DOM.  Simple redirect to compress code.</p>
 <li><p><strong>value can be a String or a Number.</strong><br/>(Set data-attribute to this value.)</p></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">setData: </span><span class="nf">(node, name, value) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Remove an data-attribute from the DOM.  Simple redirect to compress code.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Remove an data-attribute from the DOM.  Simple redirect to compress code.</p>
 
 <p>Parameters:</p>
 
@@ -164,10 +164,10 @@ Remove an data-attribute from the DOM.  Simple redirect to compress code.</p>
 <li><p><strong>name must be a String.</strong><br/>(Name of parameter to remove.)</p></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">removeData: </span><span class="nf">(node, name) -&gt;</span>
     <span class="k">delete</span> <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Clone a node in the DOM.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Clone a node in the DOM.</p>
 
 <p>Parameters:</p>
 
@@ -177,10 +177,10 @@ Clone a node in the DOM.</p>
 
 <p><strong>Returns a Node</strong><br/>(Cloned node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">cloneNode: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">cloneNode</span> <span class="kc">true</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): we never so far wanted to use cloneNode(false), hence we
-default to true.</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Clone a element in the DOM.</p>
+default to true.</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Clone a element in the DOM.</p>
 
 <p>Parameters:</p>
 
@@ -189,13 +189,13 @@ Clone a element in the DOM.</p>
 </ul>
 
 <p><strong>Returns an Element</strong><br/>(Cloned element.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">cloneElement: </span><span class="nf">(element) -&gt;</span>
-    <span class="nx">@cloneNode</span> <span class="nx">element</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+    <span class="nx">@cloneNode</span> <span class="nx">element</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Returns the document owner of the given element. In particular,
 returns window.document if node is null or the browser does not
 support ownerDocument.  If the node is a document itself, returns
 itself.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -208,10 +208,10 @@ itself.</p>
     <span class="k">return</span> <span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span> <span class="k">if</span> <span class="o">not</span> <span class="nx">node</span><span class="o">?</span> <span class="c1"># or \</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we delibratly force equality instead of identity
 <code>node.nodeType == Node.DOCUMENT_FRAGMENT_NODE</code></p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we delibratly force equality instead of identity</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">node</span> <span class="k">if</span> <span class="o">`</span><span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">DOCUMENT_NODE</span><span class="o">`</span>
 
-    <span class="k">return</span> <span class="nx">node</span><span class="p">.</span><span class="nx">ownerDocument</span> <span class="o">||</span> <span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Creates a new text node in the given document.</p>
+    <span class="k">return</span> <span class="nx">node</span><span class="p">.</span><span class="nx">ownerDocument</span> <span class="o">||</span> <span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Creates a new text node in the given document.</p>
 
 <p>Parameters:</p>
 
@@ -221,10 +221,10 @@ Creates a new text node in the given document.</p>
 </ul>
 
 <p><strong>Returns a Text</strong><br/>(Newly constructed text node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">createTextNode: </span><span class="nf">(text, doc) -&gt;</span>
-    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">createTextNode</span> <span class="nx">text</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Appends a new child to the specified (parent) node.</p>
+    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">createTextNode</span> <span class="nx">text</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Appends a new child to the specified (parent) node.</p>
 
 <p>Parameters:</p>
 
@@ -234,10 +234,10 @@ Appends a new child to the specified (parent) node.</p>
 </ul>
 
 <p><strong>Returns a Node</strong><br/>(Newly appended node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">appendChild: </span><span class="nf">(node, child) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">appendChild</span> <span class="nx">child</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Sets display to default.</p>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">appendChild</span> <span class="nx">child</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Sets display to default.</p>
 
 <p>Parameters:</p>
 
@@ -245,11 +245,11 @@ Sets display to default.</p>
 <li><strong>node must be an Element.</strong><br/>(The dom element to manipulate.)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">displayDefault: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CSS_display</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Sets display to none. Doing this as a function saves a few bytes for
 the 'style.display' property and the 'none' literal.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -257,10 +257,10 @@ the 'style.display' property and the 'none' literal.</p>
 <li><strong>node must be an Element.</strong><br/>(The dom element to manipulate.)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">displayNone: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CSS_display</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;none&#39;</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Sets position style attribute to default.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Sets position style attribute to default.</p>
 
 <p>Parameters:</p>
 
@@ -268,10 +268,10 @@ Sets position style attribute to default.</p>
 <li><strong>node must be an Element.</strong><br/>(The dom element to manipulate.)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">positionDefault: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CSS_position</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Sets position style attribute to absolute.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Sets position style attribute to absolute.</p>
 
 <p>Parameters:</p>
 
@@ -279,10 +279,10 @@ Sets position style attribute to absolute.</p>
 <li><strong>node must be an Element.</strong><br/>(The dom element to manipulate.)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">positionAbsolute: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CSS_position</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;absolute&#39;</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Inserts a new child before a given sibling.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Inserts a new child before a given sibling.</p>
 
 <p>Parameters:</p>
 
@@ -292,10 +292,10 @@ Inserts a new child before a given sibling.</p>
 </ul>
 
 <p><strong>Returns a Node</strong><br/>(Reference to new child.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">insertBefore: </span><span class="nf">(newChild, oldChild) -&gt;</span>
-    <span class="nx">oldChild</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span> <span class="nx">newChild</span><span class="p">,</span> <span class="nx">oldChild</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Replaces an old child node with a new child node.</p>
+    <span class="nx">oldChild</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span> <span class="nx">newChild</span><span class="p">,</span> <span class="nx">oldChild</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Replaces an old child node with a new child node.</p>
 
 <p>Parameters:</p>
 
@@ -305,10 +305,10 @@ Replaces an old child node with a new child node.</p>
 </ul>
 
 <p><strong>Returns a Node</strong><br/>(Replaced node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">replaceChild: </span><span class="nf">(newChild, oldChild) -&gt;</span>
-    <span class="nx">oldChild</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">replaceChild</span> <span class="nx">newChild</span><span class="p">,</span> <span class="nx">oldChild</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Removes a node from the DOM.</p>
+    <span class="nx">oldChild</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">replaceChild</span> <span class="nx">newChild</span><span class="p">,</span> <span class="nx">oldChild</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Removes a node from the DOM.</p>
 
 <p>Parameters:</p>
 
@@ -317,10 +317,10 @@ Removes a node from the DOM.</p>
 </ul>
 
 <p><strong>Returns a Node</strong><br/>(The removed node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">removeNode: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">Document</span><span class="p">.</span><span class="nx">removeChild</span> <span class="nx">node</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">node</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Remove a child from the specified (parent) node.</p>
+    <span class="nx">Document</span><span class="p">.</span><span class="nx">removeChild</span> <span class="nx">node</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">node</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Remove a child from the specified (parent) node.</p>
 
 <p>Parameters:</p>
 

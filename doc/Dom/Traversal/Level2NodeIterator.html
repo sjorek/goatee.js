@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level2NodeIterator</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level2NodeIterator"><meta name="groc-project-path" content="src/Dom/Traversal/Level2NodeIterator.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/Level2NodeIterator.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;a&#x69;l&#x74;&#111;:&#115;&#116;&#x65;&#x70;&#104;&#x61;&#x6e;&#46;&#x6a;&#x6f;&#x72;&#x65;&#x6b;&#x40;&#x67;&#x6d;ai&#108;&#46;&#x63;&#x6f;&#x6d;">&#115;&#116;&#x65;&#x70;&#104;&#x61;&#x6e;&#46;&#x6a;&#x6f;&#x72;&#x65;&#x6b;&#x40;&#x67;&#x6d;ai&#108;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level2NodeIterator</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level2NodeIterator"><meta name="groc-project-path" content="src/Dom/Traversal/Level2NodeIterator.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/Level2NodeIterator.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;:&#x73;&#x74;&#101;&#112;&#104;&#x61;&#110;&#46;&#x6a;&#x6f;&#114;e&#107;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#x73;&#x74;&#101;&#112;&#104;&#x61;&#110;&#46;&#x6a;&#x6f;&#114;e&#107;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,18 +13,18 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Document</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Document&#39;</span>
 <span class="p">{</span><span class="nx">Node</span><span class="p">}</span>     <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Node&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level2nodeiterator">Level2NodeIterator</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>A class to hold state for a dom traversal.</p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level2nodeiterator">Level2NodeIterator</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee</span></p>
 
-<p><span class='doc-section-header'> namespace goatee</span></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2NodeIterator = </span><span class="o">\</span>
-<span class="k">class</span> <span class="nx">Level2NodeIterator</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+<p>A class to hold state for a dom traversal.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2NodeIterator = </span><span class="o">\</span>
+<span class="k">class</span> <span class="nx">Level2NodeIterator</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter and of type <em>Number</em></span></p>
 
-<p><span class='doc-section-header'> see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter and of type <em>Number</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">filter: </span><span class="nx">NodeFilter</span><span class="p">.</span><span class="nx">SHOW_ELEMENT</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nv">filter: </span><span class="nx">NodeFilter</span><span class="p">.</span><span class="nx">SHOW_ELEMENT</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter and of type <em>Object</em></span></p>
+
+<p>#
 Object containing the function to use as method of the NodeFilter. It
 contains logic to determine whether to accept, reject or skip node, eg.:
   {
     ##</p>
-
-<p><span class='doc-section-header'> see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter and of type <em>Object</em></span></p>
 
 <p>Parameters:</p>
 
@@ -32,18 +32,18 @@ contains logic to determine whether to accept, reject or skip node, eg.:
 <li><strong>node must be a Node.</strong><br/>(The root node of the traversal.)</li>
 </ul>
 
-<p><strong>Returns a NodeFilter.[FILTER<em>ACCEPT or a FILTER</em>REJECT or a FILTER<em>SKIP]</strong><br/>(acceptNode: (node) -> NodeFilter.FILTER</em>ACCEPT })</p></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+<p><strong>Returns a NodeFilter.[FILTER<em>ACCEPT or a FILTER</em>REJECT or a FILTER<em>SKIP]</strong><br/>(acceptNode: (node) -> NodeFilter.FILTER</em>ACCEPT })</p></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Constructor</span></p>
 
-<p><span class='doc-section-header'>Constructor</span></p>
+<p>#</p>
 
 <p>Parameters:</p>
 
 <ul>
 <li><strong>callback must be a Function.</strong><br/>(A function, called on each node in the traversal.)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@callback) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Create node iterator for a single root node.</p>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@callback) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Create node iterator for a single root node.</p>
 
 <p>Parameters:</p>
 
@@ -55,10 +55,10 @@ Create node iterator for a single root node.</p>
     <span class="nx">doc</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">root</span><span class="p">).</span><span class="nx">createNodeIterator</span><span class="p">(</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Node to use as root</p></div></div><div class="code"><div class="wrapper">      <span class="nx">root</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Only consider nodes that match this filter</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@filter</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Object containing the function to use as method of the NodeFilter</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@options</span><span class="p">,</span>
 
       <span class="kc">false</span>
-    <span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Processes the dom tree in breadth-first order.</p>
+    <span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator</span></p>
 
-<p><span class='doc-section-header'> see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator</span></p>
+<p>#
+Processes the dom tree in breadth-first order.</p>
 
 <p>Parameters:</p>
 

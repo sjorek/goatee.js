@@ -1,17 +1,17 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Processor</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Processor"><meta name="groc-project-path" content="src/Action/Processor.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Processor.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;:s&#x74;&#x65;p&#104;&#x61;&#110;.&#x6a;&#111;&#x72;e&#107;&#x40;&#x67;&#109;&#97;i&#108;&#46;&#99;&#x6f;&#x6d;">s&#x74;&#x65;p&#104;&#x61;&#110;.&#x6a;&#111;&#x72;e&#107;&#x40;&#x67;&#109;&#97;i&#108;&#46;&#99;&#x6f;&#x6d;</a>
-© Copyright 2006 Google Inc.</p>
+<!DOCTYPE html><html lang="en"><head><title>Action/Processor</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Processor"><meta name="groc-project-path" content="src/Action/Processor.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Processor.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 <a href="stephan.jorek@gmail.com">Stephan Jorek</a> /
+© Copyright 2006 <a href="http://www.google.com">Google Inc.</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at</p>
 
-<p>http://www.apache.org/licenses/LICENSE-2.0</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 
 <p>Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><h1 id="gaotee-evaluation">Gaotee Evaluation</h1>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="gaotee-evaluation">Gaotee Evaluation</h1>
 
 <p>Goatee action attributes and event action names have been choosen
 carefully in order to avoid naming collision with existing dom attributes,
@@ -24,88 +24,276 @@ events and properties.</p>
 <p>Outer actions operate with and on tag and context, without touching any tag-
 attributes. They implement aspects like automation, recursion or multiplicity.</p>
 
-<p>• process       This action initiates the processing automatically, after
-the dom is ready. The algorithm uses the given “process”-data as
-Context. Additionally if “jQuery” is available and the given
-data is a string, “process” may be either an global javascript
-variable reference, or if that fails an url to an external json-
-file. Changes to the process value, will stop any process
-processing the same tag and start re-processing. The processing-
-process will skip all nested tags which it-self contain a
-“process”-Attribute, hence any of those tags will be processed
-automatically in the order of their appearance.</p>
-
-<p>• match         If “json:select” is available and “match” value is used as
-css3-like query onto the current context. Therefore the context
-must be suiteable as 2nd argument of “JSONSelect.match”.</p>
-
-<p><span class='doc-section-header'> see http://jsonselect.org</p>
-
-<p>• render        Formerly “transclude”. If a “render” action is present no
-further actions are processed. Additionally if either
-“Sizzle”, “cheerio” or “jQuery” is available, “render” may be
-an internal template-reference, like in
-<code>(jQuery||cheerio||Sizzle)( 'source #id .selector', this )</code>
-or in the case of “jQuery” an external reference, like in
-<code>jQuery(this).load( 'http://source.url #element-id'” );</code>.</p>
-
-<p>• repeat        Formerly “jsselect”.  If “repeat” is array-valued, remaining
-actions will be copied to each new duplicate element
-created by the “repeat” and processed when the further dom
-traversal visits the new elements.</p>
+<ul>
+<li><p><strong>process</strong> : This action initiates the processing automatically, after
+the dom is ready. The algorithm uses the given <em>process</em>-data
+as Context.  Additionally if “<a href="http://jquery.com">jQuery</a>” is
+available and the given data is a string, <em>process</em> may be
+either an global javascript variable reference, or if that fails
+an url to an external json-file.  Changes to the process value,
+will stop any process processing the same tag and start
+re-processing.  The process will skip all nested tags which
+itself contain a <em>process</em>-Attribute, hence any of those tags
+will be processed automatically in the order of their
+appearance.</p></li>
+<li><p><strong>match</strong>   : If “<a href="http://jsonselect.org">json:select</a>” is available <em>match</em>
+value is used as css3-like query onto the current context.
+Therefore the context must be suiteable as 2nd argument of
+<code>JSONSelect.match(…)</code>.</p></li>
+<li><p><strong>render</strong>  : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">transclude</a>”.
+If a <em>render</em> action is present no further actions are
+processed.  Additionally if either “<a href="http://jquery.com">jQuery</a>”,
+“<a href="http://matthewmueller.github.io/cheerio/">cheerio</a>”, or
+“<a href="http://sizzlejs.com">Sizzle</a>” is available, <em>render</em> may be an
+internal template-reference, like in:
+<code>(cheerio||jQuery||Sizzle)( 'source #id .selector', this );</code>
+or in the case of <em>jQuery</em> an external reference, like in:
+<code>jQuery(this).load( 'http://source.url #element-id' );</code></p></li>
+<li><p><strong>repeat</strong>  : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsselect</a>”.
+If <em>repeat</em> is array-valued, remaining actions will be copied to
+each new duplicate element created by the <em>repeat</em> and processed
+when the further dom- traversal visits the new elements.</p></li>
+</ul>
 
 <h2 id="inner-actions">Inner Actions</h2>
 
 <p>Inner actions operate on tag element-attributes, -properties and -methods as
 well as the context-data, -variables and -values.</p>
 
-<p>• appear        Formerly “jsdisplay”.</p>
+<ul>
+<li><p><strong>appear</strong>  : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsdisplay</a>”.
+The result determines if the node appears on page.  Therefore
+the result is either booleanized and applied as css-display,
+with <code>false</code> ~ <code>display: none</code> and <code>true</code> ~ <code>display: block</code>.
+If the result matches a valid value for css-display it is used
+directly in <code>display: …</code>.</p></li>
+<li><p><strong>set</strong>     : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsvars</a>”.</p>
 
-<p>• set           Formerly “jsvars”.</p>
+<blockquote>
+  <p>This instruction is identical to <em>jsvalues</em>, except that all
+  assignment targets are interpreted as variable names, whether
+  or not they start with a "$." That is, all assignment targets
+  are interpreted as described in section 1 of the <em>jsvalues</em>
+  section below.</p>
+</blockquote></li>
+<li><p><strong>alter</strong>   : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsvalues</a>”.</p>
 
-<p>• alter         Formerly “jsvalues”.</p>
+<blockquote>
+  <p>The <em>jsvalues</em> instruction provides a way of making
+  assignments that alter the template processing environment.
+  The template processor parses the value of the <em>jsvalues</em>
+  attribute value as a semicolon-delimited list of name value
+  pairs, with every name separated from its value by a colon.
+  Every name represents a target for assignment.  Every value
+  will be evaluated as a javascript expression and assigned to
+  its associated target.  The nature of the target depends on
+  the first character of the target name:</p>
+  
+  <ul><li>If the first character of the target name is "$", then the
+  target name is interpreted as a reference to a variable in
+  the current <code>JsEvalContext</code> processing environment.  This
+  variable is created if it doesn't already exist, and
+  assigned the result of evaluating its associated expression.
+  It will then be available for subsequent template processing
+  on this node and its descendants (including subsequent
+  name-value pairs in the same <em>jsvalues</em> attribute). Note
+  that the dollar sign is actually part of the variable name:
+  if you create a variable with <code>jsvalues="$varname:varvalue"</code>,
+  you must use <code>$varname</code> to retrieve the value.</li>
+  <li>If the first character of the target name is ".", then the
+  target name is interpreted as a reference to a javascript
+  property of the current template node.  The property is
+  created if it doesn't already exist, and is assigned the
+  result of evaluating its associated expression. So the
+  instruction <code>jsvalues=".id:'Joe';.style.fontSize:'30pt'"</code>
+  would change the id of the current template node to "Joe"
+  and change its font size to 30pt.</li>
+  <li>If the first character of the target name is neither a dot
+  nor a dollar sign, then the target name is interpreted as a
+  reference to an XML attribute of the current template
+  element.  In this case the instruction <code>jsvalues="name:value"</code>
+  is equivalent to the javascript statement <code>this.setAttribute('name','value');</code>,
+  where this refers to the current template node.  Just as in
+  the case of a call to setAttribute, the value will be
+  interpreted as a string (after javascript evaluation). So
+  <code>jsvalues="sum:1+2"</code> is equivalent to <code>this.setAttribute('sum', '3');</code>.</li></ul>
+  
+  <p>The jsvalues instruction makes a handy bridge between the DOM
+  and context data.  If you want a built-in event handler
+  attribute like <code>onclick=" … "</code> to be able to access the
+  currently selected portion of the <code>JsEvalContext</code> data, for
+  example, you can use <em>jsvalues</em> to copy a reference to the
+  data into an attribute of the current element, where it will
+  be accessible in the <code>onclick=" … "</code> attribute via `this.
+  The following example uses this approach to turn our outline
+  into a collapsible outline:</p>
 
-<p>• do            Formerly “jseval”.</p>
+<pre><code>&lt;script&gt;
+  // Function called by onclick to record state of
+  // closedness and refresh the outline display
+  function setClosed(jstdata, closedVal) {
+    jstdata.closed = closedVal;
+    loadData(PEG_ELEMENT, TEMPLATE_NAME, tplData);
+  }
+&lt;/script&gt;
+&lt;div id="tpl"&gt;
+  &lt;!-- Links to open and close outline sections: --&gt;
+  &lt;a href="#"
+     jsdisplay="closed"
+     jsvalues=".jstdata:$this"
+     onclick="setClosed(this.jstdata,0)"&gt;[Open]&lt;/a&gt;
+  &lt;a href="#"
+     jsdisplay="!closed &amp;&amp; items.length"
+     jsvalues=".jstdata:$this"
+     onclick="setClosed(this.jstdata,1)"&gt;[Close]&lt;/a&gt;
+  &lt;span jscontent="title"&gt;Outline heading&lt;/span&gt;
+  &lt;ul jsdisplay="items.length &amp;&amp; !closed"&gt;
+    &lt;li jsselect="items"&gt;
+      &lt;div transclude="tpl"&gt;
+        &lt;!-- recursive tranclusion --&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+</blockquote></li>
+<li><p><strong>do</strong>      : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jseval</a>”.</p>
 
-<p>• skip          Formerly “jsskip”.</p>
+<blockquote>
+  <p>The processor evaluates a jseval instruction as a javascript
+  expression, or a series of javascript expressions separated by
+  semicolons.  The jseval instruction thus allows you to invoke
+  javascript functions during template processing, in the usual
+  template processing environment, but without any of the
+  predefined template processing effects of <em>jsselect</em>, <em>jsvalues</em>,
+  <em>jsdisplay</em>, <em>jsskip</em>, or <em>jscontent</em>.  For example, with the
+  addition of a jseval instruction to our outline title span,
+  the processor can record a count of the total number of
+  outline items with and without titles as it traverses the data
+  hierarchy.</p>
+  
+  <p>The count information in this example is stored in the
+  processing context with a call to setVariable, so that it
+  will be available to template processing throughout the data
+  hierarchy:</p>
 
-<p>• markup        This action is present if <code>(cheerio|jQuery)(…).html()</code> is
-available.</p>
+<pre><code>var counter = { full: 0 };
+processingContext.setVariable('$counter', counter);
+</code></pre>
+  
+  <p>A jseval expression increments the count:</p>
 
-<p>• text          Formerly “jscontent”. Uses <code>(cheerio|jQuery)(…).text()</code> if
-available, otherwise Node.innerHTML will be assigned to given
-content.</p>
+<pre><code>&lt;span jscontent="title"
+      jseval="title? $counter.full++: $counter.empty++"&gt;
+  Outline heading
+&lt;/span&gt;
+</code></pre>
+  
+  <p>and then a separate template displays these counts at the
+  bottom of the page:</p>
 
-<p>• next          This action is present if <code>(cheerio|jQuery)(…).next()</code> is
-available.
-</span></p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Constants&#39;</span>
+<pre><code>&lt;div id="titleCountTpl"&gt;
+  &lt;p&gt;
+    This outline has
+    &lt;span jscontent="$counter.empty"&gt;0&lt;/span&gt;
+    empty titles and
+    &lt;span jscontent="$counter.full"&gt;0&lt;/span&gt;
+    titles with content.
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+  
+  <p>Note that when you close headings the counts change:
+  <em>jsdisplay</em> is not only hiding the closed elements, but also
+  aborting the processing of these elements, so that the
+  <em>jseval</em> expressions on these elements are never evaluated.</p>
+</blockquote></li>
+<li><p><strong>skip</strong>    : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsskip</a>”.</p>
+
+<blockquote>
+  <p>The value of the <em>jsskip</em> attribute is evaluated as a
+  javascript expression.  If the result is any javascript value
+  that evaluates to true in a boolean context, then the
+  processor will not process the subtree under the current node.
+  This instruction is useful for improving the efficiency of an
+  application (to avoid unnecessarily processing deep trees, for
+  example).</p>
+  
+  <p>The effect of a jsskip that evaluates to true is very similar
+  to the result of a jsdisplay that evaluates to false.  In both
+  cases, no processing will be performed on the node's children.
+  However, <em>jsskip</em> will not prevent the current node from being
+  displayed.</p>
+</blockquote></li>
+<li><p><strong>markup</strong>  : This action is present if <code>(cheerio|jQuery)( … ).html( … );</code> is
+available.</p></li>
+<li><p><strong>text</strong>    : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jscontent</a>”.
+Uses <code>(cheerio|jQuery)( … ).text( … );</code> if available.  Otherwise
+the given content will be assigned to <code>Node.innerHTML</code>.</p>
+
+<blockquote>
+  <p>This attribute is evaluated as a javascript expression in the
+  current processing environment.  The string value of the
+  result then becomes the text content of the current node.
+  So the template:</p>
+
+<pre><code>&lt;p id="tpl"&gt;
+  Welcome &lt;span jscontent="$this"&gt;username&lt;/span&gt;
+&lt;/p&gt;
+</code></pre>
+  
+  <p>… when processed with the javascript statements:</p>
+
+<pre><code>var tplData = "Joe User",
+    input   = new JsEvalContext(tplData),
+    output  = document.getElementById('tpl');
+jstProcess(input, output);
+</code></pre>
+  
+  <p>… will display <code>Welcome Joe User</code> in the browser.  Note the
+  use of <code>$this</code> here: the <code>JsEvalContext</code> constructor is passed
+  the string <code>"Joe User"</code>, and so this is the object to which
+  <code>$this</code> refers.</p>
+  
+  <p>When the processor executes a <em>jscontent</em> instruction, a new
+  text node object is created with the string value of the
+  result as its nodeValue, and this new text node becomes the
+  only child of the current node.  This implementation ensures
+  that no markup in the result is evaluated.</p>
+</blockquote></li>
+<li><p><strong>next</strong>    : This action is present if <code>(cheerio|jQuery)( … ).next( … );</code> is
+available.  The processor will jump to the first element of the
+resulting selection.</p></li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Constants&#39;</span>
 <span class="p">{</span><span class="nx">Utility</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Utility&#39;</span>
 <span class="p">{</span><span class="nx">Document</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Document&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><h1 id="processor">Processor</h1>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<h1 id="processor">Processor</h1>
 
 <p>Internal class used by goatee-templates to maintain context.  This is
 necessary to process deep templates in Safari≤5 which has a relatively
-shallow maximum recursion depth of 100.</p>
+shallow maximum recursion depth of 100.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Processor = </span><span class="k">class</span> <span class="nx">Processor</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Document</em></span></p>
 
-<p><span class='doc-section-header'></span></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Processor = </span><span class="k">class</span> <span class="nx">Processor</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Document</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'> of type <em>Object</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
-
-<p><span class='doc-section-header'></span></p>
+<p>#</p>
 
 <p>Parameters:</p>
 
 <ul>
 <li><strong>options must be an Object.</strong></li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@options) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Caches the document of the template node, so we don't have to
-access it through ownerDocument.</p>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@options) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Document</em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Document</em></span></p></div></div><div class="code"><div class="wrapper">    <span class="vi">@document = </span><span class="nx">@options</span><span class="p">.</span><span class="nb">document</span> <span class="o">\</span>
-      <span class="k">if</span> <span class="o">not</span> <span class="nx">@</span><span class="nb">document</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="p">.</span><span class="nb">document</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<p>#
+Caches the document of the template node, so we don't have to
+access it through ownerDocument.</p></div></div><div class="code"><div class="wrapper">    <span class="vi">@document = </span><span class="nx">@options</span><span class="p">.</span><span class="nb">document</span> <span class="o">\</span>
+      <span class="k">if</span> <span class="o">not</span> <span class="nx">@</span><span class="nb">document</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="p">.</span><span class="nb">document</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Runs the given function in our state machine.
 It's informative to view the set of all function calls as a tree:
 - nodes are states
@@ -120,31 +308,29 @@ stack[depth][index].  Here [depth] indexes into the call stack, and
 queue so that a node may branch to more than one child
 (which will be called serially), typically due to a loop structure.</p>
 
-<p><span class='doc-section-header'></span></p>
-
 <p>Parameters:</p>
 
 <ul>
 <li><strong>f must be a Function.</strong><br/>(The first function to run.)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(f) -&gt;</span>
-    <span class="nv">self = </span><span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+    <span class="nv">self = </span><span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p>
+
+<p>#
 A stack of queues of pre-order calls.
 The inner arrays (constituent queues) are structured as
 [ arg2, arg1, method, arg2, arg1, method, ...]
 ie. a flattened array of methods with 2 arguments, in reverse order
 for efficient push/pop.
-The outer array is a stack of such queues.</p>
+The outer array is a stack of such queues.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">calls = self.calls = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array.<Number></em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p></div></div><div class="code"><div class="wrapper">    <span class="nv">calls = self.calls = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<p>#
 The index into the queue for each depth. NOTE: Alternative would
 be to maintain the queues in reverse order (popping off of the
 end) but the repeated calls to .pop() consumed 90% of this
-function's execution time.</p>
+function's execution time.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">indices = self.indices = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Array.<Number></em></span></p></div></div><div class="code"><div class="wrapper">    <span class="nv">indices = self.indices = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-A pool of empty arrays.  Minimizes object allocation for IE6's benefit.</p>
-
-<p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p></div></div><div class="code"><div class="wrapper">    <span class="nv">arrays = self.arrays = </span><span class="p">[]</span>
+<p>#
+A pool of empty arrays.  Minimizes object allocation for IE6's benefit.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">arrays = self.arrays = </span><span class="p">[]</span>
 
     <span class="nx">f</span><span class="p">()</span>
     <span class="k">while</span> <span class="nx">calls</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span>
@@ -158,12 +344,12 @@ A pool of empty arrays.  Minimizes object allocation for IE6's benefit.</p>
       <span class="nv">arg2 = </span><span class="nx">queue</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span>
       <span class="nx">indices</span><span class="p">[</span><span class="nx">indices</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span>
       <span class="nx">method</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">)</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Pushes one or more functions onto the stack.  These will be run in sequence,
 interspersed with any recursive calls that they make.
 This method takes ownership of the given array!</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -172,10 +358,10 @@ This method takes ownership of the given array!</p>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">push: </span><span class="nf">(args) -&gt;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">calls</span><span class="p">.</span><span class="nx">push</span> <span class="nx">args</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">indices</span><span class="p">.</span><span class="nx">push</span> <span class="mi">0</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Prepares the template: preprocesses all goatee-template actions.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Prepares the template: preprocesses all goatee-template actions.</p>
 
 <p>Parameters:</p>
 
@@ -185,47 +371,47 @@ Prepares the template: preprocesses all goatee-template actions.</p>
     <span class="k">unless</span> <span class="nx">@getCacheProperty</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span><span class="o">?</span>
       <span class="nv">self = </span><span class="nx">@</span>
       <span class="nx">doc</span><span class="p">.</span><span class="nx">traverseElements</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nf">(node) -&gt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-A list of attributes we use to specify jst processing actions,
-and the functions used to parse their values.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">actions: </span><span class="p">[</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>[ Constants.ATT<em>select, jsEvalToFunction ],
+<p>#
+A list of attributes we use to specify jst processing actions,
+and the functions used to parse their values.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">actions: </span><span class="p">[</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>[ Constants.ATT<em>select, jsEvalToFunction ],
    [ Constants.ATT</em>display, jsEvalToFunction ],
    [ Constants.ATT<em>values, jsEvalToValues ],
    [ Constants.ATT</em>vars, jsEvalToValues ],
    [ Constants.ATT<em>eval, jsEvalToExpressions ],
    [ Constants.ATT</em>transclude, jsEvalToSelf ],
    [ Constants.ATT<em>content, jsEvalToFunction ],
-   [ Constants.ATT</em>skip, jsEvalToFunction ]</p></div></div><div class="code"><div class="wrapper">  <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+   [ Constants.ATT</em>skip, jsEvalToFunction ]</p></div></div><div class="code"><div class="wrapper">  <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array</em></span></p>
+
+<p>#
 A list for storing non-empty actions found on a node in prepare().
 The array is global since it can be reused - this way there is no need to
-construct a new array object for each invocation. (IE6 perf)</p>
+construct a new array object for each invocation. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_list   = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Array</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_list   = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<p>#
 Map for storing temporary action values in prepare() so they don't have
-to be retrieved twice. (IE6 perf)</p>
+to be retrieved twice. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_values = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Number</em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Object</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_values = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<p>#
 Counter to generate cache ids. These ids will be stored used to lookup the
 preprocessed actions from the cache.  The id is stored with the element
 to survive cloneNode() and thus cloned template nodes can share the same
-cache entry.</p>
+cache entry.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_id = </span><span class="mi">0</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Number</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_id = </span><span class="mi">0</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Map from cache id to processed actions.</p>
-
-<p><span class='doc-section-header'> of type <em>Object</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_actions = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>#
+<p>#
+Map from cache id to processed actions.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_actions = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>#
 The neutral cache entry. Used for all nodes that lack any actions.
 We still set the id on those nodes so we can avoid looking again for all
 the other actions that aren't there.  Remember: not only the
 processing of the action-values is expensive and we thus want to
 cache it.  The access to the actions on the Node in the first place
-is very expensive too.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_empty = </span><span class="nx">_actions</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+is very expensive too.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_empty = </span><span class="nx">_actions</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Prepares a single node: preprocesses all template attributes of the
 node, and if there are any, assigns a jsid attribute and stores the
 preprocessed attributes under the jsid in the jstcache.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -259,10 +445,10 @@ annotate the node with it, and return it</p></div></div><div class="code"><div c
     <span class="nx">@setCache</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span>
     <span class="nx">@setElementIdentifier</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
     <span class="nx">@setSourceIdentifier</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
-    <span class="nx">@setCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Collect actions from node.</p>
+    <span class="nx">@setCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Collect actions from node.</p>
 
 <p>Parameters:</p>
 
@@ -279,20 +465,20 @@ Collect actions from node.</p>
       <span class="nx">list</span><span class="p">.</span><span class="nx">push</span> <span class="nx">@translate</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="k">if</span> <span class="nx">value</span><span class="o">?</span>
     <span class="k">return</span>
 
-  <span class="nv">translate: </span><span class="nf">(name, value) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>raw rule (uses “|=|” as assignment)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
+  <span class="nv">translate: </span><span class="nf">(name, value) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>raw rule (uses <code>|=|</code> as assignment)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
       <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_assigment</span> <span class="o">+</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>url encoded rule
-uses “=” as assignment, encodes the value</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
+uses <code>=</code> as assignment, encodes the value</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
       <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_equals</span> <span class="o">+</span> <span class="nx">encodeUriComponent</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>css-like formatted rule
-uses “:” as assignment, escapes and double-quotes the value</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
+uses <code>:</code> as assignment, escapes and double-quotes the value</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
       <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_colon</span> <span class="o">+</span> <span class="o">\</span>
       <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_doublequote</span> <span class="o">+</span> <span class="o">\</span>
       <span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">value</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s">&#39;&quot;&#39;</span><span class="p">,</span><span class="s">&#39;\\&quot;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="o">\</span>
       <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_doublequote</span>
 
-  <span class="nv">combine: </span><span class="nf">(list) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>raw rule (uses “|||” as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_seperator</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>url encoded rule (uses “&amp;” as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_ampersand</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>css-like formatted rule (uses “;” as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_semicolon</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Build a new cache object.</p>
+  <span class="nv">combine: </span><span class="nf">(list) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>raw rule (uses <code>|||</code> as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_seperator</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>url encoded rule (uses <code>&amp;</code> as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_ampersand</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>css-like formatted rule (uses <code>;</code> as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_semicolon</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Build a new cache object.</p>
 
 <p>Parameters:</p>
 
@@ -309,10 +495,10 @@ Build a new cache object.</p>
       <span class="k">if</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">DEBUG</span>
         <span class="nv">goatee = </span><span class="nx">cache</span><span class="p">.</span><span class="nx">goatee</span> <span class="o">?</span> <span class="nv">cache.goatee = </span><span class="p">{}</span>
         <span class="nx">goatee</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
-    <span class="nx">cache</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Get cached actions-property from given node.</p>
+    <span class="nx">cache</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Get cached actions-property from given node.</p>
 
 <p>Parameters:</p>
 
@@ -321,10 +507,10 @@ Get cached actions-property from given node.</p>
 </ul>
 
 <p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCacheProperty: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_jstcache</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Cache actions in a node-property.</p>
+    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_jstcache</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Cache actions in a node-property.</p>
 
 <p>Parameters:</p>
 
@@ -334,10 +520,10 @@ Cache actions in a node-property.</p>
 </ul>
 
 <p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCacheProperty: </span><span class="nf">(node, actions) -&gt;</span>
-    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_jstcache</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Get cached actions-property for given id.</p>
+    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_jstcache</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Get cached actions-property for given id.</p>
 
 <p>Parameters:</p>
 
@@ -346,10 +532,10 @@ Get cached actions-property for given id.</p>
 </ul>
 
 <p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCache: </span><span class="nf">(id) -&gt;</span>
-    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Cache actions under given id.</p>
+    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Cache actions under given id.</p>
 
 <p>Parameters:</p>
 
@@ -359,10 +545,10 @@ Cache actions under given id.</p>
 </ul>
 
 <p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCache: </span><span class="nf">(id, actions) -&gt;</span>
-    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Get cached identifier-attribute from given node.</p>
+    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Get cached identifier-attribute from given node.</p>
 
 <p>Parameters:</p>
 
@@ -371,10 +557,10 @@ Get cached identifier-attribute from given node.</p>
 </ul>
 
 <p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getElementIdentifier: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">doc</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_jstcache</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Cache identifier as node-attribute.</p>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_jstcache</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Cache identifier as node-attribute.</p>
 
 <p>Parameters:</p>
 
@@ -385,17 +571,17 @@ Cache identifier as node-attribute.</p>
 
 <p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setElementIdentifier: </span><span class="nf">(node, id) -&gt;</span>
     <span class="nx">doc</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_jstcache</span><span class="p">,</span> <span class="nx">id</span>
-    <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Map from source, a concatenated action string, to cache id.  The key
-is the concatenation of all actions found on a node formatted as</p>
-
-<p><span class='doc-section-header'> actions The value is the id of the cache-entry that can be used for this node.
+    <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> actions The value is the id of the cache-entry that can be used for this node.
 This allows the reuse of cache entries in cases when a cached entry already
 exists for a given combination of attribute values. (For example when two
-template-nodes share the same actions.) and of type <em>Object</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_sources = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Get cached identifier for given source.</p>
+template-nodes share the same actions.) and of type <em>Object</em></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Map from source, a concatenated action string, to cache id.  The key
+is the concatenation of all actions found on a node formatted as</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_sources = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
+Get cached identifier for given source.</p>
 
 <p>Parameters:</p>
 
@@ -404,10 +590,10 @@ Get cached identifier for given source.</p>
 </ul>
 
 <p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getSourceIdentifier: </span><span class="nf">(source) -&gt;</span>
-    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Cache identifier for given source.</p>
+    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Cache identifier for given source.</p>
 
 <p>Parameters:</p>
 
@@ -417,10 +603,10 @@ Cache identifier for given source.</p>
 </ul>
 
 <p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setSourceIdentifier: </span><span class="nf">(source, id) -&gt;</span>
-    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span> <span class="o">=</span> <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Mark all relevant caches as empty</p>
+    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span> <span class="o">=</span> <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Mark all relevant caches as empty</p>
 
 <p>Parameters:</p>
 
@@ -430,9 +616,9 @@ Mark all relevant caches as empty</p>
 
 <p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setEmpty: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">@setElementIdentifier</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span>
-    <span class="nx">@setCacheProperty</span> <span class="nx">_empty</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+    <span class="nx">@setCacheProperty</span> <span class="nx">_empty</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static"><div class="wrapper"><p><span class='doc-section-header'>Static method create</span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#</p>
 
 <p>Parameters:</p>
 
@@ -440,15 +626,15 @@ Mark all relevant caches as empty</p>
 <li><strong>options must be an Object.</strong><br/>(Options passed to <code>new Processor()</code>.)</li>
 </ul>
 
-<p><strong>Returns a Processor</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Processor.create = </span><span class="nf">(options) -&gt;</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="nx">Processor</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<p><strong>Returns a Processor</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(options) -&gt;</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Processor</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static"><div class="wrapper"><p><span class='doc-section-header'>Static method process</span></p>
+
+<p>#
 HTML template processor. Data values are bound to HTML templates
 using the attributes transclude, jsselect, jsdisplay, jscontent,
 jsvalues. The template is modifed in place. The values of those
 attributes are JavaScript expressions that are evaluated in the
 context of the data object fragment.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -458,7 +644,7 @@ context of the data object fragment.</p>
 <li><p><strong>options must be an Object.</strong><br/>(Options passed to <code>Processor.create()</code>.)</p></li>
 </ul>
 
-<p><strong>Returns a void</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Processor.process = </span><span class="nf">(context, template, options) -&gt;</span>
+<p><strong>Returns a void</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@process = </span><span class="nf">(context, template, options) -&gt;</span>
 
-  <span class="nv">processor = </span><span class="nx">Processor</span><span class="p">.</span><span class="nx">create</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cache the owner document</p></div></div><div class="code"><div class="wrapper">  <span class="nv">processor.document = </span><span class="nx">doc</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Traverse the template, emit actions and cache them</p></div></div><div class="code"><div class="wrapper">  <span class="nx">processor</span><span class="p">.</span><span class="nx">setup</span> <span class="nx">template</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Execute all actions</p></div></div><div class="code"><div class="wrapper">  <span class="nx">processor</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">Utility</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">processor</span><span class="p">,</span> <span class="nx">processor</span><span class="p">.</span><span class="nx">outer</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">template</span><span class="p">))</span>
-  <span class="k">return</span></div></div></div></div></body></html>
+    <span class="nv">processor = </span><span class="nx">Processor</span><span class="p">.</span><span class="nx">create</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cache the owner document</p></div></div><div class="code"><div class="wrapper">    <span class="nv">processor.document = </span><span class="nx">doc</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Traverse the template, emit actions and cache them</p></div></div><div class="code"><div class="wrapper">    <span class="nx">processor</span><span class="p">.</span><span class="nx">setup</span> <span class="nx">template</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Execute all actions</p></div></div><div class="code"><div class="wrapper">    <span class="nx">processor</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">Utility</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">processor</span><span class="p">,</span> <span class="nx">processor</span><span class="p">.</span><span class="nx">outer</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">template</span><span class="p">))</span>
+    <span class="k">return</span></div></div></div></div></body></html>

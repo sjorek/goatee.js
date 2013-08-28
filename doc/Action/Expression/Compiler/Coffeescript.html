@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Compiler/Coffeescript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="Action/Expression/Compiler/Coffeescript"><meta name="groc-project-path" content="src/Action/Expression/Compiler/Coffeescript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Compiler/Coffeescript.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;a&#x69;&#108;&#x74;&#111;:&#115;&#116;&#101;&#x70;&#x68;&#97;&#x6e;&#x2e;&#106;&#111;&#x72;&#101;&#107;&#64;&#103;m&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#115;&#116;&#101;&#x70;&#x68;&#97;&#x6e;&#x2e;&#106;&#111;&#x72;&#101;&#107;&#64;&#103;m&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Compiler/Coffeescript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="Action/Expression/Compiler/Coffeescript"><meta name="groc-project-path" content="src/Action/Expression/Compiler/Coffeescript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Compiler/Coffeescript.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;il&#116;&#x6f;:&#115;&#116;&#x65;p&#104;&#97;&#110;.&#x6a;&#x6f;&#x72;&#101;&#107;&#64;g&#x6d;&#x61;i&#108;&#46;&#99;&#111;&#109;">&#115;&#116;&#x65;p&#104;&#97;&#110;.&#x6a;&#x6f;&#x72;&#101;&#107;&#64;g&#x6d;&#x61;i&#108;&#46;&#99;&#111;&#109;</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,11 +15,11 @@ permissions and limitations under the License.</p></div></div><div class="code">
 <span class="p">{</span><span class="nx">Utility</span><span class="p">}</span>    <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Utility&#39;</span>
 <span class="p">{</span><span class="nx">Javascript</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Action/Compiler/Javascript&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>Coffeescript</p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee.Action.Compiler</span></p>
 
-<p><span class='doc-section-header'> namespace goatee.Action.Compiler</span></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Coffeescript = </span><span class="k">class</span> <span class="nx">Coffeescript</span> <span class="k">extends</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+<p>Coffeescript</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Coffeescript = </span><span class="k">class</span> <span class="nx">Coffeescript</span> <span class="k">extends</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Constructor</span></p>
 
-<p><span class='doc-section-header'>Constructor</span></p>
+<p>#</p>
 
 <p>Parameters:</p>
 
@@ -31,18 +31,18 @@ permissions and limitations under the License.</p></div></div><div class="code">
       <span class="nv">inline    : </span><span class="kc">on</span>
       <span class="nv">sourceMap : </span><span class="kc">off</span>
       <span class="nv">shiftLine : </span><span class="kc">off</span>
-    <span class="p">}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Cache for compiled expressions</p>
+    <span class="p">}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
 
-<p><span class='doc-section-header'> of type <em>Object</em></span></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_expressionCache = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<p>#
+Cache for compiled expressions</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_expressionCache = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Wrapper for the eval() builtin function to evaluate expressions and
 obtain their value. It wraps the expression in parentheses such
 that object literals are really evaluated to objects. Without the
 wrapping, they are evaluated as block, and create syntax
 errors. Also protects against other syntax errors in the eval()ed
 code and returns null if the eval throws an exception.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -53,13 +53,13 @@ code and returns null if the eval throws an exception.</p>
 <p><strong>Returns an Object or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span>
     <span class="p">(</span><span class="nv">js = </span><span class="nx">_expressionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">])</span><span class="o">?</span> <span class="o">or</span> <span class="o">\</span>
     <span class="p">(</span><span class="nv">js = </span><span class="nx">_expressionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">expression</span><span class="p">,</span> <span class="nx">@options</span><span class="p">))</span>
-    <span class="k">super</span> <span class="nx">js</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Reference to singleton instance</p>
+    <span class="k">super</span> <span class="nx">js</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>goatee.Action.Compiler.Coffeescript</em></span></p>
 
-<p><span class='doc-section-header'> of type <em>goatee.Action.Compiler.Coffeescript</em></span></p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Coffeescript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<p>#
+Reference to singleton instance</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Coffeescript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Singleton implementation</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p><strong>Returns a goatee.Action.Compiler.Coffeescript</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Coffeescript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
   <span class="nx">_instance</span> <span class="o">?</span> <span class="p">(</span><span class="nv">_instance = </span><span class="k">new</span> <span class="nx">Coffeescript</span><span class="p">)</span></div></div></div></div></body></html>
