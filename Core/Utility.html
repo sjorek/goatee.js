@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Core/Utility</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Utility"><meta name="groc-project-path" content="src/Core/Utility.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Core/Utility.coffee">src/Core/Utility.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;:&#115;&#116;&#x65;&#x70;&#x68;&#97;&#x6e;&#46;j&#x6f;&#114;&#101;&#107;&#x40;&#x67;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#115;&#116;&#x65;&#x70;&#x68;&#97;&#x6e;&#46;j&#x6f;&#114;&#101;&#107;&#x40;&#x67;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a>
+<!DOCTYPE html><html lang="en"><head><title>Core/Utility</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Utility"><meta name="groc-project-path" content="src/Core/Utility.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Core/Utility.coffee">src/Core/Utility.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;:&#115;t&#x65;&#112;&#x68;&#97;&#x6e;&#x2e;&#x6a;&#x6f;r&#101;&#107;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#115;t&#x65;&#112;&#x68;&#97;&#x6e;&#x2e;&#x6a;&#x6f;r&#101;&#107;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;</a>
 © Copyright 2006 Google Inc.</p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,12 +11,12 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#</p>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> fileoverview Miscellaneous functions referenced in
+the main source files., author Steffen Meschkat <a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;:&#x6d;e&#115;&#99;&#x68;&#64;&#103;&#111;&#111;&#x67;&#x6c;&#x65;&#46;&#99;&#111;&#109;">&#x6d;e&#115;&#99;&#x68;&#64;&#103;&#111;&#111;&#x67;&#x6c;&#x65;&#46;&#99;&#111;&#109;</a>, and author Stephan Jorek    <a href="&#109;&#97;&#105;&#x6c;t&#x6f;:&#115;&#116;&#x65;&#112;&#x68;&#x61;&#x6e;&#x2e;&#x6a;&#111;&#x72;&#101;&#107;&#x40;&#103;m&#x61;&#x69;&#x6c;&#46;c&#111;&#109;">&#115;&#116;&#x65;&#112;&#x68;&#x61;&#x6e;&#x2e;&#x6a;&#111;&#x72;&#101;&#107;&#x40;&#103;m&#x61;&#x69;&#x6c;&#46;c&#111;&#109;</a></p>
 
-<p><span class='doc-section-header'> fileoverview Miscellaneous functions referenced in
-the main source files., author Steffen Meschkat <a href="&#109;&#x61;i&#x6c;t&#111;:&#x6d;e&#115;&#x63;&#x68;&#64;&#103;&#x6f;&#x6f;&#103;&#108;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x6d;e&#115;&#x63;&#x68;&#64;&#103;&#x6f;&#x6f;&#103;&#108;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>, and author Stephan Jorek    <a href="&#x6d;&#97;&#x69;l&#116;&#111;:&#x73;&#116;&#101;&#x70;&#104;&#x61;&#110;.&#x6a;&#x6f;&#114;e&#107;&#64;&#x67;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#x73;&#116;&#101;&#x70;&#104;&#x61;&#110;.&#x6a;&#x6f;&#114;e&#107;&#64;&#x67;&#109;&#97;&#105;&#108;&#46;&#99;&#x6f;&#x6d;</a></p>
+<h1 id="span"></span></h1>
 
-<h1 id="span"></span></h1></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;./Constants&#39;</span>
+<p>#</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;./Constants&#39;</span>
 
 <span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span>
 
@@ -27,12 +27,12 @@ the main source files., author Steffen Meschkat <a href="&#109;&#x61;i&#x6c;t&#1
 <span class="nv">_dashify  = </span><span class="nf">(match, char, camel, index, str) -&gt;</span>
   <span class="nx">char</span> <span class="o">+</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_dash</span> <span class="o">+</span> <span class="nx">camel</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
 
-<span class="nv">exports.Utility = Utility =</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+<span class="nv">exports.Utility = Utility =</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Detect if an object looks like an Array.
 Note that instanceof Array is not robust; for example an Array
 created in another iframe fails instanceof Array.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -41,10 +41,10 @@ created in another iframe fails instanceof Array.</p>
 </ul>
 
 <p><strong>Returns a Boolean</strong><br/>(Is the object an array?)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">isArray: </span><span class="nf">(value) -&gt;</span>
-    <span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="o">?</span> <span class="o">and</span> <span class="k">typeof</span> <span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">TYPE_number</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Finds a slice of an array.</p>
+    <span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="o">?</span> <span class="o">and</span> <span class="k">typeof</span> <span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">TYPE_number</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Finds a slice of an array.</p>
 
 <p>Parameters:</p>
 
@@ -60,12 +60,12 @@ instead of the simpler
   return Array.prototype.slice.call(array, start, opt_end);
 here because of a bug in the FF and IE implementations of
 Array.prototype.slice which causes this function to return an empty list
-if end is not provided.</p></div></div><div class="code"><div class="wrapper">    <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">,</span> <span class="nx">arguments</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+if end is not provided.</p></div></div><div class="code"><div class="wrapper">    <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">,</span> <span class="nx">arguments</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Clears the array by setting the length property to 0. This usually
 works, and if it should turn out not to work everywhere, here would
 be the place to implement the browser specific workaround.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -73,10 +73,10 @@ be the place to implement the browser specific workaround.</p>
 <li><strong>array must be an Array.</strong><br/>(Array to be cleared.)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">arrayClear: </span><span class="nf">(array) -&gt;</span>
     <span class="nv">array.length = </span><span class="mi">0</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Jscompiler wrapper for parseInt() with base 10.</p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Jscompiler wrapper for parseInt() with base 10.</p>
 
 <p>Parameters:</p>
 
@@ -85,13 +85,13 @@ Jscompiler wrapper for parseInt() with base 10.</p>
 </ul>
 
 <p><strong>Returns a Number</strong><br/>(The integer contained in s, converted on base 10.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">parseInt10: </span><span class="nf">(s) -&gt;</span>
-    <span class="nb">parseInt</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
+    <span class="nb">parseInt</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
 Prebinds "this" within the given method to an object, but ignores all
 arguments passed to the resulting function.
 I.e. var_args are all the arguments that method is invoked with when
 invoking the bound function.</p>
-
-<p><span class='doc-section-header'></span></p>
 
 <p>Parameters:</p>
 
@@ -102,10 +102,10 @@ invoking the bound function.</p>
 
 <p><strong>Returns a Function</strong><br/>(Method with the target object bound to it and curried by the provided arguments.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">bind: </span><span class="nf">(object, method, args...) -&gt;</span>
     <span class="k">return</span> <span class="p">()</span> <span class="nf">-&gt;</span>
-      <span class="k">return</span> <span class="nx">method</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Trim whitespace from begin and end of string.</p>
+      <span class="k">return</span> <span class="nx">method</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> see testStringTrim();</span></p>
 
-<p><span class='doc-section-header'> see testStringTrim();</span></p>
+<p>#
+Trim whitespace from begin and end of string.</p>
 
 <p>Parameters:</p>
 
@@ -115,10 +115,10 @@ Trim whitespace from begin and end of string.</p>
 
 <p><strong>Returns a String</strong><br/>(Trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trim: </span><span class="k">if</span> <span class="nb">String</span><span class="o">::</span><span class="nx">trim</span><span class="o">?</span>
   <span class="k">then</span> <span class="nf">(string) -&gt;</span> <span class="p">(</span><span class="nx">string</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span>
-  <span class="k">else</span> <span class="nf">(string) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Utility.trimRight(Utility.trimLeft(string))</p></div></div><div class="code"><div class="wrapper">    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_trim</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Trim whitespace from beginning of string.</p>
+  <span class="k">else</span> <span class="nf">(string) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Utility.trimRight(Utility.trimLeft(string))</p></div></div><div class="code"><div class="wrapper">    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_trim</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> see testStringTrimLeft();</span></p>
 
-<p><span class='doc-section-header'> see testStringTrimLeft();</span></p>
+<p>#
+Trim whitespace from beginning of string.</p>
 
 <p>Parameters:</p>
 
@@ -127,10 +127,10 @@ Trim whitespace from beginning of string.</p>
 </ul>
 
 <p><strong>Returns a String</strong><br/>(Trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trimLeft: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_trimLeft</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Trim whitespace from end of string.</p>
+    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_trimLeft</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> see testStringTrimRight();</span></p>
 
-<p><span class='doc-section-header'> see testStringTrimRight();</span></p>
+<p>#
+Trim whitespace from end of string.</p>
 
 <p>Parameters:</p>
 
@@ -139,10 +139,10 @@ Trim whitespace from end of string.</p>
 </ul>
 
 <p><strong>Returns a String</strong><br/>(Trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trimRight: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_trimRight</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Converts “a-property-name” to “aPropertyName”</p>
+    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_trimRight</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Converts “a-property-name” to “aPropertyName”</p>
 
 <p>Parameters:</p>
 
@@ -151,10 +151,10 @@ Converts “a-property-name” to “aPropertyName”</p>
 </ul>
 
 <p><strong>Returns a String</strong><br/>(Camelized string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">camelize: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_camelize</span><span class="p">,</span> <span class="nx">_camelize</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
-Converts “aPropertyName” to “a-property-name”</p>
+    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_camelize</span><span class="p">,</span> <span class="nx">_camelize</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
-<p><span class='doc-section-header'></span></p>
+<p>#
+Converts “aPropertyName” to “a-property-name”</p>
 
 <p>Parameters:</p>
 

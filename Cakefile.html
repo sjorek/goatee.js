@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><title>Cakefile</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="Cakefile"><meta name="groc-project-path" content="Cakefile"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/Cakefile">Cakefile</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="nv">fs            = </span><span class="nx">require</span> <span class="s">&#39;fs&#39;</span>
-<span class="p">{</span><span class="nx">exec</span><span class="p">,</span><span class="nx">spawn</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;child_process&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>ANSI Terminal Colors.</p></div></div><div class="code"><div class="wrapper"><span class="nv">bold = red = green = reset = </span><span class="s">&#39;&#39;</span>
+<span class="p">{</span><span class="nx">exec</span><span class="p">,</span><span class="nx">spawn</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;child_process&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>ANSI Terminal Colors. Currently unused</p></div></div><div class="code"><div class="wrapper"><span class="nv">bold = red = green = reset = </span><span class="s">&#39;&#39;</span>
 <span class="k">unless</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_DISABLE_COLORS</span>
   <span class="nv">bold  = </span><span class="s">&#39;\x1B[0;1m&#39;</span>
   <span class="nv">red   = </span><span class="s">&#39;\x1B[0;31m&#39;</span>
@@ -26,6 +26,18 @@
         <span class="nx">clean</span> <span class="nx">path</span>
   <span class="nx">fs</span><span class="p">.</span><span class="nx">rmdirSync</span> <span class="nx">root</span>
 
+<span class="nx">option</span> <span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="s">&#39;--verbose [LEVEL]&#39;</span><span class="p">,</span> <span class="s">&#39;set groc\&#39;s verbosity level during documentation generation. [0=silent,1,2,3]&#39;</span>
+
+<span class="nv">groc = </span><span class="nf">(verbose = 1, options = []) -&gt;</span>
+  <span class="nx">options</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--languages&#39;</span>
+  <span class="nx">options</span><span class="p">.</span><span class="nx">push</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#39;/misc/groc_languages&#39;</span>
+  <span class="k">if</span> <span class="nx">verbose</span><span class="o">?</span> <span class="o">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nx">verbose</span>
+    <span class="nx">options</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--verbose&#39;</span> <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">verbose</span>
+    <span class="nx">options</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--very-verbose&#39;</span> <span class="k">if</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="nx">verbose</span>
+  <span class="k">else</span>
+    <span class="nx">options</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--silent&#39;</span>
+  <span class="nx">spawn</span> <span class="s">&#39;groc&#39;</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nv">stdio: </span><span class="s">&#39;inherit&#39;</span><span class="p">,</span> <span class="nv">cwd: </span><span class="s">&#39;.&#39;</span>
+
 <span class="nx">task</span> <span class="s">&#39;all&#39;</span><span class="p">,</span> <span class="s">&#39;invokes build and clean in given order&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;all&#39;</span>
   <span class="nx">invoke</span> <span class="s">&#39;clean&#39;</span>
@@ -48,27 +60,13 @@
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;build:once&#39;</span>
   <span class="nx">spawn</span> <span class="s">&#39;coffee&#39;</span><span class="p">,</span> <span class="s">&#39;-o ../lib/ -mc .&#39;</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">),</span> <span class="nv">stdio: </span><span class="s">&#39;inherit&#39;</span><span class="p">,</span> <span class="nv">cwd: </span><span class="s">&#39;src&#39;</span>
 
-<span class="nx">option</span> <span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="s">&#39;--verbose [LEVEL]&#39;</span><span class="p">,</span> <span class="s">&#39;set groc\&#39;s verbosity level (documentation generation) [0,1,2]&#39;</span>
-
 <span class="nx">task</span> <span class="s">&#39;doc&#39;</span><span class="p">,</span> <span class="s">&#39;invokes “doc:source” and “doc:github” in given order&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;doc&#39;</span>
   <span class="nx">invoke</span> <span class="s">&#39;doc:source&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>invoke 'doc:github'</p></div></div><div class="code"><div class="wrapper"><span class="nx">task</span> <span class="s">&#39;doc:source&#39;</span><span class="p">,</span> <span class="s">&#39;rebuild the internal documentation&#39;</span><span class="p">,</span> <span class="nf">(options) -&gt;</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;doc:source&#39;</span>
   <span class="nx">clean</span> <span class="s">&#39;doc&#39;</span>
-  <span class="nv">opts  = </span><span class="p">[</span><span class="s">&#39;--languages&#39;</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#39;/build/languages&#39;</span><span class="p">]</span>
-  <span class="k">if</span> <span class="nx">options</span><span class="p">[</span><span class="s">&#39;verbose&#39;</span><span class="p">]</span><span class="o">?</span>
-    <span class="nx">opts</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--verbose&#39;</span> <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">verbose</span>
-    <span class="nx">opts</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--very-verbose&#39;</span> <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">verbose</span>
-  <span class="k">else</span>
-    <span class="nx">opts</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--silent&#39;</span>
-  <span class="nx">spawn</span> <span class="s">&#39;groc&#39;</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nv">stdio: </span><span class="s">&#39;inherit&#39;</span><span class="p">,</span> <span class="nv">cwd: </span><span class="s">&#39;.&#39;</span>
+  <span class="nx">groc</span> <span class="nx">options</span><span class="p">[</span><span class="s">&#39;verbose&#39;</span><span class="p">]</span>
 
 <span class="nx">task</span> <span class="s">&#39;doc:github&#39;</span><span class="p">,</span> <span class="s">&#39;rebuild the github documentation&#39;</span><span class="p">,</span> <span class="nf">(options) -&gt;</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;doc:github&#39;</span>
-  <span class="nv">opts  = </span><span class="p">[</span><span class="s">&#39;--github&#39;</span><span class="p">,</span> <span class="s">&#39;--languages&#39;</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span> <span class="o">+</span> <span class="s">&#39;/build/languages&#39;</span><span class="p">]</span>
-  <span class="k">if</span> <span class="nx">options</span><span class="p">[</span><span class="s">&#39;verbose&#39;</span><span class="p">]</span><span class="o">?</span>
-    <span class="nx">opts</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--verbose&#39;</span> <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">verbose</span>
-    <span class="nx">opts</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--very-verbose&#39;</span> <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">verbose</span>
-  <span class="k">else</span>
-    <span class="nx">opts</span><span class="p">.</span><span class="nx">push</span> <span class="s">&#39;--silent&#39;</span>
-  <span class="nx">spawn</span> <span class="s">&#39;groc&#39;</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nv">stdio: </span><span class="s">&#39;inherit&#39;</span><span class="p">,</span> <span class="nv">cwd: </span><span class="s">&#39;.&#39;</span></div></div></div></div></body></html>
+  <span class="nx">groc</span> <span class="nx">options</span><span class="p">[</span><span class="s">&#39;verbose&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;--github&#39;</span><span class="p">]</span></div></div></div></div></body></html>
