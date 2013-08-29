@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en"><head><title>Action/Context</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Context"><meta name="groc-project-path" content="src/Action/Context.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Context.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 <a href="stephan.jorek@gmail.com">Stephan Jorek</a> /
+© Copyright 2006 <a href="http://www.google.com">Google Inc.</a></p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Constants&#39;</span>
+
+<span class="nv">Expression    = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;goatee/Action/Expression/Javascript&#39;</span><span class="p">).</span><span class="nx">Javascript</span>
+
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="context">Context</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee.Action</span></p>
+
+<p>Context for processing a goatee-template. The context contains a context
+object, whose properties can be referred to in goatee-template expressions,
+and it holds the locally defined variables.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Context = </span><span class="k">class</span> <span class="nx">Context</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Holds this context's local variables</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_variables : </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Holds this context's data</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_data      : </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Constructor</span></p>
+
+<p>#</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>data can be an Object or a null.</strong><br/>(The context object. Null if no context.)</p></li>
+<li><p><strong>parent can be a Context or a null.</strong><br/>(The parent context, from which local variables are inherited. Normally the context object of the parent context is the object whose property the parent object is. Null if root-context.)</p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(data, parent) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If there is a parent node, inherit local variables from the parent. If a
+root node, inherit global symbols. Since every parent chain has a root
+with no parent, global variables will be present in the case above too.
+This means that globals can be overridden by locals, as it should be.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">variables = </span><span class="k">if</span> <span class="nx">parent</span><span class="o">?</span> <span class="k">then</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">_variables</span> <span class="k">else</span> <span class="nx">Context</span><span class="p">.</span><span class="nx">_globals</span>
+    <span class="k">for</span> <span class="k">own</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">variables</span>
+      <span class="nx">@_variables</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>The current context object is assigned to the special variable
+$this so it is possible to use it in expressions.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@_variables</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">VAR_this</span><span class="p">]</span> <span class="o">=</span> <span class="nx">data</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>The entire context structure is exposed as a variable so it can be
+passed to javascript invocations through the execute action.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@_variables</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">VAR_context</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>The local context of the input data in which the goatee-template
+expressions are evaluated. Notice that this is usually an Object,
+but it can also be a scalar value (and then still the expression
+$this can be used to refer to it). Notice this can even be value,
+undefined or null. Hence, we have to protect jsexec() from using
+undefined or null, yet we want $this to reflect the true value of
+the current context. Thus we assign the original value to $this,
+above, but for the expression context we replace null and undefined
+by the empty string (which is the default value).
+(Note sjorek: <code>undefined</code> isn't checked here on purpose,
+see <a href="https://github.com/jashkenas/coffee-script/issues/993">https://github.com/jashkenas/coffee-script/issues/993</a>)</p></div></div><div class="code"><div class="wrapper">    <span class="vi">@_data = </span><span class="nx">data</span> <span class="o">?</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If this is a top-level context, create a variable reference to the data
+to allow for  accessing top-level properties of the original context data
+from child contexts.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@_variables</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">VAR_top</span><span class="p">]</span> <span class="o">=</span> <span class="nx">@_data</span> <span class="k">unless</span> <span class="nx">parent</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method execute</span></p>
+
+<p>#
+Executes a function created using evalToFunction() in the context of
+variables, data, and template.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>fn must be a Function.</strong><br/>(A javascript function created from an action value)</p></li>
+<li><p><strong>template must be a Node.</strong><br/>(DOM node of the template)</p></li>
+</ul>
+
+<p><strong>Returns an Object or a null</strong><br/>(The value of the expression from which expression was created in the current js expression context and the context of template.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">execute: </span><span class="nf">(fn, template) -&gt;</span>
+    <span class="k">try</span>
+      <span class="k">return</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_variables</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_data</span><span class="p">);</span>
+    <span class="k">catch</span> <span class="nx">e</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Exception </span><span class="si">#{</span><span class="nx">e</span><span class="si">}</span><span class="s"> while executing </span><span class="si">#{</span><span class="nx">fn</span><span class="si">}</span><span class="s"> on </span><span class="si">#{</span><span class="nx">template</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="k">return</span> <span class="nx">Context</span><span class="p">.</span><span class="nx">_globals</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">GLOB_default</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method clone</span></p>
+
+<p>#
+Clones the current context for a new context object. The cloned
+context has the data object as its context object and the current
+context as its parent context. It also sets the $index variable to
+the given value. This value usually is the position of the data
+object in a list for which a template is instantiated multiply.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>data must be an Object.</strong><br/>(The new context object.)</p></li>
+<li><p><strong>index must be a Number.</strong><br/>(Position of the new context when multiple are instantiated. (@see implementation of select-action))</p></li>
+<li><p><strong>count must be a Number.</strong><br/>(The total number of contexts that were multiple are instantiated. (@see implementation of select-action))</p></li>
+</ul>
+
+<p><strong>Returns a goatee.Action.Context</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">clone: </span><span class="nf">(data, index, count) -&gt;</span>
+    <span class="nv">ret = </span><span class="nx">Context</span><span class="p">.</span><span class="nx">create</span> <span class="nx">data</span><span class="p">,</span> <span class="k">this</span>
+    <span class="nx">ret</span><span class="p">.</span><span class="nx">set</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">VAR_index</span><span class="p">,</span> <span class="nx">index</span>
+    <span class="nx">ret</span><span class="p">.</span><span class="nx">set</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">VAR_count</span><span class="p">,</span> <span class="nx">count</span>
+    <span class="k">return</span> <span class="nx">ret</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method set</span></p>
+
+<p>#
+Binds a local variable to the given value. If set from goatee-template
+alter action expressions, variable names must start with $, but depending
+on the API, they might only have to be valid javascript identifier.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>name must be a String.</strong></p></li>
+<li><p><strong>value must be an Object?.</strong></p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">set: </span><span class="nf">(name, value) -&gt;</span>
+    <span class="nx">@_variables</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method get</span></p>
+
+<p>#
+Returns the value bound to the local variable of the given name, or
+undefined if it wasn't set. There is no way to distinguish a
+variable that wasn't set from a variable that was set to
+undefined. Used mostly for testing.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>name must be a String.</strong></li>
+</ul>
+
+<p><strong>Returns an Object</strong><br/>(value)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">get: </span><span class="nf">(name) -&gt;</span>
+    <span class="nx">@_variables</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Function</em></span></p>
+
+<p>#
+Holds a reference to the compiler singleton instance</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_evaluate = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method evaluate</span></p>
+
+<p>#
+Evaluates a string expression within the scope of this context
+and returns the result.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>expression must be a String.</strong><br/>(A javascript expression)</p></li>
+<li><p><strong>template can be a Node or a null.</strong><br/>(An optional node to serve as "this")</p></li>
+</ul>
+
+<p><strong>Returns an Object</strong><br/>(value)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluate: </span><span class="nf">(expression, template) -&gt;</span>
+    <span class="nv">fn = </span><span class="p">(</span><span class="nx">_evaluate</span> <span class="o">?</span> <span class="nv">_evaluate = </span><span class="nx">Expression</span><span class="p">.</span><span class="nx">get</span><span class="p">().</span><span class="nx">evaluateToFunction</span><span class="p">)</span> <span class="nx">expression</span>
+    <span class="nx">@execute</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">template</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Static private of type <em>Object</em></span></p>
+
+<p>#
+Holds all global context variables</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@_globals: </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method setGlobal</span></p>
+
+<p>#
+Sets a global symbol. It will be available like a variable in every Context
+instance. This is intended mainly to register immutable global objects, such
+as functions, at load time, and not to add global data at runtime. I.e. the
+same objections as to global variables in general apply also here. (Hence the
+name "global", and not "global var".)</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>name must be a String.</strong></p></li>
+<li><p><strong>value can be an Object or a null.</strong></p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="vi">@setGlobal: </span><span class="nf">(name, value) -&gt;</span>
+    <span class="nx">Context</span><span class="p">.</span><span class="nx">_globals</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>#
+Set the default value to be returned if context evaluation results in an
+error. (This can occur if a non-existent value was requested).</p></div></div><div class="code"><div class="wrapper">  <span class="nx">Context</span><span class="p">.</span><span class="nx">setGlobal</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">GLOB_default</span><span class="p">,</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Static private of type <em>Array.<goatee.Action.Context></em></span></p>
+
+<p>#
+A cache to reuse Context instances. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@_recycled: </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method create</span></p>
+
+<p>#
+A factory to create a Context instance, possibly reusing
+one from recycledInstances_. (IE6 perf)</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>data can be an Object or a null.</strong></p></li>
+<li><p><strong>parent can be a goatee.Action.Context or a null.</strong></p></li>
+</ul>
+
+<p><strong>Returns a goatee.Action.Context</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(data, parent) -&gt;</span>
+    <span class="k">if</span> <span class="nx">Context</span><span class="p">.</span><span class="nx">_recycled</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span>
+      <span class="nv">instance = </span><span class="nx">Context</span><span class="p">.</span><span class="nx">_recycle</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+      <span class="nx">Context</span><span class="p">.</span><span class="nx">call</span> <span class="nx">instance</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">parent</span>
+      <span class="k">return</span> <span class="nx">instance</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Context</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">parent</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method recyle</span></p>
+
+<p>#
+Recycle a used Context instance, so we can avoid creating one
+the next time we need one. (IE6 perf)</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>instance must be a goatee.Action.Context.</strong></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="vi">@recycle: </span><span class="nf">(instance) -&gt;</span>
+    <span class="k">for</span> <span class="k">own</span> <span class="nx">name</span> <span class="k">of</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">_variables</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): We avoid object creation here. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">      <span class="k">delete</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">_variables</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span>
+    <span class="nv">instance._data = </span><span class="kc">null</span>
+    <span class="nx">Context</span><span class="p">.</span><span class="nx">_recycled</span><span class="p">.</span><span class="nx">push</span> <span class="nx">instance</span></div></div></div></div></body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Goateescript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Action/Expression/Goateescript"><meta name="groc-project-path" content="src/Action/Expression/Goateescript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Goateescript.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 <a href="stephan.jorek@gmail.com">Stephan Jorek</a></p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="nv">Script       = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;goatee-script&#39;</span><span class="p">).</span><span class="nx">GoateeScript</span>
+<span class="nv">Rules        = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;goatee-rules&#39;</span><span class="p">).</span><span class="nx">GoateeRules</span>
+<span class="p">{</span><span class="nx">Constants</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Constants&#39;</span>
+<span class="p">{</span><span class="nx">Utility</span><span class="p">}</span>    <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Utility&#39;</span>
+<span class="p">{</span><span class="nx">Javascript</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Action/Expression/Javascript&#39;</span>
+
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee.Action.Expression</span></p>
+
+<p>Goateescript</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Goateescript = </span><span class="k">class</span> <span class="nx">Goateescript</span> <span class="k">extends</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
+Wrapper for the eval() builtin function to evaluate expressions and
+obtain their value. It wraps the expression in parentheses such
+that object literals are really evaluated to objects. Without the
+wrapping, they are evaluated as block, and create syntax
+errors. Also protects against other syntax errors in the eval()ed
+code and returns null if the eval throws an exception.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>expression must be a String.</strong></li>
+</ul>
+
+<p><strong>Returns an Object or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span>
+    <span class="k">super</span> <span class="nx">Script</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>goatee.Action.Expression.Goateescript</em></span></p>
+
+<p>#
+Reference to singleton instance</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Goateescript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+
+<p>#
+Singleton implementation</p>
+
+<p><strong>Returns a goatee.Action.Expression.Goateescript</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Goateescript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
+  <span class="nx">_instance</span> <span class="o">?</span> <span class="p">(</span><span class="nv">_instance = </span><span class="k">new</span> <span class="nx">Goateescript</span><span class="p">)</span></div></div></div></div></body></html>

@@ -734,14 +734,14 @@ exports.Processor = class Processor
   #
   # @type {Array.<Array>}
   actions: [
-  #    [ Constants.ATT_select, jsEvalToFunction ],
-  #    [ Constants.ATT_display, jsEvalToFunction ],
-  #    [ Constants.ATT_values, jsEvalToValues ],
-  #    [ Constants.ATT_vars, jsEvalToValues ],
-  #    [ Constants.ATT_eval, jsEvalToExpressions ],
-  #    [ Constants.ATT_transclude, jsEvalToSelf ],
-  #    [ Constants.ATT_content, jsEvalToFunction ],
-  #    [ Constants.ATT_skip, jsEvalToFunction ]
+  #!    [ Constants.ATT_select, jsEvalToFunction ],
+  #!    [ Constants.ATT_display, jsEvalToFunction ],
+  #!    [ Constants.ATT_values, jsEvalToValues ],
+  #!    [ Constants.ATT_vars, jsEvalToValues ],
+  #!    [ Constants.ATT_eval, jsEvalToExpressions ],
+  #!    [ Constants.ATT_transclude, jsEvalToSelf ],
+  #!    [ Constants.ATT_content, jsEvalToFunction ],
+  #!    [ Constants.ATT_skip, jsEvalToFunction ]
   ]
 
   ##
@@ -953,8 +953,8 @@ exports.Processor = class Processor
 
   ##
   # Map from source, a concatenated action string, to cache id.  The key
-  # is the concatenation of all actions found on a node formatted as
-  # "name1=value1&name2=value2&...", in the order defined by @actions.
+  # is the concatenation of all `_actions` found on a node formatted as
+  # "name1=value1&name2=value2&...", in the order defined by actions.
   # The value is the id of the cache-entry that can be used for this node.
   # This allows the reuse of cache entries in cases when a cached entry already
   # exists for a given combination of attribute values. (For example when two

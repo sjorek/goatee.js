@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "WithStatementFunction.js",
+  "sourceRoot": "../../../../src",
+  "sources": [
+    "Action/Scope/Decorator/WithStatementFunction.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,gEAAA;KAAA;oSAAA;;CAAA,CAiBE,CACgB,IAAA,GAlBlB,YAkBkB;;CAlBlB,CAoBC,CAAiB,IAAA,MApBlB,IAoBkB;;CApBlB,CAsBA,CAA4B,CAtB5B,GAsBA;;CAtBA,CAwBA,CACM,IADC,cAAP;CAGE;;;;;CAAA;;CAAA,CAAgB,CAAP,CAAA,GAAT,EAAU;CACE,EAAiB,CAAI,EAArB,CAAiB,CAA3B,EAA2B,GAA3B,KAAU;CADZ,IAAS;;CAAT;;CAFkC;CAzBpC"
+}

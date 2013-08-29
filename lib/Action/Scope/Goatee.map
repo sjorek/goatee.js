@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Goatee.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Scope/Goatee.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA;CAAA"
+}

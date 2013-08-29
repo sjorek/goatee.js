@@ -118,6 +118,36 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             }
           ]
         }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".coffee", "Cakefile"],
+              "pygmentsLexer": "coffee-script",
+              "multiLineComment": ["###", " ", "###"],
+              "singleLineComment": ["#"],
+              "ignorePrefix": "!",
+              "foldPrefix": "~",
+              "name": "CoffeeScript"
+            },
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Context.coffee",
+            "projectPath": "src/Action/Context.coffee",
+            "targetPath": "Action/Context",
+            "pageTitle": "Action/Context",
+            "title": "Context"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Context",
+                "slug": "context"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
           "type": "folder",
           "data": {
             "path": "Action/Expression",
@@ -126,115 +156,25 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "depth": 2,
           "children": [
             {
-              "type": "folder",
+              "type": "file",
               "data": {
-                "path": "Action/Expression/Compiler",
-                "title": "Compiler"
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Coffeescript.coffee",
+                "projectPath": "src/Action/Expression/Coffeescript.coffee",
+                "targetPath": "Action/Expression/Coffeescript",
+                "pageTitle": "Action/Expression/Coffeescript",
+                "title": "Coffeescript"
               },
               "depth": 3,
-              "children": [
-                {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".coffee", "Cakefile"],
-                      "pygmentsLexer": "coffee-script",
-                      "multiLineComment": ["###", " ", "###"],
-                      "singleLineComment": ["#"],
-                      "ignorePrefix": "!",
-                      "foldPrefix": "~",
-                      "name": "CoffeeScript"
-                    },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Coffeescript.coffee",
-                    "projectPath": "src/Action/Expression/Compiler/Coffeescript.coffee",
-                    "targetPath": "Action/Expression/Compiler/Coffeescript",
-                    "pageTitle": "Action/Expression/Compiler/Coffeescript",
-                    "title": "Coffeescript"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }, {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".coffee", "Cakefile"],
-                      "pygmentsLexer": "coffee-script",
-                      "multiLineComment": ["###", " ", "###"],
-                      "singleLineComment": ["#"],
-                      "ignorePrefix": "!",
-                      "foldPrefix": "~",
-                      "name": "CoffeeScript"
-                    },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Composite.coffee",
-                    "projectPath": "src/Action/Expression/Compiler/Composite.coffee",
-                    "targetPath": "Action/Expression/Compiler/Composite",
-                    "pageTitle": "Action/Expression/Compiler/Composite",
-                    "title": "Composite"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }, {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".coffee", "Cakefile"],
-                      "pygmentsLexer": "coffee-script",
-                      "multiLineComment": ["###", " ", "###"],
-                      "singleLineComment": ["#"],
-                      "ignorePrefix": "!",
-                      "foldPrefix": "~",
-                      "name": "CoffeeScript"
-                    },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Glassscript.coffee",
-                    "projectPath": "src/Action/Expression/Compiler/Glassscript.coffee",
-                    "targetPath": "Action/Expression/Compiler/Glassscript",
-                    "pageTitle": "Action/Expression/Compiler/Glassscript",
-                    "title": "Glassscript"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }, {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".coffee", "Cakefile"],
-                      "pygmentsLexer": "coffee-script",
-                      "multiLineComment": ["###", " ", "###"],
-                      "singleLineComment": ["#"],
-                      "ignorePrefix": "!",
-                      "foldPrefix": "~",
-                      "name": "CoffeeScript"
-                    },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Goateescript.coffee",
-                    "projectPath": "src/Action/Expression/Compiler/Goateescript.coffee",
-                    "targetPath": "Action/Expression/Compiler/Goateescript",
-                    "pageTitle": "Action/Expression/Compiler/Goateescript",
-                    "title": "Goateescript"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }, {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".coffee", "Cakefile"],
-                      "pygmentsLexer": "coffee-script",
-                      "multiLineComment": ["###", " ", "###"],
-                      "singleLineComment": ["#"],
-                      "ignorePrefix": "!",
-                      "foldPrefix": "~",
-                      "name": "CoffeeScript"
-                    },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Compiler/Javascript.coffee",
-                    "projectPath": "src/Action/Expression/Compiler/Javascript.coffee",
-                    "targetPath": "Action/Expression/Compiler/Javascript",
-                    "pageTitle": "Action/Expression/Compiler/Javascript",
-                    "title": "Javascript"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }
-              ]
+              "outline": []
             }, {
               "type": "file",
               "data": {
@@ -247,184 +187,74 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Context.coffee",
-                "projectPath": "src/Action/Expression/Context.coffee",
-                "targetPath": "Action/Expression/Context",
-                "pageTitle": "Action/Expression/Context",
-                "title": "Context"
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Composite.coffee",
+                "projectPath": "src/Action/Expression/Composite.coffee",
+                "targetPath": "Action/Expression/Composite",
+                "pageTitle": "Action/Expression/Composite",
+                "title": "Composite"
               },
               "depth": 3,
-              "outline": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 1,
-                    "title": "Context",
-                    "slug": "context"
-                  },
-                  "depth": 1
-                }
-              ]
+              "outline": []
             }, {
-              "type": "folder",
+              "type": "file",
               "data": {
-                "path": "Action/Expression/Scope",
-                "title": "Scope"
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Glassscript.coffee",
+                "projectPath": "src/Action/Expression/Glassscript.coffee",
+                "targetPath": "Action/Expression/Glassscript",
+                "pageTitle": "Action/Expression/Glassscript",
+                "title": "Glassscript"
               },
               "depth": 3,
-              "children": [
-                {
-                  "type": "folder",
-                  "data": {
-                    "path": "Action/Expression/Scope/Decorator",
-                    "title": "Decorator"
-                  },
-                  "depth": 4,
-                  "children": [
-                    {
-                      "type": "file",
-                      "data": {
-                        "language": {
-                          "nameMatchers": [".coffee", "Cakefile"],
-                          "pygmentsLexer": "coffee-script",
-                          "multiLineComment": ["###", " ", "###"],
-                          "singleLineComment": ["#"],
-                          "ignorePrefix": "!",
-                          "foldPrefix": "~",
-                          "name": "CoffeeScript"
-                        },
-                        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/PropertyReferenceArgument.coffee",
-                        "projectPath": "src/Action/Expression/Scope/Decorator/PropertyReferenceArgument.coffee",
-                        "targetPath": "Action/Expression/Scope/Decorator/PropertyReferenceArgument",
-                        "pageTitle": "Action/Expression/Scope/Decorator/PropertyReferenceArgument",
-                        "title": "PropertyReferenceArgument"
-                      },
-                      "depth": 5,
-                      "outline": []
-                    }, {
-                      "type": "file",
-                      "data": {
-                        "language": {
-                          "nameMatchers": [".coffee", "Cakefile"],
-                          "pygmentsLexer": "coffee-script",
-                          "multiLineComment": ["###", " ", "###"],
-                          "singleLineComment": ["#"],
-                          "ignorePrefix": "!",
-                          "foldPrefix": "~",
-                          "name": "CoffeeScript"
-                        },
-                        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
-                        "projectPath": "src/Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
-                        "targetPath": "Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle",
-                        "pageTitle": "Action/Expression/Scope/Decorator/PropertyReferenceArgumentRecycle",
-                        "title": "PropertyReferenceArgumentRecycle"
-                      },
-                      "depth": 5,
-                      "outline": []
-                    }, {
-                      "type": "file",
-                      "data": {
-                        "language": {
-                          "nameMatchers": [".coffee", "Cakefile"],
-                          "pygmentsLexer": "coffee-script",
-                          "multiLineComment": ["###", " ", "###"],
-                          "singleLineComment": ["#"],
-                          "ignorePrefix": "!",
-                          "foldPrefix": "~",
-                          "name": "CoffeeScript"
-                        },
-                        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/WithStatement.coffee",
-                        "projectPath": "src/Action/Expression/Scope/Decorator/WithStatement.coffee",
-                        "targetPath": "Action/Expression/Scope/Decorator/WithStatement",
-                        "pageTitle": "Action/Expression/Scope/Decorator/WithStatement",
-                        "title": "WithStatement"
-                      },
-                      "depth": 5,
-                      "outline": []
-                    }, {
-                      "type": "file",
-                      "data": {
-                        "language": {
-                          "nameMatchers": [".coffee", "Cakefile"],
-                          "pygmentsLexer": "coffee-script",
-                          "multiLineComment": ["###", " ", "###"],
-                          "singleLineComment": ["#"],
-                          "ignorePrefix": "!",
-                          "foldPrefix": "~",
-                          "name": "CoffeeScript"
-                        },
-                        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/WithStatementEvaluation.coffee",
-                        "projectPath": "src/Action/Expression/Scope/Decorator/WithStatementEvaluation.coffee",
-                        "targetPath": "Action/Expression/Scope/Decorator/WithStatementEvaluation",
-                        "pageTitle": "Action/Expression/Scope/Decorator/WithStatementEvaluation",
-                        "title": "WithStatementEvaluation"
-                      },
-                      "depth": 5,
-                      "outline": []
-                    }, {
-                      "type": "file",
-                      "data": {
-                        "language": {
-                          "nameMatchers": [".coffee", "Cakefile"],
-                          "pygmentsLexer": "coffee-script",
-                          "multiLineComment": ["###", " ", "###"],
-                          "singleLineComment": ["#"],
-                          "ignorePrefix": "!",
-                          "foldPrefix": "~",
-                          "name": "CoffeeScript"
-                        },
-                        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Decorator/WithStatementFunction.coffee",
-                        "projectPath": "src/Action/Expression/Scope/Decorator/WithStatementFunction.coffee",
-                        "targetPath": "Action/Expression/Scope/Decorator/WithStatementFunction",
-                        "pageTitle": "Action/Expression/Scope/Decorator/WithStatementFunction",
-                        "title": "WithStatementFunction"
-                      },
-                      "depth": 5,
-                      "outline": []
-                    }
-                  ]
-                }, {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".coffee", "Cakefile"],
-                      "pygmentsLexer": "coffee-script",
-                      "multiLineComment": ["###", " ", "###"],
-                      "singleLineComment": ["#"],
-                      "ignorePrefix": "!",
-                      "foldPrefix": "~",
-                      "name": "CoffeeScript"
-                    },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/Goatee.coffee",
-                    "projectPath": "src/Action/Expression/Scope/Goatee.coffee",
-                    "targetPath": "Action/Expression/Scope/Goatee",
-                    "pageTitle": "Action/Expression/Scope/Goatee",
-                    "title": "Goatee"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }, {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".coffee", "Cakefile"],
-                      "pygmentsLexer": "coffee-script",
-                      "multiLineComment": ["###", " ", "###"],
-                      "singleLineComment": ["#"],
-                      "ignorePrefix": "!",
-                      "foldPrefix": "~",
-                      "name": "CoffeeScript"
-                    },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Scope/GoogleJsTemplate.coffee",
-                    "projectPath": "src/Action/Expression/Scope/GoogleJsTemplate.coffee",
-                    "targetPath": "Action/Expression/Scope/GoogleJsTemplate",
-                    "pageTitle": "Action/Expression/Scope/GoogleJsTemplate",
-                    "title": "GoogleJsTemplate"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }
-              ]
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Goateescript.coffee",
+                "projectPath": "src/Action/Expression/Goateescript.coffee",
+                "targetPath": "Action/Expression/Goateescript",
+                "pageTitle": "Action/Expression/Goateescript",
+                "title": "Goateescript"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Javascript.coffee",
+                "projectPath": "src/Action/Expression/Javascript.coffee",
+                "targetPath": "Action/Expression/Javascript",
+                "pageTitle": "Action/Expression/Javascript",
+                "title": "Javascript"
+              },
+              "depth": 3,
+              "outline": []
             }
           ]
         }, {
@@ -1356,6 +1186,166 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               ]
             }
           ]
+        }, {
+          "type": "folder",
+          "data": {
+            "path": "Action/Scope",
+            "title": "Scope"
+          },
+          "depth": 2,
+          "children": [
+            {
+              "type": "folder",
+              "data": {
+                "path": "Action/Scope/Decorator",
+                "title": "Decorator"
+              },
+              "depth": 3,
+              "children": [
+                {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".coffee", "Cakefile"],
+                      "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
+                      "singleLineComment": ["#"],
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
+                      "name": "CoffeeScript"
+                    },
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/PropertyReferenceArgument.coffee",
+                    "projectPath": "src/Action/Scope/Decorator/PropertyReferenceArgument.coffee",
+                    "targetPath": "Action/Scope/Decorator/PropertyReferenceArgument",
+                    "pageTitle": "Action/Scope/Decorator/PropertyReferenceArgument",
+                    "title": "PropertyReferenceArgument"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".coffee", "Cakefile"],
+                      "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
+                      "singleLineComment": ["#"],
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
+                      "name": "CoffeeScript"
+                    },
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
+                    "projectPath": "src/Action/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
+                    "targetPath": "Action/Scope/Decorator/PropertyReferenceArgumentRecycle",
+                    "pageTitle": "Action/Scope/Decorator/PropertyReferenceArgumentRecycle",
+                    "title": "PropertyReferenceArgumentRecycle"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".coffee", "Cakefile"],
+                      "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
+                      "singleLineComment": ["#"],
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
+                      "name": "CoffeeScript"
+                    },
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/WithStatement.coffee",
+                    "projectPath": "src/Action/Scope/Decorator/WithStatement.coffee",
+                    "targetPath": "Action/Scope/Decorator/WithStatement",
+                    "pageTitle": "Action/Scope/Decorator/WithStatement",
+                    "title": "WithStatement"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".coffee", "Cakefile"],
+                      "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
+                      "singleLineComment": ["#"],
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
+                      "name": "CoffeeScript"
+                    },
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/WithStatementEvaluation.coffee",
+                    "projectPath": "src/Action/Scope/Decorator/WithStatementEvaluation.coffee",
+                    "targetPath": "Action/Scope/Decorator/WithStatementEvaluation",
+                    "pageTitle": "Action/Scope/Decorator/WithStatementEvaluation",
+                    "title": "WithStatementEvaluation"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".coffee", "Cakefile"],
+                      "pygmentsLexer": "coffee-script",
+                      "multiLineComment": ["###", " ", "###"],
+                      "singleLineComment": ["#"],
+                      "ignorePrefix": "!",
+                      "foldPrefix": "~",
+                      "name": "CoffeeScript"
+                    },
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/WithStatementFunction.coffee",
+                    "projectPath": "src/Action/Scope/Decorator/WithStatementFunction.coffee",
+                    "targetPath": "Action/Scope/Decorator/WithStatementFunction",
+                    "pageTitle": "Action/Scope/Decorator/WithStatementFunction",
+                    "title": "WithStatementFunction"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Goatee.coffee",
+                "projectPath": "src/Action/Scope/Goatee.coffee",
+                "targetPath": "Action/Scope/Goatee",
+                "pageTitle": "Action/Scope/Goatee",
+                "title": "Goatee"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/GoogleJsTemplate.coffee",
+                "projectPath": "src/Action/Scope/GoogleJsTemplate.coffee",
+                "targetPath": "Action/Scope/GoogleJsTemplate",
+                "pageTitle": "Action/Scope/GoogleJsTemplate",
+                "title": "GoogleJsTemplate"
+              },
+              "depth": 3,
+              "outline": []
+            }
+          ]
         }
       ]
     }, {
@@ -1405,7 +1395,84 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Constants"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Constants",
+                "slug": "constants"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Context-variables",
+                    "slug": "context-variables"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Regular-Expressions",
+                    "slug": "regular-expressions"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "JavaScript fragments",
+                    "slug": "javascript-fragments"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "CSS Properties",
+                    "slug": "css-properties"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Typeof strings",
+                    "slug": "typeof-strings"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Single characters",
+                    "slug": "single-characters"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Whitespace characters",
+                    "slug": "whitespace-characters"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Miscellaneous strings",
+                    "slug": "miscellaneous-strings"
+                  },
+                  "depth": 2
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1425,7 +1492,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Utility"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Utility",
+                "slug": "utility"
+              },
+              "depth": 1
+            }
+          ]
         }
       ]
     }, {

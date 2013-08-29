@@ -15,130 +15,191 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-##
-# @fileoverview Miscellaneous functions referenced in
-# the main source files.
-#
-# @author Steffen Meschkat <mesch@google.com>
-# @author Stephan Jorek    <stephan.jorek@gmail.com>
-##
-
-{Constants} = require './Constants'
+{Constants:{
+  CHAR_dash,
+  TYPE_number,
+  REGEXP_trim,
+  REGEXP_trimLeft,
+  REGEXP_trimRight,
+  REGEXP_camelize,
+  REGEXP_dashify
+}} = require './Constants'
 
 exports = module?.exports ? this
 
 
-_camelize = (match, char, index, str) ->
-  char.toUpperCase()
+## Utility
 
-_dashify  = (match, char, camel, index, str) ->
-  char + Constants.CHAR_dash + camel.toLowerCase()
-
-exports.Utility = Utility =
+# This Class provides a collection of miscellaneous static utility methods
+# referenced in the main source files.
+#
+# @class
+# @namespace goatee.Core
+# @author Steffen Meschkat  <mesch@google.com>
+# @author Stephan Jorek     <stephan.jorek@gmail.com>
+exports.Utility = class Utility
 
   ##
   # Detect if an object looks like an Array.
   # Note that instanceof Array is not robust; for example an Array
   # created in another iframe fails instanceof Array.
-  # @param {Object|null} value Object to interrogate
-  # @return {Boolean} Is the object an array?
-  isArray: (value) ->
+  #
+  # @static
+  # @public
+  # @method isArray
+  # @param  {Object|null} value   Object to interrogate
+  # @return {Boolean}             Is the object an array?
+  @isArray: (value) ->
     value.length? and typeof value.length is Constants.TYPE_number
 
   ##
   # Finds a slice of an array.
   #
-  # @param  {Array}  array  Array to be sliced.
-  # @param  {Number} start  The start of the slice.
-  # @param  {Number} end    The end of the slice (optional).
-  # @return {Array}  array  The slice of the array from start to end.
-  arraySlice: (array, start, end) ->
-    # Use
-    #   return Function.prototype.call.apply(Array.prototype.slice, arguments);
+  # @static
+  # @public
+  # @method arraySlice
+  # @param  {Array}             array             An array to be sliced.
+  # @param  {Number}            start             The start of the slice.
+  # @param  {Number|undefined}  [end=undefined]   The end of the slice.
+  # @return {Array}                               A sliced array from start to end.
+  @arraySlice: (array, start, end) ->
+    # We use
+    #
+    #   `return Function.prototype.call.apply(Array.prototype.slice, arguments);`
+    #
     # instead of the simpler
-    #   return Array.prototype.slice.call(array, start, opt_end);
-    # here because of a bug in the FF and IE implementations of
-    # Array.prototype.slice which causes this function to return an empty list
-    # if end is not provided.
+    #
+    #   `return Array.prototype.slice.call(array, start, opt_end);`
+    #
+    # here because of a bug in the FF ≤ 3.6 and IE ≤ 7 implementations of
+    # `Array.prototype.slice` which causes this function to return
+    # an empty list if end is not provided.
     Function.prototype.call.apply Array.prototype.slice, arguments
 
   ##
   # Clears the array by setting the length property to 0. This usually
   # works, and if it should turn out not to work everywhere, here would
-  # be the place to implement the browser specific workaround.
+  # be the place to implement the <del>browser</del> specific workaround.
   #
-  # @param {Array} array  Array to be cleared.
-  arrayClear: (array) ->
+  # @static
+  # @public
+  # @method arrayClear
+  # @param  {Array} array  Array to be cleared.
+  @arrayClear: (array) ->
     array.length = 0
     return
 
   ##
   # Jscompiler wrapper for parseInt() with base 10.
   #
-  # @param {String} s string repersentation of a number.
-  # @return {Number} The integer contained in s, converted on base 10.
-  parseInt10: (s) ->
-    parseInt(s, 10)
+  # @static
+  # @public
+  # @method parseInt10
+  # @param  {String}  string  String representation of a number.
+  # @return {Number}          The integer contained in string,
+  #                           converted to base 10.
+  @parseInt10: (string) ->
+    parseInt(string, 10)
 
   ##
-  # Prebinds "this" within the given method to an object, but ignores all
-  # arguments passed to the resulting function.
-  # I.e. var_args are all the arguments that method is invoked with when
-  # invoking the bound function.
+  # Binds `this` within the given method to an object, but ignores all arguments
+  # passed to the resulting function, i.e. `args` are all the arguments that
+  # method is invoked with when invoking the bound function.
   #
-  # @param {Object|null} object  The object that the method call targets.
-  # @param {Function} method  The target method.
-  # @return {Function}  Method with the target object bound to it and curried by
-  #                     the provided arguments.
-  bind: (object, method, args...) ->
-    return () ->
-      return method.apply(object, args)
+  # @static
+  # @public
+  # @method bind
+  # @param  {Object|null}   [object=null]   If object isn't `null` it becomes
+  #                                         the method's call target to bind to.
+  # @param  {Function}      method          The target method to bind.
+  # @param  {Array|null}    [args=null]     The arguments to bind.
+  # @return {Function}                      Method with the target object bound,
+  #                                         and curried with provided arguments.
+  @bind: (object, method, args...) ->
+    return -> method.apply(object, args)
 
   ##
   # Trim whitespace from begin and end of string.
   #
-  # @see testStringTrim();
-  #
-  # @param {String} str  Input string.
-  # @return {String}  Trimmed string.
-  trim: if String::trim?
+  # @static
+  # @public
+  # @method trim
+  # @param  {String}  string  Input string.
+  # @return {String}          Trimmed string.
+  # @see `testStringTrim();`
+  @trim: if String::trim?
   then (string) -> (string.trim())
   else (string) ->
-    # Utility.trimRight(Utility.trimLeft(string))
-    string.replace(Constants.REGEXP_trim, '')
+    # Alternative: `Utility.trimRight(Utility.trimLeft(string));`
+    string.replace REGEXP_trim, ''
 
   ##
   # Trim whitespace from beginning of string.
   #
-  # @see testStringTrimLeft();
-  #
-  # @param {String} str  Input string.
-  # @return {String}  Trimmed string.
+  # @static
+  # @public
+  # @method trimLeft
+  # @param  {String}  string  Input string.
+  # @return {String}          Left trimmed string.
+  # @see `testStringTrimLeft();`
   trimLeft: (string) ->
-    string.replace(Constants.REGEXP_trimLeft, '')
+    string.replace REGEXP_trimLeft, ''
 
   ##
   # Trim whitespace from end of string.
   #
-  # @see testStringTrimRight();
-  #
-  # @param {String} str  Input string.
-  # @return {String}  Trimmed string.
+  # @static
+  # @public
+  # @method trimRight
+  # @param  {String}  string  Input string.
+  # @return {String}          Right trimmed string.
+  # @see `testStringTrimRight();`
   trimRight: (string) ->
-    string.replace(Constants.REGEXP_trimRight, '')
+    string.replace REGEXP_trimRight, ''
+
+  ##
+  # Internal camelize-helper function
+  #
+  # @private
+  # @param  {String}  match
+  # @param  {String}  char
+  # @param  {Number}  index
+  # @param  {String}  string
+  # @return {String}          Camelized string fragment.
+  _camelize = (match, char, index, string) ->
+    char.toUpperCase()
 
   ##
   # Converts “a-property-name” to “aPropertyName”
   #
-  # @param {String} str  Input string.
-  # @return {String}  Camelized string.
+  # @static
+  # @public
+  # @method camelize
+  # @param  {String}  string  Input string.
+  # @return {String}          Camelized string.
   camelize: (string) ->
-    string.replace Constants.REGEXP_camelize, _camelize
+    string.replace REGEXP_camelize, _camelize
+
+  ##
+  # Internal dashify-helper function
+  #
+  # @private
+  # @param  {String}  match
+  # @param  {String}  char
+  # @param  {String}  camel
+  # @param  {Number}  index
+  # @param  {String}  string
+  # @return {String}          Dashed string fragment.
+  _dashify  = (match, char, camel, index, string) ->
+    char + CHAR_dash + camel.toLowerCase()
 
   ##
   # Converts “aPropertyName” to “a-property-name”
   #
-  # @param {String} str  Input string.
-  # @return {String}  Dashed string.
+  # @static
+  # @public
+  # @method dashify
+  # @param  {String}  string  Input string.
+  # @return {String}          Dashed string.
   dashify: (string) ->
-    string.replace Constants.REGEXP_dashify, _dashify
+    string.replace REGEXP_dashify, _dashify
