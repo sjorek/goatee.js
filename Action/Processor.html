@@ -13,11 +13,100 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
 permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="gaotee-evaluation">Gaotee Evaluation</h1>
 
+<blockquote>
+  <h2 id="overview">Overview</h2>
+  
+  <p>The processing instructions that define the results of Processor for a
+  template are encoded as attributes in template HTML elements.  There are
+  <del>eight such</del> special attributes: <em>jsselect</em>, <em>jsdisplay</em>, <em>jsskip</em>,
+  <em>jscontent</em>, <em>jsvars</em>, <em>jsvalues</em>, <em>jseval</em>, and <em>transclude</em>.  Before you
+  dive into the details of individual instructions, however, you should know a
+  little bit about the namespace within which these instructions are processed.</p>
+  
+  <h2 id="processing-environment">Processing Environment</h2>
+  
+  <p>With the single exception of the <em>transclude</em> instruction, the values of all
+  Template attributes will contain <del>javascript</del> expressions.  These
+  will be evaluated in an environment that includes bindings from a variety of
+  sources, and names defined by any of these sources can be referenced in
+  attribute expressions as if they were variables:</p>
+  
+  <ul>
+  <li><em>Context</em> data: All the properties of the <em>Context</em>'s data object are included
+  in the processing environment.</li>
+  <li><p>Explicitly declared variables: The <code>setVariable(name, value);</code> method of
+  <em>Context</em> creates a new variable with the <code>name</code> in the processing
+  environment if no such variable exists, assigning it the <code>value</code>. If the
+  variable already exists, it will be reassigned the <code>value</code>.  Variables can
+  also be created and assigned with the <em>jsvalues</em> instruction (see below).</p>
+  
+  <p>Note that variables defined in either of these ways are distinct from the
+  <em>Context</em> data object. Calling <code>setVariable</code> will not alter the data wrapped
+  by the <em>Context</em> instance.  This fact can have important consequences when
+  template processing is traversing the hierarchy of the data object (through
+  the use of the <em>jsselect</em> instruction, for example -- see below): no matter
+  what portion of the data hierarchy has been selected for processing, variables
+  created with <code>setVariable</code> will always be available for use in template
+  processing instructions.</p></li>
+  <li><p>Special variables: Jst also defines three special variables that can be used
+  in processing instruction attributes:</p>
+  
+  <ul><li><code>this</code>: The keyword <code>this</code> in <em>Template</em> attribute expressions will
+  evaluate to the element on which the attribute is defined.  In this
+  respect <em>Template</em> attributes mirror event handler attributes like
+  <code>onclick</code>.</li>
+  <li><code>$index</code>: Array-valued data can result in a duplicate template node being
+  created for each array element (see <em>jsselect</em>, below).  In this case the
+  processing environment for each of those nodes includes <code>$index</code> variable,
+  which will contain the array index of the element associated with the node.</li>
+  <li><code>$this</code>: refers to the <em>Context</em> data object used in processing the current
+  node.  So in the above example (TODO which example?!?) we could substitute
+  <code>$this.end</code> for <code>end</code> without changing the meaning of the <em>jscontent</em>
+  expression.  This may not seem like a very useful thing to do in this
+  case, but there are other cases in which <code>$this</code> is necessary.  If the
+  <em>Context</em> contains a value such as a string or a number rather than an
+  object with named properties, there is no way to retrieve the value using
+  object-property notation, and so we need <code>$this</code> to access the value.</li></ul></li>
+  </ul>
+  
+  <p>So if you have the template</p>
+
+<pre><code> &lt;div id="witha"&gt;
+   &lt;div id="Hey"
+        jscontent="this.parentNode.id +
+                   this.id +
+                   dataProperty +
+                   $this.dataProperty +
+                   declaredVar"
+   &gt;&lt;!-- empty content to be replaced --&gt;&lt;/div&gt;
+ &lt;/div&gt;
+</code></pre>
+  
+  <p>and you process it with the statements</p>
+
+<pre><code> var mydata = {dataProperty: 'Nonny'};
+ var context = new JsEvalContext(mydata);
+ context.setVariable('declaredVar', 'Ho');
+ var template = document.getElementById('witha');
+ jstProcess(context, template);
+</code></pre>
+  
+  <p>then the document will display the string <code>withaHeyNonnyNonnyHo</code>. The values
+  of <code>id</code> and <code>parentNode.id</code> are available as properties of the current node
+  (accessible through the keyword <code>this</code>), the value of <code>dataProperty</code> is
+  available (via both a naked reference and the special variable <code>$this</code>)
+  because it is defined in the <em>Context</em>'s data object, and the value of
+  <code>declaredVar</code> is available because it is defined in the <em>Context</em>'s variables.</p>
+  
+  <p>In the discussion of specific instruction attributes below, the phrase
+  <em>“current node”</em> refers to the DOM element on which the attribute is defined.</p>
+</blockquote>
+
 <p>Goatee action attributes and event action names have been choosen
 carefully in order to avoid naming collision with existing dom attributes,
 events and properties.</p>
 
-<p>Within a single element they are evaluated in the following order:</p>
+<p>Within a single element the actions are evaluated in the following order:</p>
 
 <h2 id="outer-actions">Outer Actions</h2>
 
@@ -48,11 +137,257 @@ processed.  Additionally if either “<a href="http://jquery.com">jQuery</a>”,
 internal template-reference, like in:
 <code>(cheerio||jQuery||Sizzle)( 'source #id .selector', this );</code>
 or in the case of <em>jQuery</em> an external reference, like in:
-<code>jQuery(this).load( 'http://source.url #element-id' );</code></p></li>
+<code>jQuery(this).load( 'http://source.url #element-id' );</code>
+
+
+<blockquote>
+  <p></p></p>
+</blockquote>
+
+<blockquote>
+  <p>As <em>jsselect</em> does, the <em>transclude</em> instruction expands the
+  structure of a template.  It does so by copying a structure
+  from some other element in the document.  The value of the
+  <em>transclude</em> attribute is interpreted as an element id literal
+  rather than as a <del>javascript</del> expression. (This
+  difference, by the way, is the reason for the absence of a
+  “js” in its name.)</p>
+  
+  <p>If an element with the given id exists in the document, it is
+  cloned and <strong>the clone replaces</strong> the node with the <em>transclude</em>
+  attribute.  Template processing continues on the new element.
+  If no element with the given id exists, the node with the
+  <em>transclude</em> attribute is removed.  No further processing
+  instruction attributes will be evaluated on a node if it has
+  a <em>transclude</em> attribute.</p>
+  
+  <p>The <em>transclude</em> attribute allows for recursion, because a
+  template can be transcluded into itself.  This feature can be
+  handy when you want to display hierarchically structured data.
+  If you have a hierarchically structured table of contents, for
+  example, recursive <em>transclude</em> statements allow you represent
+  the arbitrarily complex hierarchy with a simple template:</p>
+
+<pre><code>&lt;script&gt;
+   …
+   // Hierarchical data:
+   var tplData = {
+     title: "JsTemplate",
+     items: [ {
+       title: "Using JsTemplate",
+       items: [ {
+         title: "The JsTemplate Module"
+       }, {
+         title: "Javascript Data"
+       }, {
+         title: "Template HTML"
+       }, {
+         title: "Processing Templates with Javascript Statements"
+       } ]
+     }, {
+       title: "Template Processing Instructions",
+       items: [ {
+         title: "Processing Environment"
+       }, {
+         title: "Instruction Attributes",
+         items: [ {
+           title: "jscontent"
+         }, {
+           title: "jsselect"
+         }, {
+           title: "jsdisplay"
+         }, {
+           title: "transclude"
+         }, {
+           title: "jsvalues"
+         }, {
+           title: "jsskip"
+         }, {
+           title: "jseval"
+         } ]
+       } ]
+     } ]
+   };
+   …
+ &lt;/script&gt;
+ &lt;div id="tpl"&gt;
+   &lt;span jscontent="title"&gt;Outline heading&lt;/span&gt;
+   &lt;ul jsdisplay="items.length"&gt;
+     &lt;li jsselect="items"&gt;
+       &lt;div transclude="tpl"&gt;&lt;!-- recursive tranclusion --&gt;&lt;/div&gt;
+     &lt;/li&gt;
+   &lt;/ul&gt;
+ &lt;/div&gt;
+</code></pre>
+  
+  <p>The recursion in this example terminates because eventually
+  it reaches data objects that have no <code>items</code> property.  When
+  the <em>jsselect</em> asks for <code>items</code> on one of these leaves, it
+  evaluates to <code>null</code> and no further processing will be
+  performed on that node.  Note also that when the node with a
+  <em>transclude</em> attribute is replaced with the transcluded node
+  in this example, the replacement node will not have a
+  <em>transclude</em> attribute.</p>
+  
+  <p><em>“How to use JsTemplate”</em> described the use of the
+  <code>jstGetTemplate</code> function to process a copy of a template
+  rather than the original template.  Templates with recursive
+  transcludes must be cloned in this way before processing.
+  Because of the internal details of Jst processing, a template
+  that contains a recursive reference to itself may be processed
+  incorrectly if the original template is processed directly.
+  The following (incomplete) javascript code will perform the
+  required duplication for the above template:</p>
+
+<pre><code>&lt;script&gt;
+  var PEG_NAME = 'peg';
+  var TEMPLATE_NAME = 'tpl';
+  // Called by the body onload handler:
+  function jsinit() {
+    pegElement = domGetElementById(document, PEG_NAME);
+    loadData(pegElement, TEMPLATE_NAME, tplData);
+  }
+
+  function loadData(peg, templateId, data) {
+    // Get a copy of the template:
+    var templateToProcess = jstGetTemplate(templateId);
+    // Wrap our data in a context object:
+    var processingContext = new JsEvalContext(data);
+    // Process the template
+    jstProcess(processingContext, templateToProcess);
+    // Clear the element to which we'll attach the processed template:
+    peg.innerHTML = '';
+    // Attach the template:
+    appendChild(peg, templateToProcess);
+  }
+&lt;/script&gt;
+</code></pre>
+</blockquote></li>
 <li><p><strong>repeat</strong>  : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsselect</a>”.
 If <em>repeat</em> is array-valued, remaining actions will be copied to
 each new duplicate element created by the <em>repeat</em> and processed
-when the further dom- traversal visits the new elements.</p></li>
+when the further dom- traversal visits the new elements.
+
+
+<blockquote>
+  <p></p></p>
+</blockquote>
+
+<blockquote>
+  <p>The primary function of JsTemplate is to create mappings
+  between data structures and HTML representations of those data
+  structures.  The <em>jsselect</em> attribute handles much of the work
+  of defining this mapping by allowing you to associate a
+  particular subtree of the data with a particular subtree of
+  the template's DOM structure. When a template node with a
+  <em>jsselect</em> attribute is processed, the value of the <em>jsselect</em>
+  attribute is evaluated as a <del>javascript</del> expression
+  in the current processing environment, as described above.
+  If the result of this evaluation is not an array, the
+  processor automatically creates a new <em>Context</em> object to wrap
+  the result of the evaluation.  The processing environment for
+  the current node now uses this new <em>Context</em> rather than the
+  original <em>Context</em>.</p>
+  
+  <p>For example, imagine that you have the following data object
+  (wrapped in a <em>Context</em> object constructed with
+  <code>new Context(tplData);</code>):</p>
+
+<pre><code>&lt;script&gt;
+  …
+  var tplData = {
+    username:"Jane User",
+    addresses:[ {
+      location:"111 8th Av.",
+      label:"NYC front door"
+    }, {
+      location:"76 9th Av.",
+      label:"NYC back door"
+    }, {
+      location:"Mountain View",
+      label:"Mothership"
+    } ]
+  };
+  …
+&lt;/script&gt;
+</code></pre>
+  
+  <p>and you use this data in processing the template</p>
+
+<pre><code>&lt;div id="tpl"&gt;
+  &lt;span jsselect="username"
+        jscontent="$this"
+  &gt;&lt;!-- empty --&gt;&lt;/span&gt;'s Address Book
+&lt;/div&gt;
+</code></pre>
+  
+  <p>The <em>jsselect</em> attribute tells the processor to retrieve the
+  username property of the data object, wrap this value
+  (<em>“Jane User”</em>) in a new JsEvalContext, and use the new
+  <em>Context</em> in processing the span element.  As a result,
+  <code>$this</code> refers to <em>“Jane User”</em> in the context of the span,
+  and the <em>jscontent</em> attribute evaluates to <code>"Jane User"</code>.</p>
+  
+  <p>Note that the <em>jsselect</em> has to be executed before the
+  <em>jscontent</em> in order for this example to work.  In fact,
+  <em>jsselect</em> is always evaluated before any other JsTemplate
+  attributes (with the exception of <em>transclude</em>), and so the
+  processing of all subsequent instructions for the same
+  template element will take place in the new environment
+  created by the jsselect (see <em>“Order of Evaluation”</em> below).</p>
+  
+  <p>What happens if you try to <em>jsselect</em> the array-valued
+  addresses property of the data object?  If the result of
+  evaluating a <em>jsselect</em> expression is an array, a duplicate
+  of the current template node is created for each item in the
+  array.  For each of these duplicate nodes a <code>new Context( … );</code>
+  will be created to wrap the array item, and the processing
+  environment for the duplicate node now uses this <em>Context</em>
+  rather than the original.  In other words, <em>jsselect</em> operates
+  as a sort of <code>foreach</code> statement in the case of arrays.  So
+  you can expand your address book template to list addresses in
+  your data object like so:</p>
+
+<pre><code>&lt;div id="tpl"&gt;
+  &lt;h1&gt;
+    &lt;span jsselect="username"
+          jscontent="$this"&gt;
+      User de Fault
+    &lt;/span&gt;'s Address Book
+  &lt;/h1&gt;
+  &lt;table cellpadding="5"&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Location:&lt;/th&gt;
+      &lt;th&gt;Label:&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr jsselect="addresses"&gt;
+      &lt;td jscontent="location"&gt;&lt;!-- location --&gt;&lt;/td&gt;
+      &lt;td jscontent="label"&gt;&lt;!-- label --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+  
+  <p>Processing this template with your <em>“Jane User”</em> address book
+  data will produce a nice table with a row for each address.
+  Since the execution of a <em>jsselect</em> instruction can change the
+  number of children under a template node, we might worry that
+  if we try to reprocess a template with new data the template
+  will no longer have the structure we want.  JsTemplate manages
+  this problem with a couple of tricks.  First, whenever a
+  <em>jsselect</em> produces duplicate nodes as a result of an
+  array-valued expression, the processor records an index for
+  each node as an attribute of the element.  So if the duplicate
+  nodes are reprocessed, the processor can tell that they
+  started out as a single node and will reprocess them as if
+  they are still the single node of the original template.
+  Second, a template node is never entirely removed, even if a
+  <em>jsselect</em> evaluates to <code>null</code>.  If it evaluates to <code>null</code> (or
+  <code>undefined</code>), the current node will be hidden by setting
+  <code>style="display:none"</code>, and no further processing will be
+  performed on it.  But the node will still be present, and
+  available for future reprocessing.</p>
+</blockquote></li>
 </ul>
 
 <h2 id="inner-actions">Inner Actions</h2>
@@ -64,17 +399,55 @@ well as the context-data, -variables and -values.</p>
 <li><p><strong>appear</strong>  : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsdisplay</a>”.
 The result determines if the node appears on page.  Therefore
 the result is either booleanized and applied as css-display,
-with <code>false</code> ~ <code>display: none</code> and <code>true</code> ~ <code>display: block</code>.
-If the result matches a valid value for css-display it is used
-directly in <code>display: …</code>.</p></li>
+with <code>false</code> ~ <code>style="display: none"</code> and <code>true</code> ~
+<code>style="display: block"</code>.  If the result matches a valid value
+for css-display it is used directly in <code>display: …</code>.</p>
+
+<blockquote>
+  <p>The value of the <em>jsdisplay</em> attribute is evaluated as a
+  <del>javascript</del> expression.  If the result is <code>false</code>,
+  <code>0</code>, <code>""</code> or any other <del>javascript</del> value that is
+  <code>true</code> when negated, the CSS display property of the current
+  template node will be set to <em>“none”</em>, rendering it invisible
+  <insert><em>without detaching it from the DOM</em><insert>, and no
+  further processing will be done on this node or its children.
+  This instruction is particularly useful for checking for empty
+  content.  You might want to display an informative message if
+  a user's address book is empty, for example, rather than just
+  showing them an empty table.  The following template will
+  accomplish this goal:</p>
+
+<pre><code>&lt;div id="tpl"&gt;
+  &lt;h1&gt;
+    &lt;span jsselect="username"
+          jscontent="$this"&gt;User de Fault&lt;/span&gt;'s Address Book
+  &lt;/h1&gt;
+  &lt;span jsdisplay="addresses.length==0"&gt;Address book is empty.&lt;/span&gt;
+  &lt;table cellpadding="5" jsdisplay="addresses.length"&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Location:&lt;/th&gt;
+      &lt;th&gt;Label:&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr jsselect="addresses"&gt;
+      &lt;td jscontent="location"&gt;&lt;!-- location --&gt;&lt;/td&gt;
+      &lt;td jscontent="label"&gt;&lt;!-- label --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+  
+  <p>If the addresses array is empty, the user will see
+  <em>“Address book is empty”</em>, but otherwise they will see the
+  table of addresses as usual.</p>
+</blockquote></li>
 <li><p><strong>set</strong>     : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsvars</a>”.</p>
 
 <blockquote>
   <p>This instruction is identical to <em>jsvalues</em>, except that all
   assignment targets are interpreted as variable names, whether
-  or not they start with a "$." That is, all assignment targets
-  are interpreted as described in section 1 of the <em>jsvalues</em>
-  section below.</p>
+  or not they start with a dolar-sign (<em>“$”</em>) or a dot (<em>“.”</em>).
+  That is, all assignment targets are interpreted as described
+  in section 1 of the <em>jsvalues</em> section below.</p>
 </blockquote></li>
 <li><p><strong>alter</strong>   : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jsvalues</a>”.</p>
 
@@ -226,7 +599,9 @@ processingContext.setVariable('$counter', counter);
   displayed.</p>
 </blockquote></li>
 <li><p><strong>markup</strong>  : This action is present if <code>(cheerio|jQuery)( … ).html( … );</code> is
-available.</p></li>
+available.  This is nearly the same action as the <em>text</em>-action
+below, except it allows markup to be embedded.
+<strong>Use it with absolute caution! You have been warned !</strong></p></li>
 <li><p><strong>text</strong>    : Formerly “<a href="http://code.google.com/p/google-jstemplate/wiki/TemplateProcessingInstructionReference">jscontent</a>”.
 Uses <code>(cheerio|jQuery)( … ).text( … );</code> if available.  Otherwise
 the given content will be assigned to <code>Node.innerHTML</code>.</p>
