@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Text.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Action/Inner/Text.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,4BAAA;KAAA;oSAAA;;CAAA,CAiBC,CAAU,GAjBX,CAiBW,cAAA;;CAjBX,CAmBA,CAA4B,CAnB5B,GAmBA;;CAnBA,CA2BA,CAAqB,CAArB,GAAO;CAAQ;;;;;CAAA;;CAAA;;CAAmB;CA3BlC"
+}
