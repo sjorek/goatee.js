@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Compiler/Composite</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../../"><meta name="groc-document-path" content="Action/Expression/Compiler/Composite"><meta name="groc-project-path" content="src/Action/Expression/Compiler/Composite.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../../assets/style.css"><script type="text/javascript" src="../../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Action/Expression/Compiler/Composite.coffee">src/Action/Expression/Compiler/Composite.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 <a href="stephan.jorek@gmail.com">Stephan Jorek</a></p>
+<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Javascript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Action/Expression/Javascript"><meta name="groc-project-path" content="src/Action/Expression/Javascript.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Action/Expression/Javascript.coffee">src/Action/Expression/Javascript.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 <a href="stephan.jorek@gmail.com">Stephan Jorek</a> /
+© Copyright 2006 <a href="http://www.google.com">Google Inc.</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -24,7 +25,7 @@ permissions and limitations under the License.</p></div></div><div class="code">
   <span class="nx">trim</span>
 <span class="p">}}</span>                  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../../Core/Utility&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee.Action.Compiler</span></p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee.Action.Expression</span></p>
 
 <p>Javascript</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Javascript = </span><span class="k">class</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> evaluateExpression raised during expression evaluation to console.</span></p>
 
@@ -161,7 +162,7 @@ expressions, hence closures, that are suitable for execution by</p>
 <p><strong>Returns an Array.<Function></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToClosures: </span><span class="nf">(expressions) -&gt;</span>
     <span class="nx">@evaluateToFunction</span> <span class="nx">expression</span> <span class="o">\</span>
       <span class="k">for</span> <span class="nx">expression</span> <span class="k">in</span> <span class="nx">expressions</span><span class="p">.</span><span class="nx">split</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_semicolon</span> <span class="o">\</span>
-        <span class="k">when</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>goatee.Action.Compiler.Javascript</em></span></p>
+        <span class="k">when</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>goatee.Action.Expression.Javascript</em></span></p>
 
 <p>#
 Reference to singleton instance</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Javascript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
@@ -169,5 +170,5 @@ Reference to singleton instance</p></div></div><div class="code"><div class="wra
 <p>#
 Singleton implementation</p>
 
-<p><strong>Returns a goatee.Action.Compiler.Javascript</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Javascript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
+<p><strong>Returns a goatee.Action.Expression.Javascript</strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Javascript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
   <span class="nx">_instance</span> <span class="o">?</span> <span class="p">(</span><span class="nv">_instance = </span><span class="k">new</span> <span class="nx">Javascript</span><span class="p">)</span></div></div></div></div></body></html>
