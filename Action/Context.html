@@ -15,7 +15,7 @@ permissions and limitations under the License.</p></div></div><div class="code">
 
 <span class="nv">Expression    = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;goatee/Action/Expression/Javascript&#39;</span><span class="p">).</span><span class="nx">Javascript</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="context">Context</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee.Action</span></p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="context">Context</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class is in namespace <em>goatee.Action</em></span></p>
 
 <p>Context for processing a goatee-template. The context contains a context
 object, whose properties can be referred to in goatee-template expressions,
@@ -115,7 +115,7 @@ undefined. Used mostly for testing.</p>
 </ul>
 
 <p><strong>Returns an Object</strong><br/>(value)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">get: </span><span class="nf">(name) -&gt;</span>
-    <span class="nx">@_variables</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Function</em></span></p>
+    <span class="nx">@_variables</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Function</em></span></p>
 
 <p>#
 Holds a reference to the compiler singleton instance</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_evaluate = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method evaluate</span></p>
@@ -133,7 +133,7 @@ and returns the result.</p>
 
 <p><strong>Returns an Object</strong><br/>(value)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluate: </span><span class="nf">(expression, template) -&gt;</span>
     <span class="nv">fn = </span><span class="p">(</span><span class="nx">_evaluate</span> <span class="o">?</span> <span class="nv">_evaluate = </span><span class="nx">Expression</span><span class="p">.</span><span class="nx">get</span><span class="p">().</span><span class="nx">evaluateToFunction</span><span class="p">)</span> <span class="nx">expression</span>
-    <span class="nx">@execute</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">template</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Static private of type <em>Object</em></span></p>
+    <span class="nx">@execute</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">template</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Static private is of type <em>Object</em></span></p>
 
 <p>#
 Holds all global context variables</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@_globals: </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method setGlobal</span></p>
@@ -153,7 +153,7 @@ name "global", and not "global var".)</p>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="vi">@setGlobal: </span><span class="nf">(name, value) -&gt;</span>
     <span class="nx">Context</span><span class="p">.</span><span class="nx">_globals</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>#
 Set the default value to be returned if context evaluation results in an
-error. (This can occur if a non-existent value was requested).</p></div></div><div class="code"><div class="wrapper">  <span class="nx">Context</span><span class="p">.</span><span class="nx">setGlobal</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">GLOB_default</span><span class="p">,</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Static private of type <em>Array.<goatee.Action.Context></em></span></p>
+error. (This can occur if a non-existent value was requested).</p></div></div><div class="code"><div class="wrapper">  <span class="nx">Context</span><span class="p">.</span><span class="nx">setGlobal</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">GLOB_default</span><span class="p">,</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Static private is of type <em>Array.<goatee.Action.Context></em></span></p>
 
 <p>#
 A cache to reuse Context instances. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@_recycled: </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method create</span></p>

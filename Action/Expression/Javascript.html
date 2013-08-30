@@ -25,7 +25,7 @@ permissions and limitations under the License.</p></div></div><div class="code">
   <span class="nx">trim</span>
 <span class="p">}}</span>                  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../../Core/Utility&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee.Action.Expression</span></p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class is in namespace <em>goatee.Action.Expression</em></span></p>
 
 <p>Javascript</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Javascript = </span><span class="k">class</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> evaluateExpression raised during expression evaluation to console.</span></p>
 
@@ -67,7 +67,7 @@ e.g. eval("(function() {})") returns undefined, and not a function
 object, in IE.</p>
 
 <p>NOTE(sjorek): Due to the underlying coffescript-specific language
-agnostics we deliberatly fall back to vanilla javascript here.</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="o">`</span><span class="nb">eval</span><span class="p">(</span><span class="s">&#39;[&#39;</span> <span class="o">+</span> <span class="nx">expression</span> <span class="o">+</span> <span class="s">&#39;][0]&#39;</span><span class="p">)</span><span class="o">`</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
+agnostics we deliberatly fall back to vanilla javascript here.</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="o">`</span><span class="nb">eval</span><span class="p">(</span><span class="s">&#39;[&#39;</span> <span class="o">+</span> <span class="nx">expression</span> <span class="o">+</span> <span class="s">&#39;][0]&#39;</span><span class="p">)</span><span class="o">`</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
 
 <p>#
 Cache for jsEvalToFunction results.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_evaluateToFunctionCache = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
@@ -162,7 +162,7 @@ expressions, hence closures, that are suitable for execution by</p>
 <p><strong>Returns an Array.<Function></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToClosures: </span><span class="nf">(expressions) -&gt;</span>
     <span class="nx">@evaluateToFunction</span> <span class="nx">expression</span> <span class="o">\</span>
       <span class="k">for</span> <span class="nx">expression</span> <span class="k">in</span> <span class="nx">expressions</span><span class="p">.</span><span class="nx">split</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_semicolon</span> <span class="o">\</span>
-        <span class="k">when</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>goatee.Action.Expression.Javascript</em></span></p>
+        <span class="k">when</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>goatee.Action.Expression.Javascript</em></span></p>
 
 <p>#
 Reference to singleton instance</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Javascript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
