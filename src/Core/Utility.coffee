@@ -27,19 +27,22 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-
-## Utility
-
-# This Class provides a collection of miscellaneous static utility methods
+# --------------------------------
+# Utility
+# ================================
+#
+# This objeect provides a collection of miscellaneous utility functions
 # referenced in the main source files.
 #
-# @class
-# @namespace goatee.Core
-# @author Steffen Meschkat  <mesch@google.com>
-# @author Stephan Jorek     <stephan.jorek@gmail.com>
-exports.Utility = class Utility
+# @public
+# @module     Utility
+# @namespace  goatee.Core
+# @author     Steffen Meschkat  <mesch@google.com>
+# @author     Stephan Jorek     <stephan.jorek@gmail.com>
+# @type       {Object}
+exports.Utility = Utility =
 
-  ##
+  # --------------------------------
   # Detect if an object looks like an Array.
   # Note that instanceof Array is not robust; for example an Array
   # created in another iframe fails instanceof Array.
@@ -49,10 +52,10 @@ exports.Utility = class Utility
   # @method isArray
   # @param  {Object|null} value   Object to interrogate
   # @return {Boolean}             Is the object an array?
-  @isArray: (value) ->
+  isArray: (value) ->
     value.length? and typeof value.length is Constants.TYPE_number
 
-  ##
+  # --------------------------------
   # Finds a slice of an array.
   #
   # @static
@@ -62,7 +65,7 @@ exports.Utility = class Utility
   # @param  {Number}            start             The start of the slice.
   # @param  {Number|undefined}  [end=undefined]   The end of the slice.
   # @return {Array}                               A sliced array from start to end.
-  @arraySlice: (array, start, end) ->
+  arraySlice: (array, start, end) ->
     # We use
     #
     #   `return Function.prototype.call.apply(Array.prototype.slice, arguments);`
@@ -76,7 +79,7 @@ exports.Utility = class Utility
     # an empty list if end is not provided.
     Function.prototype.call.apply Array.prototype.slice, arguments
 
-  ##
+  # --------------------------------
   # Clears the array by setting the length property to 0. This usually
   # works, and if it should turn out not to work everywhere, here would
   # be the place to implement the <del>browser</del> specific workaround.
@@ -85,11 +88,11 @@ exports.Utility = class Utility
   # @public
   # @method arrayClear
   # @param  {Array} array  Array to be cleared.
-  @arrayClear: (array) ->
+  arrayClear: (array) ->
     array.length = 0
     return
 
-  ##
+  # --------------------------------
   # Jscompiler wrapper for parseInt() with base 10.
   #
   # @static
@@ -98,10 +101,10 @@ exports.Utility = class Utility
   # @param  {String}  string  String representation of a number.
   # @return {Number}          The integer contained in string,
   #                           converted to base 10.
-  @parseInt10: (string) ->
+  parseInt10: (string) ->
     parseInt(string, 10)
 
-  ##
+  # --------------------------------
   # Binds `this` within the given method to an object, but ignores all arguments
   # passed to the resulting function, i.e. `args` are all the arguments that
   # method is invoked with when invoking the bound function.
@@ -115,10 +118,10 @@ exports.Utility = class Utility
   # @param  {Array|null}    [args=null]     The arguments to bind.
   # @return {Function}                      Method with the target object bound,
   #                                         and curried with provided arguments.
-  @bind: (object, method, args...) ->
+  bind: (object, method, args...) ->
     return -> method.apply(object, args)
 
-  ##
+  # --------------------------------
   # Trim whitespace from begin and end of string.
   #
   # @static
@@ -127,13 +130,13 @@ exports.Utility = class Utility
   # @param  {String}  string  Input string.
   # @return {String}          Trimmed string.
   # @see `testStringTrim();`
-  @trim: if String::trim?
+  trim: if String::trim?
   then (string) -> (string.trim())
   else (string) ->
     # Alternative: `Utility.trimRight(Utility.trimLeft(string));`
     string.replace REGEXP_trim, ''
 
-  ##
+  # --------------------------------
   # Trim whitespace from beginning of string.
   #
   # @static
@@ -145,7 +148,7 @@ exports.Utility = class Utility
   trimLeft: (string) ->
     string.replace REGEXP_trimLeft, ''
 
-  ##
+  # --------------------------------
   # Trim whitespace from end of string.
   #
   # @static
@@ -157,19 +160,7 @@ exports.Utility = class Utility
   trimRight: (string) ->
     string.replace REGEXP_trimRight, ''
 
-  ##
-  # Internal camelize-helper function
-  #
-  # @private
-  # @param  {String}  match
-  # @param  {String}  char
-  # @param  {Number}  index
-  # @param  {String}  string
-  # @return {String}          Camelized string fragment.
-  _camelize = (match, char, index, string) ->
-    char.toUpperCase()
-
-  ##
+  # --------------------------------
   # Converts “a-property-name” to “aPropertyName”
   #
   # @static
@@ -177,23 +168,21 @@ exports.Utility = class Utility
   # @method camelize
   # @param  {String}  string  Input string.
   # @return {String}          Camelized string.
-  camelize: (string) ->
-    string.replace REGEXP_camelize, _camelize
+  camelize: do ->
 
-  ##
-  # Internal dashify-helper function
-  #
-  # @private
-  # @param  {String}  match
-  # @param  {String}  char
-  # @param  {String}  camel
-  # @param  {Number}  index
-  # @param  {String}  string
-  # @return {String}          Dashed string fragment.
-  _dashify  = (match, char, camel, index, string) ->
-    char + CHAR_dash + camel.toLowerCase()
+    # Internal camelize-helper function
+    #
+    # @private
+    # @param  {String}  match
+    # @param  {String}  char
+    # @param  {Number}  index
+    # @param  {String}  string
+    # @return {String}          Camelized string fragment.
+    _camelize = (match, char, index, string) -> char.toUpperCase()
 
-  ##
+    (string) -> string.replace REGEXP_camelize, _camelize
+
+  # --------------------------------
   # Converts “aPropertyName” to “a-property-name”
   #
   # @static
@@ -201,5 +190,17 @@ exports.Utility = class Utility
   # @method dashify
   # @param  {String}  string  Input string.
   # @return {String}          Dashed string.
-  dashify: (string) ->
-    string.replace REGEXP_dashify, _dashify
+  dashify: do ->
+    # Internal dashify-helper function
+    #
+    # @private
+    # @param  {String}  match
+    # @param  {String}  char
+    # @param  {String}  camel
+    # @param  {Number}  index
+    # @param  {String}  string
+    # @return {String}          Dashed string fragment.
+    _dashify  = (match, char, camel, index, string) ->
+      char + CHAR_dash + camel.toLowerCase()
+
+    (string) -> string.replace REGEXP_dashify, _dashify

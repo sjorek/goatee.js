@@ -643,15 +643,15 @@ resulting selection.</p></li>
 <span class="p">{</span><span class="nx">Utility</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Utility&#39;</span>
 <span class="p">{</span><span class="nx">Document</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Document&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class</span></p>
 
 <h1 id="processor">Processor</h1>
 
 <p>Internal class used by goatee-templates to maintain context.  This is
 necessary to process deep templates in Safari≤5 which has a relatively
-shallow maximum recursion depth of 100.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Processor = </span><span class="k">class</span> <span class="nx">Processor</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Document</em></span></p>
+shallow maximum recursion depth of 100.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Processor = </span><span class="k">class</span> <span class="nx">Processor</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Document</em></span></p>
 
-<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
+<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
 
 <p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
@@ -661,7 +661,7 @@ shallow maximum recursion depth of 100.</p></div></div><div class="code"><div cl
 
 <ul>
 <li><strong>options must be an Object.</strong></li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@options) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Document</em></span></p>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@options) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Document</em></span></p>
 
 <p>#
 Caches the document of the template node, so we don't have to
@@ -688,7 +688,7 @@ queue so that a node may branch to more than one child
 <ul>
 <li><strong>f must be a Function.</strong><br/>(The first function to run.)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(f) -&gt;</span>
-    <span class="nv">self = </span><span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p>
+    <span class="nv">self = </span><span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array.<Array></em></span></p>
 
 <p>#
 A stack of queues of pre-order calls.
@@ -696,13 +696,13 @@ The inner arrays (constituent queues) are structured as
 [ arg2, arg1, method, arg2, arg1, method, ...]
 ie. a flattened array of methods with 2 arguments, in reverse order
 for efficient push/pop.
-The outer array is a stack of such queues.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">calls = self.calls = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array.<Number></em></span></p>
+The outer array is a stack of such queues.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">calls = self.calls = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array.<Number></em></span></p>
 
 <p>#
 The index into the queue for each depth. NOTE: Alternative would
 be to maintain the queues in reverse order (popping off of the
 end) but the repeated calls to .pop() consumed 90% of this
-function's execution time.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">indices = self.indices = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p>
+function's execution time.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">indices = self.indices = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array.<Array></em></span></p>
 
 <p>#
 A pool of empty arrays.  Minimizes object allocation for IE6's benefit.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">arrays = self.arrays = </span><span class="p">[]</span>
@@ -746,27 +746,27 @@ Prepares the template: preprocesses all goatee-template actions.</p>
     <span class="k">unless</span> <span class="nx">@getCacheProperty</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span><span class="o">?</span>
       <span class="nv">self = </span><span class="nx">@</span>
       <span class="nx">doc</span><span class="p">.</span><span class="nx">traverseElements</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nf">(node) -&gt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array.<Array></em></span></p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array.<Array></em></span></p>
 
 <p>#
 A list of attributes we use to specify jst processing actions,
 and the functions used to parse their values.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">actions: </span><span class="p">[</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_select, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_display, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_values, jsEvalToValues ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_vars, jsEvalToValues ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_eval, jsEvalToExpressions ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_transclude, jsEvalToSelf ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_content, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_skip, jsEvalToFunction ]</span>
-  <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Array</em></span></p>
+  <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array</em></span></p>
 
 <p>#
 A list for storing non-empty actions found on a node in prepare().
 The array is global since it can be reused - this way there is no need to
-construct a new array object for each invocation. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_list   = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
+construct a new array object for each invocation. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_list   = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
 
 <p>#
 Map for storing temporary action values in prepare() so they don't have
-to be retrieved twice. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_values = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Number</em></span></p>
+to be retrieved twice. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_values = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Number</em></span></p>
 
 <p>#
 Counter to generate cache ids. These ids will be stored used to lookup the
 preprocessed actions from the cache.  The id is stored with the element
 to survive cloneNode() and thus cloned template nodes can share the same
-cache entry.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_id = </span><span class="mi">0</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
+cache entry.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_id = </span><span class="mi">0</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
 
 <p>#
 Map from cache id to processed actions.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_actions = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>#
@@ -940,7 +940,7 @@ Cache identifier as node-attribute.</p>
 
 <p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setElementIdentifier: </span><span class="nf">(node, id) -&gt;</span>
     <span class="nx">doc</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_jstcache</span><span class="p">,</span> <span class="nx">id</span>
-    <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> of type <em>Object</em></span></p>
+    <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
 
 <p>#
 Map from source, a concatenated action string, to cache id.  The key

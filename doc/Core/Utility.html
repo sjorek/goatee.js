@@ -21,13 +21,18 @@ permissions and limitations under the License.</p></div></div><div class="code">
   <span class="nx">REGEXP_dashify</span>
 <span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;./Constants&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="utility">Utility</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> namespace goatee.Core, author Steffen Meschkat  <a href="&#109;a&#105;&#108;&#116;&#x6f;:&#x6d;&#101;sc&#104;&#x40;&#x67;&#x6f;&#x6f;g&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x6d;&#101;sc&#104;&#x40;&#x67;&#x6f;&#x6f;g&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a> and author Stephan Jorek     <a href="m&#97;&#x69;&#108;&#116;&#111;:&#x73;t&#x65;&#x70;&#x68;a&#x6e;&#x2e;&#106;&#x6f;&#x72;&#101;&#107;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x73;t&#x65;&#x70;&#x68;a&#x6e;&#x2e;&#106;&#x6f;&#x72;&#101;&#107;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a></span></p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public module Utility is in namespace <em>goatee.Core</em>, is of type <em>Object</em> and is authored by <a href="mesch@google.com">Steffen Meschkat</a> and <a href="stephan.jorek@gmail.com">Stephan Jorek</a></span></p>
 
-<p>This Class provides a collection of miscellaneous static utility methods
-referenced in the main source files.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Utility = </span><span class="k">class</span> <span class="nx">Utility</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method isArray</span></p>
+<hr />
 
-<p>#
-Detect if an object looks like an Array.
+<h1 id="utility">Utility</h1>
+
+<p>This objeect provides a collection of miscellaneous utility functions
+referenced in the main source files.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Utility = Utility =</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method isArray</span></p>
+
+<hr />
+
+<p>Detect if an object looks like an Array.
 Note that instanceof Array is not robust; for example an Array
 created in another iframe fails instanceof Array.</p>
 
@@ -37,11 +42,12 @@ created in another iframe fails instanceof Array.</p>
 <li><strong>value can be an Object or a null.</strong><br/>(Object to interrogate)</li>
 </ul>
 
-<p><strong>Returns a Boolean</strong><br/>(Is the object an array?)</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@isArray: </span><span class="nf">(value) -&gt;</span>
+<p><strong>Returns a Boolean</strong><br/>(Is the object an array?)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">isArray: </span><span class="nf">(value) -&gt;</span>
     <span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="o">?</span> <span class="o">and</span> <span class="k">typeof</span> <span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">TYPE_number</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method arraySlice</span></p>
 
-<p>#
-Finds a slice of an array.</p>
+<hr />
+
+<p>Finds a slice of an array.</p>
 
 <p>Parameters:</p>
 
@@ -51,7 +57,7 @@ Finds a slice of an array.</p>
 <li><p><strong>end is optional, can be a Number or an undefined and has a default value of undefined.</strong><br/>(The end of the slice.)</p></li>
 </ul>
 
-<p><strong>Returns an Array</strong><br/>(A sliced array from start to end.)</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@arraySlice: </span><span class="nf">(array, start, end) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We use
+<p><strong>Returns an Array</strong><br/>(A sliced array from start to end.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">arraySlice: </span><span class="nf">(array, start, end) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We use
   <code>return Function.prototype.call.apply(Array.prototype.slice, arguments);</code>
 instead of the simpler
   <code>return Array.prototype.slice.call(array, start, opt_end);</code>
@@ -59,8 +65,9 @@ here because of a bug in the FF ≤ 3.6 and IE ≤ 7 implementations of
 <code>Array.prototype.slice</code> which causes this function to return
 an empty list if end is not provided.</p></div></div><div class="code"><div class="wrapper">    <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">,</span> <span class="nx">arguments</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method arrayClear</span></p>
 
-<p>#
-Clears the array by setting the length property to 0. This usually
+<hr />
+
+<p>Clears the array by setting the length property to 0. This usually
 works, and if it should turn out not to work everywhere, here would
 be the place to implement the <del>browser</del> specific workaround.</p>
 
@@ -68,12 +75,13 @@ be the place to implement the <del>browser</del> specific workaround.</p>
 
 <ul>
 <li><strong>array must be an Array.</strong><br/>(Array to be cleared.)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="vi">@arrayClear: </span><span class="nf">(array) -&gt;</span>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">arrayClear: </span><span class="nf">(array) -&gt;</span>
     <span class="nv">array.length = </span><span class="mi">0</span>
     <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method parseInt10</span></p>
 
-<p>#
-Jscompiler wrapper for parseInt() with base 10.</p>
+<hr />
+
+<p>Jscompiler wrapper for parseInt() with base 10.</p>
 
 <p>Parameters:</p>
 
@@ -81,11 +89,12 @@ Jscompiler wrapper for parseInt() with base 10.</p>
 <li><strong>string must be a String.</strong><br/>(String representation of a number.)</li>
 </ul>
 
-<p><strong>Returns a Number</strong><br/>(The integer contained in string, converted to base 10.)</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@parseInt10: </span><span class="nf">(string) -&gt;</span>
+<p><strong>Returns a Number</strong><br/>(The integer contained in string, converted to base 10.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">parseInt10: </span><span class="nf">(string) -&gt;</span>
     <span class="nb">parseInt</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method bind</span></p>
 
-<p>#
-Binds <code>this</code> within the given method to an object, but ignores all arguments
+<hr />
+
+<p>Binds <code>this</code> within the given method to an object, but ignores all arguments
 passed to the resulting function, i.e. <code>args</code> are all the arguments that
 method is invoked with when invoking the bound function.</p>
 
@@ -97,11 +106,12 @@ method is invoked with when invoking the bound function.</p>
 <li><p><strong>args is optional, can be an Array or a null and has a default value of null.</strong><br/>(The arguments to bind.)</p></li>
 </ul>
 
-<p><strong>Returns a Function</strong><br/>(Method with the target object bound, and curried with provided arguments.)</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@bind: </span><span class="nf">(object, method, args...) -&gt;</span>
-    <span class="k">return</span> <span class="nf">-&gt;</span> <span class="nx">method</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trim see <code>testStringTrim();</code></span></p>
+<p><strong>Returns a Function</strong><br/>(Method with the target object bound, and curried with provided arguments.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">bind: </span><span class="nf">(object, method, args...) -&gt;</span>
+    <span class="k">return</span> <span class="nf">-&gt;</span> <span class="nx">method</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trim refers to &lt;<code>testStringTrim();</code>></span></p>
 
-<p>#
-Trim whitespace from begin and end of string.</p>
+<hr />
+
+<p>Trim whitespace from begin and end of string.</p>
 
 <p>Parameters:</p>
 
@@ -109,12 +119,13 @@ Trim whitespace from begin and end of string.</p>
 <li><strong>string must be a String.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@trim: </span><span class="k">if</span> <span class="nb">String</span><span class="o">::</span><span class="nx">trim</span><span class="o">?</span>
+<p><strong>Returns a String</strong><br/>(Trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trim: </span><span class="k">if</span> <span class="nb">String</span><span class="o">::</span><span class="nx">trim</span><span class="o">?</span>
   <span class="k">then</span> <span class="nf">(string) -&gt;</span> <span class="p">(</span><span class="nx">string</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span>
-  <span class="k">else</span> <span class="nf">(string) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative: <code>Utility.trimRight(Utility.trimLeft(string));</code></p></div></div><div class="code"><div class="wrapper">    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trim</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trimLeft see <code>testStringTrimLeft();</code></span></p>
+  <span class="k">else</span> <span class="nf">(string) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative: <code>Utility.trimRight(Utility.trimLeft(string));</code></p></div></div><div class="code"><div class="wrapper">    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trim</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trimLeft refers to &lt;<code>testStringTrimLeft();</code>></span></p>
 
-<p>#
-Trim whitespace from beginning of string.</p>
+<hr />
+
+<p>Trim whitespace from beginning of string.</p>
 
 <p>Parameters:</p>
 
@@ -123,10 +134,11 @@ Trim whitespace from beginning of string.</p>
 </ul>
 
 <p><strong>Returns a String</strong><br/>(Left trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trimLeft: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimLeft</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trimRight see <code>testStringTrimRight();</code></span></p>
+    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimLeft</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trimRight refers to &lt;<code>testStringTrimRight();</code>></span></p>
 
-<p>#
-Trim whitespace from end of string.</p>
+<hr />
+
+<p>Trim whitespace from end of string.</p>
 
 <p>Parameters:</p>
 
@@ -135,10 +147,21 @@ Trim whitespace from end of string.</p>
 </ul>
 
 <p><strong>Returns a String</strong><br/>(Right trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trimRight: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimRight</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private</span></p>
+    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimRight</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method camelize</span></p>
 
-<p>#
-Internal camelize-helper function</p>
+<hr />
+
+<p>Converts “a-property-name” to “aPropertyName”</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>string must be a String.</strong><br/>(Input string.)</li>
+</ul>
+
+<p><strong>Returns a String</strong><br/>(Camelized string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">camelize: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private</span></p>
+
+<p>Internal camelize-helper function</p>
 
 <p>Parameters:</p>
 
@@ -149,11 +172,13 @@ Internal camelize-helper function</p>
 <li><p><strong>string must be a String.</strong></p></li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Camelized string fragment.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_camelize = </span><span class="nf">(match, char, index, string) -&gt;</span>
-    <span class="nx">char</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method camelize</span></p>
+<p><strong>Returns a String</strong><br/>(Camelized string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_camelize = </span><span class="nf">(match, char, index, string) -&gt;</span> <span class="nx">char</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>
 
-<p>#
-Converts “a-property-name” to “aPropertyName”</p>
+    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_camelize</span><span class="p">,</span> <span class="nx">_camelize</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method dashify</span></p>
+
+<hr />
+
+<p>Converts “aPropertyName” to “a-property-name”</p>
 
 <p>Parameters:</p>
 
@@ -161,11 +186,9 @@ Converts “a-property-name” to “aPropertyName”</p>
 <li><strong>string must be a String.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Camelized string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">camelize: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_camelize</span><span class="p">,</span> <span class="nx">_camelize</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private</span></p>
+<p><strong>Returns a String</strong><br/>(Dashed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">dashify: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private</span></p>
 
-<p>#
-Internal dashify-helper function</p>
+<p>Internal dashify-helper function</p>
 
 <p>Parameters:</p>
 
@@ -177,17 +200,7 @@ Internal dashify-helper function</p>
 <li><p><strong>string must be a String.</strong></p></li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Dashed string fragment.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_dashify  = </span><span class="nf">(match, char, camel, index, string) -&gt;</span>
-    <span class="nx">char</span> <span class="o">+</span> <span class="nx">CHAR_dash</span> <span class="o">+</span> <span class="nx">camel</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method dashify</span></p>
+<p><strong>Returns a String</strong><br/>(Dashed string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_dashify  = </span><span class="nf">(match, char, camel, index, string) -&gt;</span>
+      <span class="nx">char</span> <span class="o">+</span> <span class="nx">CHAR_dash</span> <span class="o">+</span> <span class="nx">camel</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
 
-<p>#
-Converts “aPropertyName” to “a-property-name”</p>
-
-<p>Parameters:</p>
-
-<ul>
-<li><strong>string must be a String.</strong><br/>(Input string.)</li>
-</ul>
-
-<p><strong>Returns a String</strong><br/>(Dashed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">dashify: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_dashify</span><span class="p">,</span> <span class="nx">_dashify</span></div></div></div></div></body></html>
+    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_dashify</span><span class="p">,</span> <span class="nx">_dashify</span></div></div></div></div></body></html>

@@ -20,15 +20,15 @@ exports = module?.exports ? this
 #
 # Abstract action class implementing a basic action
 #
-# @class
+# @class Abstract
 # @namespace goatee.Action
 exports.Abstract = class Abstract
 
   ##
   # Derivates must override this method and perform the action.
   #
+  # @abstract
   # @public
-  # @memberOf Abstract
   # @method process
   # @param  {Processor} action      The calling action
   # @param  {Context}   context     The current evaluation context
