@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Document</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Dom/Document"><meta name="groc-project-path" content="src/Dom/Document.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Dom/Document.coffee">src/Dom/Document.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 <a href="stephan.jorek@gmail.com">Stephan Jorek</a> /
-© Copyright 2006 <a href="http://www.google.com">Google Inc.</a></p>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Document</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Dom/Document"><meta name="groc-project-path" content="src/Dom/Document.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Dom/Document.coffee">src/Dom/Document.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;:&#115;&#x74;&#101;&#112;&#104;&#97;&#110;&#x2e;&#x6a;&#111;&#x72;&#101;&#107;&#64;&#103;&#x6d;&#97;&#105;l.&#x63;&#x6f;&#x6d;">&#115;&#x74;&#101;&#112;&#104;&#97;&#110;&#x2e;&#x6a;&#111;&#x72;&#101;&#107;&#64;&#103;&#x6d;&#97;&#105;l.&#x63;&#x6f;&#x6d;</a> /
+© Copyright 2006 Google Inc. <a href="http://www.google.com">http://www.google.com</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -11,323 +11,384 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Constants&#39;</span>
-<span class="p">{</span><span class="nx">Node</span><span class="p">}</span>      <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Node&#39;</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/GeckoElementTraversal&#39;).GeckoElementTraversal</span>
-<span class="nv">Traversal = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;goatee/Dom/Traversal/Level1NodeTypeMatcher&#39;</span><span class="p">).</span><span class="nx">Level1NodeTypeMatcher</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/Level2NodeIterator&#39;).Level2NodeIterator</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/Level2TreeWalker&#39;).Level2TreeWalker</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/Level4ChildNodesIterator&#39;).Level4ChildNodesIterator</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal = require(&#39;goatee/Dom/Traversal/Level4ElementChildrenIterator&#39;).Level4ElementChildrenIterator</span>
+permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">CSS_display</span><span class="p">,</span>
+  <span class="nx">CSS_position</span>
+<span class="p">}}</span>                        <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Core/Constants&#39;</span>
+<span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">DOCUMENT_NODE</span> <span class="c1">#, DOCUMENT_FRAGMENT_NODE</span>
+<span class="p">}}</span>                        <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;./Node&#39;</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal                 = require(&#39;./Traversal/GeckoElementTraversal&#39;).GeckoElementTraversal</span>
+<span class="nv">Traversal                 = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;./Traversal/Level1NodeTypeMatcher&#39;</span><span class="p">).</span><span class="nx">Level1NodeTypeMatcher</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal               = require(&#39;./Traversal/Level2NodeIterator&#39;).Level2NodeIterator</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal               = require(&#39;./Traversal/Level2TreeWalker&#39;).Level2TreeWalker</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal               = require(&#39;./Traversal/Level4ChildNodesIterator&#39;).Level4ChildNodesIterator</span></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="c1">#Traversal               = require(&#39;./Traversal/Level4ElementChildrenIterator&#39;).Level4ElementChildrenIterator</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="document">Document</h1></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>This implementation provides function shortcuts depending on a generic browser
-based DOM-Implementation</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Document = Document =</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>{Document} Global target document reference.</em></span></p>
+<span class="p">{</span><span class="nx">Utility</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">camelize</span><span class="p">,</span>
+  <span class="nx">dashify</span>
+<span class="p">}}</span>                        <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Core/Utility&#39;</span>
 
-<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="nb">window</span><span class="o">?</span><span class="p">.</span><span class="nb">document</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="document--domdocument">Document (≠ DOMDocument)</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public module Document is in namespace <em>goatee.Core</em>, is of type <em>Object</em> and is authored by Steffen Meschkat  <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;:&#x6d;&#x65;&#x73;&#99;&#x68;&#x40;&#x67;&#111;&#111;g&#108;&#101;&#x2e;&#99;&#111;&#109;">&#x6d;&#x65;&#x73;&#99;&#x68;&#x40;&#x67;&#111;&#111;g&#108;&#101;&#x2e;&#99;&#111;&#109;</a> and Stephan Jorek     <a href="&#x6d;&#97;i&#x6c;t&#111;:&#x73;&#116;&#x65;&#112;&#104;a&#110;&#x2e;j&#111;&#114;&#x65;&#107;&#64;gm&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x73;&#116;&#x65;&#112;&#104;a&#110;&#x2e;j&#111;&#114;&#x65;&#107;&#64;gm&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a></span></p>
 
-<p>#</p>
+<hr />
+
+<p>This module provides shortcuts depending on generic- or browser-based
+DOM implementations.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Document = Document =</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public property document is of type <em>Document</em></span></p>
+
+<hr />
+
+<p>Global target document reference.  Defaults to <code>null</code> if <code>window.document</code>
+is not available.</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="nb">window</span><span class="o">?</span><span class="p">.</span><span class="nb">document</span> <span class="o">||</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method getElementById</span></p>
+
+<hr />
+
+<p>Get an element-node by its id</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>id must be a String.</strong></p></li>
-<li><p><strong>doc must be a Document.</strong></p></li>
+<li><p><strong>id must be a DOMString.</strong></p></li>
+<li><p><strong>doc is optional, must be a Document and has a default value of Document.document.</strong></p></li>
 </ul>
 
 <p><strong>Returns a Node or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getElementById: </span><span class="nf">(id, doc) -&gt;</span>
-    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method createElement</span></p>
 
-<p>#
-Creates a new node in the given document</p>
+<hr />
+
+<p>Creates a new node in the given document</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>name must be a String.</strong><br/>(Name of new element (i.e. the tag name)..)</p></li>
-<li><p><strong>doc must be a Document.</strong><br/>(Target document.)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(The name of new element (i.e. the tag name))</p></li>
+<li><p><strong>doc is optional, must be a Document and has a default value of Document.document.</strong><br/>(The target document)</p></li>
 </ul>
 
-<p><strong>Returns an Element</strong><br/>(Newly constructed element.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">createElement: </span><span class="nf">(name, doc) -&gt;</span>
-    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns an Element</strong><br/>(A newly constructed element)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">createElement: </span><span class="nf">(name, doc) -&gt;</span>
+    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method createTextNode</span></p>
 
-<p>#
-Traverses the element nodes in the DOM section underneath the given
+<hr />
+
+<p>Creates a new text node in the given document.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>text must be a DOMString.</strong><br/>(Text composing new text node)</p></li>
+<li><p><strong>doc is optional, must be a Document and has a default value of Document.document.</strong><br/>(The target document)</p></li>
+</ul>
+
+<p><strong>Returns a Text</strong><br/>(A newly constructed text node)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">createTextNode: </span><span class="nf">(text, doc) -&gt;</span>
+    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">createTextNode</span> <span class="nx">text</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method traverseElements</span></p>
+
+<hr />
+
+<p>Traverses the element nodes in the DOM section underneath the given
 node and invokes the given callback as a method on every element
 node encountered.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong><br/>(Parent element of the subtree to traverse.)</p></li>
-<li><p><strong>callback must be a Function.</strong><br/>(Called on each node in the traversal.)</p></li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">traverseElements: </span><span class="nf">(node, callback) -&gt;</span>
-    <span class="nx">Traversal</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">callback</span><span class="p">).</span><span class="nx">run</span> <span class="nx">node</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>#
-Get an attribute from the DOM.  Simple redirect, exists to compress code.</p>
-
-<p>Parameters:</p>
-
-<ul>
-<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate.)</p></li>
-<li><p><strong>name must be a String.</strong><br/>(Name of parameter to extract.)</p></li>
+<li><p><strong>node must be an Element.</strong><br/>(Parent element of the subtree to traverse)</p></li>
+<li><p><strong>callback must be a Function.</strong><br/>(Called on each node in the traversal)</p></li>
 </ul>
 
-<p><strong>Returns a String or a null</strong><br/>(Resulting attribute.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">hasAttribute: </span><span class="k">if</span> <span class="nx">Element</span><span class="o">?::</span><span class="nx">hasAttribute</span><span class="o">?</span> <span class="o">\</span>
-    <span class="k">then</span> <span class="nf">(node, name) -&gt;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">hasAttribute</span> <span class="nx">name</span> <span class="o">\</span>
-    <span class="k">else</span> <span class="nf">(node, name) -&gt;</span> <span class="nx">Document</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a goatee.Dom.Traversal</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">traverseElements: </span><span class="nf">(node, callback) -&gt;</span>
+    <span class="nx">Traversal</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">callback</span><span class="p">).</span><span class="nx">run</span> <span class="nx">node</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method hasAttribute</span></p>
 
-<p>#
-Get an attribute from the DOM.  Simple redirect, exists to compress code.</p>
+<hr />
+
+<p>Test if an attribute exists.
+The implementation uses <code>Element.prototype.hasAttribute</code> if available,
+otherwise it's a simple redirect to <code>Document.getAttribute</code>.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate.)</p></li>
-<li><p><strong>name must be a String.</strong><br/>(Name of parameter to extract.)</p></li>
+<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(Name of parameter to extract)</p></li>
 </ul>
 
-<p><strong>Returns a String or a null</strong><br/>(Resulting attribute.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getAttribute: </span><span class="nf">(node, name) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">name</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): Neither in IE nor in Firefox, HTML DOM attributes
-implement namespaces. All items in the attribute collection have
-null localName and namespaceURI attribute values. In IE, we even
-encounter DIV elements that don't implement the method
-getAttributeNS().</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a DOMString or a null</strong><br/>(Resulting attribute)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">hasAttribute: </span><span class="k">if</span> <span class="nx">HTMLElement</span><span class="o">?::</span><span class="nx">hasAttribute</span><span class="o">?</span>
+  <span class="k">then</span> <span class="nf">(node, name) -&gt;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">hasAttribute</span> <span class="nx">name</span>
+  <span class="k">else</span> <span class="nf">(node, name) -&gt;</span> <span class="nx">Document</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method getAttribute</span></p>
 
-<p>#
-Set an attribute in the DOM.  Simple redirect to compress code.</p>
+<hr />
+
+<p>Get an attribute from the DOM.  Simple redirect to compress code.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate.)</p></li>
-<li><p><strong>name must be a String.</strong><br/>(Name of parameter to set.)</p></li>
-<li><p><strong>value can be a String or a Number.</strong><br/>(Set attribute to this value.)</p></li>
+<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(Name of parameter to extract)</p></li>
+</ul>
+
+<p><strong>Returns a DOMString or a null</strong><br/>(Resulting attribute)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getAttribute: </span><span class="nf">(node, name) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): Neither in IE nor in Firefox, HTML DOM attributes implement
+namespaces.  All items in the attribute collection have <code>null</code> localName
+and namespaceURI attribute values.  In IE, we even encounter DIV elements
+that don't implement the method <code>getAttributeNS()</code>.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">node</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">name</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method setAttribute</span></p>
+
+<hr />
+
+<p>Set an attribute in the DOM.  Simple redirect to compress code.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(Name of parameter to set)</p></li>
+<li><p><strong>value can be a DOMString or a Number.</strong><br/>(Set attribute to this value)</p></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">setAttribute: </span><span class="nf">(node, name, value) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">value</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method removeAttribute</span></p>
 
-<p>#
-Remove an attribute from the DOM.  Simple redirect to compress code.</p>
+<hr />
+
+<p>Remove an attribute from the DOM.  Simple redirect to compress code.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate.)</p></li>
-<li><p><strong>name must be a String.</strong><br/>(Name of parameter to remove.)</p></li>
+<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(Name of parameter to remove)</p></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">removeAttribute: </span><span class="nf">(node, name) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method hasData</span></p>
 
-<p>#
-Get an data-attribute from the DOM.  Simple redirect, exists to compress code.</p>
+<hr />
+
+<p>Test if an data-attribute exists.
+This is the place to implement faster alternatives, i.e. by using
+<code>hasAttribute</code> or the like.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate.)</p></li>
-<li><p><strong>name must be a String.</strong><br/>(Name of parameter to extract.)</p></li>
+<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(Name of data-attribute to extract)</p></li>
 </ul>
 
-<p><strong>Returns a String or a null</strong><br/>(Resulting data-attribute.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">hasData: </span><span class="nf">(node, name) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a Boolean</strong><br/>(Flag indicating if the data-attribute exists)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">hasData: </span><span class="k">if</span> <span class="p">(</span><span class="nv">_dataSetAvailable = </span><span class="nx">HTMLElement</span><span class="o">?::</span><span class="nx">dataset</span><span class="o">?</span> <span class="o">and</span> <span class="nx">DOMStringMap</span><span class="o">?</span><span class="p">)</span>
+  <span class="k">then</span> <span class="nf">(node, name) -&gt;</span>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="o">?</span><span class="p">[</span><span class="nx">camelize</span> <span class="nx">name</span><span class="p">]</span><span class="o">?</span>
+  <span class="k">else</span> <span class="nf">(node, name) -&gt;</span>
+    <span class="nx">Document</span><span class="p">.</span><span class="nx">hasAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="s">&quot;data-</span><span class="si">#{</span><span class="nx">dashify</span> <span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method getData</span></p>
 
-<p>#
-Get an data-attribute from the DOM.  Simple redirect, exists to compress code.</p>
+<hr />
+
+<p>Get an data-attribute from the DOM.
+This is the place to implement faster alternatives, i.e. by using
+<code>getAttribute</code> or the like.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate.)</p></li>
-<li><p><strong>name must be a String.</strong><br/>(Name of parameter to extract.)</p></li>
+<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(Name of data-attribute to extract)</p></li>
 </ul>
 
-<p><strong>Returns a String or a null</strong><br/>(Resulting data-attribute.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getData: </span><span class="nf">(node, name) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a DOMString or a null</strong><br/>(Resulting data-attribute)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getData: </span><span class="k">if</span> <span class="nx">_dataSetAvailable</span>
+  <span class="k">then</span> <span class="nf">(node, name) -&gt;</span>
+    <span class="k">if</span> <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="o">?</span> <span class="k">then</span> <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">camelize</span> <span class="nx">name</span><span class="p">]</span> <span class="k">else</span> <span class="kc">null</span>
+  <span class="k">else</span> <span class="nf">(node, name) -&gt;</span>
+    <span class="nx">Document</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="s">&quot;data-</span><span class="si">#{</span><span class="nx">dashify</span> <span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method setData</span></p>
 
-<p>#
-Set an data-attribute in the DOM.  Simple redirect to compress code.</p>
+<hr />
 
-<p>Parameters:</p>
-
-<ul>
-<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate.)</p></li>
-<li><p><strong>name must be a String.</strong><br/>(Name of parameter to set.)</p></li>
-<li><p><strong>value can be a String or a Number.</strong><br/>(Set data-attribute to this value.)</p></li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">setData: </span><span class="nf">(node, name, value) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>#
-Remove an data-attribute from the DOM.  Simple redirect to compress code.</p>
+<p>Set an data-attribute in the DOM.
+This is the place to implement faster alternatives, i.e. by using
+<code>setAttribute</code> or the like.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate.)</p></li>
-<li><p><strong>name must be a String.</strong><br/>(Name of parameter to remove.)</p></li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">removeData: </span><span class="nf">(node, name) -&gt;</span>
-    <span class="k">delete</span> <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(Name of data-attribute to set)</p></li>
+<li><p><strong>value must be a DOMString.</strong><br/>(Set data-attribute to this value)</p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">setData: </span><span class="k">if</span> <span class="nx">_dataSetAvailable</span>
+  <span class="k">then</span> <span class="nf">(node, name, value) -&gt;</span>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">camelize</span> <span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
+    <span class="k">return</span>
+  <span class="k">else</span> <span class="nf">(node, name, value) -&gt;</span>
+    <span class="nx">Document</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="s">&quot;data-</span><span class="si">#{</span><span class="nx">dashify</span> <span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">,</span> <span class="nx">value</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method removeData</span></p>
 
-<p>#
-Clone a node in the DOM.</p>
+<hr />
+
+<p>Remove an data-attribute from the DOM.
+This is the place to implement faster alternatives, i.e. by using
+<code>removeAttribute</code> or the like.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(Node to clone.)</li>
+<li><p><strong>node must be an Element.</strong><br/>(Element to interrogate)</p></li>
+<li><p><strong>name must be a DOMString.</strong><br/>(Name of data-attribute to remove)</p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">removeData: </span><span class="k">if</span> <span class="nx">_dataSetAvailable</span>
+  <span class="k">then</span> <span class="nf">(node, name) -&gt;</span>
+    <span class="k">delete</span> <span class="nx">node</span><span class="p">.</span><span class="nx">dataset</span><span class="p">[</span><span class="nx">camelize</span> <span class="nx">name</span><span class="p">]</span>
+    <span class="k">return</span>
+  <span class="k">else</span> <span class="nf">(node, name) -&gt;</span>
+    <span class="nx">Document</span><span class="p">.</span><span class="nx">removeAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="s">&quot;data-</span><span class="si">#{</span><span class="nx">dashify</span> <span class="nx">name</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method cloneNode</span></p>
+
+<hr />
+
+<p>Clone a node in the DOM.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>node must be a Node.</strong><br/>(Node to clone)</li>
 </ul>
 
-<p><strong>Returns a Node</strong><br/>(Cloned node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">cloneNode: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">cloneNode</span> <span class="kc">true</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): we never so far wanted to use cloneNode(false), hence we
-default to true.</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a Node</strong><br/>(Cloned node)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">cloneNode: </span><span class="nf">(node) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): we never so far wanted to use <code>node.cloneNode(false);</code>,
+hence we default to <code>true</code> (=deep clone).</p></div></div><div class="code"><div class="wrapper">    <span class="nx">node</span><span class="p">.</span><span class="nx">cloneNode</span> <span class="kc">true</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method cloneElement</span></p>
 
-<p>#
-Clone a element in the DOM.</p>
+<hr />
+
+<p>Clone a element in the DOM. Alias of <code>Document.cloneNode(node);</code> above.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>element must be an Element.</strong><br/>(Element to clone.)</li>
+<li><strong>element must be an Element.</strong><br/>(Element to clone)</li>
 </ul>
 
-<p><strong>Returns an Element</strong><br/>(Cloned element.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">cloneElement: </span><span class="nf">(element) -&gt;</span>
-    <span class="nx">@cloneNode</span> <span class="nx">element</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns an Element</strong><br/>(Cloned element)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">cloneElement: </span><span class="nf">(element) -&gt;</span>
+    <span class="nx">@cloneNode</span> <span class="nx">element</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method ownerDocument</span></p>
 
-<p>#
-Returns the document owner of the given element. In particular,
-returns window.document if node is null or the browser does not
-support ownerDocument.  If the node is a document itself, returns
-itself.</p>
+<hr />
+
+<p>Returns the document owner of the given element.  In particular, returns
+<code>window.document</code> if node is null or the browser does not support the
+<code>ownerDocument</code>-method.  Returns the node, if the node is a document itself.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node can be a Node, a null or an undefined.</strong><br/>(The node whose ownerDocument is required.)</p></li>
-<li><p><strong>node can be a Document, a null or an undefined.</strong><br/>(The optional fallback value.)</p></li>
+<li><p><strong>node is optional and must be a Node.</strong><br/>(The node whose ownerDocument is requested)</p></li>
+<li><p><strong>doc is optional, must be a Document and has a default value of Document.document.</strong><br/>(The optional fallback-value)</p></li>
 </ul>
 
-<p><strong>Returns a Document</strong><br/>(The owner document or window.document if unsupported.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">ownerDocument: </span><span class="nf">(node, doc) -&gt;</span>
-    <span class="k">return</span> <span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span> <span class="k">if</span> <span class="o">not</span> <span class="nx">node</span><span class="o">?</span> <span class="c1"># or \</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we delibratly force equality instead of identity
-<code>node.nodeType == Node.DOCUMENT_FRAGMENT_NODE</code></p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we delibratly force equality instead of identity</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">node</span> <span class="k">if</span> <span class="o">`</span><span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">DOCUMENT_NODE</span><span class="o">`</span>
+<p><strong>Returns a Document</strong><br/>(The owner-document or if unsupported <code>window.document</code>)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">ownerDocument: </span><span class="nf">(node, doc) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>TODO: What about document-fragment-nodes ?</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span> <span class="k">if</span> <span class="o">not</span> <span class="nx">node</span><span class="o">?</span> <span class="c1"># …</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">    <span class="c1">#… or `node.nodeType == DOCUMENT_FRAGMENT_NODE`</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>we deliberately enforce equality instead of identity</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">node</span> <span class="k">if</span> <span class="o">`</span><span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">DOCUMENT_NODE</span><span class="o">`</span>
 
-    <span class="k">return</span> <span class="nx">node</span><span class="p">.</span><span class="nx">ownerDocument</span> <span class="o">||</span> <span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="k">return</span> <span class="nx">node</span><span class="p">.</span><span class="nx">ownerDocument</span> <span class="o">||</span> <span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method appendChild</span></p>
 
-<p>#
-Creates a new text node in the given document.</p>
+<hr />
+
+<p>Appends a new child to the specified (parent) node.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>text must be a String.</strong><br/>(Text composing new text node.)</p></li>
-<li><p><strong>doc must be a Document.</strong><br/>(Target document.)</p></li>
+<li><p><strong>node must be an Element.</strong><br/>(The parent element)</p></li>
+<li><p><strong>child must be a Node.</strong><br/>(The child-node to append)</p></li>
 </ul>
 
-<p><strong>Returns a Text</strong><br/>(Newly constructed text node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">createTextNode: </span><span class="nf">(text, doc) -&gt;</span>
-    <span class="p">(</span><span class="nx">doc</span> <span class="o">||</span> <span class="nx">Document</span><span class="p">.</span><span class="nb">document</span><span class="p">).</span><span class="nx">createTextNode</span> <span class="nx">text</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a Node</strong><br/>(The newly appended node)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">appendChild: </span><span class="nf">(node, child) -&gt;</span>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">appendChild</span> <span class="nx">child</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method displayDefault</span></p>
 
-<p>#
-Appends a new child to the specified (parent) node.</p>
+<hr />
 
-<p>Parameters:</p>
-
-<ul>
-<li><p><strong>node must be an Element.</strong><br/>(Parent element.)</p></li>
-<li><p><strong>child must be a Node.</strong><br/>(Child node to append.)</p></li>
-</ul>
-
-<p><strong>Returns a Node</strong><br/>(Newly appended node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">appendChild: </span><span class="nf">(node, child) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">appendChild</span> <span class="nx">child</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>#
-Sets display to default.</p>
+<p>Sets display to default.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be an Element.</strong><br/>(The dom element to manipulate.)</li>
+<li><strong>node must be an Element.</strong><br/>(The DOM element to manipulate)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">displayDefault: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CSS_display</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">CSS_display</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method displayNone</span></p>
 
-<p>#
-Sets display to none. Doing this as a function saves a few bytes for
+<hr />
+
+<p>Sets display to none.  Doing this as a function saves a few bytes for
 the 'style.display' property and the 'none' literal.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be an Element.</strong><br/>(The dom element to manipulate.)</li>
+<li><strong>node must be an Element.</strong><br/>(The DOM element to manipulate)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">displayNone: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CSS_display</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;none&#39;</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">CSS_display</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;none&#39;</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method positionDefault</span></p>
 
-<p>#
-Sets position style attribute to default.</p>
+<hr />
+
+<p>Sets position style attribute to default.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be an Element.</strong><br/>(The dom element to manipulate.)</li>
+<li><strong>node must be an Element.</strong><br/>(The DOM element to manipulate)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">positionDefault: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CSS_position</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">CSS_position</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method positionAbsolute</span></p>
 
-<p>#
-Sets position style attribute to absolute.</p>
+<hr />
+
+<p>Sets position style attribute to absolute.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be an Element.</strong><br/>(The dom element to manipulate.)</li>
+<li><strong>node must be an Element.</strong><br/>(The DOM element to manipulate)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">positionAbsolute: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">CSS_position</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;absolute&#39;</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">CSS_position</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;absolute&#39;</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method insertBefore</span></p>
 
-<p>#
-Inserts a new child before a given sibling.</p>
+<hr />
 
-<p>Parameters:</p>
-
-<ul>
-<li><p><strong>newChild must be a Node.</strong><br/>(Node to insert.)</p></li>
-<li><p><strong>oldChild must be a Node.</strong><br/>(Sibling node.)</p></li>
-</ul>
-
-<p><strong>Returns a Node</strong><br/>(Reference to new child.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">insertBefore: </span><span class="nf">(newChild, oldChild) -&gt;</span>
-    <span class="nx">oldChild</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span> <span class="nx">newChild</span><span class="p">,</span> <span class="nx">oldChild</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>#
-Replaces an old child node with a new child node.</p>
+<p>Inserts a new child before a given sibling.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>newChild must be a Node.</strong><br/>(New child to append.)</p></li>
-<li><p><strong>oldChild must be a Node.</strong><br/>(Old child to remove.)</p></li>
+<li><p><strong>newChild must be a Node.</strong><br/>(The node to insert)</p></li>
+<li><p><strong>oldChild must be a Node.</strong><br/>(The sibling node)</p></li>
 </ul>
 
-<p><strong>Returns a Node</strong><br/>(Replaced node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">replaceChild: </span><span class="nf">(newChild, oldChild) -&gt;</span>
-    <span class="nx">oldChild</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">replaceChild</span> <span class="nx">newChild</span><span class="p">,</span> <span class="nx">oldChild</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a Node</strong><br/>(A reference to the new child)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">insertBefore: </span><span class="nf">(newChild, oldChild) -&gt;</span>
+    <span class="nx">oldChild</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span> <span class="nx">newChild</span><span class="p">,</span> <span class="nx">oldChild</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method replaceChild</span></p>
 
-<p>#
-Removes a node from the DOM.</p>
+<hr />
+
+<p>Replaces an old child node with a new child node.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(The node to remove.)</li>
+<li><p><strong>newChild must be a Node.</strong><br/>(The new child to append)</p></li>
+<li><p><strong>oldChild must be a Node.</strong><br/>(The old child to remove)</p></li>
 </ul>
 
-<p><strong>Returns a Node</strong><br/>(The removed node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">removeNode: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">Document</span><span class="p">.</span><span class="nx">removeChild</span> <span class="nx">node</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">node</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a Node</strong><br/>(The replaced node)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">replaceChild: </span><span class="nf">(newChild, oldChild) -&gt;</span>
+    <span class="nx">oldChild</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">replaceChild</span> <span class="nx">newChild</span><span class="p">,</span> <span class="nx">oldChild</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method removeNode</span></p>
 
-<p>#
-Remove a child from the specified (parent) node.</p>
+<hr />
+
+<p>Removes a node from the DOM.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong><br/>(Parent element.)</p></li>
-<li><p><strong>child must be a Node.</strong><br/>(Child node to remove.)</p></li>
+<li><strong>node must be a Node.</strong><br/>(The node to remove)</li>
 </ul>
 
-<p><strong>Returns a Node</strong><br/>(Removed node.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">removeChild: </span><span class="nf">(node, child) -&gt;</span>
+<p><strong>Returns a Node</strong><br/>(The removed node)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">removeNode: </span><span class="nf">(node) -&gt;</span>
+    <span class="nx">Document</span><span class="p">.</span><span class="nx">removeChild</span> <span class="nx">node</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">node</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method removeChild</span></p>
+
+<hr />
+
+<p>Remove a child from the specified (parent) node.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>node must be an Element.</strong><br/>(The parent element)</p></li>
+<li><p><strong>child must be a Node.</strong><br/>(The child-node to remove)</p></li>
+</ul>
+
+<p><strong>Returns a Node</strong><br/>(The removed node)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">removeChild: </span><span class="nf">(node, child) -&gt;</span>
     <span class="nx">node</span><span class="p">.</span><span class="nx">removeChild</span> <span class="nx">child</span></div></div></div></div></body></html>
