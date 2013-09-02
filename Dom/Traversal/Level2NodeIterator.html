@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level2NodeIterator</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level2NodeIterator"><meta name="groc-project-path" content="src/Dom/Traversal/Level2NodeIterator.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Dom/Traversal/Level2NodeIterator.coffee">src/Dom/Traversal/Level2NodeIterator.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#x61;i&#x6c;&#x74;o:s&#116;e&#x70;&#104;&#97;&#110;&#46;&#x6a;&#111;&#x72;&#101;&#107;&#64;&#103;m&#97;&#105;&#108;&#x2e;&#x63;&#111;m">s&#116;e&#x70;&#104;&#97;&#110;&#46;&#x6a;&#111;&#x72;&#101;&#107;&#64;&#103;m&#97;&#105;&#108;&#x2e;&#x63;&#111;m</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level2NodeIterator</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level2NodeIterator"><meta name="groc-project-path" content="src/Dom/Traversal/Level2NodeIterator.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Dom/Traversal/Level2NodeIterator.coffee">src/Dom/Traversal/Level2NodeIterator.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;:&#x73;&#x74;&#101;&#112;h&#97;n&#x2e;&#x6a;or&#101;&#x6b;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x73;&#x74;&#101;&#112;h&#97;n&#x2e;&#x6a;or&#101;&#x6b;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,20 +18,33 @@ permissions and limitations under the License.</p></div></div></div><div class="
   <span class="nx">ownerDocument</span>
 <span class="p">}}</span>              <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Document&#39;</span>
 
-<span class="p">{</span><span class="nx">Traversal</span><span class="p">}</span>     <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level2nodeiterator">Level2NodeIterator</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public class Level2NodeIterator extends goatee.Dom.Traversal, is in namespace <em>goatee.Dom.Traversal</em> and refers to <a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator">http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator</a></span></p>
+<span class="p">{</span><span class="nx">Traversal</span><span class="p">}</span>     <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level2nodeiterator">Level2NodeIterator</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public class Level2NodeIterator extends <em>goatee.Dom.Traversal</em> and is in namespace <em>goatee.Dom.Traversal</em></span></p>
 
 <hr />
 
 <p>A class to hold state for a DOM traversal.
-This implementation depends on <em>DOM Level ≥ 2</em>'s <code>NodeIterator</code>.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2NodeIterator = </span><span class="o">\</span>
-<span class="k">class</span> <span class="nx">Level2NodeIterator</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property filter is of type <em>Number</em>, refers to <a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter">http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter</a> and refers to <a href="https://developer.mozilla.org/en/DOM/NodeFilter#Filter_specification_constants">https://developer.mozilla.org/en/DOM/NodeFilter#Filter_specification_constants</a></span></p>
+This implementation depends on <em>DOM Level ≥ 2</em>'s <code>NodeIterator</code>.</p>
+
+<p>Reference:</p>
+
+<ul>
+<li><a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator">DOM Level 2 <code>NodeIterator</code> Interface-Specification</a></li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2NodeIterator = </span><span class="o">\</span>
+<span class="k">class</span> <span class="nx">Level2NodeIterator</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property filter is of type <em>Number</em></span></p>
 
 <hr />
 
 <blockquote>
   <p>Bitwise OR'd list of Filter specification constants from the NodeFilter
     DOM interface, indicating which nodes to iterate over.</p>
-</blockquote></div></div><div class="code"><div class="wrapper">  <span class="nv">filter: </span><span class="nx">NodeFilter</span><span class="p">.</span><span class="nx">SHOW_ELEMENT</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property options is of type <em>Object</em>, refers to <a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter">http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter</a> and refers to <a href="https://developer.mozilla.org/en-US/docs/DOM/NodeFilter">https://developer.mozilla.org/en-US/docs/DOM/NodeFilter</a></span></p>
+</blockquote>
+
+<p>References:</p>
+
+<ul>
+<li><p><a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter">DOM Level 2 <code>NodeFilter</code> Interface-Specification</a></p></li>
+<li><p><a href="https://developer.mozilla.org/en/DOM/NodeFilter#Filter_specification_constants"><code>NodeFilter</code> Constants</a></p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">filter: </span><span class="nx">NodeFilter</span><span class="p">.</span><span class="nx">SHOW_ELEMENT</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property options is of type <em>Object</em></span></p>
 
 <hr />
 
@@ -49,7 +62,14 @@ This implementation depends on <em>DOM Level ≥ 2</em>'s <code>NodeIterator</co
   }
 }
 </code></pre>
-</blockquote></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method run</span></p>
+</blockquote>
+
+<p>References:</p>
+
+<ul>
+<li><p><a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter">DOM Level 2 <code>NodeFilter</code> Interface-Specification</a></p></li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/DOM/NodeFilter"><code>NodeFilter</code> Documentation</a></p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method run</span></p>
 
 <hr />
 
@@ -75,7 +95,7 @@ This implementation depends on <em>DOM Level ≥ 2</em>'s <code>NodeIterator</co
 </ul>
 
 <p><strong>Returns a NodeIterator</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(root) -&gt;</span>
-    <span class="nx">@collect</span> <span class="nx">root</span><span class="p">,</span> <span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method collect refers to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createNodeIterator">https://developer.mozilla.org/en-US/docs/Web/API/Document.createNodeIterator</a></span></p>
+    <span class="nx">@collect</span> <span class="nx">root</span><span class="p">,</span> <span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method collect</span></p>
 
 <hr />
 
@@ -88,7 +108,13 @@ This implementation depends on <em>DOM Level ≥ 2</em>'s <code>NodeIterator</co
 <li><p><strong>doc must be a Document.</strong><br/>(Root's owner-document.)</p></li>
 </ul>
 
-<p><strong>Returns a NodeIterator</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(root, doc) -&gt;</span>
+<p><strong>Returns a NodeIterator</strong></p>
+
+<p>Reference:</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createNodeIterator"><code>createNodeIterator</code> Documentation</a></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(root, doc) -&gt;</span>
     <span class="nx">doc</span><span class="p">.</span><span class="nx">createNodeIterator</span><span class="p">(</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Node to use as root</p></div></div><div class="code"><div class="wrapper">      <span class="nx">root</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Only consider nodes that match this filter</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@filter</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Object containing the function to use as method of the NodeFilter</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@options</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-deprecated"><div class="wrapper"><p><span class='doc-section-header'>Deprecated</span></p>
 
 <blockquote>
