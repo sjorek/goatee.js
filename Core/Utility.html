@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Core/Utility</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Utility"><meta name="groc-project-path" content="src/Core/Utility.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Core/Utility.coffee">src/Core/Utility.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;:&#x73;&#116;e&#112;h&#x61;&#110;&#46;&#106;&#111;&#114;&#x65;&#x6b;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#x73;&#116;e&#112;h&#x61;&#110;&#46;&#106;&#111;&#114;&#x65;&#x6b;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a> <br />
+<!DOCTYPE html><html lang="en"><head><title>Core/Utility</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Utility"><meta name="groc-project-path" content="src/Core/Utility.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Core/Utility.coffee">src/Core/Utility.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;:&#115;t&#101;&#x70;&#x68;&#x61;&#x6e;&#x2e;&#x6a;&#x6f;&#114;e&#107;&#x40;g&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#115;t&#101;&#x70;&#x68;&#x61;&#x6e;&#x2e;&#x6a;&#x6f;&#114;e&#107;&#x40;g&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a> <br />
 © Copyright 2006 Google Inc. <a href="http://www.google.com">http://www.google.com</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,8 +29,8 @@ referenced in the main source files.</p>
 <p>Authors:</p>
 
 <ul>
-<li><p>Steffen Meschkat  (<a href="&#x6d;&#97;&#x69;&#108;t&#x6f;:&#109;&#101;&#115;&#x63;&#x68;&#x40;&#103;&#x6f;&#111;&#103;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;">&#109;&#101;&#115;&#x63;&#x68;&#x40;&#103;&#x6f;&#111;&#103;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;</a>)</p></li>
-<li><p>Stephan Jorek  (<a href="&#109;&#97;&#x69;&#108;&#116;&#111;:&#x73;&#x74;&#101;p&#104;&#97;&#110;&#x2e;&#106;&#x6f;re&#107;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x73;&#x74;&#101;p&#104;&#97;&#110;&#x2e;&#106;&#x6f;re&#107;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>)</p></li>
+<li><p>Steffen Meschkat  (<a href="&#x6d;&#x61;&#x69;&#x6c;t&#111;:&#109;&#101;&#115;&#99;&#104;&#x40;&#x67;&#x6f;&#x6f;&#x67;&#108;e&#x2e;&#x63;&#111;&#109;">&#109;&#101;&#115;&#99;&#104;&#x40;&#x67;&#x6f;&#x6f;&#x67;&#108;e&#x2e;&#x63;&#111;&#109;</a>)</p></li>
+<li><p>Stephan Jorek  (<a href="&#x6d;&#x61;&#105;l&#x74;&#x6f;:&#115;&#x74;&#x65;&#112;&#104;&#97;&#110;&#x2e;&#106;&#x6f;&#114;&#101;&#107;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#115;&#x74;&#x65;&#112;&#104;&#97;&#110;&#x2e;&#106;&#x6f;&#114;&#101;&#107;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;</a>)</p></li>
 </ul></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Utility = Utility =</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method isArray</span></p>
 
 <hr />
@@ -168,19 +168,7 @@ method is invoked with when invoking the bound function.</p>
 <ul>
 <li><code>testStringTrimRight();</code></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">trimRight: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimRight</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method camelize</span></p>
-
-<hr />
-
-<p>Converts “a-property-name” to “aPropertyName”</p>
-
-<p>Parameters:</p>
-
-<ul>
-<li><strong>string must be a String.</strong><br/>(Input string.)</li>
-</ul>
-
-<p><strong>Returns a String</strong><br/>(Camelized string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">camelize: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private</span></p>
+    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimRight</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><hr /></div></div><div class="code"><div class="wrapper">  <span class="nv">camelize: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private</span></p>
 
 <p>Internal camelize-helper function</p>
 
@@ -193,13 +181,9 @@ method is invoked with when invoking the bound function.</p>
 <li><p><strong>string must be a String.</strong></p></li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Camelized string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_camelize = </span><span class="nf">(match, char, index, string) -&gt;</span> <span class="nx">char</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>
+<p><strong>Returns a String</strong><br/>(Camelized string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_camelize = </span><span class="nf">(match, char, index, string) -&gt;</span> <span class="nx">char</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method camelize</span></p>
 
-    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_camelize</span><span class="p">,</span> <span class="nx">_camelize</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method dashify</span></p>
-
-<hr />
-
-<p>Converts “aPropertyName” to “a-property-name”</p>
+<p>Convert “a-property-name” to “aPropertyName”</p>
 
 <p>Parameters:</p>
 
@@ -207,7 +191,7 @@ method is invoked with when invoking the bound function.</p>
 <li><strong>string must be a String.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Dashed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">dashify: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private</span></p>
+<p><strong>Returns a String</strong><br/>(Camelized string.)</p></div></div><div class="code"><div class="wrapper">    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_camelize</span><span class="p">,</span> <span class="nx">_camelize</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><hr /></div></div><div class="code"><div class="wrapper">  <span class="nv">dashify: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private</span></p>
 
 <p>Internal dashify-helper function</p>
 
@@ -222,6 +206,14 @@ method is invoked with when invoking the bound function.</p>
 </ul>
 
 <p><strong>Returns a String</strong><br/>(Dashed string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_dashify  = </span><span class="nf">(match, char, camel, index, string) -&gt;</span>
-      <span class="nx">char</span> <span class="o">+</span> <span class="nx">CHAR_dash</span> <span class="o">+</span> <span class="nx">camel</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
+      <span class="nx">char</span> <span class="o">+</span> <span class="nx">CHAR_dash</span> <span class="o">+</span> <span class="nx">camel</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method dashify</span></p>
 
-    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_dashify</span><span class="p">,</span> <span class="nx">_dashify</span></div></div></div></div></body></html>
+<p>Convert “aPropertyName” to “a-property-name”</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>string must be a String.</strong><br/>(Input string.)</li>
+</ul>
+
+<p><strong>Returns a String</strong><br/>(Dashed string.)</p></div></div><div class="code"><div class="wrapper">    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_dashify</span><span class="p">,</span> <span class="nx">_dashify</span></div></div></div></div></body></html>
