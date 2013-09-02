@@ -1,5 +1,5 @@
 ###
-© Copyright 2013 [Stephan Jorek](stephan.jorek@gmail.com)
+© Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,25 +14,26 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Node}                  = require 'goatee/Core/Node'
-{Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
+{Node}                  = require 'goatee/Dom/Node'
+{Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal'
 
 exports = module?.exports ? this
 
-## Level4ElementChildNodesList
+## Level4ChildrenIterator
 
 # A class to hold state for a dom traversal.
 #
 # @class
 # @namespace goatee
-exports.Level4ElementChildrenIterator = \
-class Level4ElementChildrenIterator extends Level1NodeTypeMatcher
+exports.Level4ChildrenIterator = \
+class Level4ChildrenIterator extends Traversal
 
   ##
   # Collect children of the current node of the traversal
-  # @param {Node}    node  The current node of the traversal.
+  # @param  {Node}          node  The current node of the traversal.
+  # @return {Array.<Node>}        An array of child-nodes.
   collect: (node) ->
     child for child in node.children when `child.nodeType == Node.ELEMENT_NODE`
 
-Level4ElementChildrenIterator.create = (callback) ->
-  new Level4ElementChildrenIterator callback
+Level4ChildrenIterator.create = (callback) ->
+  new Level4ChildrenIterator callback

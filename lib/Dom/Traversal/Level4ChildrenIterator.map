@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Level4ChildrenIterator.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Traversal/Level4ChildrenIterator.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,mEAAA;KAAA;oSAAA;;CAAA,CAgBC,CAAyB,CAhB1B,GAgB0B,UAAA;;CAhB1B,CAiBC,CAAyB,IAAA,cAjB1B,CAiB0B;;CAjB1B,CAmBA,CAA4B,CAnB5B,GAmBA;;CAnBA,CA2BA,CACM,IADC,eAAP;CAOE;;;;;CAAA;;CAAA,EAAS,CAAA,GAAT,EAAU;CACR,SAAA,sBAAA;CAAA;CAAA;YAAA,gCAAA;2BAAA;IAAsC;CAAtC;UAAA;CAAA;uBADO;CAAT,IAAS;;CAAT;;CANmC;;CA5BrC,CAqCA,CAAgC,GAAhC,EAAgC,CAAC,aAAX;CACO,GAAvB,IAAA,GAAA,WAAA;CAtCN,EAqCgC;CArChC"
+}

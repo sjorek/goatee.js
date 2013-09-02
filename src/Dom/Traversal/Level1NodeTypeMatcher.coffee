@@ -1,5 +1,5 @@
 ###
-© Copyright 2013 [Stephan Jorek](stephan.jorek@gmail.com)
+© Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,57 +14,30 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Node} = require 'goatee/Core/Node'
+{Node:{
+  ELEMENT_NODE
+}}              = require '../Node'
+{Traversal}     = require '../Traversal'
 
 exports = module?.exports ? this
 
 ## Level1NodeTypeMatcher
 
 # A class to hold state for a dom traversal.
-# 
+#
 # @class
 # @namespace goatee
 exports.Level1NodeTypeMatcher = \
-class Level1NodeTypeMatcher extends Level1NodeTypeMatcher
-
-  ##
-  # @param {Function} callback A function, called on each node in the traversal.
-  # @constructor
-  constructor: (@callback) ->
-
-  ##
-  # Processes the dom tree in breadth-first order.
-  # @param {Node} root  The root node of the traversal.
-  run: (root) ->
-    @queue = [].concat(@prepare root)
-    @process @queue.shift() while @queue.length > 0
-    return
-
-  ##
-  # Create processing queue for a single root node.
-  #
-  # @param  {Node}  node  The root node of the traversal.
-  # @return {Array.<Node>}
-  prepare: (root) ->
-    if `root.nodeType == Node.DOCUMENT_FRAGMENT_NODE`
-      return @collect root
-    [ root ]
+class Level1NodeTypeMatcher extends Traversal
 
   ##
   # Processes a single node.
-  # @param {Node}    node  The current node of the traversal.
-  process: (node) ->
-    @callback(node)
-    @queue = @queue.concat(@collect(node))
-    return
-
-  ##
-  # Processes a single node.
-  # @param {Node}    node  The current node of the traversal.
+  # @param  {Node}          node  The current node of the traversal.
+  # @return {Array.<Node>}        An array of child-nodes.
   collect: (node) ->
     result = []
     `for (var child = node.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType == Node.ELEMENT_NODE) {
+        if (child.nodeType == ELEMENT_NODE) {
           result.push(child);
         }
       }`

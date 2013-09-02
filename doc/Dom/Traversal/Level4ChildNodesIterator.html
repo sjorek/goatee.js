@@ -10,13 +10,15 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="p">}</span>                  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Node&#39;</span>
-<span class="p">{</span><span class="nx">Level1NodeTypeMatcher</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Traversal/Level1NodeTypeMatcher&#39;</span>
+permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">ELEMENT_NODE</span>
+<span class="p">}}</span>                      <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Node&#39;</span>
+<span class="p">{</span><span class="nx">Level1NodeTypeMatcher</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level4elementchildnodeslist">Level4ElementChildNodesList</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class is in namespace <em>goatee</em></span></p>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level4childnodesiterator">Level4ChildNodesIterator</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class is in namespace <em>goatee</em></span></p>
 
 <p>A class to hold state for a dom traversal.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level4ChildNodesIterator = </span><span class="o">\</span>
-<span class="k">class</span> <span class="nx">Level4ChildNodesIterator</span> <span class="k">extends</span> <span class="nx">Level1NodeTypeMatcher</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<span class="k">class</span> <span class="nx">Level4ChildNodesIterator</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
 
 <p>#
 Collect children of the current node of the traversal</p>
@@ -25,7 +27,9 @@ Collect children of the current node of the traversal</p>
 
 <ul>
 <li><strong>node must be a Node.</strong><br/>(The current node of the traversal.)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
+</ul>
+
+<p><strong>Returns an Array.<Node></strong><br/>(An array of child-nodes.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">child</span> <span class="k">for</span> <span class="nx">child</span> <span class="k">in</span> <span class="nx">node</span><span class="p">.</span><span class="nx">childNodes</span> <span class="k">when</span> <span class="o">`</span><span class="nx">child</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">ELEMENT_NODE</span><span class="o">`</span>
 
 <span class="nv">Level4ChildNodesIterator.create = </span><span class="nf">(callback) -&gt;</span>

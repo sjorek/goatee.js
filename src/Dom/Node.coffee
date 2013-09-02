@@ -1,5 +1,5 @@
 ###
-© Copyright 2013 [Stephan Jorek](stephan.jorek@gmail.com)
+© Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,11 +16,18 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-## Node
+# --------------------------------
+# Node
+# ================================
 
 # Compatibility layer for Window-less environments
-# @see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
-exports.Node = Node ? {
+#
+# @public
+# @module     Node
+# @namespace  goatee.Dom
+# @type       {Object|Function}
+# @see        http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
+exports.Node = Node ? { # uses either an already available Node or
   ELEMENT_NODE                : 1
   ATTRIBUTE_NODE              : 2
   TEXT_NODE                   : 3

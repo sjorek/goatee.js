@@ -1,5 +1,5 @@
 ###
-© Copyright 2013 [Stephan Jorek](stephan.jorek@gmail.com)
+© Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,8 +14,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Document}           = require 'goatee/Dom/Document'
-{Level2NodeIterator} = require 'goatee/Dom/Visitor/Level2NodeIterator'
+{Level2NodeIterator} = require './Level2NodeIterator'
 
 exports = module?.exports ? this
 
@@ -29,12 +28,13 @@ exports.Level2TreeWalker = \
 class Level2TreeWalker extends Level2NodeIterator
 
   ##
-  # Create TreeWalker instance for a single root node.
+  # Create node iterator for a single root node.
   #
-  # @param {Node} root  The root node of the traversal.
+  # @param  {Node}      root  The root node of the traversal.
+  # @param  {Document}  doc   Root's owner-document.
   # @return {TreeWalker}
-  prepare: (root) ->
-    doc.ownerDocument(root).createTreeWalker(
+  collect: (root, doc) ->
+    doc.createTreeWalker(
       # Node to use as root
       root,
 

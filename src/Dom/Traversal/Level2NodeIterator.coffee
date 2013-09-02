@@ -1,5 +1,5 @@
 ###
-© Copyright 2013 [Stephan Jorek](stephan.jorek@gmail.com)
+© Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,8 +14,13 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Document} = require 'goatee/Dom/Document'
-{Node}     = require 'goatee/Core/Node'
+{Node:{
+  DOCUMENT_NODE
+}}              = require '../Node'
+{Document:{
+  ownerDocument
+}}              = require '../Document'
+{Traversal}     = require '../Traversal'
 
 exports = module?.exports ? this
 
@@ -26,7 +31,7 @@ exports = module?.exports ? this
 # @class
 # @namespace goatee
 exports.Level2NodeIterator = \
-class Level2NodeIterator
+class Level2NodeIterator extends Traversal
 
   ##
   # @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter
@@ -48,17 +53,29 @@ class Level2NodeIterator
   options: null
 
   ##
-  # @param {Function} callback A function, called on each node in the traversal.
-  # @constructor
-  constructor: (@callback) ->
+  # Processes the dom tree in breadth-first order.
+  # @param {Node} root  The root node of the traversal.
+  # @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator
+  run: (root) ->
+    @process root, @prepare root
+    return this
 
   ##
-  # Create node iterator for a single root node.
+  # Prepare the node iterator for a single root node.
   #
   # @param {Node} root  The root node of the traversal.
   # @return {NodeIterator}
   prepare: (root) ->
-    doc.ownerDocument(root).createNodeIterator(
+    @collect root, ownerDocument(root)
+
+  ##
+  # Create node iterator for a single root node.
+  #
+  # @param  {Node}      root  The root node of the traversal.
+  # @param  {Document}  doc   Root's owner-document.
+  # @return {NodeIterator}
+  collect: (root, doc) ->
+    doc.createNodeIterator(
       # Node to use as root
       root,
 
@@ -71,14 +88,13 @@ class Level2NodeIterator
       false
     )
 
+
   ##
-  # Processes the dom tree in breadth-first order.
-  # @param {Node} root  The root node of the traversal.
-  # @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator
-  run: (root) ->
-    @iterator = @prepare root
-    @callback root if `root.nodeType == Node.DOCUMENT_NODE`
-    @callback node while node = @iterator.nextNode()
+  # Processes a single node.
+  # @param {NodeIterator}    node  The current node of the traversal.
+  process: (iterator) ->
+    @callback root if `root.nodeType == DOCUMENT_NODE`
+    @callback node while node = iterator.nextNode()
     return
 
 Level2NodeIterator.create = (callback) ->

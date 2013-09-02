@@ -1,5 +1,5 @@
 ###
-© Copyright 2013 [Stephan Jorek](stephan.jorek@gmail.com)
+© Copyright 2013 Stephan Jorek <stephan.jorek@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal/Level1NodeTypeMatcher'
+{Level1NodeTypeMatcher} = require '../Traversal'
 
 exports = module?.exports ? this
 
@@ -25,11 +25,12 @@ exports = module?.exports ? this
 # @class
 # @namespace goatee
 exports.GeckoElementTraversal = \
-class GeckoElementTraversal extends Level1NodeTypeMatcher
+class GeckoElementTraversal extends Traversal
 
   ##
   # Processes a single node.
-  # @param {Node}    node  The current node of the traversal.
+  # @param  {Node}          node  The current node of the traversal.
+  # @return {Array.<Node>}        An array of child-nodes.
   collect: (node) ->
     result = []
     `for (var child = node.firstElementChild; child; child = child.nextElementSibling) {
