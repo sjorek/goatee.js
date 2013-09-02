@@ -17,10 +17,10 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-# --------------------------------
 # Constants
 # ================================
 
+# --------------------------------
 # A class providing static string properties, to avoid subsequent object
 # creation.  This raises Internet Explorer ≤ 8 performance and saves memory.
 #

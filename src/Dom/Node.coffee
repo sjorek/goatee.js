@@ -16,18 +16,19 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-# --------------------------------
 # Node
 # ================================
 
-# Compatibility layer for Window-less environments
+# --------------------------------
+# Compatibility layer for Window-less environments.  It references either an
+# already available Node implementation or provides a simple map of node-types.
 #
 # @public
 # @module     Node
 # @namespace  goatee.Dom
-# @type       {Object|Function}
+# @type       {Object}
 # @see        http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
-exports.Node = Node ? { # uses either an already available Node or
+exports.Node = Node ? {
   ELEMENT_NODE                : 1
   ATTRIBUTE_NODE              : 2
   TEXT_NODE                   : 3

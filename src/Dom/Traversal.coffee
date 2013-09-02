@@ -14,53 +14,74 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-{Node} = require 'goatee/Dom/Node'
+{Node:{
+  DOCUMENT_FRAGMENT_NODE
+}} = require 'goatee/Dom/Node'
 
 exports = module?.exports ? this
 
-## Traversal
+# Traversal
+# ================================
 
+# --------------------------------
 # An abstract class to hold state for a DOM traversal.
 #
-# @class
-# @namespace goatee
+# @abstract
+# @public
+# @class Traversal
+# @namespace goatee.Dom
 exports.Traversal = class Traversal
 
-  ##
-  # @param {Function} callback A function, called on each node in the traversal.
+  # --------------------------------
+  #
+  # @param  {Function}  callback  A function, called for each traversed node.
   # @constructor
   constructor: (@callback) ->
 
-  ##
-  # Processes the dom tree in breadth-first order.
-  # @param {Node} root  The root node of the traversal.
+  # --------------------------------
+  # Processes the DOM tree in breadth-first order.
+  #
+  # @public
+  # @method run
+  # @param  {Node}  root  The root node of the traversal.
   # @return {goatee.Dom.Traversal}
   run: (root) ->
-    @queue = [].concat(@prepare root)
-    @process @queue.shift() while @queue.length > 0
+    @queue = @prepare root
+    @queue = @process @queue.shift() while @queue.length > 0
     return this
 
-  ##
+  # --------------------------------
   # Create processing queue for a single root node.
   #
+  # @public
+  # @method prepare
   # @param  {Node}  node  The root node of the traversal.
   # @return {Array.<Node>}
   prepare: (root) ->
-    if root.nodeType is Node.DOCUMENT_FRAGMENT_NODE
+    # We deliberately enforce equality instead of identity here.
+    if `root.nodeType == DOCUMENT_FRAGMENT_NODE`
       return @collect root
     [ root ]
 
-  ##
+  # --------------------------------
   # Processes a single node.
-  # @param {Node}    node  The current node of the traversal.
-  # @return {goatee.Dom.Traversal}
+  #
+  # @public
+  # @method process
+  # @param  {Node}  node  The current node of the traversal.
+  # @return {Array.<Node>}
   process: (node) ->
     @callback(node)
-    @queue = @queue.concat(@collect(node))
-    return this
+    @queue.concat @collect node
 
-  ##
-  # Processes a single node.
-  # @param {Node}    node  The current node of the traversal.
+  # --------------------------------
+  # Collect a single node's immediate child-nodes.
+  #
+  # @abstract
+  # @public
+  # @method collect
+  # @param  {Node}  node    The current node of the traversal.
+  # @return {Array.<Node>}
+  # @throws {Exception}     If “collect”-method implementation is missing.
   collect: (node) ->
     throw new Exception('Missing “collect”-method implementation')

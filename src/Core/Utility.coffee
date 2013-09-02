@@ -27,10 +27,10 @@ permissions and limitations under the License.
 
 exports = module?.exports ? this
 
-# --------------------------------
 # Utility
 # ================================
-#
+
+# --------------------------------
 # This objeect provides a collection of miscellaneous utility functions
 # referenced in the main source files.
 #

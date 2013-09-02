@@ -287,7 +287,7 @@ exports.Document = Document =
     return doc || Document.document if not node? # …
     #!… or `node.nodeType == DOCUMENT_FRAGMENT_NODE`
 
-    # we deliberately enforce equality instead of identity
+    # We deliberately enforce equality instead of identity here.
     return node if `node.nodeType == DOCUMENT_NODE`
 
     return node.ownerDocument || doc || Document.document
