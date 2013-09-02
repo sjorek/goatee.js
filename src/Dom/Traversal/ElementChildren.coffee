@@ -33,10 +33,10 @@ exports = module?.exports ? this
 # This implementation depends on *DOM*'s native `Element.children`.
 #
 # @public
-# @class ElementChildren
-# @extends goatee.Dom.Traversal
-# @namespace goatee.Dom.Traversal
-# @see http://dom.spec.whatwg.org/#dom-parentnode-children
+# @class      ElementChildren
+# @extends    goatee.Dom.Traversal
+# @namespace  goatee.Dom.Traversal
+# @see        [`children` Attribute-Specification](http://dom.spec.whatwg.org/#dom-parentnode-children)
 exports.ElementChildren = \
 class ElementChildren extends Traversal
 
@@ -47,7 +47,7 @@ class ElementChildren extends Traversal
   # @method collect
   # @param  {Node}          node  The current node of the traversal.
   # @return {Array.<Node>}        An array of child-nodes.
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/ParentNode.children
+  # @see    [`children` Attribute-Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode.children)
   collect: (node) ->
     # Internet Explorer 6-8 supported it, but erroneously include Comment nodes.
     # We deliberately enforce equality instead of identity here.

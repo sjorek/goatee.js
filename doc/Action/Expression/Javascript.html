@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Javascript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Action/Expression/Javascript"><meta name="groc-project-path" content="src/Action/Expression/Javascript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Javascript.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;:&#x73;&#116;e&#x70;&#x68;&#x61;&#110;&#46;&#x6a;o&#114;&#101;&#107;&#64;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#x73;&#116;e&#x70;&#x68;&#x61;&#110;&#46;&#x6a;o&#114;&#101;&#107;&#64;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;</a> <br />
+<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Javascript</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Action/Expression/Javascript"><meta name="groc-project-path" content="src/Action/Expression/Javascript.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Expression/Javascript.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="m&#x61;&#105;&#108;&#x74;&#x6f;:&#115;&#116;&#101;&#x70;&#104;a&#x6e;&#x2e;&#x6a;&#x6f;&#x72;&#x65;&#x6b;&#x40;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#109;">&#115;&#116;&#101;&#x70;&#104;a&#x6e;&#x2e;&#x6a;&#x6f;&#x72;&#x65;&#x6b;&#x40;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#109;</a> <br />
 © Copyright 2006 Google Inc. <a href="http://www.google.com">http://www.google.com</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,7 +37,7 @@ permissions and limitations under the License.</p></div></div><div class="code">
 <li><strong>expression must be a String.</strong></li>
 </ul>
 
-<p><strong>Returns an Object or an ull</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluate: </span><span class="nf">(expression) -&gt;</span>
+<p><strong>Returns an Object or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluate: </span><span class="nf">(expression) -&gt;</span>
     <span class="k">try</span>
       <span class="nx">@evaluateExpression</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span>
     <span class="k">catch</span> <span class="nx">e</span>
@@ -56,7 +56,7 @@ code and returns null if the eval throws an exception.</p></div></div></div><div
 <li><strong>expression must be a String.</strong></li>
 </ul>
 
-<p><strong>Returns an Object or an ull</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): An alternative idiom would be:</p>
+<p><strong>Returns an Object or a null</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): An alternative idiom would be:</p>
 
 <p>eval('(' + expr + ')');</p>
 

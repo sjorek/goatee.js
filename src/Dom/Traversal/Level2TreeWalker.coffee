@@ -29,10 +29,10 @@ exports = module?.exports ? this
 # This implementation depends on *DOM Level ≥ 2*'s `TreeWalker`.
 #
 # @public
-# @class Level2TreeWalker
-# @extends goatee.Dom.Traversal
-# @namespace goatee.Dom.Traversal
-# @see https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+# @class      Level2TreeWalker
+# @extends    goatee.Dom.Traversal
+# @namespace  goatee.Dom.Traversal
+# @see        [`TreeWalker` Documentation](https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker)
 exports.Level2TreeWalker = \
 class Level2TreeWalker extends Level2NodeIterator
 
@@ -46,7 +46,7 @@ class Level2TreeWalker extends Level2NodeIterator
   # @param  {Node}      root  The root node of the traversal.
   # @param  {Document}  doc   Root's owner-document.
   # @return {TreeWalker}
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createTreeWalker
+  # @see    [`createTreeWalker` Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document.createTreeWalker)
   collect: (root, doc) ->
     doc.createTreeWalker(
       # Node to use as root

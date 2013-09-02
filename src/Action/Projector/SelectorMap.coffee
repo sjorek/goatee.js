@@ -30,7 +30,7 @@ exports.SelectorMap = class SelectorMap extends Processor
   _emitter       = null
 
   ##
-  # @param {Node} The current node to process
-  # @return {Array.<goatee.Action.Outer|goatee.Action.Inner>}
+  # @param  {Node} The current node to process
+  # @return {Array.<goatee.Action.Outer,goatee.Action.Inner>}
   collect: (node) ->
     (_emitter ? _emitter = Emitter.create this).collect(node)

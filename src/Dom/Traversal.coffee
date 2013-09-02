@@ -30,8 +30,8 @@ exports = module?.exports ? this
 #
 # @abstract
 # @public
-# @class Traversal
-# @namespace goatee.Dom
+# @class      Traversal
+# @namespace  goatee.Dom
 exports.Traversal = class Traversal
 
   # --------------------------------

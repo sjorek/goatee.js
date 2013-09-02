@@ -114,12 +114,12 @@ exports.Utility = Utility =
   # @static
   # @public
   # @method bind
-  # @param  {Object|null}   [object=null]   If object isn't `null` it becomes
-  #                                         the method's call target to bind to.
-  # @param  {Function}      method          The target method to bind.
-  # @param  {Mixed...}      [args]          The arguments to bind.
-  # @return {Function}                      Method with the target object bound,
-  #                                         and curried with provided arguments.
+  # @param  {Object|null}   [object]  If object isn't `null` it becomes the
+  #                                   method's call target to bind to.
+  # @param  {Function}      method    The target method to bind.
+  # @param  {Mixed...}      [args]    The arguments to bind.
+  # @return {Function}                Method with the target object bound and
+  #                                   curried with provided arguments.
   bind: (object, method, args...) ->
     return -> method.apply(object, args)
 

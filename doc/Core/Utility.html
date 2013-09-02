@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Core/Utility</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Utility"><meta name="groc-project-path" content="src/Core/Utility.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Core/Utility.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;&#105;&#108;t&#x6f;:&#115;&#x74;&#101;&#x70;&#x68;&#x61;&#x6e;.&#106;&#x6f;&#114;&#101;&#107;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#115;&#x74;&#101;&#x70;&#x68;&#x61;&#x6e;.&#106;&#x6f;&#114;&#101;&#107;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a> <br />
+<!DOCTYPE html><html lang="en"><head><title>Core/Utility</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Utility"><meta name="groc-project-path" content="src/Core/Utility.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Core/Utility.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;:&#x73;&#x74;&#x65;&#112;h&#97;&#x6e;&#x2e;&#106;&#111;&#114;&#x65;&#107;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#x74;&#x65;&#112;h&#97;&#x6e;&#x2e;&#106;&#111;&#114;&#x65;&#107;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a> <br />
 © Copyright 2006 Google Inc. <a href="http://www.google.com">http://www.google.com</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,12 +19,19 @@ permissions and limitations under the License.</p></div></div></div><div class="
   <span class="nx">REGEXP_trimRight</span><span class="p">,</span>
   <span class="nx">REGEXP_camelize</span><span class="p">,</span>
   <span class="nx">REGEXP_dashify</span>
-<span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;./Constants&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="utility">Utility</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public module Utility is in namespace <em>goatee.Core</em>, is of type <em>Object</em> and is authored by Steffen Meschkat  <a href="&#109;&#x61;&#x69;&#108;&#116;&#x6f;:&#x6d;&#101;&#x73;&#99;&#x68;&#x40;&#x67;&#111;&#111;g&#x6c;&#101;&#x2e;c&#x6f;&#x6d;">&#x6d;&#101;&#x73;&#99;&#x68;&#x40;&#x67;&#111;&#111;g&#x6c;&#101;&#x2e;c&#x6f;&#x6d;</a> and Stephan Jorek     <a href="&#109;&#97;&#105;&#x6c;&#116;&#111;:&#x73;t&#x65;&#x70;&#x68;&#x61;&#x6e;&#46;&#106;&#111;&#114;&#x65;&#107;&#x40;&#103;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#x6d;">&#x73;t&#x65;&#x70;&#x68;&#x61;&#x6e;&#46;&#106;&#111;&#114;&#x65;&#107;&#x40;&#103;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#x6d;</a></span></p>
+<span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;./Constants&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="utility">Utility</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public module Utility is in namespace <em>goatee.Core</em> and is of type <em>Object</em></span></p>
 
 <hr />
 
 <p>This objeect provides a collection of miscellaneous utility functions
-referenced in the main source files.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Utility = Utility =</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method isArray</span></p>
+referenced in the main source files.</p>
+
+<p>Authors:</p>
+
+<ul>
+<li><p>Steffen Meschkat  (<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;:&#x6d;&#101;&#x73;&#99;&#x68;&#x40;&#x67;o&#111;&#x67;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;">&#x6d;&#101;&#x73;&#99;&#x68;&#x40;&#x67;o&#111;&#x67;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a>)</p></li>
+<li><p>Stephan Jorek  (<a href="&#x6d;&#97;&#x69;&#108;&#116;o:&#x73;&#116;&#x65;&#x70;&#104;&#x61;&#x6e;&#x2e;&#106;&#111;&#114;&#101;&#107;&#64;&#x67;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#x73;&#116;&#x65;&#x70;&#104;&#x61;&#x6e;&#x2e;&#106;&#111;&#114;&#101;&#107;&#64;&#x67;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;</a>)</p></li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Utility = Utility =</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method isArray</span></p>
 
 <hr />
 
@@ -97,13 +104,13 @@ method is invoked with when invoking the bound function.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>object is optional, can be an Object or an ull and has a default value of null.</strong><br/>(If object isn't <code>null</code> it becomes the method's call target to bind to.)</p></li>
+<li><p><strong>object is optional and can be an Object or an ull.</strong><br/>(If object isn't <code>null</code> it becomes the method's call target to bind to.)</p></li>
 <li><p><strong>method must be a Function.</strong><br/>(The target method to bind.)</p></li>
 <li><p><strong>args is optional and can be any number of arguments of any type.</strong><br/>(The arguments to bind.)</p></li>
 </ul>
 
-<p><strong>Returns a Function</strong><br/>(Method with the target object bound, and curried with provided arguments.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">bind: </span><span class="nf">(object, method, args...) -&gt;</span>
-    <span class="k">return</span> <span class="nf">-&gt;</span> <span class="nx">method</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trim refers to &lt;<code>testStringTrim();</code>></span></p>
+<p><strong>Returns a Function</strong><br/>(Method with the target object bound and curried with provided arguments.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">bind: </span><span class="nf">(object, method, args...) -&gt;</span>
+    <span class="k">return</span> <span class="nf">-&gt;</span> <span class="nx">method</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trim</span></p>
 
 <hr />
 
@@ -115,9 +122,15 @@ method is invoked with when invoking the bound function.</p>
 <li><strong>string must be a String.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trim: </span><span class="k">if</span> <span class="nb">String</span><span class="o">::</span><span class="nx">trim</span><span class="o">?</span>
+<p><strong>Returns a String</strong><br/>(Trimmed string.)</p>
+
+<p>Reference:</p>
+
+<ul>
+<li><code>testStringTrim();</code></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">trim: </span><span class="k">if</span> <span class="nb">String</span><span class="o">::</span><span class="nx">trim</span><span class="o">?</span>
   <span class="k">then</span> <span class="nf">(string) -&gt;</span> <span class="p">(</span><span class="nx">string</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span>
-  <span class="k">else</span> <span class="nf">(string) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative: <code>Utility.trimRight(Utility.trimLeft(string));</code></p></div></div><div class="code"><div class="wrapper">    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trim</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trimLeft refers to &lt;<code>testStringTrimLeft();</code>></span></p>
+  <span class="k">else</span> <span class="nf">(string) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative: <code>Utility.trimRight(Utility.trimLeft(string));</code></p></div></div><div class="code"><div class="wrapper">    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trim</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trimLeft</span></p>
 
 <hr />
 
@@ -129,8 +142,14 @@ method is invoked with when invoking the bound function.</p>
 <li><strong>string must be a String.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Left trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trimLeft: </span><span class="nf">(string) -&gt;</span>
-    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimLeft</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trimRight refers to &lt;<code>testStringTrimRight();</code>></span></p>
+<p><strong>Returns a String</strong><br/>(Left trimmed string.)</p>
+
+<p>Reference:</p>
+
+<ul>
+<li><code>testStringTrimLeft();</code></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">trimLeft: </span><span class="nf">(string) -&gt;</span>
+    <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimLeft</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method trimRight</span></p>
 
 <hr />
 
@@ -142,7 +161,13 @@ method is invoked with when invoking the bound function.</p>
 <li><strong>string must be a String.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a String</strong><br/>(Right trimmed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">trimRight: </span><span class="nf">(string) -&gt;</span>
+<p><strong>Returns a String</strong><br/>(Right trimmed string.)</p>
+
+<p>Reference:</p>
+
+<ul>
+<li><code>testStringTrimRight();</code></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">trimRight: </span><span class="nf">(string) -&gt;</span>
     <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_trimRight</span><span class="p">,</span> <span class="s">&#39;&#39;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method camelize</span></p>
 
 <hr />

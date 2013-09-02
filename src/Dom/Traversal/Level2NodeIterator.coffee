@@ -37,10 +37,10 @@ exports = module?.exports ? this
 # This implementation depends on *DOM Level ≥ 2*'s `NodeIterator`.
 #
 # @public
-# @class Level2NodeIterator
-# @extends goatee.Dom.Traversal
-# @namespace goatee.Dom.Traversal
-# @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator
+# @class      Level2NodeIterator
+# @extends    goatee.Dom.Traversal
+# @namespace  goatee.Dom.Traversal
+# @see        [DOM Level 2 `NodeIterator` Interface-Specification](http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeIterator)
 exports.Level2NodeIterator = \
 class Level2NodeIterator extends Traversal
 
@@ -50,9 +50,9 @@ class Level2NodeIterator extends Traversal
   #
   # @public
   # @property filter
-  # @type {Number}
-  # @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter
-  # @see https://developer.mozilla.org/en/DOM/NodeFilter#Filter_specification_constants
+  # @type     {Number}
+  # @see      [DOM Level 2 `NodeFilter` Interface-Specification](http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter)
+  # @see      [`NodeFilter` Constants](https://developer.mozilla.org/en/DOM/NodeFilter#Filter_specification_constants)
   filter: NodeFilter.SHOW_ELEMENT
 
   # --------------------------------
@@ -71,9 +71,9 @@ class Level2NodeIterator extends Traversal
   # 
   # @public
   # @property options
-  # @type {Object}
-  # @see http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter
-  # @see https://developer.mozilla.org/en-US/docs/DOM/NodeFilter
+  # @type     {Object}
+  # @see      [DOM Level 2 `NodeFilter` Interface-Specification](http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter)
+  # @see      [`NodeFilter` Documentation](https://developer.mozilla.org/en-US/docs/DOM/NodeFilter)
   options: null
 
   # --------------------------------
@@ -104,7 +104,7 @@ class Level2NodeIterator extends Traversal
   # @param  {Node}      root  The root node of the traversal.
   # @param  {Document}  doc   Root's owner-document.
   # @return {NodeIterator}
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createNodeIterator
+  # @see    [`createNodeIterator` Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document.createNodeIterator)
   collect: (root, doc) ->
     doc.createNodeIterator(
 

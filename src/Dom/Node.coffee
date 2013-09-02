@@ -28,7 +28,7 @@ exports = module?.exports ? this
 # @module     Node
 # @namespace  goatee.Dom
 # @type       {Object}
-# @see        http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html
+# @see        [`Node` Interface-Specification](http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1950641247)
 exports.Node = Node ? {
   ELEMENT_NODE                : 1
   ATTRIBUTE_NODE              : 2

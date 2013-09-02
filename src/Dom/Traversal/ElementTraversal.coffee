@@ -26,22 +26,17 @@ exports = module?.exports ? this
 # --------------------------------
 # A class to hold state for a DOM traversal.
 #
-# This implementation depends on the `ElementTraversal`-interface providing:
-#
-#     node.firstElementChild
-#
-# and:
-#
-#     node.nextElementSibling
+# This implementation depends on the `ElementTraversal`-interface providing
+# `node.firstElementChild` and `node.nextElementSibling`.
 #
 # @public
-# @class ElementTraversal
-# @extends goatee.Dom.Traversal
-# @namespace goatee.Dom.Traversal
-# @see http://dom.spec.whatwg.org/#dom-parentnode-firstelementchild
-# @see http://dom.spec.whatwg.org/#dom-childnode-nextelementsibling
-# @see http://www.w3.org/TR/ElementTraversal/#attribute-firstElementChild
-# @see http://www.w3.org/TR/ElementTraversal/#attribute-nextElementSibling
+# @class      ElementTraversal
+# @extends    goatee.Dom.Traversal
+# @namespace  goatee.Dom.Traversal
+# @see        [`firstElementChild` Interface-Specification](http://dom.spec.whatwg.org/#dom-parentnode-firstelementchild)
+# @see        [`firstElementChild` Attribute-Specification](http://www.w3.org/TR/ElementTraversal/#attribute-firstElementChild)
+# @see        [`nextElementSibling` Interface-Specification](http://dom.spec.whatwg.org/#dom-childnode-nextelementsibling)
+# @see        [`nextElementSibling` Attribute-Specification](http://www.w3.org/TR/ElementTraversal/#attribute-nextElementSibling)
 exports.ElementTraversal = \
 class ElementTraversal extends Traversal
 
@@ -52,8 +47,8 @@ class ElementTraversal extends Traversal
   # @method collect
   # @param  {Node}  node    The current node of the traversal
   # @return {Array.<Node>}
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/ElementTraversal.firstElementChild
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/ElementTraversal.nextElementSibling
+  # @see    [`firstElementChild` Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ElementTraversal.firstElementChild)
+  # @see    [`nextElementSibling` Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ElementTraversal.nextElementSibling)
   collect: (node) ->
     result = []
     # Internet Explorer 6-8 supported it, but erroneously include Comment nodes.

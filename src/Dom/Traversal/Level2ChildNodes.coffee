@@ -33,12 +33,12 @@ exports = module?.exports ? this
 # This implementation depends on *DOM Level ≥ 2*'s `Node.childNodes`.
 #
 # @public
-# @class Level2ChildNodes
-# @extends goatee.Dom.Traversal
-# @namespace goatee.Dom.Traversal
-# @see http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1451460987
-# @see http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-1451460987
-# @see http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-536297177
+# @class      Level2ChildNodes
+# @extends    goatee.Dom.Traversal
+# @namespace  goatee.Dom.Traversal
+# @see        [DOM Level 2 `Node` Interface-Specification](http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1451460987)
+# @see        [DOM Level 3 `Node` Interface-Specification](http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-1451460987)
+# @see        [DOM Level 3 `NodeList` Interface-Specification](http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-536297177)
 exports.Level2ChildNodes = \
 class Level2ChildNodes extends Traversal
 
@@ -49,7 +49,7 @@ class Level2ChildNodes extends Traversal
   # @method collect
   # @param  {Node}          node  The current node of the traversal.
   # @return {Array.<Node>}        An array of child-nodes.
-  # @see https://developer.mozilla.org/de/docs/DOM/Node.childNodes
+  # @see    [`childNodes` Attribute-Documentation](https://developer.mozilla.org/de/docs/DOM/Node.childNodes)
   collect: (node) ->
     # We deliberately enforce equality instead of identity here.
     child for child in node.childNodes when `child.nodeType == Node.ELEMENT_NODE`

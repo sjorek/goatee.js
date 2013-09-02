@@ -30,18 +30,13 @@ exports = module?.exports ? this
 # --------------------------------
 # A class to hold state for a DOM traversal.
 #
-# This implementation depends on *DOM Level ≥ 1 Core* providing:
-#
-#     node.firstChild
-#
-# and:
-#
-#     node.nextChild
+# This implementation depends on *DOM Level ≥ 1 Core* providing
+# `node.firstChild` and `node.nextChild`.
 #
 # @public
-# @class Level1NodeTypeMatcher
-# @extends goatee.Dom.Traversal
-# @namespace goatee.Dom.Traversal
+# @class      Level1NodeTypeMatcher
+# @extends    goatee.Dom.Traversal
+# @namespace  goatee.Dom.Traversal
 exports.Level1NodeTypeMatcher = \
 class Level1NodeTypeMatcher extends Traversal
 
@@ -52,8 +47,8 @@ class Level1NodeTypeMatcher extends Traversal
   # @method collect
   # @param  {Node}  node    The current node of the traversal
   # @return {Array.<Node>}
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/Node.firstChild
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/Node.nextSibling
+  # @see    [`firstChild` Attribute-Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node.firstChild)
+  # @see    [`nextSibling` Attribute-Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node.nextSibling)
   collect: (node) ->
     result = []
     # We deliberately enforce equality instead of identity here.
