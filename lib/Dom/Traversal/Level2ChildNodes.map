@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Level2ChildNodes.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Traversal/Level2ChildNodes.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,qEAAA;KAAA;oSAAA;;CAAA,CAkBE,CACwB,IAAA,EAAA,GAnB1B;;CAAA,CAqBC,CAAyB,IAAA,OAAA,OArB1B;;CAAA,CAwBA,CAA4B,CAxB5B,GAwBA;;CAxBA,CAyCA,CACM,IADC,SAAP;CAWE;;;;;CAAA;;CAAA,EAAS,CAAA,GAAT,EAAU;CAER,SAAA,sBAAA;CAAA;CAAA;YAAA,gCAAA;2BAAA;IAAwC;CAAxC;UAAA;CAAA;uBAFO;CAAT,IAAS;;CAAT,EAYS,CAAT,EAAA,EAAS,CAAC,OAAT;CACsB,GAAjB,IAAA,KAAA,GAAA;CAbN,IAYS;;CAZT;;CAV6B;CA1C/B"
+}

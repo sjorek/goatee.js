@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Dom/Traversal"><meta name="groc-project-path" content="src/Dom/Traversal.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;&#x69;&#x6c;&#116;o:&#115;&#116;e&#112;&#104;&#x61;&#x6e;&#46;&#x6a;&#111;&#114;&#x65;&#x6b;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#115;&#116;e&#112;&#104;&#x61;&#x6e;&#46;&#x6a;&#111;&#114;&#x65;&#x6b;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Dom/Traversal"><meta name="groc-project-path" content="src/Dom/Traversal.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;o:&#x73;t&#101;&#112;&#104;&#x61;&#x6e;&#x2e;&#106;&#x6f;&#x72;&#101;&#107;&#x40;&#103;&#109;a&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#x73;t&#101;&#112;&#104;&#x61;&#x6e;&#x2e;&#106;&#x6f;&#x72;&#101;&#107;&#x40;&#103;&#109;a&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -10,11 +10,9 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
   <span class="nx">DOCUMENT_FRAGMENT_NODE</span>
-<span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Node&#39;</span>
-
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="traversal">Traversal</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public class Traversal is in namespace <em>goatee.Dom</em></span></p>
+<span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Node&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="traversal">Traversal</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public class Traversal is in namespace <em>goatee.Dom</em></span></p>
 
 <hr />
 
@@ -22,10 +20,12 @@ permissions and limitations under the License.</p></div></div><div class="code">
 
 <hr />
 
+<p>Constructs the <code>Traversal</code>-instance.</p>
+
 <p>Parameters:</p>
 
 <ul>
-<li><strong>callback must be a Function.</strong><br/>(A function, called for each traversed node.)</li>
+<li><strong>callback must be a Function.</strong><br/>(A function, called for each traversed node)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@callback) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method run</span></p>
 
 <hr />
@@ -35,7 +35,7 @@ permissions and limitations under the License.</p></div></div><div class="code">
 <p>Parameters:</p>
 
 <ul>
-<li><strong>root must be a Node.</strong><br/>(The root node of the traversal.)</li>
+<li><strong>root must be a Node.</strong><br/>(The root node of the traversal)</li>
 </ul>
 
 <p><strong>Returns a goatee.Dom.Traversal</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(root) -&gt;</span>
@@ -50,7 +50,7 @@ permissions and limitations under the License.</p></div></div><div class="code">
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(The root node of the traversal.)</li>
+<li><strong>node must be a Node.</strong><br/>(The root node of the traversal)</li>
 </ul>
 
 <p><strong>Returns an Array of Nodes</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(root) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We deliberately enforce equality instead of identity here.</p></div></div><div class="code"><div class="wrapper">    <span class="k">if</span> <span class="o">`</span><span class="nx">root</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">DOCUMENT_FRAGMENT_NODE</span><span class="o">`</span>
@@ -64,7 +64,7 @@ permissions and limitations under the License.</p></div></div><div class="code">
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(The current node of the traversal.)</li>
+<li><strong>node must be a Node.</strong><br/>(The current node of the traversal)</li>
 </ul>
 
 <p><strong>Returns an Array of Nodes</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(node) -&gt;</span>
@@ -78,7 +78,7 @@ permissions and limitations under the License.</p></div></div><div class="code">
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(The current node of the traversal.)</li>
+<li><strong>node must be a Node.</strong><br/>(The current node of the traversal)</li>
 </ul>
 
 <p><strong>Returns an Array of Nodes</strong><br/><strong>and</strong> <strong>can throw an Exception</strong><br/>(If “collect”-method implementation is missing.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>

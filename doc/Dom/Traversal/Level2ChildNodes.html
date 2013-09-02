@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level2ChildNodes</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level2ChildNodes"><meta name="groc-project-path" content="src/Dom/Traversal/Level2ChildNodes.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/Level2ChildNodes.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="m&#x61;&#105;&#x6c;&#116;&#x6f;:&#115;&#x74;&#101;&#112;&#104;&#97;&#x6e;&#x2e;&#x6a;&#x6f;&#114;&#101;&#x6b;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;c&#111;&#x6d;">&#115;&#x74;&#101;&#112;&#104;&#97;&#x6e;&#x2e;&#x6a;&#x6f;&#114;&#101;&#x6b;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;c&#111;&#x6d;</a>  </p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">ELEMENT_NODE</span>
+<span class="p">}}</span>                      <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Node&#39;</span>
+
+<span class="p">{</span><span class="nx">Level1NodeTypeMatcher</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level2childnodes">Level2ChildNodes</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public class Level2ChildNodes extends goatee.Dom.Traversal, is in namespace <em>goatee.Dom.Traversal</em>, refers to <a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1451460987">http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1451460987</a>, refers to <a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-1451460987">http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-1451460987</a> and refers to <a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-536297177">http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-536297177</a></span></p>
+
+<hr />
+
+<p>A class to hold state for a DOM traversal.
+This implementation depends on <em>DOM Level ≥ 2</em>'s <code>Node.childNodes</code>.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2ChildNodes = </span><span class="o">\</span>
+<span class="k">class</span> <span class="nx">Level2ChildNodes</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method collect refers to <a href="https://developer.mozilla.org/de/docs/DOM/Node.childNodes">https://developer.mozilla.org/de/docs/DOM/Node.childNodes</a></span></p>
+
+<hr />
+
+<p>Collect a single node's immediate child-nodes.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>node must be a Node.</strong><br/>(The current node of the traversal.)</li>
+</ul>
+
+<p><strong>Returns an Array of Nodes</strong><br/>(An array of child-nodes.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We deliberately enforce equality instead of identity here.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">child</span> <span class="k">for</span> <span class="nx">child</span> <span class="k">in</span> <span class="nx">node</span><span class="p">.</span><span class="nx">childNodes</span> <span class="k">when</span> <span class="o">`</span><span class="nx">child</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">ELEMENT_NODE</span><span class="o">`</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method create</span></p>
+
+<hr />
+
+<p>Creates the <code>Traversal</code>-instance.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>callback must be a Function.</strong><br/>(A function, called for each traversed node)</li>
+</ul>
+
+<p><strong>Returns a goatee.Dom.Traversal</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(callback) -&gt;</span>
+    <span class="k">new</span> <span class="nx">Level2ChildNodes</span> <span class="nx">callback</span></div></div></div></div></body></html>

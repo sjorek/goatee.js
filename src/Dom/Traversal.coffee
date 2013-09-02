@@ -14,10 +14,12 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+# ~require
 {Node:{
   DOCUMENT_FRAGMENT_NODE
 }} = require 'goatee/Dom/Node'
 
+# ~export
 exports = module?.exports ? this
 
 # Traversal
@@ -33,8 +35,9 @@ exports = module?.exports ? this
 exports.Traversal = class Traversal
 
   # --------------------------------
+  # Constructs the `Traversal`-instance.
   #
-  # @param  {Function}  callback  A function, called for each traversed node.
+  # @param  {Function}  callback  A function, called for each traversed node
   # @constructor
   constructor: (@callback) ->
 
@@ -43,7 +46,7 @@ exports.Traversal = class Traversal
   #
   # @public
   # @method run
-  # @param  {Node}  root  The root node of the traversal.
+  # @param  {Node}  root  The root node of the traversal
   # @return {goatee.Dom.Traversal}
   run: (root) ->
     @queue = @prepare root
@@ -55,7 +58,7 @@ exports.Traversal = class Traversal
   #
   # @public
   # @method prepare
-  # @param  {Node}  node  The root node of the traversal.
+  # @param  {Node}  node  The root node of the traversal
   # @return {Array.<Node>}
   prepare: (root) ->
     # We deliberately enforce equality instead of identity here.
@@ -68,7 +71,7 @@ exports.Traversal = class Traversal
   #
   # @public
   # @method process
-  # @param  {Node}  node  The current node of the traversal.
+  # @param  {Node}  node  The current node of the traversal
   # @return {Array.<Node>}
   process: (node) ->
     @callback(node)
@@ -80,7 +83,7 @@ exports.Traversal = class Traversal
   # @abstract
   # @public
   # @method collect
-  # @param  {Node}  node    The current node of the traversal.
+  # @param  {Node}  node    The current node of the traversal
   # @return {Array.<Node>}
   # @throws {Exception}     If “collect”-method implementation is missing.
   collect: (node) ->

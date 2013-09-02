@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level1NodeTypeMatcher</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level1NodeTypeMatcher"><meta name="groc-project-path" content="src/Dom/Traversal/Level1NodeTypeMatcher.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/Level1NodeTypeMatcher.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;:s&#116;&#101;p&#x68;&#97;&#110;&#46;&#x6a;&#x6f;&#x72;&#x65;&#107;&#64;&#103;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;m">s&#116;&#101;p&#x68;&#97;&#110;&#46;&#x6a;&#x6f;&#x72;&#x65;&#107;&#64;&#103;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;m</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level1NodeTypeMatcher</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level1NodeTypeMatcher"><meta name="groc-project-path" content="src/Dom/Traversal/Level1NodeTypeMatcher.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/Level1NodeTypeMatcher.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;:&#x73;&#116;&#x65;&#x70;&#104;&#97;n&#46;&#106;&#x6f;&#114;&#x65;&#x6b;&#x40;&#103;&#109;&#97;&#x69;l&#x2e;&#99;&#x6f;&#x6d;">&#x73;&#116;&#x65;&#x70;&#104;&#97;n&#46;&#106;&#x6f;&#114;&#x65;&#x6b;&#x40;&#103;&#109;&#97;&#x69;l&#x2e;&#99;&#x6f;&#x6d;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -10,33 +10,48 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
   <span class="nx">ELEMENT_NODE</span>
 <span class="p">}}</span>              <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Node&#39;</span>
-<span class="p">{</span><span class="nx">Traversal</span><span class="p">}</span>     <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level1nodetypematcher">Level1NodeTypeMatcher</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class is in namespace <em>goatee</em></span></p>
+<span class="p">{</span><span class="nx">Traversal</span><span class="p">}</span>     <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level1nodetypematcher">Level1NodeTypeMatcher</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public class Level1NodeTypeMatcher extends goatee.Dom.Traversal and is in namespace <em>goatee.Dom.Traversal</em></span></p>
 
-<p>A class to hold state for a dom traversal.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level1NodeTypeMatcher = </span><span class="o">\</span>
-<span class="k">class</span> <span class="nx">Level1NodeTypeMatcher</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<hr />
 
-<p>#
-Processes a single node.</p>
+<p>A class to hold state for a DOM traversal.
+This implementation depends on <em>DOM Level ≥ 1 Core</em> providing:
+    node.firstChild
+and:
+    node.nextChild</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level1NodeTypeMatcher = </span><span class="o">\</span>
+<span class="k">class</span> <span class="nx">Level1NodeTypeMatcher</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method collect refers to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node.firstChild">https://developer.mozilla.org/en-US/docs/Web/API/Node.firstChild</a> and refers to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node.nextSibling">https://developer.mozilla.org/en-US/docs/Web/API/Node.nextSibling</a></span></p>
+
+<hr />
+
+<p>Collect a single node's immediate child-nodes.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(The current node of the traversal.)</li>
+<li><strong>node must be a Node.</strong><br/>(The current node of the traversal)</li>
 </ul>
 
-<p><strong>Returns an Array of Nodes</strong><br/>(An array of child-nodes.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
-    <span class="nv">result = </span><span class="p">[]</span>
-    <span class="o">`</span><span class="k">for</span> <span class="p">(</span><span class="nx">var</span> <span class="nv">child = </span><span class="nx">node</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">;</span> <span class="nx">child</span><span class="p">;</span> <span class="nv">child = </span><span class="nx">child</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">)</span> <span class="p">{</span>
+<p><strong>Returns an Array of Nodes</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
+    <span class="nv">result = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We deliberately enforce equality instead of identity here.</p></div></div><div class="code"><div class="wrapper">    <span class="o">`</span><span class="k">for</span> <span class="p">(</span><span class="nx">var</span> <span class="nv">child = </span><span class="nx">node</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">;</span> <span class="nx">child</span><span class="p">;</span> <span class="nv">child = </span><span class="nx">child</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">child</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">ELEMENT_NODE</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">child</span><span class="p">);</span>
         <span class="p">}</span>
       <span class="p">}</span><span class="o">`</span>
-    <span class="k">return</span> <span class="nx">result</span>
+    <span class="k">return</span> <span class="nx">result</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method create</span></p>
 
-<span class="nv">Level1NodeTypeMatcher.create = </span><span class="nf">(callback) -&gt;</span>
-  <span class="k">new</span> <span class="nx">Level1NodeTypeMatcher</span> <span class="nx">callback</span></div></div></div></div></body></html>
+<hr />
+
+<p>Creates the <code>Traversal</code>-instance.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>callback must be a Function.</strong><br/>(A function, called for each traversed node)</li>
+</ul>
+
+<p><strong>Returns a goatee.Dom.Traversal</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(callback) -&gt;</span>
+    <span class="k">new</span> <span class="nx">Level1NodeTypeMatcher</span> <span class="nx">callback</span></div></div></div></div></body></html>

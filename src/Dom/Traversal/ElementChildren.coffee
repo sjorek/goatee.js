@@ -17,52 +17,41 @@ permissions and limitations under the License.
 # ~require
 {Node:{
   ELEMENT_NODE
-}}              = require '../Node'
+}}                      = require 'goatee/Dom/Node'
 
-{Traversal}     = require '../Traversal'
+{Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal'
 
 # ~export
 exports = module?.exports ? this
 
-# Level1NodeTypeMatcher
+# ElementChildren
 # ================================
 
 # --------------------------------
 # A class to hold state for a DOM traversal.
 #
-# This implementation depends on *DOM Level ≥ 1 Core* providing:
-#
-#     node.firstChild
-#
-# and:
-#
-#     node.nextChild
+# This implementation depends on *DOM*'s native `Element.children`.
 #
 # @public
-# @class Level1NodeTypeMatcher
+# @class ElementChildren
 # @extends goatee.Dom.Traversal
 # @namespace goatee.Dom.Traversal
-exports.Level1NodeTypeMatcher = \
-class Level1NodeTypeMatcher extends Traversal
+# @see http://dom.spec.whatwg.org/#dom-parentnode-children
+exports.ElementChildren = \
+class ElementChildren extends Traversal
 
   # --------------------------------
   # Collect a single node's immediate child-nodes.
   #
   # @public
   # @method collect
-  # @param  {Node}  node    The current node of the traversal
-  # @return {Array.<Node>}
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/Node.firstChild
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/Node.nextSibling
+  # @param  {Node}          node  The current node of the traversal.
+  # @return {Array.<Node>}        An array of child-nodes.
+  # @see https://developer.mozilla.org/en-US/docs/Web/API/ParentNode.children
   collect: (node) ->
-    result = []
+    # Internet Explorer 6-8 supported it, but erroneously include Comment nodes.
     # We deliberately enforce equality instead of identity here.
-    `for (var child = node.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType == ELEMENT_NODE) {
-          result.push(child);
-        }
-      }`
-    return result
+    child for child in node.children when `child.nodeType == ELEMENT_NODE`
 
   # --------------------------------
   # Creates the `Traversal`-instance.
@@ -73,4 +62,4 @@ class Level1NodeTypeMatcher extends Traversal
   # @param  {Function}  callback  A function, called for each traversed node
   # @return {goatee.Dom.Traversal}
   @create: (callback) ->
-    new Level1NodeTypeMatcher callback
+    new ElementChildren callback

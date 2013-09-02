@@ -1718,11 +1718,11 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/GeckoElementTraversal.coffee",
-                "projectPath": "src/Dom/Traversal/GeckoElementTraversal.coffee",
-                "targetPath": "Dom/Traversal/GeckoElementTraversal",
-                "pageTitle": "Dom/Traversal/GeckoElementTraversal",
-                "title": "GeckoElementTraversal"
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/ElementChildren.coffee",
+                "projectPath": "src/Dom/Traversal/ElementChildren.coffee",
+                "targetPath": "Dom/Traversal/ElementChildren",
+                "pageTitle": "Dom/Traversal/ElementChildren",
+                "title": "ElementChildren"
               },
               "depth": 3,
               "outline": [
@@ -1730,8 +1730,38 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "GeckoElementTraversal",
-                    "slug": "geckoelementtraversal"
+                    "title": "ElementChildren",
+                    "slug": "elementchildren"
+                  },
+                  "depth": 1
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/ElementTraversal.coffee",
+                "projectPath": "src/Dom/Traversal/ElementTraversal.coffee",
+                "targetPath": "Dom/Traversal/ElementTraversal",
+                "pageTitle": "Dom/Traversal/ElementTraversal",
+                "title": "ElementTraversal"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "ElementTraversal",
+                    "slug": "elementtraversal"
                   },
                   "depth": 1
                 }
@@ -1762,6 +1792,36 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "level": 1,
                     "title": "Level1NodeTypeMatcher",
                     "slug": "level1nodetypematcher"
+                  },
+                  "depth": 1
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###", " ", "###"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "!",
+                  "foldPrefix": "~",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level2ChildNodes.coffee",
+                "projectPath": "src/Dom/Traversal/Level2ChildNodes.coffee",
+                "targetPath": "Dom/Traversal/Level2ChildNodes",
+                "pageTitle": "Dom/Traversal/Level2ChildNodes",
+                "title": "Level2ChildNodes"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Level2ChildNodes",
+                    "slug": "level2childnodes"
                   },
                   "depth": 1
                 }
@@ -1822,66 +1882,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "level": 1,
                     "title": "Level2TreeWalker",
                     "slug": "level2treewalker"
-                  },
-                  "depth": 1
-                }
-              ]
-            }, {
-              "type": "file",
-              "data": {
-                "language": {
-                  "nameMatchers": [".coffee", "Cakefile"],
-                  "pygmentsLexer": "coffee-script",
-                  "multiLineComment": ["###", " ", "###"],
-                  "singleLineComment": ["#"],
-                  "ignorePrefix": "!",
-                  "foldPrefix": "~",
-                  "name": "CoffeeScript"
-                },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level4ChildNodesIterator.coffee",
-                "projectPath": "src/Dom/Traversal/Level4ChildNodesIterator.coffee",
-                "targetPath": "Dom/Traversal/Level4ChildNodesIterator",
-                "pageTitle": "Dom/Traversal/Level4ChildNodesIterator",
-                "title": "Level4ChildNodesIterator"
-              },
-              "depth": 3,
-              "outline": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 1,
-                    "title": "Level4ChildNodesIterator",
-                    "slug": "level4childnodesiterator"
-                  },
-                  "depth": 1
-                }
-              ]
-            }, {
-              "type": "file",
-              "data": {
-                "language": {
-                  "nameMatchers": [".coffee", "Cakefile"],
-                  "pygmentsLexer": "coffee-script",
-                  "multiLineComment": ["###", " ", "###"],
-                  "singleLineComment": ["#"],
-                  "ignorePrefix": "!",
-                  "foldPrefix": "~",
-                  "name": "CoffeeScript"
-                },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level4ChildrenIterator.coffee",
-                "projectPath": "src/Dom/Traversal/Level4ChildrenIterator.coffee",
-                "targetPath": "Dom/Traversal/Level4ChildrenIterator",
-                "pageTitle": "Dom/Traversal/Level4ChildrenIterator",
-                "title": "Level4ChildrenIterator"
-              },
-              "depth": 3,
-              "outline": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 1,
-                    "title": "Level4ChildrenIterator",
-                    "slug": "level4childreniterator"
                   },
                   "depth": 1
                 }

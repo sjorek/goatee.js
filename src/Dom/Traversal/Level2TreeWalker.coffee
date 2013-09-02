@@ -14,38 +14,68 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+# ~require
 {Level2NodeIterator} = require './Level2NodeIterator'
 
+# ~export
 exports = module?.exports ? this
 
-## Level2TreeWalker
+# Level2TreeWalker
+# ================================
 
-# A class to hold state for a dom traversal.
+# --------------------------------
+# A class to hold state for a DOM traversal.
 #
-# @class
-# @namespace goatee
+# This implementation depends on *DOM Level ≥ 2*'s `TreeWalker`.
+#
+# @public
+# @class Level2TreeWalker
+# @extends goatee.Dom.Traversal
+# @namespace goatee.Dom.Traversal
+# @see https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
 exports.Level2TreeWalker = \
 class Level2TreeWalker extends Level2NodeIterator
 
-  ##
-  # Create node iterator for a single root node.
+  # --------------------------------
+  # Create `TreeWalker` node iterator for a single root node.
   #
+  # Create an iterator collecting a single node's immediate child-nodes.
+  #
+  # @public
+  # @method collect
   # @param  {Node}      root  The root node of the traversal.
   # @param  {Document}  doc   Root's owner-document.
   # @return {TreeWalker}
+  # @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createTreeWalker
   collect: (root, doc) ->
     doc.createTreeWalker(
       # Node to use as root
       root,
 
-      # Only consider nodes that match this filter
+      # > Is an optional unsigned long representing a bitmask created by
+      #   combining the constant properties of NodeFilter.  It is a convenient
+      #   way of filtering for certain types of node.  It defaults to
+      #   `0xFFFFFFFF` (-1) representing the SHOW_ALL constant.
       @filter,
 
-      # Object containing the function to use as method of the NodeFilter
+      # > Is an optional NodeFilter, that is an object with a method acceptNode,
+      #   which is called by the TreeWalker to determine whether or not to
+      #   accept a node that has passed the whatToShow check.
       @options,
 
+      # > A boolean flag indicating if when discarding an EntityReference its
+      #   whole sub-tree must be discarded at the same time.
+      # @deprecated
       false
     )
 
-Level2TreeWalker.create = (callback) ->
-  new Level2TreeWalker callback
+  # --------------------------------
+  # Creates the `Traversal`-instance.
+  #
+  # @static
+  # @public
+  # @method create
+  # @param  {Function}  callback  A function, called for each traversed node
+  # @return {goatee.Dom.Traversal}
+  @create: (callback) ->
+    new Level2TreeWalker callback

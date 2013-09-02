@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ElementChildren.js",
+  "sourceRoot": "../../../src",
+  "sources": [
+    "Dom/Traversal/ElementChildren.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;;;;;;;;;;;;;;CAAA;CAAA;CAAA;CAAA,KAAA,oEAAA;KAAA;oSAAA;;CAAA,CAkBE,CACwB,IAAA,KAnB1B,KAmB0B;;CAnB1B,CAqBC,CAAyB,IAAA,cArB1B,CAqB0B;;CArB1B,CAwBA,CAA4B,CAxB5B,GAwBA;;CAxBA,CAuCA,CACM,IADC,QAAP;CAWE;;;;;CAAA;;CAAA,EAAS,CAAA,GAAT,EAAU;CAGR,SAAA,sBAAA;CAAA;CAAA;YAAA,gCAAA;2BAAA;IAAsC;CAAtC;UAAA;CAAA;uBAHO;CAAT,IAAS;;CAAT,EAaS,CAAT,EAAA,EAAS,CAAC,MAAT;CACqB,GAAhB,IAAA,KAAA,EAAA;CAdN,IAaS;;CAbT;;CAV4B;CAxC9B"
+}

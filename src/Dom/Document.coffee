@@ -15,26 +15,31 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+# ~require
 {Constants:{
   CSS_display,
   CSS_position
-}}                        = require '../Core/Constants'
+}}              = require '../Core/Constants'
+
 {Node:{
   DOCUMENT_NODE #, DOCUMENT_FRAGMENT_NODE
-}}                        = require './Node'
-
-#!Traversal                 = require('./Traversal/GeckoElementTraversal').GeckoElementTraversal
-Traversal                 = require('./Traversal/Level1NodeTypeMatcher').Level1NodeTypeMatcher
-#!Traversal               = require('./Traversal/Level2NodeIterator').Level2NodeIterator
-#!Traversal               = require('./Traversal/Level2TreeWalker').Level2TreeWalker
-#!Traversal               = require('./Traversal/Level4ChildNodesIterator').Level4ChildNodesIterator
-#!Traversal               = require('./Traversal/Level4ElementChildrenIterator').Level4ElementChildrenIterator
+}}              = require './Node'
 
 {Utility:{
   camelize,
   dashify
 }}                        = require '../Core/Utility'
 
+createTraversal = require('./Traversal/Level1NodeTypeMatcher').Level1NodeTypeMatcher.create
+
+#!require('./Traversal/Level1NodeTypeMatcher').Level1NodeTypeMatcher.create
+#!require('./Traversal/ElementTraversal').ElementTraversal.create
+#!require('./Traversal/ElementChildren').ElementChildren.create
+#!require('./Traversal/Level2ChildNodes').Level2ChildNodes.create
+#!require('./Traversal/Level2NodeIterator').Level2NodeIterator.create
+#!require('./Traversal/Level2TreeWalker').Level2TreeWalker.create
+
+# ~export
 exports = module?.exports ? this
 
 # Document (≠ DOMDocument)
@@ -111,7 +116,7 @@ exports.Document = Document =
   # @param    {Function}  callback  Called on each node in the traversal
   # @return   {goatee.Dom.Traversal}
   traverseElements: (node, callback) ->
-    Traversal.create(callback).run node
+    createTraversal(callback).run node
 
   # --------------------------------
   # Test if an attribute exists.

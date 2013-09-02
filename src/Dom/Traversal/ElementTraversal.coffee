@@ -15,35 +15,35 @@ permissions and limitations under the License.
 ###
 
 # ~require
-{Node:{
-  ELEMENT_NODE
-}}              = require '../Node'
-
-{Traversal}     = require '../Traversal'
+{Level1NodeTypeMatcher} = require '../Traversal'
 
 # ~export
 exports = module?.exports ? this
 
-# Level1NodeTypeMatcher
+# ElementTraversal
 # ================================
 
 # --------------------------------
 # A class to hold state for a DOM traversal.
 #
-# This implementation depends on *DOM Level ≥ 1 Core* providing:
+# This implementation depends on the `ElementTraversal`-interface providing:
 #
-#     node.firstChild
+#     node.firstElementChild
 #
 # and:
 #
-#     node.nextChild
+#     node.nextElementSibling
 #
 # @public
-# @class Level1NodeTypeMatcher
+# @class ElementTraversal
 # @extends goatee.Dom.Traversal
 # @namespace goatee.Dom.Traversal
-exports.Level1NodeTypeMatcher = \
-class Level1NodeTypeMatcher extends Traversal
+# @see http://dom.spec.whatwg.org/#dom-parentnode-firstelementchild
+# @see http://dom.spec.whatwg.org/#dom-childnode-nextelementsibling
+# @see http://www.w3.org/TR/ElementTraversal/#attribute-firstElementChild
+# @see http://www.w3.org/TR/ElementTraversal/#attribute-nextElementSibling
+exports.ElementTraversal = \
+class ElementTraversal extends Traversal
 
   # --------------------------------
   # Collect a single node's immediate child-nodes.
@@ -52,15 +52,13 @@ class Level1NodeTypeMatcher extends Traversal
   # @method collect
   # @param  {Node}  node    The current node of the traversal
   # @return {Array.<Node>}
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/Node.firstChild
-  # @see https://developer.mozilla.org/en-US/docs/Web/API/Node.nextSibling
+  # @see https://developer.mozilla.org/en-US/docs/Web/API/ElementTraversal.firstElementChild
+  # @see https://developer.mozilla.org/en-US/docs/Web/API/ElementTraversal.nextElementSibling
   collect: (node) ->
     result = []
-    # We deliberately enforce equality instead of identity here.
-    `for (var child = node.firstChild; child; child = child.nextSibling) {
-        if (child.nodeType == ELEMENT_NODE) {
-          result.push(child);
-        }
+    # Internet Explorer 6-8 supported it, but erroneously include Comment nodes.
+    `for (var child = node.firstElementChild; child; child = child.nextElementSibling) {
+        result.push(child);
       }`
     return result
 
@@ -73,4 +71,4 @@ class Level1NodeTypeMatcher extends Traversal
   # @param  {Function}  callback  A function, called for each traversed node
   # @return {goatee.Dom.Traversal}
   @create: (callback) ->
-    new Level1NodeTypeMatcher callback
+    new GeckoElementTraversal callback

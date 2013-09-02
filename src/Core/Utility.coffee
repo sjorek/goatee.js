@@ -15,6 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+# ~require
 {Constants:{
   CHAR_dash,
   TYPE_number,
@@ -25,6 +26,7 @@ permissions and limitations under the License.
   REGEXP_dashify
 }} = require './Constants'
 
+# ~export
 exports = module?.exports ? this
 
 # Utility
