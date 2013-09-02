@@ -163,11 +163,19 @@ exports.Utility = Utility =
     string.replace REGEXP_trimRight, ''
 
   # --------------------------------
+  # Convert “a-property-name” to “aPropertyName”
+  #
+  # @static
+  # @public
+  # @method camelize
+  # @param  {String}  string  Input string.
+  # @return {String}          Camelized string.
   camelize: do ->
 
     # Internal camelize-helper function
     #
     # @private
+    # @method _camelize
     # @param  {String}  match
     # @param  {String}  char
     # @param  {Number}  index
@@ -175,20 +183,23 @@ exports.Utility = Utility =
     # @return {String}          Camelized string fragment.
     _camelize = (match, char, index, string) -> char.toUpperCase()
 
-    # Convert “a-property-name” to “aPropertyName”
-    #
-    # @static
-    # @public
-    # @method camelize
-    # @param  {String}  string  Input string.
-    # @return {String}          Camelized string.
+    # The camelize implementation
     (string) -> string.replace REGEXP_camelize, _camelize
 
   # --------------------------------
+  # Convert “aPropertyName” to “a-property-name”
+  #
+  # @static
+  # @public
+  # @method dashify
+  # @param  {String}  string  Input string.
+  # @return {String}          Dashed string.
   dashify: do ->
+
     # Internal dashify-helper function
     #
     # @private
+    # @method _dashify
     # @param  {String}  match
     # @param  {String}  char
     # @param  {String}  camel
@@ -198,11 +209,5 @@ exports.Utility = Utility =
     _dashify  = (match, char, camel, index, string) ->
       char + CHAR_dash + camel.toLowerCase()
 
-    # Convert “aPropertyName” to “a-property-name”
-    #
-    # @static
-    # @public
-    # @method dashify
-    # @param  {String}  string  Input string.
-    # @return {String}          Dashed string.
+    # The dashify implementation
     (string) -> string.replace REGEXP_dashify, _dashify
