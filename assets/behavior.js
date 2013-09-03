@@ -1409,8 +1409,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "Context-variables",
-                    "slug": "context-variables"
+                    "title": "Global flags",
+                    "slug": "global-flags"
                   },
                   "depth": 2
                 }, {
@@ -1425,8 +1425,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "JavaScript fragments",
-                    "slug": "javascript-fragments"
+                    "title": "JavaScript expression fragments",
+                    "slug": "javascript-expression-fragments"
                   },
                   "depth": 2
                 }, {

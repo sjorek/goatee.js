@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Abstract</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Abstract"><meta name="groc-project-path" content="src/Action/Abstract.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Action/Abstract.coffee">src/Action/Abstract.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;:&#115;&#x74;&#101;&#112;&#104;&#x61;n&#x2e;j&#x6f;&#x72;&#x65;&#x6b;&#x40;&#103;&#x6d;&#x61;&#105;&#108;.&#99;&#111;m">&#115;&#x74;&#101;&#112;&#104;&#x61;n&#x2e;j&#x6f;&#x72;&#x65;&#x6b;&#x40;&#103;&#x6d;&#x61;&#105;&#108;.&#99;&#111;m</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Action/Abstract</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Abstract"><meta name="groc-project-path" content="src/Action/Abstract.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Action/Abstract.coffee">src/Action/Abstract.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;:&#115;&#x74;&#x65;&#x70;&#x68;&#x61;&#110;&#x2e;&#106;o&#114;&#x65;&#107;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;o&#x6d;">&#115;&#x74;&#x65;&#x70;&#x68;&#x61;&#110;&#x2e;&#106;o&#114;&#x65;&#107;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;o&#x6d;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -10,14 +10,15 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class Abstract is in namespace <em>goatee.Action</em></span></p>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="abstract">Abstract</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public class Abstract is in namespace <em>goatee.Action</em></span></p>
 
-<h1 id="abstract">Abstract</h1>
+<hr />
 
 <p>Abstract action class implementing a basic action</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Abstract = </span><span class="k">class</span> <span class="nx">Abstract</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public method process</span></p>
 
-<p>#
-Derivates must override this method and perform the action.</p>
+<hr />
+
+<p>Derivates must override this method and perform the action.</p>
 
 <p>Parameters:</p>
 
@@ -28,6 +29,6 @@ Derivates must override this method and perform the action.</p>
 <li><p><strong>attribute must be a Function.</strong><br/>(Processed value of the content attribute)</p></li>
 </ul>
 
-<p><strong>Returns a Boolean</strong><br/><strong>and</strong> <strong>can throw an Exception</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(action, context, template, attribute) -&gt;</span>
+<p><strong>Returns a Boolean</strong><br/><strong>and</strong> <strong>can throw an Exception</strong><br/>(If this method has not been overridden.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(action, context, template, attribute) -&gt;</span>
     <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span> <span class="s">&#39;Derivates must override this method&#39;</span>
     <span class="k">return</span></div></div></div></div></body></html>
