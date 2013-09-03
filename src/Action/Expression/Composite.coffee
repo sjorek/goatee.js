@@ -39,7 +39,7 @@ Javascript
 exports.Javascript = class Javascript
 
   ##
-  # Wrapper for @evaluateExpression() catching and logging any Exceptions
+  # Wrapper for @evaluateExpression() catching and logging any Errors
   # raised during expression evaluation to console.
   #
   # @param {String} expression

@@ -14,10 +14,10 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-# ~require
+#~ require
 {Abstract} = require 'goatee/Action/Abstract'
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # Outer

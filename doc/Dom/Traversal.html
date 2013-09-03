@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Dom/Traversal"><meta name="groc-project-path" content="src/Dom/Traversal.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;:&#x73;&#x74;&#x65;&#112;&#x68;&#97;&#x6e;&#46;j&#x6f;&#x72;&#101;k&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#x73;&#x74;&#x65;&#112;&#x68;&#97;&#x6e;&#46;j&#x6f;&#x72;&#101;k&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Dom/Traversal"><meta name="groc-project-path" content="src/Dom/Traversal.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#97;&#x69;&#108;&#x74;o:&#115;&#116;&#x65;&#112;&#104;a&#x6e;&#46;jo&#x72;&#x65;&#x6b;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#99;&#111;&#x6d;">&#115;&#116;&#x65;&#112;&#104;a&#x6e;&#46;jo&#x72;&#x65;&#x6b;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#99;&#111;&#x6d;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -10,9 +10,9 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
   <span class="nx">DOCUMENT_FRAGMENT_NODE</span>
-<span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Node&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="traversal">Traversal</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public class Traversal is in namespace <em>goatee.Dom</em></span></p>
+<span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Node&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="traversal">Traversal</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public class <em>Traversal</em> is in namespace <em>goatee.Dom</em></span></p>
 
 <hr />
 
@@ -25,8 +25,8 @@ permissions and limitations under the License.</p></div></div></div><div class="
 <p>Parameters:</p>
 
 <ul>
-<li><strong>callback must be a Function.</strong><br/>(A function, called for each traversed node)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@callback) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method run</span></p>
+<li><strong><em>callback</em> must be a <em>Function</em>.</strong><br/>(A function, called for each traversed node)</li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@callback) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method <em>run</em></span></p>
 
 <hr />
 
@@ -35,13 +35,13 @@ permissions and limitations under the License.</p></div></div></div><div class="
 <p>Parameters:</p>
 
 <ul>
-<li><strong>root must be a Node.</strong><br/>(The root node of the traversal)</li>
+<li><strong><em>root</em> must be a <em>Node</em>.</strong><br/>(The root node of the traversal)</li>
 </ul>
 
-<p><strong>Returns a goatee.Dom.Traversal</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(root) -&gt;</span>
+<p><strong>Returns a <em>goatee.Dom.Traversal</em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(root) -&gt;</span>
     <span class="vi">@queue = </span><span class="nx">@prepare</span> <span class="nx">root</span>
     <span class="vi">@queue = </span><span class="nx">@process</span> <span class="nx">@queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span> <span class="k">while</span> <span class="nx">@queue</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">return</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method prepare</span></p>
+    <span class="k">return</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method <em>prepare</em></span></p>
 
 <hr />
 
@@ -50,12 +50,12 @@ permissions and limitations under the License.</p></div></div></div><div class="
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(The root node of the traversal)</li>
+<li><strong><em>node</em> must be a <em>Node</em>.</strong><br/>(The root node of the traversal)</li>
 </ul>
 
-<p><strong>Returns an Array of Nodes</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(root) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We deliberately enforce equality instead of identity here.</p></div></div><div class="code"><div class="wrapper">    <span class="k">if</span> <span class="o">`</span><span class="nx">root</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">DOCUMENT_FRAGMENT_NODE</span><span class="o">`</span>
+<p><strong>Returns an <em>Array</em> of <em>Nodes</em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(root) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We deliberately enforce equality instead of identity here.</p></div></div><div class="code"><div class="wrapper">    <span class="k">if</span> <span class="o">`</span><span class="nx">root</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">DOCUMENT_FRAGMENT_NODE</span><span class="o">`</span>
       <span class="k">return</span> <span class="nx">@collect</span> <span class="nx">root</span>
-    <span class="p">[</span> <span class="nx">root</span> <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method process</span></p>
+    <span class="p">[</span> <span class="nx">root</span> <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method <em>process</em></span></p>
 
 <hr />
 
@@ -64,12 +64,12 @@ permissions and limitations under the License.</p></div></div></div><div class="
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(The current node of the traversal)</li>
+<li><strong><em>node</em> must be a <em>Node</em>.</strong><br/>(The current node of the traversal)</li>
 </ul>
 
-<p><strong>Returns an Array of Nodes</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(node) -&gt;</span>
+<p><strong>Returns an <em>Array</em> of <em>Nodes</em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(node) -&gt;</span>
     <span class="nx">@callback</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
-    <span class="nx">@queue</span><span class="p">.</span><span class="nx">concat</span> <span class="nx">@collect</span> <span class="nx">node</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public method collect</span></p>
+    <span class="nx">@queue</span><span class="p">.</span><span class="nx">concat</span> <span class="nx">@collect</span> <span class="nx">node</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public method <em>collect</em></span></p>
 
 <hr />
 
@@ -78,8 +78,8 @@ permissions and limitations under the License.</p></div></div></div><div class="
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be a Node.</strong><br/>(The current node of the traversal)</li>
+<li><strong><em>node</em> must be a <em>Node</em>.</strong><br/>(The current node of the traversal)</li>
 </ul>
 
-<p><strong>Returns an Array of Nodes</strong><br/><strong>and</strong> <strong>can throw an Exception</strong><br/>(If “collect”-method implementation is missing.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
+<p><strong>Returns an <em>Array</em> of <em>Nodes</em></strong><br/><strong>and</strong> <strong>can throw an <em>Exception</em></strong><br/>(If “collect”-method implementation is missing.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
     <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s">&#39;Missing “collect”-method implementation&#39;</span><span class="p">)</span></div></div></div></div></body></html>

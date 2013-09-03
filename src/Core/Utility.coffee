@@ -15,7 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-# ~require
+#~ require
 {Constants:{
   CHAR_dash,
   TYPE_number,
@@ -26,7 +26,7 @@ permissions and limitations under the License.
   REGEXP_dashify
 }} = require './Constants'
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # Utility
@@ -52,8 +52,8 @@ exports.Utility = Utility =
   # @static
   # @public
   # @method isArray
-  # @param  {Object|null} value   Object to interrogate
-  # @return {Boolean}             Is the object an array?
+  # @param  {mixed}   value   Object to interrogate
+  # @return {Boolean}         Is the object an array?
   isArray: (value) ->
     value.length? and typeof value.length is Constants.TYPE_number
 
@@ -63,9 +63,9 @@ exports.Utility = Utility =
   # @static
   # @public
   # @method arraySlice
-  # @param  {Array}             array             An array to be sliced.
-  # @param  {Number}            start             The start of the slice.
-  # @param  {Number|undefined}  [end=undefined]   The end of the slice.
+  # @param  {Array}   array             An array to be sliced.
+  # @param  {Number}  start             The start of the slice.
+  # @param  {Number}  [end=undefined]   The end of the slice.
   # @return {Array}                               A sliced array from start to end.
   arraySlice: (array, start, end) ->
     # We use
@@ -114,12 +114,12 @@ exports.Utility = Utility =
   # @static
   # @public
   # @method bind
-  # @param  {Object|null}   [object]  If object isn't `null` it becomes the
-  #                                   method's call target to bind to.
-  # @param  {Function}      method    The target method to bind.
-  # @param  {Mixed...}      [args]    The arguments to bind.
-  # @return {Function}                Method with the target object bound and
-  #                                   curried with provided arguments.
+  # @param  {Object}    [object]  If object isn't `null` it becomes the method's
+  #                               call target to bind to.
+  # @param  {Function}  method    The target method to bind.
+  # @param  {mixed...}  [args]    The arguments to bind.
+  # @return {Function}            Method with the target object bound and
+  #                               curried with provided arguments.
   bind: (object, method, args...) ->
     return -> method.apply(object, args)
 

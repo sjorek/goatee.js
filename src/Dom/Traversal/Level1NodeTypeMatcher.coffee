@@ -14,14 +14,14 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-# ~require
+#~ require
 {Node:{
   ELEMENT_NODE
 }}              = require '../Node'
 
 {Traversal}     = require '../Traversal'
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # Level1NodeTypeMatcher

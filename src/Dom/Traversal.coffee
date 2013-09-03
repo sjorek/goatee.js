@@ -14,12 +14,12 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-# ~require
+#~ require
 {Node:{
   DOCUMENT_FRAGMENT_NODE
 }} = require 'goatee/Dom/Node'
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # Traversal
@@ -85,6 +85,6 @@ exports.Traversal = class Traversal
   # @method collect
   # @param  {Node}  node    The current node of the traversal
   # @return {Array.<Node>}
-  # @throws {Exception}     If “collect”-method implementation is missing.
+  # @throws {Error}         If “collect”-method implementation is missing.
   collect: (node) ->
-    throw new Exception('Missing “collect”-method implementation')
+    throw new Error 'Derivates must override the “collect”-method implementation'

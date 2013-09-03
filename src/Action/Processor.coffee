@@ -609,7 +609,7 @@ well as the context-data, -variables and -values.
 
 ###
 
-# ~require
+#~ require
 {Constants:{
   DEBUG,
   ATT_cache,
@@ -631,7 +631,7 @@ well as the context-data, -variables and -values.
   bind
 }}                    = require '../Core/Utility'
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # Processor
@@ -1150,8 +1150,8 @@ exports.Processor = class Processor
   # HTML template processor. Data values are bound to HTML templates using the
   # attributes defined in the `Processor.actions`-registry.  The template is
   # modified in place.  The values of those attributes are <del>JavaScript</del>
-  # GoateeScript-expressions that are evaluated in the context of the data
-  # object fragment.
+  # [GoateeScript](http://sjorek.github.io/goatee-script)-expressions that are
+  # evaluated in the context of the data object fragment.
   #
   # @static
   # @method process

@@ -15,7 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-# ~require
+#~ require
 {Constants:{
   GLOB_default,
   VAR_context,
@@ -28,7 +28,7 @@ permissions and limitations under the License.
 
 Expression      = require('./Expression/Javascript').Javascript
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # Context
@@ -49,7 +49,7 @@ exports.Context = class Context
   #
   # @private
   # @property _variables
-  # @type     {Object.<Mixed>}
+  # @type     {Object.<mixed>}
   _variables : {}
 
   # --------------------------------
@@ -57,20 +57,19 @@ exports.Context = class Context
   #
   # @private
   # @property _data
-  # @type     {Mixed}
+  # @type     {mixed}
   _data      : null
 
   # --------------------------------
   # Constructs the `Context`.
   #
-  # @param  {Object}  [data=null]     The context object.  Null if no context
-  #                                   has been given.
-  # @param  {Context} [parent=null]   The parent context, from which local
-  #                                   variables are inherited.  Normally the
-  #                                   context object of the parent context is
-  #                                   the object whose property the parent
-  #                                   object is.   Null if no parent has been
-  #                                   given, ie. when creating the root-context.
+  # @param  {mixed}   [data=`STRING_empty`]   The optional context. Defaults to
+  #                                           an empty string.
+  # @param  {Context} [parent]                The parent context, from which
+  #                                           local variables are inherited.
+  #                                           Normally the context object of the
+  #                                           parent context is the object whose
+  #                                           property the parent object is.
   # @constructor
   constructor: (data, parent) ->
 
@@ -98,8 +97,8 @@ exports.Context = class Context
     # `undefined` or `null`, yet we want `$this` to reflect the true value of
     # the current context.  Thus we assign the original value to `$this`, above,
     # but for the expression context we replace `null` and `undefined` by the
-    # empty string (which is the default value).
-    #
+    # empty string (which is the default value).  
+    #   
     # (Note sjorek: `undefined` isn't checked here on purpose,
     #  see <https://github.com/jashkenas/coffee-script/issues/993>)
     @_data = data ? STRING_empty
@@ -124,7 +123,7 @@ exports.Context = class Context
     try
       return fn.call(template, this._variables, this._data);
     catch e
-      console.log "Exception #{e} while executing #{fn} on #{template}"
+      console.log "Error #{e} while executing #{fn} on #{template}"
     return Context._globals[GLOB_default]
 
   # --------------------------------
@@ -153,12 +152,12 @@ exports.Context = class Context
   # Binds a local variable to the given value.  If set from an `alter` action
   # (formerly `jsvalues`) expressions, variable names must start with `$`, but
   # depending on the API, they might only have to be valid <del>JavaScript</del>
-  # GoateeScript identifier.
+  # [GoateeScript](http://sjorek.github.io/goatee-script) identifier.
   #
   # @public
   # @method set
   # @param  {String}  name
-  # @param  {Mixed}   value
+  # @param  {mixed}   value
   set: (name, value) ->
     @_variables[name] = value
     return
@@ -172,7 +171,7 @@ exports.Context = class Context
   # @public
   # @method get
   # @param  {String}  name
-  # @return {Mixed}   value
+  # @return {mixed}   value
   get: (name) ->
     @_variables[name]
 
@@ -193,9 +192,10 @@ exports.Context = class Context
   #
   # @public
   # @method evaluate
-  # @param  {String}  expression  <del>JavaScript</del>GoateeScript expression
+  # @param  {String}  expression  A <del>JavaScript</del> [GoateeScript](http://sjorek.github.io/goatee-script)
+  #                               expression
   # @param  {Node}    [template]  An optional node to serve as `this`
-  # @return {Mixed}   value
+  # @return {mixed}   value
   evaluate: (expression, template) ->
     @execute _compile(expression), template
 
@@ -205,7 +205,7 @@ exports.Context = class Context
   # @static
   # @private
   # @property _globals
-  # @type     {Object.<Mixed>}
+  # @type     {Object.<mixed>}
   @_globals: {}
 
   # --------------------------------
@@ -219,12 +219,12 @@ exports.Context = class Context
   # @public
   # @method setGlobal
   # @param  {String}  name
-  # @param  {Mixed}   value
+  # @param  {mixed}   value
   @setGlobal: (name, value) ->
     Context._globals[name] = value
 
   # Set the default value to be returned if context evaluation results in an
-  # error.  This can occur if an `Exception` raises, ie. when requesting
+  # error.  This can occur if an `Error` raises, ie. when requesting
   # non-existent values 
   Context.setGlobal GLOB_default, null
 

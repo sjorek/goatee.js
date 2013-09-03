@@ -15,7 +15,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-# ~require
+#~ require
 {Constants:{
   CSS_display,
   CSS_position
@@ -39,7 +39,7 @@ createTraversal = require('./Traversal/Level1NodeTypeMatcher').Level1NodeTypeMat
 #!require('./Traversal/Level2NodeIterator').Level2NodeIterator.create
 #!require('./Traversal/Level2TreeWalker').Level2TreeWalker.create
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # Document (≠ DOMDocument)

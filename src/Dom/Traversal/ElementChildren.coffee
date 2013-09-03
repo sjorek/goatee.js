@@ -14,14 +14,14 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-# ~require
+#~ require
 {Node:{
   ELEMENT_NODE
 }}                      = require 'goatee/Dom/Node'
 
 {Level1NodeTypeMatcher} = require 'goatee/Dom/Traversal'
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # ElementChildren

@@ -14,7 +14,7 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-# ~export
+#~ export
 exports = module?.exports ? this
 
 # Abstract
@@ -39,8 +39,9 @@ exports.Abstract = class Abstract
   # @param  {Context}   context     The current evaluation context
   # @param  {Node}      template    The currently processed node of the template
   # @param  {Function}  attribute   Processed value of the content attribute
-  # @return {Boolean}
-  # @throws {Exception}             If this method has not been overridden.
+  # @return {Boolean}               Signal: `process`-execution must stop =
+  #                                 `true` or may continue = `false` or `undefined`
+  # @throws {Error}                 If this method has not been overridden.
   process: (action, context, template, attribute) ->
-    throw new Exception 'Derivates must override this method'
+    throw new Error 'Derivates must override the “process”-method implementation'
     return
