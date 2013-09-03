@@ -14,17 +14,22 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
+# ~export
 exports = module?.exports ? this
 
-## Abstract
-#
+# Abstract
+# ================================
+
+# --------------------------------
 # Abstract action class implementing a basic action
 #
-# @class Abstract
-# @namespace goatee.Action
+# @abstract
+# @public
+# @class      Abstract
+# @namespace  goatee.Action
 exports.Abstract = class Abstract
 
-  ##
+  # --------------------------------
   # Derivates must override this method and perform the action.
   #
   # @abstract
@@ -35,7 +40,7 @@ exports.Abstract = class Abstract
   # @param  {Node}      template    The currently processed node of the template
   # @param  {Function}  attribute   Processed value of the content attribute
   # @return {Boolean}
-  # @throws {Exception}
+  # @throws {Exception}             If this method has not been overridden.
   process: (action, context, template, attribute) ->
     throw new Exception 'Derivates must override this method'
     return

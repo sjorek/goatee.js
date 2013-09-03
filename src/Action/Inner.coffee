@@ -14,14 +14,22 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 ###
 
-Action = require('goatee/Action/Abstract').Abstract
+# ~require
+{Abstract} = require 'goatee/Action/Abstract'
 
+# ~export
 exports = module?.exports ? this
 
-## Inner
+# Inner
+# ================================
 
-# A abstract class implementing an inner action
+# --------------------------------
+# A abstract class implementing an inner action.  Currently it implements
+# nothing, as it only exists to differentiate `Inner` from `Outer` actions
+# with `instanceof`.
 #
-# @class
-# @namespace goatee
-exports.Inner = class Inner extends Action
+# @abstract
+# @class      Inner
+# @extends    goatee.Action.Abstract
+# @namespace  goatee.Action
+exports.Inner = class Inner extends Abstract

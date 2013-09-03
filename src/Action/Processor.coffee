@@ -609,131 +609,182 @@ well as the context-data, -variables and -values.
 
 ###
 
-{Constants} = require 'goatee/Core/Constants'
-{Utility}   = require 'goatee/Core/Utility'
-{Document}  = require 'goatee/Dom/Document'
+# ~require
+{Constants:{
+  DEBUG,
+  ATT_cache,
+  PROP_cache,
+  STRING_assigment,
+  STRING_empty,
+  STRING_seperator,
+  STRING_zero
+}}                    = require '../Core/Constants'
 
+{Document:{
+  getAttribute,
+  setAttribute,
+  traverseElements,
+  ownerDocument
+}}                    = require '../Dom/Document'
+
+{Utility:{
+  bind
+}}                    = require '../Core/Utility'
+
+# ~export
 exports = module?.exports ? this
 
-## Processor
-# Internal class used by goatee-templates to maintain context.  This is
-# necessary to process deep templates in Safari≤5 which has a relatively
+# Processor
+# ================================
+
+# --------------------------------
+# Internal class used by templates to maintain context.  This necessary to
+# process deep templates in Safari≤5 and mobile browsers having a relatively
 # shallow maximum recursion depth of 100.
-# @class
+#
+# @class      Process
+# @namespace  goatee.Action
 exports.Processor = class Processor
 
-  ##
-  # @type {Document}
+  # --------------------------------
+  # Caches the document of the template node, so we don't have to access it
+  # through ownerDocument.
+  #
+  # @public
+  # @property document
+  # @type     {Document}
   document: null
 
-  ##
-  # @type {Object}
+  # --------------------------------
+  # Holds this instance's options.
+  #
+  # @public
+  # @property options
+  # @type     {Object}
   options: null
 
-  ##
-  # @param  {Object}  options
-  # @constuctor
+  # --------------------------------
+  # Constructs the `Processor` instance.
+  #
+  # @param        {Object}    [options]
+  # @param        {Document}  [options.document]
+  # @constructor
   constructor: (@options) ->
+    {@document} = @options if not @document? and @options? and @options.document?
 
-    ##
-    # Caches the document of the template node, so we don't have to
-    # access it through ownerDocument.
-    # @type {Document}
-    @document = @options.document \
-      if not @document? and @options? and @options.document?
-
-
-  ##
-  # Runs the given function in our state machine.
+  # --------------------------------
+  # Runs the given function `fn` in our state machine.
   #
   # It's informative to view the set of all function calls as a tree:
+  #
   # - nodes are states
-  # - edges are state transitions, implemented as calls to the pending
-  #   functions in the stack.
+  # - edges are state transitions, implemented as calls to the pending functions
+  #   in the stack.
   #   - pre-order function calls are downward edges (recursion into call).
   #   - post-order function calls are upward edges (return from call).
   # - leaves are nodes which do not recurse.
-  # We represent the call tree as an array of array of calls, indexed as
-  # stack[depth][index].  Here [depth] indexes into the call stack, and
-  # [index] indexes into the call queue at that depth.  We require a call
-  # queue so that a node may branch to more than one child
-  # (which will be called serially), typically due to a loop structure.
   #
-  # @param {Function} f The first function to run.
-  run: (f) ->
-    self = this
+  # We represent the call tree as an array of array of calls, indexed as
+  # stack[depth][index].  Here [depth] indexes into the call stack, and [index]
+  # indexes into the call queue at that depth.  We require a call-queue so that
+  # a node may branch to more than one child (which will be called serially),
+  # typically due to a loop structure.
+  #
+  # @public
+  # @method run
+  # @param  {Function}  fn  The first function to run.
+  run: (fn) ->
 
-    ##
-    # A stack of queues of pre-order calls.
-    # The inner arrays (constituent queues) are structured as
-    # [ arg2, arg1, method, arg2, arg1, method, ...]
-    # ie. a flattened array of methods with 2 arguments, in reverse order
-    # for efficient push/pop.
+    # A stack of queues of pre-order calls.  The inner arrays (constituent
+    # queues) are structured as `[ arg2, arg1, method, arg2, arg1, method, ...]`
+    # ie. a flattened array of methods with 2 arguments, in reverse order for
+    # efficient push/pop.
     #
     # The outer array is a stack of such queues.
     #
-    # @type {Array.<Array>}
-    calls = self.calls = []
+    # @public
+    # @property calls
+    # @type     {Array.<Array>}
+    @calls = calls = []
 
-    ##
-    # The index into the queue for each depth. NOTE: Alternative would
-    # be to maintain the queues in reverse order (popping off of the
-    # end) but the repeated calls to .pop() consumed 90% of this
-    # function's execution time.
-    # @type {Array.<Number>}
-    indices = self.indices = []
+    # The index into the queue for each depth.  Notice, an alternative would be
+    # to maintain the queues in reverse order (popping off of the end) but the
+    # repeated calls to `Array.pop()` consumed 90% of this function's execution
+    # time.
+    #
+    # @public
+    # @property indices
+    # @type     {Array.<Number>}
+    @indices = indices = []
 
-    ##
-    # A pool of empty arrays.  Minimizes object allocation for IE6's benefit.
-    # @type {Array.<Array>}
-    arrays = self.arrays = []
+    # A pool of empty arrays.  Minimizes object allocation as performance and
+    # memory benefit.
+    #
+    # @public
+    # @property arrays
+    # @type     {Array.<Array>}
+    @arrays = arrays = []
 
-    f()
-    while calls.length > 0
+    # After initializing this state-machine execute the given start function.
+    # It should have scope and arguments pre-bound.
+    fn()
+
+    while 0 < calls.length
+      # Determine the next queue.
       queue = calls[calls.length - 1]
       index = indices[indices.length - 1]
+
+      # If the index is out of the queue's bound look for the next candidate
       if index >= queue.length
-        self.recycleArray calls.pop()
+        @recycleArray calls.pop()
         indices.pop()
         continue
 
-      # Run the first function in the queue.
+      # Run the first function in the queue and record it's index.
       method = queue[index++]
       arg1 = queue[index++]
       arg2 = queue[index++]
       indices[indices.length - 1] = index
-      method.call(self, arg1, arg2)
+      method.call(this, arg1, arg2)
     return
 
-  ##
+  # --------------------------------
   # Pushes one or more functions onto the stack.  These will be run in sequence,
   # interspersed with any recursive calls that they make.
   #
   # This method takes ownership of the given array!
   #
-  # @param {Array} args Array of method calls structured as
-  #                     [ method, arg1, arg2, method, arg1, arg2, ... ]
+  # @public
+  # @method push
+  # @param  {Array} args  Array of method calls structured as
+  #                       `[ method, arg1, arg2, method, arg1, arg2, ... ]`
   push: (args) ->
-    this.calls.push args
-    this.indices.push 0
+    @calls.push args
+    @indices.push 0
     return
 
-  ##
-  # Prepares the template: preprocesses all goatee-template actions.
+  # --------------------------------
+  # Prepares the template: pre-processes all template actions (formerly called
+  # instructions).
   #
+  # @public
+  # @method setup
   # @param {Element} template
   setup: (template) ->
     unless @getCacheProperty(template)?
-      self = @
-      doc.traverseElements(template, (node) -> self.prepare(node))
+      self = this
+      Document.traverseElements(template, (node) -> self.prepare(node))
     return
 
-  ##
-  # A list of attributes we use to specify jst processing actions,
-  # and the functions used to parse their values.
+  # --------------------------------
+  # A list of attributes we use to specify the processing actions (formerly
+  # called instructions) and the functions used to parse their values.
   #
-  # @type {Array.<Array>}
-  actions: [
+  # @static
+  # @public
+  # @property actions
+  # @type     {Array.<Array>}
+  @actions: [
   #!    [ Constants.ATT_select, jsEvalToFunction ],
   #!    [ Constants.ATT_display, jsEvalToFunction ],
   #!    [ Constants.ATT_values, jsEvalToValues ],
@@ -744,285 +795,385 @@ exports.Processor = class Processor
   #!    [ Constants.ATT_skip, jsEvalToFunction ]
   ]
 
-  ##
-  # A list for storing non-empty actions found on a node in prepare().
-  # The array is global since it can be reused - this way there is no need to
-  # construct a new array object for each invocation. (IE6 perf)
+  # --------------------------------
+  # A list for storing non-empty actions found on a node in prepare().  The
+  # array is not an instance property, hence a kind of global, since it can be
+  # reused.  This way there is no need to construct a new array object for each
+  # invocation, which should increase the performance.
   #
-  # @type {Array}
+  # @private
+  # @property _list
+  # @type     {Array}
   _list   = []
 
-  ##
-  # Map for storing temporary action values in prepare() so they don't have
-  # to be retrieved twice. (IE6 perf)
+  # --------------------------------
+  # A map for storing temporary action values in `prepare()` so they don't have
+  # to be retrieved twice, which should increase the performance.  The object is
+  # not an instance property, hence a kind of global, since it can be reused.
+  # This way there is no need to construct a new object for each invocation,
+  # which should increase the performance.
   #
-  # @type {Object}
+  # @private
+  # @property _list
+  # @type     {Object}
   _values = {}
 
-  ##
-  # Counter to generate cache ids. These ids will be stored used to lookup the
-  # preprocessed actions from the cache.  The id is stored with the element
-  # to survive cloneNode() and thus cloned template nodes can share the same
+  # --------------------------------
+  # A counter to generate cache ids.  These ids will be stored used to lookup
+  # the pre-processed actions from the cache.  The id is stored with the element
+  # to survive `cloneNode()` and thus cloned template nodes can share the same
   # cache entry.
   #
-  # @type {Number}
+  # @private
+  # @property _id
+  # @type     {Number}
   _id = 0
 
-  ##
-  # Map from cache id to processed actions.
+  # --------------------------------
+  # Map from cache `_id` to processed actions.
   #
-  # @type {Object}
+  # @private
+  # @property _actions
+  # @type     {Object}
   _actions = {}
 
-  ##
-  # The neutral cache entry. Used for all nodes that lack any actions.
-  # We still set the id on those nodes so we can avoid looking again for all
-  # the other actions that aren't there.  Remember: not only the
-  # processing of the action-values is expensive and we thus want to
-  # cache it.  The access to the actions on the Node in the first place
-  # is very expensive too.
+  # --------------------------------
+  # The neutral cache entry.  Used for all nodes that lack any actions. We still
+  # set the id on those nodes so we can avoid looking again for all the other
+  # actions that aren't there.  Remember, not only the processing of the action-
+  # values is expensive and we thus want to cache it.  The access to the actions
+  # on the Node in the first place is very expensive too.
+  #
+  # @private
+  # @property _empty
+  # @type     {Object}
   _empty = _actions[Constants.STRING_zero] = {}
 
-  ##
-  # Prepares a single node: preprocesses all template attributes of the
-  # node, and if there are any, assigns a jsid attribute and stores the
-  # preprocessed attributes under the jsid in the jstcache.
+  # --------------------------------
+  # Prepares a single node: pre-processes all template attributes of the node
+  # and if there are any, assigns an cache-identifier-attribute and stores the
+  # pre-processed attributes under the identification in the `_actions`-cache.
   #
-  # @param {Element} node
-  #
-  # @return {Object} The jstcache entry. The processed jst attributes
-  # are properties of this object. If the node has no jst attributes,
-  # returns an object with no properties (the jscache_[0] entry).
+  # @public
+  # @method prepare
+  # @param  {Element}   node  The node to prepare for processing
+  # @return {Object}          The cache entry, an object consisting of processed
+  #                           attributes or the `_empty` object, if the node has
+  #                           no relevant attributes
   prepare: (node) ->
 
     # If the node already has a cache property, return it.
-    cache = @getCacheProperty(node)
+    cache = @getCacheProperty node
     return cache if cache?
 
-    # If it is not found, we always set the PROP_jstcache property on the node.
-    # Accessing the property is faster than executing getAttribute(). If we
-    # don't find the property on a node that was cloned in jstSelect_(), we
-    # will fall back to check for the attribute and set the property
-    # from cache.
+    # If it is not found, we always set a `PROP_cache`-property on the node.
+    # Accessing the property is faster than executing `getAttribute()`.  If we
+    # don't find the property on a node that was cloned, ie. by the _repeat_-
+    # action (formerly `jstSelect_()`), we will fall back to check for the
+    # attribute and set the property from cache.
 
-    # If the node has an attribute indexing a cache object, set it as a property
-    # and return it.
-    id = @getElementIdentifier(node)
+    # If the node has a cache-identifier, get the related cache object, set it
+    # as a property and return it.
+    id = @getCacheIdentifier(node)
     if id?
       cache = @getCache id
       if cache?
         return @setCacheProperty(node, cache)
 
-    # If the node has an attribute indexing a cache object, set it as a property
-    # and return it.
+    # Collect all action-attributes and their values
     @collect(node, _list, _values)
 
     # If none found, mark this node to prevent further inspection, and return
     # an empty cache object.
-    return @setEmpty node if _list.length == 0
+    return @setEmpty node if _list.length is 0
 
-    source = @combine _list
+    # Concatenates the action-attributes and their values in a way, that allows
+    # comparison of these flattened string with other nodes' action attributes
+    # (or possibly to reuse in other contexts, sometime in the future)
+    source = @flatten _list
 
-    # If we already have a cache object corresponding to these attributes,
-    # annotate the node with it, and return it
+    # If we already have a cache entry corresponding to the flattened
+    # attributes, annotate the node with it, and return it
     id = @getSourceIdentifier source
     if id?
       cache = @getCache id
       if cache?
-        @setElementIdentifier node, id
+        @setCacheIdentifier node, id
         return @setCacheProperty node, cache
 
-    # Otherwise, build a new cache object.
-    cache = @build(node, _values)
+    # Otherwise, build a new cache object …
+    cache = @createCache(node, _values)
+
+    # … and generate a new cache identifier.
     id    = Constants.STRING_empty + ++_id
 
+    # Now, cache the fresh entry.
     @setCache(id, cache)
-    @setElementIdentifier(node, id)
+
+    # Store the `cloneNode()`-surviving cache identifier
+    # for quicker access directly as a node attribute.
+    @setCacheIdentifier(node, id)
+
+    # Store the flattened cache entry for
+    # quick rebuilds in the `_source`-cache.
     @setSourceIdentifier(source, id)
+
+    # Store the fresh cache entry for quicker
+    # access directly on the node and return it.
     @setCacheProperty(node, cache)
 
-  ##
-  # Collect actions from node.
+  # --------------------------------
+  # Collect actions from or for the given `node`.
   #
-  # @param  {Element}       node
-  # @param  {Array}         Array to append collected intructions to
-  # @param  {Element}       node
-  # @return {Array.<Array,Object>} Array of action-list and its value-map
+  # @public
+  # @method collect
+  # @param  {Element}         node
+  # @param  {Array.<String>}  list    Array to append the collected actions
+  #                                   (formerly called instructions) to
+  # @param  {Object.<String>} values  Object finally having the actions' names
+  #                                   mapped to their raw values
   collect: (node, list, values) ->
-    for [name] in @actions
-      value = doc.getAttribute node, name
+    for [name] in Processor.actions
+      value = Document.getAttribute node, name
       values[name] = value
-      list.push @translate(name, value) if value?
+      list.push @combine(name, value) if value?
     return
 
-  translate: (name, value) ->
-    # raw rule (uses `|=|` as assignment)
-    return Constants.STRING_empty + name + \
-      Constants.STRING_assigment + value
+  # --------------------------------
+  # Combines an action's name with its value, suitable for string comparisons.
+  #
+  # @public
+  # @method combine
+  # @param  {String}  name
+  # @param  {String}  value
+  combine: (name, value) ->
 
-    # url encoded rule
-    # uses `=` as assignment, encodes the value
-    return Constants.STRING_empty + name + \
-      Constants.CHAR_equals + encodeUriComponent(value)
+    # Alternative 1: Raw rule, using `|=|` as assignment. Obviously the fastest
+    # implementation.
+    Constants.STRING_empty + name + Constants.STRING_assigment + value
 
-    # css-like formatted rule
-    # uses `:` as assignment, escapes and double-quotes the value
-    return Constants.STRING_empty + name + \
-      Constants.CHAR_colon + \
-      Constants.CHAR_doublequote + \
-      (Constants.STRING_empty + value).replace('"','\\"') + \
-      Constants.CHAR_doublequote
+    # Alternative 2: URL encoded rule, using `=` as assignment and encoding the
+    # value as URI.
+    # `
+    #     Constants.STRING_empty + name + Constants.CHAR_equals + \
+    #     encodeUriComponent(value)
+    # `
 
-  combine: (list) ->
+    # Alternative 3: CSS-like rule, using `:` as assignment and escaping the
+    # double-quoted value.
+    # `
+    #     Constants.STRING_empty + name + Constants.CHAR_colon + \
+    #     Constants.CHAR_doublequote + \
+    #     (Constants.STRING_empty + value).replace('"','\\"') + \
+    #     Constants.CHAR_doublequote
+    # `
 
-    # raw rule (uses `|||` as seperator)
-    return list.join Constants.STRING_seperator
+  # --------------------------------
+  # Concatenates a list of strings consisting of action-names combined with its
+  # value, suitable for string comparisons, hence flatten.
+  #
+  # @public
+  # @method flatten
+  # @param  {Array.<String>}  list  The list of actions-strings to concatenate
+  # @return {String}                The concatenated list
+  flatten: (list) ->
+    # Alternative 1: Raw rules, using `|||` as separator.
+    list.join Constants.STRING_seperator
 
-    # url encoded rule (uses `&` as seperator)
-    return list.join Constants.CHAR_ampersand
+    # Alternative 2: URL encoded rules, using `&` as separator.
+    # `
+    #     list.join Constants.CHAR_ampersand
+    # `
 
-    # css-like formatted rule (uses `;` as seperator)
-    return list.join Constants.CHAR_semicolon
+    # Alternative 3: CSS-like rules, using `;` as separator.
+    # `
+    #     list.join Constants.CHAR_semicolon
+    # `
 
-  ##
-  # Build a new cache object.
-  # @param  {Element}       node
-  # @return {Array.<Array>} Array of node's action-list and its value-map
-  build: (node, values) ->
+  # --------------------------------
+  # Create a new cache object.
+  #
+  # @public
+  # @method createCache
+  # @param  {Element}           node
+  # @param  {Object.<String>}   values  Object having the actions' names mapped
+  #                                     to their raw values
+  # @return {Object.<Function,String>}  Object having the actions' names mapped
+  #                                     to their parsed values, skipping
+  #                                     `undefined` and `null` values
+  createCache: (node, values) ->
     cache = {}
-    for [name, parse] in @actions
+    for [name, parse] in Processor.actions
       value = values[name]
       continue unless value?
       cache[name] = parse value
       if Constants.DEBUG
-        goatee = cache.goatee ? cache.goatee = {}
-        goatee[name] = value
+        _debugCache = cache._debugCache ? cache._debugCache = {}
+        _debugCache[name] = value
     cache
 
-  ##
+  # --------------------------------
   # Get cached actions-property from given node.
   #
-  # @param  {Element} node
-  # @return {Object}
+  # @public
+  # @method getCacheProperty
+  # @param  {Element}   node                      The node to lookup the cache
+  # @return {Object.<Function,String>|undefined}  An object having the actions'
+  #                                               names mapped to their parsed
+  #                                               values or `undefined` if no
+  #                                               cache-property is available
   getCacheProperty: (node) ->
-    node[Constants.PROP_jstcache]
+    node[Constants.PROP_cache]
 
-  ##
+  # --------------------------------
   # Cache actions in a node-property.
   #
-  # @param  {Element} node
-  # @param  {Object}  actions
-  # @return {Object}
+  # @public
+  # @method setCacheProperty
+  # @param  {Element}                   node      The node to set the cache to.
+  # @param  {Object.<Function,String>}  actions   An object having the actions'
+  #                                               names mapped to their parsed
+  #                                               values
+  # @return {Object.<Function,String>}            The cached actions
   setCacheProperty: (node, actions) ->
-    node[Constants.PROP_jstcache] = actions
+    node[Constants.PROP_cache] = actions
 
-  ##
-  # Get cached actions-property for given id.
+  # --------------------------------
+  # Get cached actions from `_actions`-cache for given identifier.
   #
-  # @param  {String} id
-  # @return {Object}
+  # @public
+  # @method getCache
+  # @param  {String}  id                          Cache identifier to lookup
+  # @return {Object.<Function,String>|undefined}  An object having the actions'
+  #                                               names mapped to their parsed
+  #                                               values or `undefined` if no
+  #                                               cache-entry is available
   getCache: (id) ->
     _actions[id]
 
-  ##
-  # Cache actions under given id.
+  # --------------------------------
+  # Cache actions in `_actions`-cache under given identifier.
   #
-  # @param  {String}  id
-  # @param  {Object}  actions
-  # @return {Object}
+  # @public
+  # @method setCache
+  # @param  {String}                    id        Identifier to store actions
+  # @param  {Object.<Function,String>}  actions   An object having the actions'
+  #                                               names mapped to their parsed
+  #                                               values
+  # @return {Object.<Function,String>}            The cached actions
   setCache: (id, actions) ->
     _actions[id] = actions
 
-  ##
-  # Get cached identifier-attribute from given node.
+  # --------------------------------
+  # Get cached identifier(-attribute) from given node.
   #
-  # @param  {Element} node
-  # @return {String}
-  getElementIdentifier: (node) ->
-    doc.getAttribute node, Constants.ATT_jstcache
+  # @public
+  # @method getCacheIdentifier
+  # @param  {Element}           node  The node to lookup the cache-identifier
+  # @return {String|undefined}        The cache-identifier or `undefined` if
+  #                                   none is present
+  getCacheIdentifier: (node) ->
+    Document.getAttribute node, Constants.ATT_cache
 
-  ##
-  # Cache identifier as node-attribute.
+  # --------------------------------
+  # Store the cache identifier (as node-attribute).
   #
-  # @param  {Element} node
-  # @param  {String}  id
-  # @return {String}
-  setElementIdentifier: (node, id) ->
-    doc.setAttribute node, Constants.ATT_jstcache, id
+  # @public
+  # @method setCacheIdentifier
+  # @param  {Element}   node  The node to store the identifier to
+  # @param  {String}    id    The identifier to store
+  # @return {String}          The stored identifier
+  setCacheIdentifier: (node, id) ->
+    Document.setAttribute node, Constants.ATT_cache, id
     id
 
-  ##
-  # Map from source, a concatenated action string, to cache id.  The key
-  # is the concatenation of all `_actions` found on a node formatted as
-  # "name1=value1&name2=value2&...", in the order defined by actions.
-  # The value is the id of the cache-entry that can be used for this node.
-  # This allows the reuse of cache entries in cases when a cached entry already
-  # exists for a given combination of attribute values. (For example when two
-  # template-nodes share the same actions.)
+  # --------------------------------
+  # Map from source, a concatenated action string, to cache identifiers.  The
+  # key is the concatenation of all `_actions` found on a node formatted as
+  # `name1=value1&name2=value2&...`, in the order of the `Processor.actions`
+  # array.  The value is the identifier of the cache-entry that can be used for
+  # this node.  This allows the reuse of cache entries in cases when a cached
+  # entry already exists for a given combination of attribute values.  For
+  # example when two template-nodes share the same actions, like those created
+  # by the _repeat_-action (formerly _jsselect_-instruction).
   #
+  # @private
+  # @property _sources
   # @type {Object}
   _sources = {}
 
-  ##
+  # --------------------------------
   # Get cached identifier for given source.
   #
-  # @param  {String} source
-  # @return {String}
+  # @public
+  # @method getSourceIdentifier
+  # @param  {String}            source  A concatenated action string
+  # @return {String|undefined}          The cache-identifier or `undefined` if
+  #                                     none is present
   getSourceIdentifier: (source) ->
     _sources[source]
 
-  ##
+  # --------------------------------
   # Cache identifier for given source.
   #
-  # @param  {String}  source
-  # @param  {String}  id
-  # @return {String}
+  # @public
+  # @method setSourceIdentifier
+  # @param  {String}  source  A concatenated action string
+  # @param  {String}  id      The cache-identifier to store to
+  # @return {String}          The stored cache-identifier
   setSourceIdentifier: (source, id) ->
     _sources[source] = id
 
-  ##
-  # Mark all relevant caches as empty
+  # --------------------------------
+  # Mark all relevant caches as empty on given node.
   #
-  # @param  {Element}  node
-  # @return {Object}
+  # @public
+  # @method setEmpty
+  # @param  {Element}   node  The node to mark as beeing empty (=has no actions)
+  # @return {Object}          The `_empty` cache-object
   setEmpty: (node) ->
-    @setElementIdentifier node, Constants.STRING_zero
+    @setCacheIdentifier node, Constants.STRING_zero
     @setCacheProperty _empty
 
-  ##
+  # --------------------------------
+  # Create a new `Processor`-instance.
+  #
   # @static
   # @method create
-  # @param  {Object}  options  Options passed to `new Processor()`.
-  # @return {Processor}
+  # @param  {Object}    [options]  Options passed to `new Processor()`.
+  # @param  {Document}  [options.document]
+  # @return {goaate.Action.Processor}
   @create: (options) ->
     return new Processor options
 
-  ##
-  # HTML template processor. Data values are bound to HTML templates
-  # using the attributes transclude, jsselect, jsdisplay, jscontent,
-  # jsvalues. The template is modifed in place. The values of those
-  # attributes are JavaScript expressions that are evaluated in the
-  # context of the data object fragment.
+  # --------------------------------
+  # HTML template processor. Data values are bound to HTML templates using the
+  # attributes defined in the `Processor.actions`-registry.  The template is
+  # modified in place.  The values of those attributes are <del>JavaScript</del>
+  # GoateeScript-expressions that are evaluated in the context of the data
+  # object fragment.
   #
   # @static
   # @method process
-  # @param  {Context} context  Context created from the input data object.
-  # @param  {Element} template DOM node of the template. This will be processed
-  #                            in place. After processing, it will still be a
-  #                            valid template that, if processed again with the
-  #                            same data, it will remain unchanged.
-  # @param  {Object}  options  Options passed to `Processor.create()`.
-  # @return {void}
+  # @param  {Context}   context             Context created from the input data
+  #                                         object.
+  # @param  {Element}   template            DOM node of the template to be
+  #                                         processed in place.  Afterwards it
+  #                                         will still be a valid template that,
+  #                                         if processed again with the same
+  #                                         data, will remain unchanged.
+  # @param  {Object}    [options]           Options passed to `new Processor()`.
+  # @param  {Document}  [options.document]
   @process = (context, template, options) ->
 
     processor = Processor.create options
 
-      # Cache the owner document
-    processor.document = doc.ownerDocument(template)
+    # Cache the owner document
+    processor.document = Document.ownerDocument(template)
 
-      # Traverse the template, emit actions and cache them
+    # Traverse the template, emit actions and cache them
     processor.setup template
 
-      # Execute all actions
-    processor.run(Utility.bind(processor, processor.outer, context, template))
+    # Execute all actions
+    processor.run Utility.bind(processor, processor.outer, context, template)
     return

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Processor</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Processor"><meta name="groc-project-path" content="src/Action/Processor.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Processor.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#x69;&#108;&#116;&#x6f;:&#x73;&#116;&#x65;&#x70;&#x68;&#97;&#110;&#46;&#106;&#111;&#x72;&#x65;&#x6b;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;o&#x6d;">&#x73;&#116;&#x65;&#x70;&#x68;&#97;&#110;&#46;&#106;&#111;&#x72;&#x65;&#x6b;&#64;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;o&#x6d;</a> <br />
+<!DOCTYPE html><html lang="en"><head><title>Action/Processor</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Processor"><meta name="groc-project-path" content="src/Action/Processor.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Processor.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;:&#x73;t&#x65;&#x70;h&#x61;&#x6e;&#x2e;&#x6a;&#111;&#x72;&#x65;&#x6b;&#64;&#103;&#109;a&#x69;&#108;&#x2e;c&#111;m">&#x73;t&#x65;&#x70;h&#x61;&#x6e;&#x2e;&#x6a;&#111;&#x72;&#x65;&#x6b;&#64;&#103;&#109;a&#x69;&#108;&#x2e;c&#111;m</a> <br />
 © Copyright 2006 Google Inc. <a href="http://www.google.com">http://www.google.com</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
@@ -639,104 +639,122 @@ jstProcess(input, output);
 <li><p><strong>next</strong>    : This action is present if <code>(cheerio|jQuery)( … ).next( … );</code> is
 available.  The processor will jump to the first element of the
 resulting selection.</p></li>
-</ul></div></div><div class="code"><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Constants&#39;</span>
-<span class="p">{</span><span class="nx">Utility</span><span class="p">}</span>   <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Core/Utility&#39;</span>
-<span class="p">{</span><span class="nx">Document</span><span class="p">}</span>  <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;goatee/Dom/Document&#39;</span>
+</ul></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Constants</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">DEBUG</span><span class="p">,</span>
+  <span class="nx">ATT_cache</span><span class="p">,</span>
+  <span class="nx">PROP_cache</span><span class="p">,</span>
+  <span class="nx">STRING_assigment</span><span class="p">,</span>
+  <span class="nx">STRING_empty</span><span class="p">,</span>
+  <span class="nx">STRING_seperator</span><span class="p">,</span>
+  <span class="nx">STRING_zero</span>
+<span class="p">}}</span>                    <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Core/Constants&#39;</span>
 
-<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class</span></p>
+<span class="p">{</span><span class="nx">Document</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">getAttribute</span><span class="p">,</span>
+  <span class="nx">setAttribute</span><span class="p">,</span>
+  <span class="nx">traverseElements</span><span class="p">,</span>
+  <span class="nx">ownerDocument</span>
+<span class="p">}}</span>                    <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Dom/Document&#39;</span>
 
-<h1 id="processor">Processor</h1>
+<span class="p">{</span><span class="nx">Utility</span><span class="o">:</span><span class="p">{</span>
+  <span class="nx">bind</span>
+<span class="p">}}</span>                    <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Core/Utility&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># ~export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="processor">Processor</h1></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class Process is in namespace <em>goatee.Action</em></span></p>
 
-<p>Internal class used by goatee-templates to maintain context.  This is
-necessary to process deep templates in Safari≤5 which has a relatively
-shallow maximum recursion depth of 100.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Processor = </span><span class="k">class</span> <span class="nx">Processor</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Document</em></span></p>
+<hr />
 
-<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
+<p>Internal class used by templates to maintain context.  This necessary to
+process deep templates in Safari≤5 and mobile browsers having a relatively
+shallow maximum recursion depth of 100.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Processor = </span><span class="k">class</span> <span class="nx">Processor</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property document is of type <em>Document</em></span></p>
 
-<p>#</p></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<hr />
 
-<p>#</p>
+<p>Caches the document of the template node, so we don't have to access it
+through ownerDocument.</p></div></div><div class="code"><div class="wrapper">  <span class="nb">document</span><span class="o">:</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property options is of type <em>Object</em></span></p>
+
+<hr />
+
+<p>Holds this instance's options.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">options: </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Constructor</span></p>
+
+<hr />
+
+<p>Constructs the <code>Processor</code> instance.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>options must be an Object.</strong></li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@options) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Document</em></span></p>
+<li><p><strong>options is optional and must be an Object.</strong></p>
 
-<p>#
-Caches the document of the template node, so we don't have to
-access it through ownerDocument.</p></div></div><div class="code"><div class="wrapper">    <span class="vi">@document = </span><span class="nx">@options</span><span class="p">.</span><span class="nb">document</span> <span class="o">\</span>
-      <span class="k">if</span> <span class="o">not</span> <span class="nx">@</span><span class="nb">document</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="p">.</span><span class="nb">document</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<ul><li><strong>options.document is optional and must be a Document.</strong></li></ul></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">constructor: </span><span class="nf">(@options) -&gt;</span>
+    <span class="p">{</span><span class="nx">@</span><span class="nb">document</span><span class="p">}</span> <span class="o">=</span> <span class="nx">@options</span> <span class="k">if</span> <span class="o">not</span> <span class="nx">@</span><span class="nb">document</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="o">?</span> <span class="o">and</span> <span class="nx">@options</span><span class="p">.</span><span class="nb">document</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method run</span></p>
 
-<p>#
-Runs the given function in our state machine.
+<hr />
+
+<p>Runs the given function <code>fn</code> in our state machine.
 It's informative to view the set of all function calls as a tree:
 - nodes are states
-- edges are state transitions, implemented as calls to the pending
-  functions in the stack.
+- edges are state transitions, implemented as calls to the pending functions
+  in the stack.
   - pre-order function calls are downward edges (recursion into call).
   - post-order function calls are upward edges (return from call).
 - leaves are nodes which do not recurse.
 We represent the call tree as an array of array of calls, indexed as
-stack[depth][index].  Here [depth] indexes into the call stack, and
-[index] indexes into the call queue at that depth.  We require a call
-queue so that a node may branch to more than one child
-(which will be called serially), typically due to a loop structure.</p>
+stack[depth][index].  Here [depth] indexes into the call stack, and [index]
+indexes into the call queue at that depth.  We require a call-queue so that
+a node may branch to more than one child (which will be called serially),
+typically due to a loop structure.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>f must be a Function.</strong><br/>(The first function to run.)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(f) -&gt;</span>
-    <span class="nv">self = </span><span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array.<Array></em></span></p>
+<li><strong>fn must be a Function.</strong><br/>(The first function to run.)</li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">run: </span><span class="nf">(fn) -&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property calls is of type <em>Array.<Array></em></span></p>
 
-<p>#
-A stack of queues of pre-order calls.
-The inner arrays (constituent queues) are structured as
-[ arg2, arg1, method, arg2, arg1, method, ...]
-ie. a flattened array of methods with 2 arguments, in reverse order
-for efficient push/pop.
-The outer array is a stack of such queues.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">calls = self.calls = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array.<Number></em></span></p>
+<p>A stack of queues of pre-order calls.  The inner arrays (constituent
+queues) are structured as <code>[ arg2, arg1, method, arg2, arg1, method, ...]</code>
+ie. a flattened array of methods with 2 arguments, in reverse order for
+efficient push/pop.
+The outer array is a stack of such queues.</p></div></div><div class="code"><div class="wrapper">    <span class="vi">@calls = </span><span class="nv">calls = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property indices is of type <em>Array.<Number></em></span></p>
 
-<p>#
-The index into the queue for each depth. NOTE: Alternative would
-be to maintain the queues in reverse order (popping off of the
-end) but the repeated calls to .pop() consumed 90% of this
-function's execution time.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">indices = self.indices = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array.<Array></em></span></p>
+<p>The index into the queue for each depth.  Notice, an alternative would be
+to maintain the queues in reverse order (popping off of the end) but the
+repeated calls to <code>Array.pop()</code> consumed 90% of this function's execution
+time.</p></div></div><div class="code"><div class="wrapper">    <span class="vi">@indices = </span><span class="nv">indices = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public property arrays is of type <em>Array.<Array></em></span></p>
 
-<p>#
-A pool of empty arrays.  Minimizes object allocation for IE6's benefit.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">arrays = self.arrays = </span><span class="p">[]</span>
+<p>A pool of empty arrays.  Minimizes object allocation as performance and
+memory benefit.</p></div></div><div class="code"><div class="wrapper">    <span class="vi">@arrays = </span><span class="nv">arrays = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>After initializing this state-machine execute the given start function.
+It should have scope and arguments pre-bound.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">fn</span><span class="p">()</span>
 
-    <span class="nx">f</span><span class="p">()</span>
-    <span class="k">while</span> <span class="nx">calls</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span>
-      <span class="nv">queue = </span><span class="nx">calls</span><span class="p">[</span><span class="nx">calls</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-      <span class="nv">index = </span><span class="nx">indices</span><span class="p">[</span><span class="nx">indices</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-      <span class="k">if</span> <span class="nx">index</span> <span class="o">&gt;=</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">length</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">recycleArray</span> <span class="nx">calls</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nx">calls</span><span class="p">.</span><span class="nx">length</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Determine the next queue.</p></div></div><div class="code"><div class="wrapper">      <span class="nv">queue = </span><span class="nx">calls</span><span class="p">[</span><span class="nx">calls</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+      <span class="nv">index = </span><span class="nx">indices</span><span class="p">[</span><span class="nx">indices</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If the index is out of the queue's bound look for the next candidate</p></div></div><div class="code"><div class="wrapper">      <span class="k">if</span> <span class="nx">index</span> <span class="o">&gt;=</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">length</span>
+        <span class="nx">@recycleArray</span> <span class="nx">calls</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
         <span class="nx">indices</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
-        <span class="k">continue</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Run the first function in the queue.</p></div></div><div class="code"><div class="wrapper">      <span class="nv">method = </span><span class="nx">queue</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span>
+        <span class="k">continue</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Run the first function in the queue and record it's index.</p></div></div><div class="code"><div class="wrapper">      <span class="nv">method = </span><span class="nx">queue</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span>
       <span class="nv">arg1 = </span><span class="nx">queue</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span>
       <span class="nv">arg2 = </span><span class="nx">queue</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span>
       <span class="nx">indices</span><span class="p">[</span><span class="nx">indices</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span>
-      <span class="nx">method</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">)</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+      <span class="nx">method</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">)</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method push</span></p>
 
-<p>#
-Pushes one or more functions onto the stack.  These will be run in sequence,
+<hr />
+
+<p>Pushes one or more functions onto the stack.  These will be run in sequence,
 interspersed with any recursive calls that they make.
 This method takes ownership of the given array!</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>args must be an Array.</strong><br/>(Array of method calls structured as [ method, arg1, arg2, method, arg1, arg2, ... ])</li>
+<li><strong>args must be an Array.</strong><br/>(Array of method calls structured as <code>[ method, arg1, arg2, method, arg1, arg2, ... ]</code>)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">push: </span><span class="nf">(args) -&gt;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">calls</span><span class="p">.</span><span class="nx">push</span> <span class="nx">args</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">indices</span><span class="p">.</span><span class="nx">push</span> <span class="mi">0</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+    <span class="nx">@calls</span><span class="p">.</span><span class="nx">push</span> <span class="nx">args</span>
+    <span class="nx">@indices</span><span class="p">.</span><span class="nx">push</span> <span class="mi">0</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method push</span></p>
 
-<p>#
-Prepares the template: preprocesses all goatee-template actions.</p>
+<hr />
+
+<p>Prepares the template: pre-processes all template actions (formerly called
+instructions).</p>
 
 <p>Parameters:</p>
 
@@ -744,278 +762,334 @@ Prepares the template: preprocesses all goatee-template actions.</p>
 <li><strong>template must be an Element.</strong></li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">setup: </span><span class="nf">(template) -&gt;</span>
     <span class="k">unless</span> <span class="nx">@getCacheProperty</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span><span class="o">?</span>
-      <span class="nv">self = </span><span class="nx">@</span>
-      <span class="nx">doc</span><span class="p">.</span><span class="nx">traverseElements</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nf">(node) -&gt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
-    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array.<Array></em></span></p>
+      <span class="nv">self = </span><span class="k">this</span>
+      <span class="nx">Document</span><span class="p">.</span><span class="nx">traverseElements</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nf">(node) -&gt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public property actions is of type <em>Array.<Array></em></span></p>
 
-<p>#
-A list of attributes we use to specify jst processing actions,
-and the functions used to parse their values.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">actions: </span><span class="p">[</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_select, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_display, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_values, jsEvalToValues ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_vars, jsEvalToValues ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_eval, jsEvalToExpressions ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_transclude, jsEvalToSelf ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_content, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_skip, jsEvalToFunction ]</span>
-  <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Array</em></span></p>
+<hr />
 
-<p>#
-A list for storing non-empty actions found on a node in prepare().
-The array is global since it can be reused - this way there is no need to
-construct a new array object for each invocation. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_list   = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
+<p>A list of attributes we use to specify the processing actions (formerly
+called instructions) and the functions used to parse their values.</p></div></div><div class="code"><div class="wrapper">  <span class="vi">@actions: </span><span class="p">[</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_select, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_display, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_values, jsEvalToValues ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_vars, jsEvalToValues ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_eval, jsEvalToExpressions ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_transclude, jsEvalToSelf ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_content, jsEvalToFunction ],</span></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="c1">#    [ Constants.ATT_skip, jsEvalToFunction ]</span>
+  <span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private property _list is of type <em>Array</em></span></p>
 
-<p>#
-Map for storing temporary action values in prepare() so they don't have
-to be retrieved twice. (IE6 perf)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_values = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Number</em></span></p>
+<hr />
 
-<p>#
-Counter to generate cache ids. These ids will be stored used to lookup the
-preprocessed actions from the cache.  The id is stored with the element
-to survive cloneNode() and thus cloned template nodes can share the same
-cache entry.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_id = </span><span class="mi">0</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
+<p>A list for storing non-empty actions found on a node in prepare().  The
+array is not an instance property, hence a kind of global, since it can be
+reused.  This way there is no need to construct a new array object for each
+invocation, which should increase the performance.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_list   = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private property _list is of type <em>Object</em></span></p>
 
-<p>#
-Map from cache id to processed actions.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_actions = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>#
-The neutral cache entry. Used for all nodes that lack any actions.
-We still set the id on those nodes so we can avoid looking again for all
-the other actions that aren't there.  Remember: not only the
-processing of the action-values is expensive and we thus want to
-cache it.  The access to the actions on the Node in the first place
-is very expensive too.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_empty = </span><span class="nx">_actions</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<hr />
 
-<p>#
-Prepares a single node: preprocesses all template attributes of the
-node, and if there are any, assigns a jsid attribute and stores the
-preprocessed attributes under the jsid in the jstcache.</p>
+<p>A map for storing temporary action values in <code>prepare()</code> so they don't have
+to be retrieved twice, which should increase the performance.  The object is
+not an instance property, hence a kind of global, since it can be reused.
+This way there is no need to construct a new object for each invocation,
+which should increase the performance.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_values = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private property _id is of type <em>Number</em></span></p>
+
+<hr />
+
+<p>A counter to generate cache ids.  These ids will be stored used to lookup
+the pre-processed actions from the cache.  The id is stored with the element
+to survive <code>cloneNode()</code> and thus cloned template nodes can share the same
+cache entry.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_id = </span><span class="mi">0</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private property _actions is of type <em>Object</em></span></p>
+
+<hr />
+
+<p>Map from cache <code>_id</code> to processed actions.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_actions = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private property _empty is of type <em>Object</em></span></p>
+
+<hr />
+
+<p>The neutral cache entry.  Used for all nodes that lack any actions. We still
+set the id on those nodes so we can avoid looking again for all the other
+actions that aren't there.  Remember, not only the processing of the action-
+values is expensive and we thus want to cache it.  The access to the actions
+on the Node in the first place is very expensive too.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_empty = </span><span class="nx">_actions</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method prepare</span></p>
+
+<hr />
+
+<p>Prepares a single node: pre-processes all template attributes of the node
+and if there are any, assigns an cache-identifier-attribute and stores the
+pre-processed attributes under the identification in the <code>_actions</code>-cache.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be an Element.</strong></li>
+<li><strong>node must be an Element.</strong><br/>(The node to prepare for processing)</li>
 </ul>
 
-<p><strong>Returns an Object</strong><br/>(The jstcache entry. The processed jst attributes are properties of this object. If the node has no jst attributes, returns an object with no properties (the jscache_[0] entry).)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(node) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If the node already has a cache property, return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">cache = </span><span class="nx">@getCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nx">cache</span> <span class="k">if</span> <span class="nx">cache</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If it is not found, we always set the PROP<em>jstcache property on the node.
-Accessing the property is faster than executing getAttribute(). If we
-don't find the property on a node that was cloned in jstSelect</em>(), we
-will fall back to check for the attribute and set the property
-from cache.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If the node has an attribute indexing a cache object, set it as a property
-and return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">id = </span><span class="nx">@getElementIdentifier</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+<p><strong>Returns an Object</strong><br/>(The cache entry, an object consisting of processed attributes or the <code>_empty</code> object, if the node has no relevant attributes)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">prepare: </span><span class="nf">(node) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If the node already has a cache property, return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">cache = </span><span class="nx">@getCacheProperty</span> <span class="nx">node</span>
+    <span class="k">return</span> <span class="nx">cache</span> <span class="k">if</span> <span class="nx">cache</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If it is not found, we always set a <code>PROP_cache</code>-property on the node.
+Accessing the property is faster than executing <code>getAttribute()</code>.  If we
+don't find the property on a node that was cloned, ie. by the <em>repeat</em>-
+action (formerly <code>jstSelect_()</code>), we will fall back to check for the
+attribute and set the property from cache.</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If the node has a cache-identifier, get the related cache object, set it
+as a property and return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">id = </span><span class="nx">@getCacheIdentifier</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
     <span class="k">if</span> <span class="nx">id</span><span class="o">?</span>
       <span class="nv">cache = </span><span class="nx">@getCache</span> <span class="nx">id</span>
       <span class="k">if</span> <span class="nx">cache</span><span class="o">?</span>
-        <span class="k">return</span> <span class="nx">@setCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If the node has an attribute indexing a cache object, set it as a property
-and return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@collect</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">_list</span><span class="p">,</span> <span class="nx">_values</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If none found, mark this node to prevent further inspection, and return
-an empty cache object.</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">@setEmpty</span> <span class="nx">node</span> <span class="k">if</span> <span class="nx">_list</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span>
-
-    <span class="nv">source = </span><span class="nx">@combine</span> <span class="nx">_list</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If we already have a cache object corresponding to these attributes,
-annotate the node with it, and return it</p></div></div><div class="code"><div class="wrapper">    <span class="nv">id = </span><span class="nx">@getSourceIdentifier</span> <span class="nx">source</span>
+        <span class="k">return</span> <span class="nx">@setCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Collect all action-attributes and their values</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@collect</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">_list</span><span class="p">,</span> <span class="nx">_values</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If none found, mark this node to prevent further inspection, and return
+an empty cache object.</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">@setEmpty</span> <span class="nx">node</span> <span class="k">if</span> <span class="nx">_list</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="mi">0</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Concatenates the action-attributes and their values in a way, that allows
+comparison of these flattened string with other nodes' action attributes
+(or possibly to reuse in other contexts, sometime in the future)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">source = </span><span class="nx">@flatten</span> <span class="nx">_list</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If we already have a cache entry corresponding to the flattened
+attributes, annotate the node with it, and return it</p></div></div><div class="code"><div class="wrapper">    <span class="nv">id = </span><span class="nx">@getSourceIdentifier</span> <span class="nx">source</span>
     <span class="k">if</span> <span class="nx">id</span><span class="o">?</span>
       <span class="nv">cache = </span><span class="nx">@getCache</span> <span class="nx">id</span>
       <span class="k">if</span> <span class="nx">cache</span><span class="o">?</span>
-        <span class="nx">@setElementIdentifier</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">id</span>
-        <span class="k">return</span> <span class="nx">@setCacheProperty</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Otherwise, build a new cache object.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">cache = </span><span class="nx">@build</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">_values</span><span class="p">)</span>
-    <span class="nv">id    = </span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="o">++</span><span class="nx">_id</span>
+        <span class="nx">@setCacheIdentifier</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">id</span>
+        <span class="k">return</span> <span class="nx">@setCacheProperty</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Otherwise, build a new cache object …</p></div></div><div class="code"><div class="wrapper">    <span class="nv">cache = </span><span class="nx">@createCache</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">_values</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>… and generate a new cache identifier.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">id    = </span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="o">++</span><span class="nx">_id</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Now, cache the fresh entry.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@setCache</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Store the <code>cloneNode()</code>-surviving cache identifier
+for quicker access directly as a node attribute.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@setCacheIdentifier</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Store the flattened cache entry for
+quick rebuilds in the <code>_source</code>-cache.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@setSourceIdentifier</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Store the fresh cache entry for quicker
+access directly on the node and return it.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">@setCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method collect</span></p>
 
-    <span class="nx">@setCache</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span>
-    <span class="nx">@setElementIdentifier</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
-    <span class="nx">@setSourceIdentifier</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
-    <span class="nx">@setCacheProperty</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">cache</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<hr />
 
-<p>#
-Collect actions from node.</p>
+<p>Collect actions from or for the given <code>node</code>.</p>
 
 <p>Parameters:</p>
 
 <ul>
 <li><p><strong>node must be an Element.</strong></p></li>
-<li><p><strong>Array must be an Array.</strong><br/>(to append collected intructions to)</p></li>
-<li><p><strong>node must be an Element.</strong></p></li>
-</ul>
-
-<p><strong>Returns an Array of Arrays or Objects</strong><br/>(Array of action-list and its value-map)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node, list, values) -&gt;</span>
-    <span class="k">for</span> <span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="k">in</span> <span class="nx">@actions</span>
-      <span class="nv">value = </span><span class="nx">doc</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">name</span>
+<li><p><strong>list must be an Array of Strings.</strong><br/>(Array to append the collected actions (formerly called instructions) to)</p></li>
+<li><p><strong>values must be an Object of Strings.</strong><br/>(Object finally having the actions' names mapped to their raw values)</p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node, list, values) -&gt;</span>
+    <span class="k">for</span> <span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="k">in</span> <span class="nx">Processor</span><span class="p">.</span><span class="nx">actions</span>
+      <span class="nv">value = </span><span class="nx">Document</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">name</span>
       <span class="nx">values</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
-      <span class="nx">list</span><span class="p">.</span><span class="nx">push</span> <span class="nx">@translate</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="k">if</span> <span class="nx">value</span><span class="o">?</span>
-    <span class="k">return</span>
+      <span class="nx">list</span><span class="p">.</span><span class="nx">push</span> <span class="nx">@combine</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="k">if</span> <span class="nx">value</span><span class="o">?</span>
+    <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method combine</span></p>
 
-  <span class="nv">translate: </span><span class="nf">(name, value) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>raw rule (uses <code>|=|</code> as assignment)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
-      <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_assigment</span> <span class="o">+</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>url encoded rule
-uses <code>=</code> as assignment, encodes the value</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
-      <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_equals</span> <span class="o">+</span> <span class="nx">encodeUriComponent</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>css-like formatted rule
-uses <code>:</code> as assignment, escapes and double-quotes the value</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="o">\</span>
-      <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_colon</span> <span class="o">+</span> <span class="o">\</span>
-      <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_doublequote</span> <span class="o">+</span> <span class="o">\</span>
-      <span class="p">(</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">value</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s">&#39;&quot;&#39;</span><span class="p">,</span><span class="s">&#39;\\&quot;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="o">\</span>
-      <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_doublequote</span>
+<hr />
 
-  <span class="nv">combine: </span><span class="nf">(list) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>raw rule (uses <code>|||</code> as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_seperator</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>url encoded rule (uses <code>&amp;</code> as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_ampersand</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>css-like formatted rule (uses <code>;</code> as seperator)</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">CHAR_semicolon</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>#
-Build a new cache object.</p>
+<p>Combines an action's name with its value, suitable for string comparisons.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be an Element.</strong></li>
+<li><p><strong>name must be a String.</strong></p></li>
+<li><p><strong>value must be a String.</strong></p></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">combine: </span><span class="nf">(name, value) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative 1: Raw rule, using <code>|=|</code> as assignment. Obviously the fastest
+implementation.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_empty</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_assigment</span> <span class="o">+</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative 2: URL encoded rule, using <code>=</code> as assignment and encoding the
+value as URI.
+<code>
+    Constants.STRING_empty + name + Constants.CHAR_equals + \
+    encodeUriComponent(value)
+</code></p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative 3: CSS-like rule, using <code>:</code> as assignment and escaping the
+double-quoted value.
+<code>
+    Constants.STRING_empty + name + Constants.CHAR_colon + \
+    Constants.CHAR_doublequote + \
+    (Constants.STRING_empty + value).replace('"','\\"') + \
+    Constants.CHAR_doublequote
+</code></p></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method flatten</span></p>
+
+<hr />
+
+<p>Concatenates a list of strings consisting of action-names combined with its
+value, suitable for string comparisons, hence flatten.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>list must be an Array of Strings.</strong><br/>(The list of actions-strings to concatenate)</li>
 </ul>
 
-<p><strong>Returns an Array of Arrays</strong><br/>(Array of node's action-list and its value-map)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">build: </span><span class="nf">(node, values) -&gt;</span>
+<p><strong>Returns a String</strong><br/>(The concatenated list)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">flatten: </span><span class="nf">(list) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative 1: Raw rules, using <code>|||</code> as separator.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">list</span><span class="p">.</span><span class="nx">join</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_seperator</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative 2: URL encoded rules, using <code>&amp;</code> as separator.
+<code>
+    list.join Constants.CHAR_ampersand
+</code></p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Alternative 3: CSS-like rules, using <code>;</code> as separator.
+<code>
+    list.join Constants.CHAR_semicolon
+</code></p></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method createCache</span></p>
+
+<hr />
+
+<p>Create a new cache object.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>node must be an Element.</strong></p></li>
+<li><p><strong>values must be an Object of Strings.</strong><br/>(Object having the actions' names mapped to their raw values)</p></li>
+</ul>
+
+<p><strong>Returns an Object of Functions or Strings</strong><br/>(Object having the actions' names mapped to their parsed values, skipping <code>undefined</code> and <code>null</code> values)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">createCache: </span><span class="nf">(node, values) -&gt;</span>
     <span class="nv">cache = </span><span class="p">{}</span>
-    <span class="k">for</span> <span class="p">[</span><span class="nx">name</span><span class="p">,</span> <span class="nx">parse</span><span class="p">]</span> <span class="k">in</span> <span class="nx">@actions</span>
+    <span class="k">for</span> <span class="p">[</span><span class="nx">name</span><span class="p">,</span> <span class="nx">parse</span><span class="p">]</span> <span class="k">in</span> <span class="nx">Processor</span><span class="p">.</span><span class="nx">actions</span>
       <span class="nv">value = </span><span class="nx">values</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span>
       <span class="k">continue</span> <span class="k">unless</span> <span class="nx">value</span><span class="o">?</span>
       <span class="nx">cache</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">parse</span> <span class="nx">value</span>
       <span class="k">if</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">DEBUG</span>
-        <span class="nv">goatee = </span><span class="nx">cache</span><span class="p">.</span><span class="nx">goatee</span> <span class="o">?</span> <span class="nv">cache.goatee = </span><span class="p">{}</span>
-        <span class="nx">goatee</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
-    <span class="nx">cache</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+        <span class="nv">_debugCache = </span><span class="nx">cache</span><span class="p">.</span><span class="nx">_debugCache</span> <span class="o">?</span> <span class="nv">cache._debugCache = </span><span class="p">{}</span>
+        <span class="nx">_debugCache</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span>
+    <span class="nx">cache</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method getCacheProperty</span></p>
 
-<p>#
-Get cached actions-property from given node.</p>
+<hr />
 
-<p>Parameters:</p>
-
-<ul>
-<li><strong>node must be an Element.</strong></li>
-</ul>
-
-<p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCacheProperty: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_jstcache</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>#
-Cache actions in a node-property.</p>
+<p>Get cached actions-property from given node.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong></p></li>
-<li><p><strong>actions must be an Object.</strong></p></li>
+<li><strong>node must be an Element.</strong><br/>(The node to lookup the cache)</li>
 </ul>
 
-<p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCacheProperty: </span><span class="nf">(node, actions) -&gt;</span>
-    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_jstcache</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns an Object of Functions or Strings or an undefined</strong><br/>(An object having the actions' names mapped to their parsed values or <code>undefined</code> if no cache-property is available)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCacheProperty: </span><span class="nf">(node) -&gt;</span>
+    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_cache</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method setCacheProperty</span></p>
 
-<p>#
-Get cached actions-property for given id.</p>
+<hr />
+
+<p>Cache actions in a node-property.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>id must be a String.</strong></li>
+<li><p><strong>node must be an Element.</strong><br/>(The node to set the cache to.)</p></li>
+<li><p><strong>actions must be an Object of Functions or Strings.</strong><br/>(An object having the actions' names mapped to their parsed values)</p></li>
 </ul>
 
-<p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCache: </span><span class="nf">(id) -&gt;</span>
-    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns an Object of Functions or Strings</strong><br/>(The cached actions)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCacheProperty: </span><span class="nf">(node, actions) -&gt;</span>
+    <span class="nx">node</span><span class="p">[</span><span class="nx">Constants</span><span class="p">.</span><span class="nx">PROP_cache</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method getCache</span></p>
 
-<p>#
-Cache actions under given id.</p>
+<hr />
+
+<p>Get cached actions from <code>_actions</code>-cache for given identifier.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>id must be a String.</strong></p></li>
-<li><p><strong>actions must be an Object.</strong></p></li>
+<li><strong>id must be a String.</strong><br/>(Cache identifier to lookup)</li>
 </ul>
 
-<p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCache: </span><span class="nf">(id, actions) -&gt;</span>
-    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns an Object of Functions or Strings or an undefined</strong><br/>(An object having the actions' names mapped to their parsed values or <code>undefined</code> if no cache-entry is available)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCache: </span><span class="nf">(id) -&gt;</span>
+    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method setCache</span></p>
 
-<p>#
-Get cached identifier-attribute from given node.</p>
+<hr />
+
+<p>Cache actions in <code>_actions</code>-cache under given identifier.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be an Element.</strong></li>
+<li><p><strong>id must be a String.</strong><br/>(Identifier to store actions)</p></li>
+<li><p><strong>actions must be an Object of Functions or Strings.</strong><br/>(An object having the actions' names mapped to their parsed values)</p></li>
 </ul>
 
-<p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getElementIdentifier: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">doc</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_jstcache</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns an Object of Functions or Strings</strong><br/>(The cached actions)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCache: </span><span class="nf">(id, actions) -&gt;</span>
+    <span class="nx">_actions</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">actions</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method getCacheIdentifier</span></p>
 
-<p>#
-Cache identifier as node-attribute.</p>
+<hr />
+
+<p>Get cached identifier(-attribute) from given node.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>node must be an Element.</strong></p></li>
-<li><p><strong>id must be a String.</strong></p></li>
+<li><strong>node must be an Element.</strong><br/>(The node to lookup the cache-identifier)</li>
 </ul>
 
-<p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setElementIdentifier: </span><span class="nf">(node, id) -&gt;</span>
-    <span class="nx">doc</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_jstcache</span><span class="p">,</span> <span class="nx">id</span>
+<p><strong>Returns a String or an undefined</strong><br/>(The cache-identifier or <code>undefined</code> if none is present)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getCacheIdentifier: </span><span class="nf">(node) -&gt;</span>
+    <span class="nx">Document</span><span class="p">.</span><span class="nx">getAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_cache</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method setCacheIdentifier</span></p>
+
+<hr />
+
+<p>Store the cache identifier (as node-attribute).</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><p><strong>node must be an Element.</strong><br/>(The node to store the identifier to)</p></li>
+<li><p><strong>id must be a String.</strong><br/>(The identifier to store)</p></li>
+</ul>
+
+<p><strong>Returns a String</strong><br/>(The stored identifier)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setCacheIdentifier: </span><span class="nf">(node, id) -&gt;</span>
+    <span class="nx">Document</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">ATT_cache</span><span class="p">,</span> <span class="nx">id</span>
     <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is of type <em>Object</em></span></p>
 
-<p>#
-Map from source, a concatenated action string, to cache id.  The key
-is the concatenation of all <code>_actions</code> found on a node formatted as
-"name1=value1&amp;name2=value2&amp;...", in the order defined by actions.
-The value is the id of the cache-entry that can be used for this node.
-This allows the reuse of cache entries in cases when a cached entry already
-exists for a given combination of attribute values. (For example when two
-template-nodes share the same actions.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_sources = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<hr />
 
-<p>#
-Get cached identifier for given source.</p>
+<p>Map from source, a concatenated action string, to cache identifiers.  The
+key is the concatenation of all <code>_actions</code> found on a node formatted as
+<code>name1=value1&amp;name2=value2&amp;...</code>, in the order of the <code>Processor.actions</code>
+array.  The value is the identifier of the cache-entry that can be used for
+this node.  This allows the reuse of cache entries in cases when a cached
+entry already exists for a given combination of attribute values.  For
+example when two template-nodes share the same actions, like those created
+by the <em>repeat</em>-action (formerly <em>jsselect</em>-instruction).</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_sources = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method getSourceIdentifier</span></p>
 
-<p>Parameters:</p>
+<hr />
 
-<ul>
-<li><strong>source must be a String.</strong></li>
-</ul>
-
-<p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">getSourceIdentifier: </span><span class="nf">(source) -&gt;</span>
-    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>#
-Cache identifier for given source.</p>
+<p>Get cached identifier for given source.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong>source must be a String.</strong></p></li>
-<li><p><strong>id must be a String.</strong></p></li>
+<li><strong>source must be a String.</strong><br/>(A concatenated action string)</li>
 </ul>
 
-<p><strong>Returns a String</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setSourceIdentifier: </span><span class="nf">(source, id) -&gt;</span>
-    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span> <span class="o">=</span> <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+<p><strong>Returns a String or an undefined</strong><br/>(The cache-identifier or <code>undefined</code> if none is present)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">getSourceIdentifier: </span><span class="nf">(source) -&gt;</span>
+    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method setSourceIdentifier</span></p>
 
-<p>#
-Mark all relevant caches as empty</p>
+<hr />
+
+<p>Cache identifier for given source.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>node must be an Element.</strong></li>
+<li><p><strong>source must be a String.</strong><br/>(A concatenated action string)</p></li>
+<li><p><strong>id must be a String.</strong><br/>(The cache-identifier to store to)</p></li>
 </ul>
 
-<p><strong>Returns an Object</strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">setEmpty: </span><span class="nf">(node) -&gt;</span>
-    <span class="nx">@setElementIdentifier</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span>
+<p><strong>Returns a String</strong><br/>(The stored cache-identifier)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setSourceIdentifier: </span><span class="nf">(source, id) -&gt;</span>
+    <span class="nx">_sources</span><span class="p">[</span><span class="nx">source</span><span class="p">]</span> <span class="o">=</span> <span class="nx">id</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method setEmpty</span></p>
+
+<hr />
+
+<p>Mark all relevant caches as empty on given node.</p>
+
+<p>Parameters:</p>
+
+<ul>
+<li><strong>node must be an Element.</strong><br/>(The node to mark as beeing empty (=has no actions))</li>
+</ul>
+
+<p><strong>Returns an Object</strong><br/>(The <code>_empty</code> cache-object)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">setEmpty: </span><span class="nf">(node) -&gt;</span>
+    <span class="nx">@setCacheIdentifier</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">STRING_zero</span>
     <span class="nx">@setCacheProperty</span> <span class="nx">_empty</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static"><div class="wrapper"><p><span class='doc-section-header'>Static method create</span></p>
 
-<p>#</p>
+<hr />
+
+<p>Create a new <code>Processor</code>-instance.</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><strong>options must be an Object.</strong><br/>(Options passed to <code>new Processor()</code>.)</li>
+<li><p><strong>options is optional and must be an Object.</strong><br/>(Options passed to <code>new Processor()</code>.)</p>
+
+<ul><li><strong>options.document is optional and must be a Document.</strong></li></ul></li>
 </ul>
 
-<p><strong>Returns a Processor</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(options) -&gt;</span>
+<p><strong>Returns a goaate.Action.Processor</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(options) -&gt;</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nx">Processor</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static"><div class="wrapper"><p><span class='doc-section-header'>Static method process</span></p>
 
-<p>#
-HTML template processor. Data values are bound to HTML templates
-using the attributes transclude, jsselect, jsdisplay, jscontent,
-jsvalues. The template is modifed in place. The values of those
-attributes are JavaScript expressions that are evaluated in the
-context of the data object fragment.</p>
+<hr />
+
+<p>HTML template processor. Data values are bound to HTML templates using the
+attributes defined in the <code>Processor.actions</code>-registry.  The template is
+modified in place.  The values of those attributes are <del>JavaScript</del>
+GoateeScript-expressions that are evaluated in the context of the data
+object fragment.</p>
 
 <p>Parameters:</p>
 
 <ul>
 <li><p><strong>context must be a Context.</strong><br/>(Context created from the input data object.)</p></li>
-<li><p><strong>template must be an Element.</strong><br/>(DOM node of the template. This will be processed in place. After processing, it will still be a valid template that, if processed again with the same data, it will remain unchanged.)</p></li>
-<li><p><strong>options must be an Object.</strong><br/>(Options passed to <code>Processor.create()</code>.)</p></li>
-</ul>
+<li><p><strong>template must be an Element.</strong><br/>(DOM node of the template to be processed in place. Afterwards it will still be a valid template that, if processed again with the same data, will remain unchanged.)</p></li>
+<li><p><strong>options is optional and must be an Object.</strong><br/>(Options passed to <code>new Processor()</code>.)</p>
 
-<p><strong>Returns a void</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@process = </span><span class="nf">(context, template, options) -&gt;</span>
+<ul><li><strong>options.document is optional and must be a Document.</strong></li></ul></li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="vi">@process = </span><span class="nf">(context, template, options) -&gt;</span>
 
-    <span class="nv">processor = </span><span class="nx">Processor</span><span class="p">.</span><span class="nx">create</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cache the owner document</p></div></div><div class="code"><div class="wrapper">    <span class="nv">processor.document = </span><span class="nx">doc</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Traverse the template, emit actions and cache them</p></div></div><div class="code"><div class="wrapper">    <span class="nx">processor</span><span class="p">.</span><span class="nx">setup</span> <span class="nx">template</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Execute all actions</p></div></div><div class="code"><div class="wrapper">    <span class="nx">processor</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">Utility</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">processor</span><span class="p">,</span> <span class="nx">processor</span><span class="p">.</span><span class="nx">outer</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">template</span><span class="p">))</span>
+    <span class="nv">processor = </span><span class="nx">Processor</span><span class="p">.</span><span class="nx">create</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Cache the owner document</p></div></div><div class="code"><div class="wrapper">    <span class="nv">processor.document = </span><span class="nx">Document</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Traverse the template, emit actions and cache them</p></div></div><div class="code"><div class="wrapper">    <span class="nx">processor</span><span class="p">.</span><span class="nx">setup</span> <span class="nx">template</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Execute all actions</p></div></div><div class="code"><div class="wrapper">    <span class="nx">processor</span><span class="p">.</span><span class="nx">run</span> <span class="nx">Utility</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">processor</span><span class="p">,</span> <span class="nx">processor</span><span class="p">.</span><span class="nx">outer</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">template</span><span class="p">)</span>
     <span class="k">return</span></div></div></div></div></body></html>
