@@ -35,13 +35,14 @@ exports.Abstract = class Abstract
   # @abstract
   # @public
   # @method process
-  # @param  {Processor} action      The calling action
-  # @param  {Context}   context     The current evaluation context
-  # @param  {Node}      template    The currently processed node of the template
-  # @param  {Function}  attribute   Processed value of the content attribute
-  # @return {Boolean}               Signal: `process`-execution must stop =
-  #                                 `true` or may continue = `false` or `undefined`
-  # @throws {Error}                 If this method has not been overridden.
-  process: (action, context, template, attribute) ->
+  # @param  {goatee.Action.Processor} processor   The calling action
+  # @param  {goatee.Action.Context}   context     The current evaluation context
+  # @param  {Node}                    node        The currently processed node
+  # @param  {Function}                attribute   The action's processed value
+  # @return {Boolean}                 `process`-execution signal:
+  #                                     must stop     = `true` or
+  #                                     may continue  = `false` or `undefined`
+  # @throws {Error}                   If this method has not been overridden.
+  process: (processor, context, node, attribute) ->
     throw new Error 'Derivates must override the “process”-method implementation'
     return
