@@ -15,3 +15,11 @@ module.exports = LANGUAGES =
     singleLineComment: ['#']
     ignorePrefix:      '!'
     foldPrefix:        '~'
+    doctags           : require 'groc/lib/languages/doctags'
+    namespace         :
+      separator       : '.'
+      types           : [
+        require './goatee_namespace.json'
+        require 'groc/lib/languages/javascript/namespace_global.json'
+        require 'groc/lib/languages/javascript/namespace_dom.json'
+      ]

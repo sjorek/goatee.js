@@ -15,7 +15,7 @@
   "dependencies": {
     "goatee-script": "~0.1",
     "goatee-rules": "~0.1",
-    "jsdom": "~0.6",
+    "jsdom": "~0.8",
     "cheerio": "~0.12",
     "coffee-script": "~1.6",
     "glass-script": "~0.5",

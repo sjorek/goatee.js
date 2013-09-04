@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Core/Utility</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Utility"><meta name="groc-project-path" content="src/Core/Utility.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Core/Utility.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;:&#x73;&#116;&#x65;ph&#x61;n&#x2e;&#x6a;&#x6f;&#x72;e&#x6b;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x73;&#116;&#x65;ph&#x61;n&#x2e;&#x6a;&#x6f;&#x72;e&#x6b;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;</a> <br />
+<!DOCTYPE html><html lang="en"><head><title>Core/Utility</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Core/Utility"><meta name="groc-project-path" content="src/Core/Utility.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Core/Utility.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;:&#115;&#116;&#101;&#x70;&#104;&#97;&#x6e;&#x2e;&#106;&#x6f;r&#101;&#x6b;&#64;&#x67;&#x6d;&#x61;i&#x6c;.&#99;&#x6f;&#x6d;">&#115;&#116;&#101;&#x70;&#104;&#97;&#x6e;&#x2e;&#106;&#x6f;r&#101;&#x6b;&#64;&#x67;&#x6d;&#x61;i&#x6c;.&#99;&#x6f;&#x6d;</a> <br />
 © Copyright 2006 Google Inc. <a href="http://www.google.com">http://www.google.com</a></p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@ permissions and limitations under the License.</p></div></div></div><div class="
   <span class="nx">REGEXP_trimRight</span><span class="p">,</span>
   <span class="nx">REGEXP_camelize</span><span class="p">,</span>
   <span class="nx">REGEXP_dashify</span>
-<span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;./Constants&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="utility">Utility</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public module <em>Utility</em> is in namespace <em>goatee.Core</em> and is an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object">Object</a></em></span></p>
+<span class="p">}}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;./Constants&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="utility">Utility</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public module <em>Utility</em> is in namespace <em>goatee.Core</em> and is an <em>Object</em></span></p>
 
 <hr />
 
@@ -29,8 +29,8 @@ referenced in the main source files.</p>
 <p>Authors:</p>
 
 <ul>
-<li><p>Steffen Meschkat  (<a href="&#109;&#97;&#x69;&#108;&#116;&#111;:&#x6d;&#101;&#x73;&#99;&#x68;&#x40;&#103;&#111;&#x6f;&#103;&#108;e.&#99;o&#x6d;">&#x6d;&#101;&#x73;&#99;&#x68;&#x40;&#103;&#111;&#x6f;&#103;&#108;e.&#99;o&#x6d;</a>)</p></li>
-<li><p>Stephan Jorek  (<a href="&#x6d;&#x61;&#x69;&#x6c;t&#111;:&#x73;&#x74;&#101;&#x70;&#x68;&#97;&#x6e;&#x2e;&#x6a;&#111;&#114;e&#107;&#64;g&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#x73;&#x74;&#101;&#x70;&#x68;&#97;&#x6e;&#x2e;&#x6a;&#111;&#114;e&#107;&#64;g&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a>)</p></li>
+<li><p>Steffen Meschkat  (<a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;:&#x6d;&#101;&#115;&#x63;&#x68;&#x40;&#103;&#x6f;&#111;&#103;&#108;&#101;&#46;&#99;&#x6f;&#x6d;">&#x6d;&#101;&#115;&#x63;&#x68;&#x40;&#103;&#x6f;&#111;&#103;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a>)</p></li>
+<li><p>Stephan Jorek  (<a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;:&#x73;&#x74;&#101;p&#x68;&#97;&#110;&#46;&#x6a;&#x6f;&#114;&#101;&#x6b;&#64;g&#109;&#x61;&#x69;l&#46;&#99;&#x6f;&#x6d;">&#x73;&#x74;&#101;p&#x68;&#97;&#110;&#46;&#x6a;&#x6f;&#114;&#101;&#x6b;&#64;g&#109;&#x61;&#x69;l&#46;&#99;&#x6f;&#x6d;</a>)</p></li>
 </ul></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Utility = Utility =</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method <em>isArray</em></span></p>
 
 <hr />
@@ -45,7 +45,7 @@ created in another iframe fails instanceof Array.</p>
 <li><strong><em>value</em> can be of any type.</strong><br/>(Object to interrogate)</li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></em></strong><br/>(Is the object an array?)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">isArray: </span><span class="nf">(value) -&gt;</span>
+<p><strong>Returns a <em>Boolean</em></strong><br/>(Is the object an array?)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">isArray: </span><span class="nf">(value) -&gt;</span>
     <span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="o">?</span> <span class="o">and</span> <span class="k">typeof</span> <span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">TYPE_number</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method <em>arraySlice</em></span></p>
 
 <hr />
@@ -55,12 +55,12 @@ created in another iframe fails instanceof Array.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong><em>array</em> must be an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em>.</strong><br/>(An array to be sliced.)</p></li>
-<li><p><strong><em>start</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Number">Number</a></em>.</strong><br/>(The start of the slice.)</p></li>
-<li><p><strong><em>end</em> is optional, must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Number">Number</a></em> and has a default value of undefined.</strong><br/>(The end of the slice.)</p></li>
+<li><p><strong><em>array</em> must be an <em>Array</em>.</strong><br/>(An array to be sliced.)</p></li>
+<li><p><strong><em>start</em> must be a <em>Number</em>.</strong><br/>(The start of the slice.)</p></li>
+<li><p><strong><em>end</em> is optional, must be a <em>Number</em> and has a default value of undefined.</strong><br/>(The end of the slice.)</p></li>
 </ul>
 
-<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em></strong><br/>(A sliced array from start to end.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">arraySlice: </span><span class="nf">(array, start, end) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We use
+<p><strong>Returns an <em>Array</em></strong><br/>(A sliced array from start to end.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">arraySlice: </span><span class="nf">(array, start, end) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We use
   <code>return Function.prototype.call.apply(Array.prototype.slice, arguments);</code>
 instead of the simpler
   <code>return Array.prototype.slice.call(array, start, opt_end);</code>
@@ -77,7 +77,7 @@ be the place to implement the <del>browser</del> specific workaround.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><strong><em>array</em> must be an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em>.</strong><br/>(Array to be cleared.)</li>
+<li><strong><em>array</em> must be an <em>Array</em>.</strong><br/>(Array to be cleared.)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">arrayClear: </span><span class="nf">(array) -&gt;</span>
     <span class="nv">array.length = </span><span class="mi">0</span>
     <span class="k">return</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method <em>parseInt10</em></span></p>
@@ -89,10 +89,10 @@ be the place to implement the <del>browser</del> specific workaround.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><strong><em>string</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong><br/>(String representation of a number.)</li>
+<li><strong><em>string</em> must be a <em>String</em>.</strong><br/>(String representation of a number.)</li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Number">Number</a></em></strong><br/>(The integer contained in string, converted to base 10.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">parseInt10: </span><span class="nf">(string) -&gt;</span>
+<p><strong>Returns a <em>Number</em></strong><br/>(The integer contained in string, converted to base 10.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">parseInt10: </span><span class="nf">(string) -&gt;</span>
     <span class="nb">parseInt</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method <em>bind</em></span></p>
 
 <hr />
@@ -104,12 +104,12 @@ method is invoked with when invoking the bound function.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong><em>object</em> is optional and must be an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object">Object</a></em>.</strong><br/>(If object isn't <code>null</code> it becomes the method's call target to bind to.)</p></li>
-<li><p><strong><em>method</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Function</a></em>.</strong><br/>(The target method to bind.)</p></li>
+<li><p><strong><em>object</em> is optional and must be an <em>Object</em>.</strong><br/>(If object isn't <code>null</code> it becomes the method's call target to bind to.)</p></li>
+<li><p><strong><em>method</em> must be a <em>Function</em>.</strong><br/>(The target method to bind.)</p></li>
 <li><p><strong><em>args</em> is optional and can be any number of arguments of any type.</strong><br/>(The arguments to bind.)</p></li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Function</a></em></strong><br/>(Method with the target object bound and curried with provided arguments.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">bind: </span><span class="nf">(object, method, args...) -&gt;</span>
+<p><strong>Returns a <em>Function</em></strong><br/>(Method with the target object bound and curried with provided arguments.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">bind: </span><span class="nf">(object, method, args...) -&gt;</span>
     <span class="k">return</span> <span class="nf">-&gt;</span> <span class="nx">method</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method <em>trim</em></span></p>
 
 <hr />
@@ -119,10 +119,10 @@ method is invoked with when invoking the bound function.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><strong><em>string</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong><br/>(Input string.)</li>
+<li><strong><em>string</em> must be a <em>String</em>.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong><br/>(Trimmed string.)</p>
+<p><strong>Returns a <em>String</em></strong><br/>(Trimmed string.)</p>
 
 <p>Reference:</p>
 
@@ -139,10 +139,10 @@ method is invoked with when invoking the bound function.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><strong><em>string</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong><br/>(Input string.)</li>
+<li><strong><em>string</em> must be a <em>String</em>.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong><br/>(Left trimmed string.)</p>
+<p><strong>Returns a <em>String</em></strong><br/>(Left trimmed string.)</p>
 
 <p>Reference:</p>
 
@@ -158,10 +158,10 @@ method is invoked with when invoking the bound function.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><strong><em>string</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong><br/>(Input string.)</li>
+<li><strong><em>string</em> must be a <em>String</em>.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong><br/>(Right trimmed string.)</p>
+<p><strong>Returns a <em>String</em></strong><br/>(Right trimmed string.)</p>
 
 <p>Reference:</p>
 
@@ -177,23 +177,23 @@ method is invoked with when invoking the bound function.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><strong><em>string</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong><br/>(Input string.)</li>
+<li><strong><em>string</em> must be a <em>String</em>.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong><br/>(Camelized string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">camelize: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private method <em>_camelize</em></span></p>
+<p><strong>Returns a <em>String</em></strong><br/>(Camelized string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">camelize: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private method <em>_camelize</em></span></p>
 
 <p>Internal camelize-helper function</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong><em>match</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></p></li>
-<li><p><strong><em>char</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></p></li>
-<li><p><strong><em>index</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Number">Number</a></em>.</strong></p></li>
-<li><p><strong><em>string</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></p></li>
+<li><p><strong><em>match</em> must be a <em>String</em>.</strong></p></li>
+<li><p><strong><em>char</em> must be a <em>String</em>.</strong></p></li>
+<li><p><strong><em>index</em> must be a <em>Number</em>.</strong></p></li>
+<li><p><strong><em>string</em> must be a <em>String</em>.</strong></p></li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong><br/>(Camelized string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_camelize = </span><span class="nf">(match, char, index, string) -&gt;</span> <span class="nx">char</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>The camelize implementation</p></div></div><div class="code"><div class="wrapper">    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_camelize</span><span class="p">,</span> <span class="nx">_camelize</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method <em>dashify</em></span></p>
+<p><strong>Returns a <em>String</em></strong><br/>(Camelized string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_camelize = </span><span class="nf">(match, char, index, string) -&gt;</span> <span class="nx">char</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>The camelize implementation</p></div></div><div class="code"><div class="wrapper">    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_camelize</span><span class="p">,</span> <span class="nx">_camelize</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method <em>dashify</em></span></p>
 
 <hr />
 
@@ -202,22 +202,22 @@ method is invoked with when invoking the bound function.</p>
 <p>Parameters:</p>
 
 <ul>
-<li><strong><em>string</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong><br/>(Input string.)</li>
+<li><strong><em>string</em> must be a <em>String</em>.</strong><br/>(Input string.)</li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong><br/>(Dashed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">dashify: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private method <em>_dashify</em></span></p>
+<p><strong>Returns a <em>String</em></strong><br/>(Dashed string.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">dashify: </span><span class="nx">do</span> <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-private"><div class="wrapper"><p><span class='doc-section-header'>Private method <em>_dashify</em></span></p>
 
 <p>Internal dashify-helper function</p>
 
 <p>Parameters:</p>
 
 <ul>
-<li><p><strong><em>match</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></p></li>
-<li><p><strong><em>char</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></p></li>
-<li><p><strong><em>camel</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></p></li>
-<li><p><strong><em>index</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Number">Number</a></em>.</strong></p></li>
-<li><p><strong><em>string</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></p></li>
+<li><p><strong><em>match</em> must be a <em>String</em>.</strong></p></li>
+<li><p><strong><em>char</em> must be a <em>String</em>.</strong></p></li>
+<li><p><strong><em>camel</em> must be a <em>String</em>.</strong></p></li>
+<li><p><strong><em>index</em> must be a <em>Number</em>.</strong></p></li>
+<li><p><strong><em>string</em> must be a <em>String</em>.</strong></p></li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong><br/>(Dashed string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_dashify  = </span><span class="nf">(match, char, camel, index, string) -&gt;</span>
+<p><strong>Returns a <em>String</em></strong><br/>(Dashed string fragment.)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">_dashify  = </span><span class="nf">(match, char, camel, index, string) -&gt;</span>
       <span class="nx">char</span> <span class="o">+</span> <span class="nx">CHAR_dash</span> <span class="o">+</span> <span class="nx">camel</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>The dashify implementation</p></div></div><div class="code"><div class="wrapper">    <span class="nf">(string) -&gt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span> <span class="nx">REGEXP_dashify</span><span class="p">,</span> <span class="nx">_dashify</span></div></div></div></div></body></html>
