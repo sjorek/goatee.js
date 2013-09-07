@@ -55,7 +55,7 @@ exports.Utility = Utility =
   # @param  {mixed}   value   Object to interrogate
   # @return {Boolean}         Is the object an array?
   isArray: (value) ->
-    value.length? and typeof value.length is Constants.TYPE_number
+    value.length? and typeof value.length is TYPE_number
 
   # --------------------------------
   # Finds a slice of an array.
@@ -133,10 +133,9 @@ exports.Utility = Utility =
   # @return {String}          Trimmed string.
   # @see `testStringTrim();`
   trim: if String::trim?
-  then (string) -> (string.trim())
-  else (string) ->
-    # Alternative: `Utility.trimRight(Utility.trimLeft(string));`
-    string.replace REGEXP_trim, ''
+  then (string) -> string.trim()
+    # Is `Utility.trimRight(Utility.trimLeft(string));` an alternative ?
+  else (string) -> string.replace REGEXP_trim, ''
 
   # --------------------------------
   # Trim whitespace from beginning of string.
@@ -147,8 +146,9 @@ exports.Utility = Utility =
   # @param  {String}  string  Input string.
   # @return {String}          Left trimmed string.
   # @see `testStringTrimLeft();`
-  trimLeft: (string) ->
-    string.replace REGEXP_trimLeft, ''
+  trimLeft: if String::trimLeft?
+  then (string) -> string.trimLeft()
+  else (string) -> string.replace REGEXP_trimLeft, ''
 
   # --------------------------------
   # Trim whitespace from end of string.
@@ -159,8 +159,9 @@ exports.Utility = Utility =
   # @param  {String}  string  Input string.
   # @return {String}          Right trimmed string.
   # @see `testStringTrimRight();`
-  trimRight: (string) ->
-    string.replace REGEXP_trimRight, ''
+  trimRight: if String::trimRight?
+  then (string) -> string.trimRight()
+  else (string) -> string.replace REGEXP_trimRight, ''
 
   # --------------------------------
   # Convert “a-property-name” to “aPropertyName”

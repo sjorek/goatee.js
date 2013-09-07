@@ -135,30 +135,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -188,30 +188,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -227,7 +227,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -284,9 +284,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -698,30 +698,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -751,30 +751,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -790,7 +790,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -847,9 +847,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -1269,30 +1269,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -1322,30 +1322,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -1361,7 +1361,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -1418,9 +1418,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -1822,30 +1822,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -1875,30 +1875,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -1914,7 +1914,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -1971,9 +1971,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -2375,30 +2375,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -2428,30 +2428,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -2467,7 +2467,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -2524,9 +2524,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -2928,30 +2928,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -2981,30 +2981,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -3020,7 +3020,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -3077,9 +3077,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -3481,30 +3481,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -3534,30 +3534,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -3573,7 +3573,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -3630,9 +3630,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -4044,30 +4044,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -4097,30 +4097,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -4136,7 +4136,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -4193,9 +4193,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -4607,30 +4607,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -4660,30 +4660,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -4699,7 +4699,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -4756,9 +4756,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -5170,30 +5170,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -5223,30 +5223,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -5262,7 +5262,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -5319,9 +5319,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -5733,30 +5733,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -5786,30 +5786,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -5825,7 +5825,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -5882,9 +5882,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -6296,30 +6296,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -6349,30 +6349,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -6388,7 +6388,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -6445,9 +6445,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -6859,30 +6859,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -6912,30 +6912,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -6951,7 +6951,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -7008,9 +7008,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -7422,30 +7422,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -7475,30 +7475,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -7514,7 +7514,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -7571,9 +7571,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -7987,30 +7987,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -8040,30 +8040,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -8079,7 +8079,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -8136,9 +8136,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -8551,30 +8551,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -8604,30 +8604,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -8643,7 +8643,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -8700,9 +8700,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -9114,30 +9114,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -9167,30 +9167,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -9206,7 +9206,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -9263,9 +9263,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -9677,30 +9677,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -9730,30 +9730,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -9769,7 +9769,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -9826,9 +9826,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -10240,30 +10240,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -10293,30 +10293,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -10332,7 +10332,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -10389,9 +10389,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -10803,30 +10803,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -10856,30 +10856,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -10895,7 +10895,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -10952,9 +10952,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -11366,30 +11366,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -11419,30 +11419,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -11458,7 +11458,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -11515,9 +11515,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -11929,30 +11929,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -11982,30 +11982,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -12021,7 +12021,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -12078,9 +12078,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -12492,30 +12492,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -12545,30 +12545,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -12584,7 +12584,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -12641,9 +12641,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -13065,30 +13065,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -13118,30 +13118,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -13157,7 +13157,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -13214,9 +13214,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -13618,30 +13618,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -13671,30 +13671,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -13710,7 +13710,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -13767,9 +13767,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -14173,30 +14173,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -14226,30 +14226,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -14265,7 +14265,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -14322,9 +14322,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -14737,30 +14737,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -14790,30 +14790,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -14829,7 +14829,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -14886,9 +14886,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -15300,30 +15300,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -15353,30 +15353,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -15392,7 +15392,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -15449,9 +15449,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -15863,30 +15863,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -15916,30 +15916,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -15955,7 +15955,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -16012,9 +16012,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -16426,30 +16426,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -16479,30 +16479,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -16518,7 +16518,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -16575,9 +16575,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -16991,30 +16991,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -17044,30 +17044,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -17083,7 +17083,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -17140,9 +17140,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -17605,30 +17605,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -17658,30 +17658,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -17697,7 +17697,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -17754,9 +17754,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -18168,30 +18168,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -18221,30 +18221,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -18260,7 +18260,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -18317,9 +18317,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -18731,30 +18731,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -18784,30 +18784,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -18823,7 +18823,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -18880,9 +18880,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -19294,30 +19294,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -19347,30 +19347,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -19386,7 +19386,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -19443,9 +19443,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -19857,30 +19857,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -19910,30 +19910,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -19949,7 +19949,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -20006,9 +20006,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -20438,30 +20438,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "class": {
                           "section": "type",
-                          "markdown": "class *{value}*"
+                          "markdown": "class *{type}*"
                         },
                         "event": {
                           "section": "type"
                         },
                         "method": {
                           "section": "type",
-                          "markdown": "method *{value}*"
+                          "markdown": "method *{type}*"
                         },
                         "mixin": {
                           "section": "type",
-                          "markdown": "mixin *{value}*"
+                          "markdown": "mixin *{type}*"
                         },
                         "module": {
                           "section": "type",
-                          "markdown": "module *{value}*"
+                          "markdown": "module *{type}*"
                         },
                         "package": {
                           "section": "type",
-                          "markdown": "package *{value}*"
+                          "markdown": "package *{type}*"
                         },
                         "property": {
                           "section": "type",
-                          "markdown": "property *{value}*"
+                          "markdown": "property *{type}*"
                         },
                         "accessor": {
                           "section": "flag",
@@ -20491,30 +20491,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "alias": {
                           "valuePrefix": "as",
                           "section": "metadata",
-                          "markdown": "is aliased as *{value}*"
+                          "markdown": "is aliased as *{type}*"
                         },
                         "augments": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "extends": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "fires": {
                           "section": "metadata"
                         },
                         "memberof": {
                           "section": "metadata",
-                          "markdown": "is a member of *{value}*"
+                          "markdown": "is a member of *{type}*"
                         },
                         "mixes": {
                           "section": "metadata",
-                          "markdown": "mixes *{value}* in"
+                          "markdown": "mixes *{type}* in"
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{value}*"
+                          "markdown": "is in namespace *{type}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -20530,7 +20530,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "subscribes": {
                           "valuePrefix": "to",
                           "section": "metadata",
-                          "markdown": "subscribes to {value}"
+                          "markdown": "subscribes to {type}"
                         },
                         "type": {
                           "section": "metadata"
@@ -20587,9 +20587,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                            "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                            "goatee.": "http://sjorek.github.io/goatee-js/"
+                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -20991,30 +20991,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "class": {
                           "section": "type",
-                          "markdown": "class *{value}*"
+                          "markdown": "class *{type}*"
                         },
                         "event": {
                           "section": "type"
                         },
                         "method": {
                           "section": "type",
-                          "markdown": "method *{value}*"
+                          "markdown": "method *{type}*"
                         },
                         "mixin": {
                           "section": "type",
-                          "markdown": "mixin *{value}*"
+                          "markdown": "mixin *{type}*"
                         },
                         "module": {
                           "section": "type",
-                          "markdown": "module *{value}*"
+                          "markdown": "module *{type}*"
                         },
                         "package": {
                           "section": "type",
-                          "markdown": "package *{value}*"
+                          "markdown": "package *{type}*"
                         },
                         "property": {
                           "section": "type",
-                          "markdown": "property *{value}*"
+                          "markdown": "property *{type}*"
                         },
                         "accessor": {
                           "section": "flag",
@@ -21044,30 +21044,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "alias": {
                           "valuePrefix": "as",
                           "section": "metadata",
-                          "markdown": "is aliased as *{value}*"
+                          "markdown": "is aliased as *{type}*"
                         },
                         "augments": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "extends": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "fires": {
                           "section": "metadata"
                         },
                         "memberof": {
                           "section": "metadata",
-                          "markdown": "is a member of *{value}*"
+                          "markdown": "is a member of *{type}*"
                         },
                         "mixes": {
                           "section": "metadata",
-                          "markdown": "mixes *{value}* in"
+                          "markdown": "mixes *{type}* in"
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{value}*"
+                          "markdown": "is in namespace *{type}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -21083,7 +21083,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "subscribes": {
                           "valuePrefix": "to",
                           "section": "metadata",
-                          "markdown": "subscribes to {value}"
+                          "markdown": "subscribes to {type}"
                         },
                         "type": {
                           "section": "metadata"
@@ -21140,9 +21140,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                            "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                            "goatee.": "http://sjorek.github.io/goatee-js/"
+                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -21544,30 +21544,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "class": {
                           "section": "type",
-                          "markdown": "class *{value}*"
+                          "markdown": "class *{type}*"
                         },
                         "event": {
                           "section": "type"
                         },
                         "method": {
                           "section": "type",
-                          "markdown": "method *{value}*"
+                          "markdown": "method *{type}*"
                         },
                         "mixin": {
                           "section": "type",
-                          "markdown": "mixin *{value}*"
+                          "markdown": "mixin *{type}*"
                         },
                         "module": {
                           "section": "type",
-                          "markdown": "module *{value}*"
+                          "markdown": "module *{type}*"
                         },
                         "package": {
                           "section": "type",
-                          "markdown": "package *{value}*"
+                          "markdown": "package *{type}*"
                         },
                         "property": {
                           "section": "type",
-                          "markdown": "property *{value}*"
+                          "markdown": "property *{type}*"
                         },
                         "accessor": {
                           "section": "flag",
@@ -21597,30 +21597,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "alias": {
                           "valuePrefix": "as",
                           "section": "metadata",
-                          "markdown": "is aliased as *{value}*"
+                          "markdown": "is aliased as *{type}*"
                         },
                         "augments": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "extends": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "fires": {
                           "section": "metadata"
                         },
                         "memberof": {
                           "section": "metadata",
-                          "markdown": "is a member of *{value}*"
+                          "markdown": "is a member of *{type}*"
                         },
                         "mixes": {
                           "section": "metadata",
-                          "markdown": "mixes *{value}* in"
+                          "markdown": "mixes *{type}* in"
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{value}*"
+                          "markdown": "is in namespace *{type}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -21636,7 +21636,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "subscribes": {
                           "valuePrefix": "to",
                           "section": "metadata",
-                          "markdown": "subscribes to {value}"
+                          "markdown": "subscribes to {type}"
                         },
                         "type": {
                           "section": "metadata"
@@ -21693,9 +21693,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                            "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                            "goatee.": "http://sjorek.github.io/goatee-js/"
+                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -22097,30 +22097,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "class": {
                           "section": "type",
-                          "markdown": "class *{value}*"
+                          "markdown": "class *{type}*"
                         },
                         "event": {
                           "section": "type"
                         },
                         "method": {
                           "section": "type",
-                          "markdown": "method *{value}*"
+                          "markdown": "method *{type}*"
                         },
                         "mixin": {
                           "section": "type",
-                          "markdown": "mixin *{value}*"
+                          "markdown": "mixin *{type}*"
                         },
                         "module": {
                           "section": "type",
-                          "markdown": "module *{value}*"
+                          "markdown": "module *{type}*"
                         },
                         "package": {
                           "section": "type",
-                          "markdown": "package *{value}*"
+                          "markdown": "package *{type}*"
                         },
                         "property": {
                           "section": "type",
-                          "markdown": "property *{value}*"
+                          "markdown": "property *{type}*"
                         },
                         "accessor": {
                           "section": "flag",
@@ -22150,30 +22150,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "alias": {
                           "valuePrefix": "as",
                           "section": "metadata",
-                          "markdown": "is aliased as *{value}*"
+                          "markdown": "is aliased as *{type}*"
                         },
                         "augments": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "extends": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "fires": {
                           "section": "metadata"
                         },
                         "memberof": {
                           "section": "metadata",
-                          "markdown": "is a member of *{value}*"
+                          "markdown": "is a member of *{type}*"
                         },
                         "mixes": {
                           "section": "metadata",
-                          "markdown": "mixes *{value}* in"
+                          "markdown": "mixes *{type}* in"
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{value}*"
+                          "markdown": "is in namespace *{type}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -22189,7 +22189,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "subscribes": {
                           "valuePrefix": "to",
                           "section": "metadata",
-                          "markdown": "subscribes to {value}"
+                          "markdown": "subscribes to {type}"
                         },
                         "type": {
                           "section": "metadata"
@@ -22246,9 +22246,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                            "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                            "goatee.": "http://sjorek.github.io/goatee-js/"
+                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -22650,30 +22650,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "class": {
                           "section": "type",
-                          "markdown": "class *{value}*"
+                          "markdown": "class *{type}*"
                         },
                         "event": {
                           "section": "type"
                         },
                         "method": {
                           "section": "type",
-                          "markdown": "method *{value}*"
+                          "markdown": "method *{type}*"
                         },
                         "mixin": {
                           "section": "type",
-                          "markdown": "mixin *{value}*"
+                          "markdown": "mixin *{type}*"
                         },
                         "module": {
                           "section": "type",
-                          "markdown": "module *{value}*"
+                          "markdown": "module *{type}*"
                         },
                         "package": {
                           "section": "type",
-                          "markdown": "package *{value}*"
+                          "markdown": "package *{type}*"
                         },
                         "property": {
                           "section": "type",
-                          "markdown": "property *{value}*"
+                          "markdown": "property *{type}*"
                         },
                         "accessor": {
                           "section": "flag",
@@ -22703,30 +22703,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "alias": {
                           "valuePrefix": "as",
                           "section": "metadata",
-                          "markdown": "is aliased as *{value}*"
+                          "markdown": "is aliased as *{type}*"
                         },
                         "augments": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "extends": {
                           "section": "metadata",
-                          "markdown": "extends *{value}*"
+                          "markdown": "extends *{type}*"
                         },
                         "fires": {
                           "section": "metadata"
                         },
                         "memberof": {
                           "section": "metadata",
-                          "markdown": "is a member of *{value}*"
+                          "markdown": "is a member of *{type}*"
                         },
                         "mixes": {
                           "section": "metadata",
-                          "markdown": "mixes *{value}* in"
+                          "markdown": "mixes *{type}* in"
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{value}*"
+                          "markdown": "is in namespace *{type}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -22742,7 +22742,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "subscribes": {
                           "valuePrefix": "to",
                           "section": "metadata",
-                          "markdown": "subscribes to {value}"
+                          "markdown": "subscribes to {type}"
                         },
                         "type": {
                           "section": "metadata"
@@ -22799,9 +22799,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                            "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                            "goatee.": "http://sjorek.github.io/goatee-js/"
+                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -23205,30 +23205,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -23258,30 +23258,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -23297,7 +23297,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -23354,9 +23354,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -23758,30 +23758,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -23811,30 +23811,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -23850,7 +23850,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -23907,9 +23907,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -24315,30 +24315,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             },
             "class": {
               "section": "type",
-              "markdown": "class *{value}*"
+              "markdown": "class *{type}*"
             },
             "event": {
               "section": "type"
             },
             "method": {
               "section": "type",
-              "markdown": "method *{value}*"
+              "markdown": "method *{type}*"
             },
             "mixin": {
               "section": "type",
-              "markdown": "mixin *{value}*"
+              "markdown": "mixin *{type}*"
             },
             "module": {
               "section": "type",
-              "markdown": "module *{value}*"
+              "markdown": "module *{type}*"
             },
             "package": {
               "section": "type",
-              "markdown": "package *{value}*"
+              "markdown": "package *{type}*"
             },
             "property": {
               "section": "type",
-              "markdown": "property *{value}*"
+              "markdown": "property *{type}*"
             },
             "accessor": {
               "section": "flag",
@@ -24368,30 +24368,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "alias": {
               "valuePrefix": "as",
               "section": "metadata",
-              "markdown": "is aliased as *{value}*"
+              "markdown": "is aliased as *{type}*"
             },
             "augments": {
               "section": "metadata",
-              "markdown": "extends *{value}*"
+              "markdown": "extends *{type}*"
             },
             "extends": {
               "section": "metadata",
-              "markdown": "extends *{value}*"
+              "markdown": "extends *{type}*"
             },
             "fires": {
               "section": "metadata"
             },
             "memberof": {
               "section": "metadata",
-              "markdown": "is a member of *{value}*"
+              "markdown": "is a member of *{type}*"
             },
             "mixes": {
               "section": "metadata",
-              "markdown": "mixes *{value}* in"
+              "markdown": "mixes *{type}* in"
             },
             "namespace": {
               "section": "metadata",
-              "markdown": "is in namespace *{value}*"
+              "markdown": "is in namespace *{type}*"
             },
             "publishes": {
               "section": "metadata"
@@ -24407,7 +24407,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "subscribes": {
               "valuePrefix": "to",
               "section": "metadata",
-              "markdown": "subscribes to {value}"
+              "markdown": "subscribes to {type}"
             },
             "type": {
               "section": "metadata"
@@ -24464,9 +24464,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "separator": ".",
             "types": [
               {
-                "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                "goatee.": "http://sjorek.github.io/goatee-js/"
+                "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
               }, {
                 "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                 "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -24876,30 +24876,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -24929,30 +24929,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -24968,7 +24968,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -25025,9 +25025,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -25498,30 +25498,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -25551,30 +25551,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -25590,7 +25590,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -25647,9 +25647,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -26071,30 +26071,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -26124,30 +26124,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -26163,7 +26163,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -26220,9 +26220,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -26634,30 +26634,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -26687,30 +26687,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -26726,7 +26726,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -26783,9 +26783,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -27205,30 +27205,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -27258,30 +27258,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -27297,7 +27297,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -27354,9 +27354,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -27758,30 +27758,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -27811,30 +27811,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -27850,7 +27850,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -27907,9 +27907,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -28311,30 +28311,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -28364,30 +28364,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -28403,7 +28403,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -28460,9 +28460,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -28864,30 +28864,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -28917,30 +28917,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -28956,7 +28956,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -29013,9 +29013,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -29417,30 +29417,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -29470,30 +29470,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -29509,7 +29509,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -29566,9 +29566,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -29972,30 +29972,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -30025,30 +30025,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -30064,7 +30064,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -30121,9 +30121,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -30536,30 +30536,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -30589,30 +30589,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -30628,7 +30628,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -30685,9 +30685,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -31099,30 +31099,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -31152,30 +31152,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -31191,7 +31191,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -31248,9 +31248,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -31662,30 +31662,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -31715,30 +31715,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -31754,7 +31754,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -31811,9 +31811,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -32225,30 +32225,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -32278,30 +32278,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -32317,7 +32317,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -32374,9 +32374,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -32788,30 +32788,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -32841,30 +32841,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -32880,7 +32880,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -32937,9 +32937,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -33351,30 +33351,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "class": {
                       "section": "type",
-                      "markdown": "class *{value}*"
+                      "markdown": "class *{type}*"
                     },
                     "event": {
                       "section": "type"
                     },
                     "method": {
                       "section": "type",
-                      "markdown": "method *{value}*"
+                      "markdown": "method *{type}*"
                     },
                     "mixin": {
                       "section": "type",
-                      "markdown": "mixin *{value}*"
+                      "markdown": "mixin *{type}*"
                     },
                     "module": {
                       "section": "type",
-                      "markdown": "module *{value}*"
+                      "markdown": "module *{type}*"
                     },
                     "package": {
                       "section": "type",
-                      "markdown": "package *{value}*"
+                      "markdown": "package *{type}*"
                     },
                     "property": {
                       "section": "type",
-                      "markdown": "property *{value}*"
+                      "markdown": "property *{type}*"
                     },
                     "accessor": {
                       "section": "flag",
@@ -33404,30 +33404,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "alias": {
                       "valuePrefix": "as",
                       "section": "metadata",
-                      "markdown": "is aliased as *{value}*"
+                      "markdown": "is aliased as *{type}*"
                     },
                     "augments": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "extends": {
                       "section": "metadata",
-                      "markdown": "extends *{value}*"
+                      "markdown": "extends *{type}*"
                     },
                     "fires": {
                       "section": "metadata"
                     },
                     "memberof": {
                       "section": "metadata",
-                      "markdown": "is a member of *{value}*"
+                      "markdown": "is a member of *{type}*"
                     },
                     "mixes": {
                       "section": "metadata",
-                      "markdown": "mixes *{value}* in"
+                      "markdown": "mixes *{type}* in"
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{value}*"
+                      "markdown": "is in namespace *{type}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -33443,7 +33443,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "subscribes": {
                       "valuePrefix": "to",
                       "section": "metadata",
-                      "markdown": "subscribes to {value}"
+                      "markdown": "subscribes to {type}"
                     },
                     "type": {
                       "section": "metadata"
@@ -33500,9 +33500,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                        "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                        "goatee.": "http://sjorek.github.io/goatee-js/"
+                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -33926,30 +33926,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -33979,30 +33979,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -34018,7 +34018,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -34075,9 +34075,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -34479,30 +34479,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -34532,30 +34532,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -34571,7 +34571,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -34628,9 +34628,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -35032,30 +35032,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "class": {
                   "section": "type",
-                  "markdown": "class *{value}*"
+                  "markdown": "class *{type}*"
                 },
                 "event": {
                   "section": "type"
                 },
                 "method": {
                   "section": "type",
-                  "markdown": "method *{value}*"
+                  "markdown": "method *{type}*"
                 },
                 "mixin": {
                   "section": "type",
-                  "markdown": "mixin *{value}*"
+                  "markdown": "mixin *{type}*"
                 },
                 "module": {
                   "section": "type",
-                  "markdown": "module *{value}*"
+                  "markdown": "module *{type}*"
                 },
                 "package": {
                   "section": "type",
-                  "markdown": "package *{value}*"
+                  "markdown": "package *{type}*"
                 },
                 "property": {
                   "section": "type",
-                  "markdown": "property *{value}*"
+                  "markdown": "property *{type}*"
                 },
                 "accessor": {
                   "section": "flag",
@@ -35085,30 +35085,30 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "alias": {
                   "valuePrefix": "as",
                   "section": "metadata",
-                  "markdown": "is aliased as *{value}*"
+                  "markdown": "is aliased as *{type}*"
                 },
                 "augments": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "extends": {
                   "section": "metadata",
-                  "markdown": "extends *{value}*"
+                  "markdown": "extends *{type}*"
                 },
                 "fires": {
                   "section": "metadata"
                 },
                 "memberof": {
                   "section": "metadata",
-                  "markdown": "is a member of *{value}*"
+                  "markdown": "is a member of *{type}*"
                 },
                 "mixes": {
                   "section": "metadata",
-                  "markdown": "mixes *{value}* in"
+                  "markdown": "mixes *{type}* in"
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{value}*"
+                  "markdown": "is in namespace *{type}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -35124,7 +35124,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "subscribes": {
                   "valuePrefix": "to",
                   "section": "metadata",
-                  "markdown": "subscribes to {value}"
+                  "markdown": "subscribes to {type}"
                 },
                 "type": {
                   "section": "metadata"
@@ -35181,9 +35181,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": "http://sjorek.github.io/goatee-script/",
-                    "goatee.Rules.": "http://sjorek.github.io/goatee-rules/",
-                    "goatee.": "http://sjorek.github.io/goatee-js/"
+                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
+                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -35781,14 +35781,12 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       case 'file':
         node$.append("<a class=\"label\" href=\"" + metaInfo.relativeRoot + node.data.targetPath + ".html\" title=\"" + node.data.projectPath + "\"><span class=\"text\">" + node.data.title + "</span></a>");
         clickLabel = function() {
-          console.log("clicked file label");
           return selectNode(node$);
         };
         break;
       case 'folder':
         node$.append("<a class=\"label\" href=\"#\"><span class=\"text\">" + node.data.title + "</span></a>");
         clickLabel = function(evt) {
-          console.log("clicked folder label");
           selectNode(node$);
           node$.toggleClass('expanded');
           return evt.preventDefault();

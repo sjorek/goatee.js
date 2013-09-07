@@ -1,5 +1,5 @@
 {
-    "goatee.Script." : "http://sjorek.github.io/goatee-script/",
-    "goatee.Rules."  : "http://sjorek.github.io/goatee-rules/",
-    "goatee."        : "http://sjorek.github.io/goatee-js/"
+    "goatee.Script." : ["goatee.", "http://sjorek.github.io/goatee-script/"],
+    "goatee.Rules."  : ["goatee.", "http://sjorek.github.io/goatee-rules/"],
+    "goatee."        : ["goatee.", "http://sjorek.github.io/goatee-js/"]
 }

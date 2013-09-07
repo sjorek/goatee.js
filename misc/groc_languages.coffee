@@ -20,6 +20,6 @@ module.exports = LANGUAGES =
       separator       : '.'
       types           : [
         require './goatee_namespace.json'
-        require 'groc/lib/languages/javascript/namespace_global.json'
-        require 'groc/lib/languages/javascript/namespace_dom.json'
+        require 'groc/lib/languages/namespace/javascript_globals.json'
+        require 'groc/lib/languages/namespace/javascript_dom.json'
       ]
