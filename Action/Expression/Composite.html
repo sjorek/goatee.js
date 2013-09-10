@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Composite</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Action/Expression/Composite"><meta name="groc-project-path" content="src/Action/Expression/Composite.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Action/Expression/Composite.coffee">src/Action/Expression/Composite.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#97;&#105;&#108;t&#x6f;:&#x73;&#116;&#101;p&#104;&#97;&#110;&#46;&#x6a;&#x6f;&#x72;e&#107;&#x40;&#103;&#109;&#97;&#105;&#x6c;.&#x63;&#111;&#109;">&#x73;&#116;&#101;p&#104;&#97;&#110;&#46;&#x6a;&#x6f;&#x72;e&#107;&#x40;&#103;&#109;&#97;&#105;&#x6c;.&#x63;&#111;&#109;</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Action/Expression/Composite</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Action/Expression/Composite"><meta name="groc-project-path" content="src/Action/Expression/Composite.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Action/Expression/Composite.coffee">src/Action/Expression/Composite.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;:&#115;&#x74;&#101;&#112;&#104;&#97;&#110;&#x2e;&#x6a;&#111;&#114;&#x65;&#x6b;&#x40;&#x67;m&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#115;&#x74;&#101;&#112;&#104;&#97;&#110;&#x2e;&#x6a;&#111;&#114;&#x65;&#x6b;&#x40;&#x67;m&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -26,17 +26,21 @@ permissions and limitations under the License.</p></div></div><div class="code">
 
 <span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'>Class  is in namespace <em>goatee.Action.Expression</em></span></p>
 
-<p>Javascript</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Javascript = </span><span class="k">class</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> evaluateExpression raised during expression evaluation to console.</span></p>
+<p>Javascript</p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Javascript = </span><span class="k">class</span> <span class="nx">Javascript</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> evaluateExpression raised during expression evaluation to console.</span></p>
 
 <p>#</p>
 
-<p>Parameters:</p>
+<p><strong>Parameter:</strong></p>
 
 <ul>
-<li><strong><em>expression</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></li>
+<li><strong><em>expression</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong></li>
 </ul>
 
-<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object">Object</a></em> or <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/null">null</a></em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluate: </span><span class="nf">(expression) -&gt;</span>
+<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object">Object</a></em> or <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/null">null</a></em></strong></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluate: </span><span class="nf">(expression) -&gt;</span>
     <span class="k">try</span>
       <span class="nx">@evaluateExpression</span><span class="p">(</span><span class="nx">expression</span><span class="p">)</span>
     <span class="k">catch</span> <span class="nx">e</span>
@@ -47,15 +51,15 @@ obtain their value. It wraps the expression in parentheses such
 that object literals are really evaluated to objects. Without the
 wrapping, they are evaluated as block, and create syntax
 errors. Also protects against other syntax errors in the eval()ed
-code and returns null if the eval throws an exception.</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>Parameters:</p>
+code and returns null if the eval throws an exception.</p></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><strong>Parameter:</strong></p>
 
 <ul>
-<li><strong><em>expression</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></li>
+<li><strong><em>expression</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong></li>
 </ul>
 
-<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object">Object</a></em> or <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/null">null</a></em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): An alternative idiom would be:</p>
+<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object">Object</a></em> or <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/null">null</a></em></strong></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateExpression: </span><span class="nf">(expression) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE(mesch): An alternative idiom would be:</p>
 
 <p>eval('(' + expr + ')');</p>
 
@@ -69,21 +73,24 @@ object, in IE.</p>
 agnostics we deliberatly fall back to vanilla javascript here.</p></div></div><div class="code"><div class="wrapper">    <span class="k">return</span> <span class="o">`</span><span class="nb">eval</span><span class="p">(</span><span class="s">&#39;[&#39;</span> <span class="o">+</span> <span class="nx">expression</span> <span class="o">+</span> <span class="s">&#39;][0]&#39;</span><span class="p">)</span><span class="o">`</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object">Object</a></em></span></p>
 
 <p>#
-Cache for jsEvalToFunction results.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">_evaluateToFunctionCache = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+Cache for jsEvalToFunction results.</p>
 
-<p>#
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">_evaluateToFunctionCache = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
 Evaluates the given expression as the body of a function that takes
 variables and data as arguments. Since the resulting function depends
 only on expression, we cache the result so we save some Function
 invocations, and some object creations in IE6.</p>
 
-<p>Parameters:</p>
+<p><strong>Parameter:</strong></p>
 
 <ul>
-<li><strong><em>expression</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong><br/>(A javascript expression.)</li>
+<li><strong><em>expression</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong> <br />
+A javascript expression.</li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Function</a></em></strong><br/>(A function that returns the expression's value in the context of variables and data.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToFunction: </span><span class="nf">(expression) -&gt;</span>
+<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Function</a></em></strong><br/>A function that returns the expression's value in the context of variables and data.<br/></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToFunction: </span><span class="nf">(expression) -&gt;</span>
     <span class="k">return</span> <span class="nx">_evaluateToFunctionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span> <span class="o">\</span>
       <span class="k">unless</span> <span class="nx">_evaluateToFunctionCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span><span class="o">?</span>
 
@@ -91,32 +98,34 @@ invocations, and some object creations in IE6.</p>
         <span class="nb">Function</span> <span class="nx">STRING_variables</span><span class="p">,</span> <span class="nx">STRING_data</span><span class="p">,</span> <span class="nx">STRING_with</span> <span class="o">+</span> <span class="nx">expression</span>
     <span class="k">catch</span> <span class="nx">e</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Failed to evalaluate “</span><span class="si">#{</span><span class="nx">expression</span><span class="si">}</span><span class="s">” to function: </span><span class="si">#{</span><span class="nx">e</span><span class="si">}</span><span class="s">&quot;</span>
-    <span class="k">return</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
-
-<p>#
+    <span class="k">return</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
 Evaluates the given expression to itself. This is meant to pass through
 string action values.</p>
 
-<p>Parameters:</p>
+<p><strong>Parameter:</strong></p>
 
 <ul>
-<li><strong><em>expression</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></li>
+<li><strong><em>expression</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong></li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToSelf = </span><span class="nf">(expression) -&gt;</span>
+<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToSelf = </span><span class="nf">(expression) -&gt;</span>
     <span class="k">return</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> evaluateExpression returned as a flattened array of pairs of a String and a Function.</span></p>
 
 <p>#
 Parses the value of the alter action in goatee-templates: splits it up into
 a map of keys and expressions, and creates functions from the expressions</p>
 
-<p>Parameters:</p>
+<p><strong>Parameter:</strong></p>
 
 <ul>
-<li><strong><em>expressions</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></li>
+<li><strong><em>expressions</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong></li>
 </ul>
 
-<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToFunctions: </span><span class="nf">(expressions) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>TODO(mesch): It is insufficient to split the values by simply finding
+<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em></strong></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToFunctions: </span><span class="nf">(expressions) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>TODO(mesch): It is insufficient to split the values by simply finding
 semicolons, as the semicolon may be part of a string Constants or escaped.
 TODO(sjorek): This does not look like coffescript … Das ist Doof :-)</p></div></div><div class="code"><div class="wrapper">    <span class="nv">result = </span><span class="p">[]</span>
     <span class="k">for</span> <span class="nx">expression</span> <span class="k">in</span> <span class="nx">expressions</span><span class="p">.</span><span class="nx">split</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_semicolon</span>
@@ -131,14 +140,17 @@ TODO(sjorek): This does not look like coffescript … Das ist Doof :-)</p></div>
 Parses the value of the alter action in goatee-templates: splits it up into
 a map of keys and expressions, and creates functions from the expressions</p>
 
-<p>Parameters:</p>
+<p><strong>Parameters:</strong></p>
 
 <ul>
-<li><p><strong><em>expressions</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></p></li>
-<li><p><strong><em>Optional</em> must be an <em>UnorderedRules</em>.</strong><br/>(instance populated with rules from expressions. For internal use only.)</p></li>
+<li><p><strong><em>expressions</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong></p></li>
+<li><p><strong><em>Optional</em> must be an <em>UnorderedRules</em></strong> <br />
+instance populated with rules from expressions. For internal use only.</p></li>
 </ul>
 
-<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToRules: </span><span class="nf">(expressions, _rules) -&gt;</span>
+<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em></strong></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToRules: </span><span class="nf">(expressions, _rules) -&gt;</span>
     <span class="nv">self    = </span><span class="nx">@</span>
     <span class="nv">_rules  = </span><span class="nx">parse</span> <span class="nx">expressions</span><span class="p">,</span> <span class="nx">_rules</span>
     <span class="nv">result  = </span><span class="p">[]</span>
@@ -152,22 +164,26 @@ Parses the value of the execute actions in goatee-templates: splits it up
 into a list of expressions, and creates anonymous functions from the
 expressions, hence closures, that are suitable for execution by</p>
 
-<p>Parameters:</p>
+<p><strong>Parameter:</strong></p>
 
 <ul>
-<li><strong><em>expressions</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em>.</strong></li>
+<li><strong><em>expressions</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String">String</a></em></strong></li>
 </ul>
 
-<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em> of <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Functions</a></em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToClosures: </span><span class="nf">(expressions) -&gt;</span>
+<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em> of <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Functions</a></em></strong></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">evaluateToClosures: </span><span class="nf">(expressions) -&gt;</span>
     <span class="nx">@evaluateToFunction</span> <span class="nx">expression</span> <span class="o">\</span>
       <span class="k">for</span> <span class="nx">expression</span> <span class="k">in</span> <span class="nx">expressions</span><span class="p">.</span><span class="nx">split</span> <span class="nx">Constants</span><span class="p">.</span><span class="nx">REGEXP_semicolon</span> <span class="o">\</span>
-        <span class="k">when</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is a <em>goatee.Action.Expression.Javascript</em></span></p>
+        <span class="k">when</span> <span class="nx">expression</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'> is a <em><a href="http://sjorek.github.io/goatee-js/Action/Expression/Javascript.html">goatee.Action.Expression.Javascript</a></em></span></p>
 
 <p>#
-Reference to singleton instance</p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Javascript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p><span class='doc-section-header'></span></p>
+Reference to singleton instance</p>
 
-<p>#
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper"><span class="nv">_instance = Javascript.instance = </span><span class="kc">null</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>#
 Singleton implementation</p>
 
-<p><strong>Returns a <em>goatee.Action.Expression.Javascript</em></strong></p></div></div><div class="code"><div class="wrapper"><span class="nv">Javascript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
+<p><strong>Returns a <em><a href="http://sjorek.github.io/goatee-js/Action/Expression/Javascript.html">goatee.Action.Expression.Javascript</a></em></strong></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper"><span class="nv">Javascript.get = </span><span class="p">()</span> <span class="nf">-&gt;</span>
   <span class="nx">_instance</span> <span class="o">?</span> <span class="p">(</span><span class="nv">_instance = </span><span class="k">new</span> <span class="nx">Javascript</span><span class="p">)</span></div></div></div></div></body></html>
