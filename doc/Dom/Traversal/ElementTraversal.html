@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/ElementTraversal</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/ElementTraversal"><meta name="groc-project-path" content="src/Dom/Traversal/ElementTraversal.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/ElementTraversal.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;:&#115;te&#112;&#104;&#x61;&#x6e;&#46;&#x6a;&#111;&#114;&#x65;&#x6b;&#x40;g&#x6d;a&#x69;&#x6c;&#46;&#99;&#111;&#x6d;">&#115;te&#112;&#104;&#x61;&#x6e;&#46;&#x6a;&#111;&#114;&#x65;&#x6b;&#x40;g&#x6d;a&#x69;&#x6c;&#46;&#99;&#111;&#x6d;</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/ElementTraversal</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/ElementTraversal"><meta name="groc-project-path" content="src/Dom/Traversal/ElementTraversal.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Dom/Traversal/ElementTraversal.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;:&#115;&#116;&#x65;&#112;&#x68;a&#x6e;&#46;&#x6a;&#111;&#114;&#101;&#107;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#115;&#116;&#x65;&#112;&#x68;a&#x6e;&#46;&#x6a;&#111;&#114;&#101;&#107;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -10,7 +10,7 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Level1NodeTypeMatcher</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="elementtraversal">ElementTraversal</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public class <em>ElementTraversal</em> extends <em>goatee.Dom.Traversal</em> and is in namespace <em>goatee.Dom.Traversal</em></span></p>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Level1NodeTypeMatcher</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="elementtraversal">ElementTraversal</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public class <em>ElementTraversal</em> extends <em><a href="http://sjorek.github.io/goatee-js/Dom/Traversal.html">goatee.Dom.Traversal</a></em> and is in namespace <em>goatee.Dom.Traversal</em></span></p>
 
 <hr />
 
@@ -25,27 +25,32 @@ This implementation depends on the <code>ElementTraversal</code>-interface provi
 <li><p><a href="http://www.w3.org/TR/ElementTraversal/#attribute-firstElementChild"><code>firstElementChild</code> Attribute-Specification</a></p></li>
 <li><p><a href="http://dom.spec.whatwg.org/#dom-childnode-nextelementsibling"><code>nextElementSibling</code> Interface-Specification</a></p></li>
 <li><p><a href="http://www.w3.org/TR/ElementTraversal/#attribute-nextElementSibling"><code>nextElementSibling</code> Attribute-Specification</a></p></li>
-</ul></div></div><div class="code"><div class="wrapper"><span class="nv">exports.ElementTraversal = </span><span class="o">\</span>
+</ul>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.ElementTraversal = </span><span class="o">\</span>
 <span class="k">class</span> <span class="nx">ElementTraversal</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method <em>collect</em></span></p>
 
 <hr />
 
 <p>Collect a single node's immediate child-nodes.</p>
 
-<p>Parameters:</p>
+<p><strong>Parameter:</strong></p>
 
 <ul>
-<li><strong><em>node</em> must be a <em>Node</em>.</strong><br/>(The current node of the traversal)</li>
+<li><strong><em>node</em> must be a <em><a href="https://developer.mozilla.org/en/docs/Web/API/Node">Node</a></em></strong> <br />
+The current node of the traversal</li>
 </ul>
 
-<p><strong>Returns an <em>Array</em> of <em>Nodes</em></strong></p>
+<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em> of <em><a href="https://developer.mozilla.org/en/docs/Web/API/Node">Nodes</a></em></strong></p>
 
 <p>References:</p>
 
 <ul>
 <li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ElementTraversal.firstElementChild"><code>firstElementChild</code> Documentation</a></p></li>
 <li><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ElementTraversal.nextElementSibling"><code>nextElementSibling</code> Documentation</a></p></li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
+</ul>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span>
     <span class="nv">result = </span><span class="p">[]</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Internet Explorer 6-8 supported it, but erroneously include Comment nodes.</p></div></div><div class="code"><div class="wrapper">    <span class="o">`</span><span class="k">for</span> <span class="p">(</span><span class="nx">var</span> <span class="nv">child = </span><span class="nx">node</span><span class="p">.</span><span class="nx">firstElementChild</span><span class="p">;</span> <span class="nx">child</span><span class="p">;</span> <span class="nv">child = </span><span class="nx">child</span><span class="p">.</span><span class="nx">nextElementSibling</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">child</span><span class="p">);</span>
       <span class="p">}</span><span class="o">`</span>
@@ -55,11 +60,14 @@ This implementation depends on the <code>ElementTraversal</code>-interface provi
 
 <p>Creates the <code>Traversal</code>-instance.</p>
 
-<p>Parameters:</p>
+<p><strong>Parameter:</strong></p>
 
 <ul>
-<li><strong><em>callback</em> must be a <em>Function</em>.</strong><br/>(A function, called for each traversed node)</li>
+<li><strong><em>callback</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Function</a></em></strong> <br />
+A function, called for each traversed node</li>
 </ul>
 
-<p><strong>Returns a <em>goatee.Dom.Traversal</em></strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(callback) -&gt;</span>
+<p><strong>Returns a <em><a href="http://sjorek.github.io/goatee-js/Dom/Traversal.html">goatee.Dom.Traversal</a></em></strong></p>
+
+<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(callback) -&gt;</span>
     <span class="k">new</span> <span class="nx">GeckoElementTraversal</span> <span class="nx">callback</span></div></div></div></div></body></html>

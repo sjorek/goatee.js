@@ -211,7 +211,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -270,7 +270,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -284,9 +284,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -774,7 +774,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -833,7 +833,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -847,9 +847,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -1345,7 +1345,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -1404,7 +1404,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -1418,9 +1418,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -1898,7 +1898,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -1957,7 +1957,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -1971,9 +1971,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -2451,7 +2451,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -2510,7 +2510,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -2524,9 +2524,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -3004,7 +3004,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -3063,7 +3063,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -3077,9 +3077,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -3557,7 +3557,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -3616,7 +3616,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -3630,9 +3630,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -4120,7 +4120,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -4179,7 +4179,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -4193,9 +4193,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -4683,7 +4683,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -4742,7 +4742,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -4756,9 +4756,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -5246,7 +5246,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -5305,7 +5305,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -5319,9 +5319,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -5809,7 +5809,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -5868,7 +5868,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -5882,9 +5882,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -6372,7 +6372,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -6431,7 +6431,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -6445,9 +6445,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -6935,7 +6935,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -6994,7 +6994,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -7008,9 +7008,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -7498,7 +7498,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -7557,7 +7557,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -7571,9 +7571,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -8063,7 +8063,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -8122,7 +8122,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -8136,9 +8136,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -8627,7 +8627,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -8686,7 +8686,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -8700,9 +8700,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -9190,7 +9190,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -9249,7 +9249,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -9263,9 +9263,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -9753,7 +9753,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -9812,7 +9812,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -9826,9 +9826,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -10316,7 +10316,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -10375,7 +10375,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -10389,9 +10389,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -10879,7 +10879,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -10938,7 +10938,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -10952,9 +10952,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -11442,7 +11442,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -11501,7 +11501,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -11515,9 +11515,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -12005,7 +12005,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -12064,7 +12064,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -12078,9 +12078,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -12568,7 +12568,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -12627,7 +12627,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -12641,9 +12641,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -13141,7 +13141,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -13200,7 +13200,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -13214,9 +13214,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -13694,7 +13694,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -13753,7 +13753,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -13767,9 +13767,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -14249,7 +14249,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -14308,7 +14308,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -14322,9 +14322,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -14813,7 +14813,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -14872,7 +14872,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -14886,9 +14886,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -15376,7 +15376,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -15435,7 +15435,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -15449,9 +15449,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -15939,7 +15939,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -15998,7 +15998,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -16012,9 +16012,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -16502,7 +16502,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -16561,7 +16561,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -16575,9 +16575,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -17067,7 +17067,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -17126,7 +17126,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -17140,9 +17140,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -17681,7 +17681,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -17740,7 +17740,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -17754,9 +17754,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -18244,7 +18244,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -18303,7 +18303,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -18317,9 +18317,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -18807,7 +18807,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -18866,7 +18866,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -18880,9 +18880,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -19370,7 +19370,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -19429,7 +19429,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -19443,9 +19443,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -19933,7 +19933,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -19992,7 +19992,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -20006,9 +20006,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -20514,7 +20514,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{type}*"
+                          "markdown": "is in namespace *{value}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -20573,7 +20573,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "returns": "return",
                         "throw": {
-                          "section": "returns"
+                          "section": "throws"
                         },
                         "throws": "throw",
                         "defaultNoValue": {
@@ -20587,9 +20587,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                            "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                            "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                            "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -21067,7 +21067,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{type}*"
+                          "markdown": "is in namespace *{value}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -21126,7 +21126,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "returns": "return",
                         "throw": {
-                          "section": "returns"
+                          "section": "throws"
                         },
                         "throws": "throw",
                         "defaultNoValue": {
@@ -21140,9 +21140,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                            "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                            "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                            "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -21620,7 +21620,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{type}*"
+                          "markdown": "is in namespace *{value}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -21679,7 +21679,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "returns": "return",
                         "throw": {
-                          "section": "returns"
+                          "section": "throws"
                         },
                         "throws": "throw",
                         "defaultNoValue": {
@@ -21693,9 +21693,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                            "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                            "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                            "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -22173,7 +22173,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{type}*"
+                          "markdown": "is in namespace *{value}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -22232,7 +22232,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "returns": "return",
                         "throw": {
-                          "section": "returns"
+                          "section": "throws"
                         },
                         "throws": "throw",
                         "defaultNoValue": {
@@ -22246,9 +22246,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                            "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                            "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                            "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -22726,7 +22726,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "namespace": {
                           "section": "metadata",
-                          "markdown": "is in namespace *{type}*"
+                          "markdown": "is in namespace *{value}*"
                         },
                         "publishes": {
                           "section": "metadata"
@@ -22785,7 +22785,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         },
                         "returns": "return",
                         "throw": {
-                          "section": "returns"
+                          "section": "throws"
                         },
                         "throws": "throw",
                         "defaultNoValue": {
@@ -22799,9 +22799,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "separator": ".",
                         "types": [
                           {
-                            "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                            "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                            "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                            "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                            "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                            "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                           }, {
                             "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                             "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -23281,7 +23281,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -23340,7 +23340,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -23354,9 +23354,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -23834,7 +23834,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -23893,7 +23893,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -23907,9 +23907,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -24391,7 +24391,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             },
             "namespace": {
               "section": "metadata",
-              "markdown": "is in namespace *{type}*"
+              "markdown": "is in namespace *{value}*"
             },
             "publishes": {
               "section": "metadata"
@@ -24450,7 +24450,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             },
             "returns": "return",
             "throw": {
-              "section": "returns"
+              "section": "throws"
             },
             "throws": "throw",
             "defaultNoValue": {
@@ -24464,9 +24464,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "separator": ".",
             "types": [
               {
-                "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
               }, {
                 "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                 "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -24952,7 +24952,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -25011,7 +25011,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -25025,9 +25025,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -25574,7 +25574,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -25633,7 +25633,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -25647,9 +25647,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -26147,7 +26147,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -26206,7 +26206,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -26220,9 +26220,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -26710,7 +26710,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -26769,7 +26769,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -26783,9 +26783,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -27281,7 +27281,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -27340,7 +27340,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -27354,9 +27354,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -27834,7 +27834,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -27893,7 +27893,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -27907,9 +27907,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -28387,7 +28387,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -28446,7 +28446,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -28460,9 +28460,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -28940,7 +28940,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -28999,7 +28999,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -29013,9 +29013,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -29493,7 +29493,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -29552,7 +29552,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -29566,9 +29566,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -30048,7 +30048,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -30107,7 +30107,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -30121,9 +30121,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -30612,7 +30612,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -30671,7 +30671,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -30685,9 +30685,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -31175,7 +31175,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -31234,7 +31234,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -31248,9 +31248,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -31738,7 +31738,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -31797,7 +31797,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -31811,9 +31811,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -32301,7 +32301,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -32360,7 +32360,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -32374,9 +32374,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -32864,7 +32864,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -32923,7 +32923,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -32937,9 +32937,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -33427,7 +33427,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "namespace": {
                       "section": "metadata",
-                      "markdown": "is in namespace *{type}*"
+                      "markdown": "is in namespace *{value}*"
                     },
                     "publishes": {
                       "section": "metadata"
@@ -33486,7 +33486,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     },
                     "returns": "return",
                     "throw": {
-                      "section": "returns"
+                      "section": "throws"
                     },
                     "throws": "throw",
                     "defaultNoValue": {
@@ -33500,9 +33500,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "separator": ".",
                     "types": [
                       {
-                        "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                        "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                        "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                        "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                        "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                        "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                       }, {
                         "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                         "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -34002,7 +34002,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -34061,7 +34061,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -34075,9 +34075,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -34555,7 +34555,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -34614,7 +34614,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -34628,9 +34628,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -35108,7 +35108,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "namespace": {
                   "section": "metadata",
-                  "markdown": "is in namespace *{type}*"
+                  "markdown": "is in namespace *{value}*"
                 },
                 "publishes": {
                   "section": "metadata"
@@ -35167,7 +35167,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 },
                 "returns": "return",
                 "throw": {
-                  "section": "returns"
+                  "section": "throws"
                 },
                 "throws": "throw",
                 "defaultNoValue": {
@@ -35181,9 +35181,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "separator": ".",
                 "types": [
                   {
-                    "goatee.Script.": ["goatee.", "http://sjorek.github.io/goatee-script/"],
-                    "goatee.Rules.": ["goatee.", "http://sjorek.github.io/goatee-rules/"],
-                    "goatee.": ["goatee.", "http://sjorek.github.io/goatee-js/"]
+                    "goatee.Script.": ["http://sjorek.github.io/goatee-script/", "goatee."],
+                    "goatee.Rules.": ["http://sjorek.github.io/goatee-rules/", "goatee."],
+                    "goatee.": ["http://sjorek.github.io/goatee-js/", "goatee."]
                   }, {
                     "Array": "https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array",
                     "ArrayBuffer": "https://developer.mozilla.org/en/docs/JavaScript_typed_arrays/ArrayBuffer",
@@ -35775,12 +35775,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
   };
 
   buildTOCNode = function(node, metaInfo) {
-    var c, children$, clickLabel, discloser$, label$, node$, _i, _len, _ref, _ref1, _ref2;
+    var c, children$, clickLabel, discloser, discloser$, label$, node$, _i, _len, _ref, _ref1, _ref2;
     node$ = $("<li class=\"" + node.type + "\"/>");
+    discloser = null;
     switch (node.type) {
       case 'file':
         node$.append("<a class=\"label\" href=\"" + metaInfo.relativeRoot + node.data.targetPath + ".html\" title=\"" + node.data.projectPath + "\"><span class=\"text\">" + node.data.title + "</span></a>");
-        clickLabel = function() {
+        clickLabel = function(evt) {
+          if (evt.target === discloser) {
+            node$.toggleClass('expanded');
+            evt.preventDefault();
+            return false;
+          }
           return selectNode(node$);
         };
         break;
@@ -35789,7 +35795,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         clickLabel = function(evt) {
           selectNode(node$);
           node$.toggleClass('expanded');
-          return evt.preventDefault();
+          evt.preventDefault();
+          return false;
         };
     }
     if (((_ref = node.children) != null ? _ref.length : void 0) > 0) {
@@ -35807,10 +35814,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     if (!(((_ref2 = node.children) != null ? _ref2.length : void 0) > 0)) {
       discloser$.addClass('placeholder');
     }
-    discloser$.click(function(evt) {
-      node$.toggleClass('expanded');
-      return evt.preventDefault();
-    });
+    discloser = discloser$.get(0);
     if (node.type === 'file') {
       fileMap[node.data.targetPath] = node$;
     }
