@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Action/Abstract</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Abstract"><meta name="groc-project-path" content="src/Action/Abstract.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Abstract.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;:&#x73;&#116;&#101;&#x70;&#104;&#x61;&#x6e;&#x2e;&#106;&#x6f;&#x72;&#x65;&#107;&#64;&#103;&#109;a&#105;&#x6c;&#x2e;&#x63;o&#109;">&#x73;&#116;&#101;&#x70;&#104;&#x61;&#x6e;&#x2e;&#106;&#x6f;&#x72;&#x65;&#107;&#64;&#103;&#109;a&#105;&#x6c;&#x2e;&#x63;o&#109;</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Action/Abstract</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="Action/Abstract"><meta name="groc-project-path" content="src/Action/Abstract.coffee"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/Action/Abstract.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="m&#97;i&#x6c;&#116;&#111;:&#115;&#116;&#101;p&#104;&#97;&#x6e;&#46;&#106;&#x6f;&#x72;&#101;k&#64;&#x67;m&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#115;&#116;&#101;p&#104;&#97;&#x6e;&#46;&#106;&#x6f;&#x72;&#101;k&#64;&#x67;m&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -10,35 +10,26 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="abstract">Abstract</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public class <em>Abstract</em> is in namespace <em>goatee.Action</em></span></p>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="wrapper marker"><span class="c1"># export</span></div><div class="wrapper"><span class="c1"># export</span>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="abstract">Abstract</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public abstract, class Abstract, and namespace goatee.Action</span></p>
 
 <hr />
 
-<p>Abstract action class implementing a basic action</p>
-
-<p><br/><br/></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Abstract = </span><span class="k">class</span> <span class="nx">Abstract</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-abstract doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Abstract public method <em>process</em></span></p>
+<p>Abstract action class implementing a basic action</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Abstract = </span><span class="k">class</span> <span class="nx">Abstract</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method process abstract</span></p>
 
 <hr />
 
 <p>Derivates must override this method and perform the action.</p>
 
-<p><strong>Parameters:</strong></p>
+<p>Parameters:</p>
 
 <ul>
-<li><p><strong><em>processor</em> must be a <em><a href="http://sjorek.github.io/goatee-js/Action/Processor.html">goatee.Action.Processor</a></em></strong> <br />
-The calling action</p></li>
-<li><p><strong><em>context</em> must be a <em><a href="http://sjorek.github.io/goatee-js/Action/Context.html">goatee.Action.Context</a></em></strong> <br />
-The current evaluation context</p></li>
-<li><p><strong><em>node</em> must be a <em><a href="https://developer.mozilla.org/en/docs/Web/API/Node">Node</a></em></strong> <br />
-The currently processed node</p></li>
-<li><p><strong><em>attribute</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Function</a></em></strong> <br />
-The action's processed value</p></li>
+<li><p><strong>processor must be a goatee.Action.Processor.</strong><br/>(The calling action)</p></li>
+<li><p><strong>context must be a goatee.Action.Context.</strong><br/>(The current evaluation context)</p></li>
+<li><p><strong>node must be a Node.</strong><br/>(The currently processed node)</p></li>
+<li><p><strong>attribute must be a Function.</strong><br/>(The action's processed value)</p></li>
 </ul>
 
-<p><strong>Returns a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></em></strong><br/><code>process</code>-execution signal: must stop = <code>true</code> or may continue = <code>false</code> or <code>undefined</code><br/></p>
-
-<p><strong>Can throw an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Error">Error</a></em></strong><br/>If this method has not been overridden.<br/></p>
-
-<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(processor, context, node, attribute) -&gt;</span>
+<p><strong>Returns a Boolean</strong><br/>(<code>process</code>-execution signal: must stop = <code>true</code> or may continue = <code>false</code> or <code>undefined</code>)<br/><strong>and</strong> <strong>Can throw an Error</strong><br/>(If this method has not been overridden.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">process: </span><span class="nf">(processor, context, node, attribute) -&gt;</span>
     <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span> <span class="s">&#39;Derivates must override the “process”-method implementation&#39;</span>
     <span class="k">return</span></div></div></div></div></body></html>

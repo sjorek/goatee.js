@@ -17,16 +17,16 @@
     "goatee-rules": "~0.1",
     "jsdom": "~0.8",
     "cheerio": "~0.12",
-    "coffee-script": "~1.6",
-    "glass-script": "~0.5",
-    "underscore": "~1.5",
-    "css": "1.4",
-    "cssom": "~0.2",
-    "jquery2": "~2.0"
+    "coffee-script": "~1",
+    "glass-script": "~0",
+    "underscore": "~1.4",
+    "css": "~1",
+    "cssom": "~0",
+    "jquery2": "~2"
   },
   "devDependencies": {
     "benchmark": "~1.0",
-    "groc": "sjorek/groc"
+    "groc": "nevir/groc"
   },
   "homepage": "http://sjorek.github.io/goatee-js/",
   "bugs": "https://github.com/sjorek/goatee-js/issues",
