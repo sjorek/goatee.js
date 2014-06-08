@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level2ChildNodes</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level2ChildNodes"><meta name="groc-project-path" content="src/Dom/Traversal/Level2ChildNodes.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Dom/Traversal/Level2ChildNodes.coffee">src/Dom/Traversal/Level2ChildNodes.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#109;&#x61;&#x69;l&#x74;&#x6f;:&#x73;&#116;&#x65;&#112;&#x68;&#97;&#x6e;&#x2e;&#x6a;o&#x72;&#x65;&#x6b;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#99;o&#109;">&#x73;&#116;&#x65;&#112;&#x68;&#97;&#x6e;&#x2e;&#x6a;o&#x72;&#x65;&#x6b;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#99;o&#109;</a>  </p>
+<!DOCTYPE html><html lang="en"><head><title>Dom/Traversal/Level2ChildNodes</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="Dom/Traversal/Level2ChildNodes"><meta name="groc-project-path" content="src/Dom/Traversal/Level2ChildNodes.coffee"><meta name="groc-github-url" content="https://github.com/sjorek/goatee-js"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/sjorek/goatee-js/blob/master/src/Dom/Traversal/Level2ChildNodes.coffee">src/Dom/Traversal/Level2ChildNodes.coffee</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>© Copyright 2013 Stephan Jorek <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;:&#115;&#x74;&#101;&#x70;&#104;&#x61;&#110;&#x2e;&#x6a;&#x6f;&#114;&#x65;&#x6b;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#115;&#x74;&#101;&#x70;&#104;&#x61;&#110;&#x2e;&#x6a;&#x6f;&#114;&#x65;&#x6b;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a>  </p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -10,61 +10,41 @@ You may obtain a copy of the License at</p>
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing
-permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># require</span></div><div class="wrapper"><span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
+permissions and limitations under the License.</p></div></div></div><div class="segment"><div class="code folded"><div class="wrapper marker"><span class="c1"># require</span></div><div class="wrapper"><span class="c1"># require</span>
+<span class="p">{</span><span class="nx">Node</span><span class="o">:</span><span class="p">{</span>
   <span class="nx">ELEMENT_NODE</span>
 <span class="p">}}</span>                      <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Node&#39;</span>
 
-<span class="p">{</span><span class="nx">Level1NodeTypeMatcher</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="marker wrapper"><span class="c1"># export</span></div><div class="wrapper"><span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level2childnodes">Level2ChildNodes</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public class <em>Level2ChildNodes</em> extends <em><a href="http://sjorek.github.io/goatee-js/Dom/Traversal.html">goatee.Dom.Traversal</a></em> and is in namespace <em>goatee.Dom.Traversal</em></span></p>
+<span class="p">{</span><span class="nx">Level1NodeTypeMatcher</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;../Traversal&#39;</span></div></div></div><div class="segment"><div class="code folded"><div class="wrapper marker"><span class="c1"># export</span></div><div class="wrapper"><span class="c1"># export</span>
+<span class="nv">exports = </span><span class="nx">module</span><span class="o">?</span><span class="p">.</span><span class="nx">exports</span> <span class="o">?</span> <span class="k">this</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="level2childnodes">Level2ChildNodes</h1></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public class Level2ChildNodes, extends goatee.Dom.Traversal, namespace goatee.Dom.Traversal, see <a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1451460987">DOM Level 2 <code>Node</code> Interface-Specification</a>, see <a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-1451460987">DOM Level 3 <code>Node</code> Interface-Specification</a>, and see <a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-536297177">DOM Level 3 <code>NodeList</code> Interface-Specification</a></span></p>
 
 <hr />
 
 <p>A class to hold state for a DOM traversal.
-This implementation depends on <em>DOM Level ≥ 2</em>'s <code>Node.childNodes</code>.</p>
-
-<p>References:</p>
-
-<ul>
-<li><p><a href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/core.html#ID-1451460987">DOM Level 2 <code>Node</code> Interface-Specification</a></p></li>
-<li><p><a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-1451460987">DOM Level 3 <code>Node</code> Interface-Specification</a></p></li>
-<li><p><a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/core.html#ID-536297177">DOM Level 3 <code>NodeList</code> Interface-Specification</a></p></li>
-</ul>
-
-<p><br/><br/></p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2ChildNodes = </span><span class="o">\</span>
-<span class="k">class</span> <span class="nx">Level2ChildNodes</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method <em>collect</em></span></p>
+This implementation depends on <em>DOM Level ≥ 2</em>'s <code>Node.childNodes</code>.</p></div></div><div class="code"><div class="wrapper"><span class="nv">exports.Level2ChildNodes = </span><span class="o">\</span>
+<span class="k">class</span> <span class="nx">Level2ChildNodes</span> <span class="k">extends</span> <span class="nx">Traversal</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Public method collect see <a href="https://developer.mozilla.org/de/docs/DOM/Node.childNodes"><code>childNodes</code> Attribute-Documentation</a></span></p>
 
 <hr />
 
 <p>Collect a single node's immediate child-nodes.</p>
 
-<p><strong>Parameter:</strong></p>
+<p>Parameters:</p>
 
 <ul>
-<li><strong><em>node</em> must be a <em><a href="https://developer.mozilla.org/en/docs/Web/API/Node">Node</a></em></strong> <br />
-The current node of the traversal.</li>
+<li><strong>node must be a Node.</strong><br/>(The current node of the traversal.)</li>
 </ul>
 
-<p><strong>Returns an <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array">Array</a></em> of <em><a href="https://developer.mozilla.org/en/docs/Web/API/Node">Nodes</a></em></strong><br/>An array of child-nodes.<br/></p>
-
-<p>Reference:</p>
-
-<ul>
-<li><a href="https://developer.mozilla.org/de/docs/DOM/Node.childNodes"><code>childNodes</code> Attribute-Documentation</a></li>
-</ul>
-
-<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We deliberately enforce equality instead of identity here.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">child</span> <span class="k">for</span> <span class="nx">child</span> <span class="k">in</span> <span class="nx">node</span><span class="p">.</span><span class="nx">childNodes</span> <span class="k">when</span> <span class="o">`</span><span class="nx">child</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">ELEMENT_NODE</span><span class="o">`</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method <em>create</em></span></p>
+<p><strong>Returns an Array.<Node></strong><br/>(An array of child-nodes.)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">collect: </span><span class="nf">(node) -&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>We deliberately enforce equality instead of identity here.</p></div></div><div class="code"><div class="wrapper">    <span class="nx">child</span> <span class="k">for</span> <span class="nx">child</span> <span class="k">in</span> <span class="nx">node</span><span class="p">.</span><span class="nx">childNodes</span> <span class="k">when</span> <span class="o">`</span><span class="nx">child</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">==</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">ELEMENT_NODE</span><span class="o">`</span></div></div></div><div class="segment"><div class="comments doc-section doc-section-static doc-section-public"><div class="wrapper"><p><span class='doc-section-header'>Static public method create</span></p>
 
 <hr />
 
 <p>Creates the <code>Traversal</code>-instance.</p>
 
-<p><strong>Parameter:</strong></p>
+<p>Parameters:</p>
 
 <ul>
-<li><strong><em>callback</em> must be a <em><a href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function">Function</a></em></strong> <br />
-A function, called for each traversed node</li>
+<li><strong>callback must be a Function.</strong><br/>(A function, called for each traversed node)</li>
 </ul>
 
-<p><strong>Returns a <em><a href="http://sjorek.github.io/goatee-js/Dom/Traversal.html">goatee.Dom.Traversal</a></em></strong></p>
-
-<p><br/><br/></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(callback) -&gt;</span>
+<p><strong>Returns a goatee.Dom.Traversal</strong></p></div></div><div class="code"><div class="wrapper">  <span class="vi">@create: </span><span class="nf">(callback) -&gt;</span>
     <span class="k">new</span> <span class="nx">Level2ChildNodes</span> <span class="nx">callback</span></div></div></div></div></body></html>
