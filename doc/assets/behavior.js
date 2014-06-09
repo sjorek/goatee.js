@@ -13,7 +13,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "commentsOnly": true,
           "name": "Markdown"
         },
-        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/README.md",
+        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/README.md",
         "projectPath": "README.md",
         "targetPath": "index",
         "pageTitle": "index",
@@ -99,7 +99,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Abstract.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Abstract.coffee",
             "projectPath": "src/Action/Abstract.coffee",
             "targetPath": "Action/Abstract",
             "pageTitle": "Action/Abstract",
@@ -129,7 +129,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Context.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Context.coffee",
             "projectPath": "src/Action/Context.coffee",
             "targetPath": "Action/Context",
             "pageTitle": "Action/Context",
@@ -167,7 +167,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Coffeescript.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Expression/Coffeescript.coffee",
                 "projectPath": "src/Action/Expression/Coffeescript.coffee",
                 "targetPath": "Action/Expression/Coffeescript",
                 "pageTitle": "Action/Expression/Coffeescript",
@@ -187,7 +187,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Composite.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Expression/Composite.coffee",
                 "projectPath": "src/Action/Expression/Composite.coffee",
                 "targetPath": "Action/Expression/Composite",
                 "pageTitle": "Action/Expression/Composite",
@@ -207,7 +207,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Glassscript.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Expression/Glassscript.coffee",
                 "projectPath": "src/Action/Expression/Glassscript.coffee",
                 "targetPath": "Action/Expression/Glassscript",
                 "pageTitle": "Action/Expression/Glassscript",
@@ -227,7 +227,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Goateescript.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Expression/Goateescript.coffee",
                 "projectPath": "src/Action/Expression/Goateescript.coffee",
                 "targetPath": "Action/Expression/Goateescript",
                 "pageTitle": "Action/Expression/Goateescript",
@@ -247,7 +247,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Expression/Javascript.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Expression/Javascript.coffee",
                 "projectPath": "src/Action/Expression/Javascript.coffee",
                 "targetPath": "Action/Expression/Javascript",
                 "pageTitle": "Action/Expression/Javascript",
@@ -277,7 +277,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomDataAttribute.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Injector/DomDataAttribute.coffee",
                 "projectPath": "src/Action/Injector/DomDataAttribute.coffee",
                 "targetPath": "Action/Injector/DomDataAttribute",
                 "pageTitle": "Action/Injector/DomDataAttribute",
@@ -307,7 +307,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomDataAttributes.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Injector/DomDataAttributes.coffee",
                 "projectPath": "src/Action/Injector/DomDataAttributes.coffee",
                 "targetPath": "Action/Injector/DomDataAttributes",
                 "pageTitle": "Action/Injector/DomDataAttributes",
@@ -337,7 +337,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomElementAttribute.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Injector/DomElementAttribute.coffee",
                 "projectPath": "src/Action/Injector/DomElementAttribute.coffee",
                 "targetPath": "Action/Injector/DomElementAttribute",
                 "pageTitle": "Action/Injector/DomElementAttribute",
@@ -367,7 +367,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomElementAttributes.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Injector/DomElementAttributes.coffee",
                 "projectPath": "src/Action/Injector/DomElementAttributes.coffee",
                 "targetPath": "Action/Injector/DomElementAttributes",
                 "pageTitle": "Action/Injector/DomElementAttributes",
@@ -397,7 +397,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/DomEvents.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Injector/DomEvents.coffee",
                 "projectPath": "src/Action/Injector/DomEvents.coffee",
                 "targetPath": "Action/Injector/DomEvents",
                 "pageTitle": "Action/Injector/DomEvents",
@@ -427,7 +427,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/JqueryEvents.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Injector/JqueryEvents.coffee",
                 "projectPath": "src/Action/Injector/JqueryEvents.coffee",
                 "targetPath": "Action/Injector/JqueryEvents",
                 "pageTitle": "Action/Injector/JqueryEvents",
@@ -457,7 +457,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Injector/NodeJsEvents.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Injector/NodeJsEvents.coffee",
                 "projectPath": "src/Action/Injector/NodeJsEvents.coffee",
                 "targetPath": "Action/Injector/NodeJsEvents",
                 "pageTitle": "Action/Injector/NodeJsEvents",
@@ -489,7 +489,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner.coffee",
             "projectPath": "src/Action/Inner.coffee",
             "targetPath": "Action/Inner",
             "pageTitle": "Action/Inner",
@@ -520,7 +520,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Alter.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner/Alter.coffee",
                 "projectPath": "src/Action/Inner/Alter.coffee",
                 "targetPath": "Action/Inner/Alter",
                 "pageTitle": "Action/Inner/Alter",
@@ -550,7 +550,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Appear.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner/Appear.coffee",
                 "projectPath": "src/Action/Inner/Appear.coffee",
                 "targetPath": "Action/Inner/Appear",
                 "pageTitle": "Action/Inner/Appear",
@@ -580,7 +580,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Do.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner/Do.coffee",
                 "projectPath": "src/Action/Inner/Do.coffee",
                 "targetPath": "Action/Inner/Do",
                 "pageTitle": "Action/Inner/Do",
@@ -610,7 +610,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Markup.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner/Markup.coffee",
                 "projectPath": "src/Action/Inner/Markup.coffee",
                 "targetPath": "Action/Inner/Markup",
                 "pageTitle": "Action/Inner/Markup",
@@ -640,7 +640,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Next.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner/Next.coffee",
                 "projectPath": "src/Action/Inner/Next.coffee",
                 "targetPath": "Action/Inner/Next",
                 "pageTitle": "Action/Inner/Next",
@@ -670,7 +670,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Set.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner/Set.coffee",
                 "projectPath": "src/Action/Inner/Set.coffee",
                 "targetPath": "Action/Inner/Set",
                 "pageTitle": "Action/Inner/Set",
@@ -700,7 +700,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Skip.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner/Skip.coffee",
                 "projectPath": "src/Action/Inner/Skip.coffee",
                 "targetPath": "Action/Inner/Skip",
                 "pageTitle": "Action/Inner/Skip",
@@ -730,7 +730,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Inner/Text.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Inner/Text.coffee",
                 "projectPath": "src/Action/Inner/Text.coffee",
                 "targetPath": "Action/Inner/Text",
                 "pageTitle": "Action/Inner/Text",
@@ -770,7 +770,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Namespace/Goatee.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Namespace/Goatee.coffee",
                 "projectPath": "src/Action/Namespace/Goatee.coffee",
                 "targetPath": "Action/Namespace/Goatee",
                 "pageTitle": "Action/Namespace/Goatee",
@@ -790,7 +790,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Namespace/GoogleJsTemplate.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Namespace/GoogleJsTemplate.coffee",
                 "projectPath": "src/Action/Namespace/GoogleJsTemplate.coffee",
                 "targetPath": "Action/Namespace/GoogleJsTemplate",
                 "pageTitle": "Action/Namespace/GoogleJsTemplate",
@@ -812,7 +812,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Outer.coffee",
             "projectPath": "src/Action/Outer.coffee",
             "targetPath": "Action/Outer",
             "pageTitle": "Action/Outer",
@@ -843,7 +843,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer/Match.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Outer/Match.coffee",
                 "projectPath": "src/Action/Outer/Match.coffee",
                 "targetPath": "Action/Outer/Match",
                 "pageTitle": "Action/Outer/Match",
@@ -873,7 +873,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer/Process.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Outer/Process.coffee",
                 "projectPath": "src/Action/Outer/Process.coffee",
                 "targetPath": "Action/Outer/Process",
                 "pageTitle": "Action/Outer/Process",
@@ -903,7 +903,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer/Render.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Outer/Render.coffee",
                 "projectPath": "src/Action/Outer/Render.coffee",
                 "targetPath": "Action/Outer/Render",
                 "pageTitle": "Action/Outer/Render",
@@ -933,7 +933,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Outer/Repeat.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Outer/Repeat.coffee",
                 "projectPath": "src/Action/Outer/Repeat.coffee",
                 "targetPath": "Action/Outer/Repeat",
                 "pageTitle": "Action/Outer/Repeat",
@@ -965,7 +965,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Processor.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Processor.coffee",
             "projectPath": "src/Action/Processor.coffee",
             "targetPath": "Action/Processor",
             "pageTitle": "Action/Processor",
@@ -1046,7 +1046,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/ActionObjectModel.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Projector/ActionObjectModel.coffee",
                 "projectPath": "src/Action/Projector/ActionObjectModel.coffee",
                 "targetPath": "Action/Projector/ActionObjectModel",
                 "pageTitle": "Action/Projector/ActionObjectModel",
@@ -1076,7 +1076,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/ElementAttribute.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Projector/ElementAttribute.coffee",
                 "projectPath": "src/Action/Projector/ElementAttribute.coffee",
                 "targetPath": "Action/Projector/ElementAttribute",
                 "pageTitle": "Action/Projector/ElementAttribute",
@@ -1106,7 +1106,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/ElementData.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Projector/ElementData.coffee",
                 "projectPath": "src/Action/Projector/ElementData.coffee",
                 "targetPath": "Action/Projector/ElementData",
                 "pageTitle": "Action/Projector/ElementData",
@@ -1136,7 +1136,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/ProjectionSheet.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Projector/ProjectionSheet.coffee",
                 "projectPath": "src/Action/Projector/ProjectionSheet.coffee",
                 "targetPath": "Action/Projector/ProjectionSheet",
                 "pageTitle": "Action/Projector/ProjectionSheet",
@@ -1166,7 +1166,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Projector/SelectorMap.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Projector/SelectorMap.coffee",
                 "projectPath": "src/Action/Projector/SelectorMap.coffee",
                 "targetPath": "Action/Projector/SelectorMap",
                 "pageTitle": "Action/Projector/SelectorMap",
@@ -1214,7 +1214,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/PropertyReferenceArgument.coffee",
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Scope/Decorator/PropertyReferenceArgument.coffee",
                     "projectPath": "src/Action/Scope/Decorator/PropertyReferenceArgument.coffee",
                     "targetPath": "Action/Scope/Decorator/PropertyReferenceArgument",
                     "pageTitle": "Action/Scope/Decorator/PropertyReferenceArgument",
@@ -1234,7 +1234,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
                     "projectPath": "src/Action/Scope/Decorator/PropertyReferenceArgumentRecycle.coffee",
                     "targetPath": "Action/Scope/Decorator/PropertyReferenceArgumentRecycle",
                     "pageTitle": "Action/Scope/Decorator/PropertyReferenceArgumentRecycle",
@@ -1254,7 +1254,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/WithStatement.coffee",
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Scope/Decorator/WithStatement.coffee",
                     "projectPath": "src/Action/Scope/Decorator/WithStatement.coffee",
                     "targetPath": "Action/Scope/Decorator/WithStatement",
                     "pageTitle": "Action/Scope/Decorator/WithStatement",
@@ -1274,7 +1274,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/WithStatementEvaluation.coffee",
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Scope/Decorator/WithStatementEvaluation.coffee",
                     "projectPath": "src/Action/Scope/Decorator/WithStatementEvaluation.coffee",
                     "targetPath": "Action/Scope/Decorator/WithStatementEvaluation",
                     "pageTitle": "Action/Scope/Decorator/WithStatementEvaluation",
@@ -1294,7 +1294,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "foldPrefix": "~",
                       "name": "CoffeeScript"
                     },
-                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Decorator/WithStatementFunction.coffee",
+                    "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Scope/Decorator/WithStatementFunction.coffee",
                     "projectPath": "src/Action/Scope/Decorator/WithStatementFunction.coffee",
                     "targetPath": "Action/Scope/Decorator/WithStatementFunction",
                     "pageTitle": "Action/Scope/Decorator/WithStatementFunction",
@@ -1316,7 +1316,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/Goatee.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Scope/Goatee.coffee",
                 "projectPath": "src/Action/Scope/Goatee.coffee",
                 "targetPath": "Action/Scope/Goatee",
                 "pageTitle": "Action/Scope/Goatee",
@@ -1336,7 +1336,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Action/Scope/GoogleJsTemplate.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Action/Scope/GoogleJsTemplate.coffee",
                 "projectPath": "src/Action/Scope/GoogleJsTemplate.coffee",
                 "targetPath": "Action/Scope/GoogleJsTemplate",
                 "pageTitle": "Action/Scope/GoogleJsTemplate",
@@ -1360,7 +1360,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "foldPrefix": "~",
           "name": "CoffeeScript"
         },
-        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/Cakefile",
+        "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/Cakefile",
         "projectPath": "Cakefile",
         "targetPath": "Cakefile",
         "pageTitle": "Cakefile",
@@ -1388,7 +1388,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Core/Constants.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Core/Constants.coffee",
             "projectPath": "src/Core/Constants.coffee",
             "targetPath": "Core/Constants",
             "pageTitle": "Core/Constants",
@@ -1477,7 +1477,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Core/Utility.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Core/Utility.coffee",
             "projectPath": "src/Core/Utility.coffee",
             "targetPath": "Core/Utility",
             "pageTitle": "Core/Utility",
@@ -1517,7 +1517,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Document.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Document.coffee",
             "projectPath": "src/Dom/Document.coffee",
             "targetPath": "Dom/Document",
             "pageTitle": "Dom/Document",
@@ -1547,7 +1547,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Node.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Node.coffee",
             "projectPath": "src/Dom/Node.coffee",
             "targetPath": "Dom/Node",
             "pageTitle": "Dom/Node",
@@ -1585,7 +1585,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/Cheerio.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Selector/Cheerio.coffee",
                 "projectPath": "src/Dom/Selector/Cheerio.coffee",
                 "targetPath": "Dom/Selector/Cheerio",
                 "pageTitle": "Dom/Selector/Cheerio",
@@ -1605,7 +1605,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/Jquery.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Selector/Jquery.coffee",
                 "projectPath": "src/Dom/Selector/Jquery.coffee",
                 "targetPath": "Dom/Selector/Jquery",
                 "pageTitle": "Dom/Selector/Jquery",
@@ -1625,7 +1625,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/Jquery2.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Selector/Jquery2.coffee",
                 "projectPath": "src/Dom/Selector/Jquery2.coffee",
                 "targetPath": "Dom/Selector/Jquery2",
                 "pageTitle": "Dom/Selector/Jquery2",
@@ -1645,7 +1645,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/NativeSelectorApiLevel1.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Selector/NativeSelectorApiLevel1.coffee",
                 "projectPath": "src/Dom/Selector/NativeSelectorApiLevel1.coffee",
                 "targetPath": "Dom/Selector/NativeSelectorApiLevel1",
                 "pageTitle": "Dom/Selector/NativeSelectorApiLevel1",
@@ -1665,7 +1665,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Selector/Sizzle.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Selector/Sizzle.coffee",
                 "projectPath": "src/Dom/Selector/Sizzle.coffee",
                 "targetPath": "Dom/Selector/Sizzle",
                 "pageTitle": "Dom/Selector/Sizzle",
@@ -1687,7 +1687,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Traversal.coffee",
             "projectPath": "src/Dom/Traversal.coffee",
             "targetPath": "Dom/Traversal",
             "pageTitle": "Dom/Traversal",
@@ -1718,7 +1718,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/ElementChildren.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Traversal/ElementChildren.coffee",
                 "projectPath": "src/Dom/Traversal/ElementChildren.coffee",
                 "targetPath": "Dom/Traversal/ElementChildren",
                 "pageTitle": "Dom/Traversal/ElementChildren",
@@ -1748,7 +1748,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/ElementTraversal.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Traversal/ElementTraversal.coffee",
                 "projectPath": "src/Dom/Traversal/ElementTraversal.coffee",
                 "targetPath": "Dom/Traversal/ElementTraversal",
                 "pageTitle": "Dom/Traversal/ElementTraversal",
@@ -1778,7 +1778,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level1NodeTypeMatcher.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Traversal/Level1NodeTypeMatcher.coffee",
                 "projectPath": "src/Dom/Traversal/Level1NodeTypeMatcher.coffee",
                 "targetPath": "Dom/Traversal/Level1NodeTypeMatcher",
                 "pageTitle": "Dom/Traversal/Level1NodeTypeMatcher",
@@ -1808,7 +1808,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level2ChildNodes.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Traversal/Level2ChildNodes.coffee",
                 "projectPath": "src/Dom/Traversal/Level2ChildNodes.coffee",
                 "targetPath": "Dom/Traversal/Level2ChildNodes",
                 "pageTitle": "Dom/Traversal/Level2ChildNodes",
@@ -1838,7 +1838,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level2NodeIterator.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Traversal/Level2NodeIterator.coffee",
                 "projectPath": "src/Dom/Traversal/Level2NodeIterator.coffee",
                 "targetPath": "Dom/Traversal/Level2NodeIterator",
                 "pageTitle": "Dom/Traversal/Level2NodeIterator",
@@ -1868,7 +1868,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "~",
                   "name": "CoffeeScript"
                 },
-                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Dom/Traversal/Level2TreeWalker.coffee",
+                "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Dom/Traversal/Level2TreeWalker.coffee",
                 "projectPath": "src/Dom/Traversal/Level2TreeWalker.coffee",
                 "targetPath": "Dom/Traversal/Level2TreeWalker",
                 "pageTitle": "Dom/Traversal/Level2TreeWalker",
@@ -1910,7 +1910,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Env/Browser.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Env/Browser.coffee",
             "projectPath": "src/Env/Browser.coffee",
             "targetPath": "Env/Browser",
             "pageTitle": "Env/Browser",
@@ -1930,7 +1930,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Env/Common.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Env/Common.coffee",
             "projectPath": "src/Env/Common.coffee",
             "targetPath": "Env/Common",
             "pageTitle": "Env/Common",
@@ -1950,7 +1950,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "~",
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee-js/src/Env/Node.coffee",
+            "sourcePath": "/Users/sjorek/Documents/Projects/Mesch/Workspace (Aptana)/goatee.js/src/Env/Node.coffee",
             "projectPath": "src/Env/Node.coffee",
             "targetPath": "Env/Node",
             "pageTitle": "Env/Node",

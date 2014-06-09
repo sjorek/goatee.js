@@ -13,8 +13,8 @@
     "node": "~0.10"
   },
   "dependencies": {
-    "goatee-script": "~0.1",
-    "goatee-rules": "~0.1",
+    "goatee-script": "sjorek/goatee-script",
+    "goatee-rules": "sjorek/goatee-rules",
     "jsdom": "~0.8",
     "cheerio": "~0.12",
     "coffee-script": "~1",
