@@ -120,7 +120,7 @@ Install dependencies:
 
 Install project:
 
-    $ git clone https://github.com/sjorek/goatee-js
+    $ git clone https://github.com/sjorek/goatee.js
     $ cd goatee-js
     $ npm install
 
