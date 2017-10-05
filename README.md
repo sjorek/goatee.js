@@ -99,8 +99,8 @@ The answer: My goals. I promise that “goatee” will have …
 
 Goatee is not yet installable, but some components are …
 
-- [goatee-script](http://sjorek.github.io/goatee-script)
-- [goatee-rules](http://sjorek.github.io/goatee-rules)
+- [goatee-script.js](http://sjorek.github.io/goatee-script.js)
+- [goatee-rules.js](http://sjorek.github.io/goatee-rules.js)
 
 ## Usage
 
@@ -108,14 +108,14 @@ Goatee is not yet useable, but some components are … see above.
 
 ## Documentation
 
-Read the [annotated sources](http://sjorek.github.io/goatee-js/).
+Read the [annotated sources](http://sjorek.github.io/goatee.js/doc/).
 
 ## Development
 
 Install dependencies:
 
 - [git-scm](http://git-scm.com)
-- [node.js *(≥ 0.10)*](http://nodejs.org)
+- [node.js *(≥ 6.x)*](http://nodejs.org)
 - [pygments](http://pygments.org)
 
 Install project:
@@ -142,7 +142,7 @@ Run build in Windows environments (**not tested**):
 
 - … Google Inc. and all contributors
   of [google-jstemplate](http://code.google.com/p/google-jstemplate/)
-  as a source of motivation and inspiration.
+  (especially Steffen Meschkat) as a source of motivation and inspiration.
 
 - … Jeremy Ashkenas and all contributors of
   [Coffee-Script](http://coffeescript.org/).
